@@ -1,0 +1,7 @@
+@mixin text-field($width, $height, $color-border) {
+    width: $width;
+    height: $height;
+    border: 1px solid $color-border;
+    border-radius: 2px;    
+}
+

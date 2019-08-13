@@ -1,0 +1,9 @@
+extends ../../template/template
+
+block title
+    | Ui Page
+
+block main
+    h1 Hello Pug
+    include ../../modules/text-field/text-field
+    +text-field('email', 'email')(class='ter')
