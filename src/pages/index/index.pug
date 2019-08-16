@@ -6,4 +6,5 @@ block title
 block main
     h1 Hello Pug
     include ../../modules/text-field/text-field
-    +text-field({mods: 'err', attrs: {placeholder: "email"}})(class='ter')
+    +text-field({placeholder: 'email'})
+    +text-field({mods: 'focused'})

@@ -14,7 +14,7 @@ mixin text-field(props = {})
 		if (typeof(props.mods !== 'undefined') && props.mods) {
 			let modList = props.mods.split(',');
 			for (let i = 0; i < modList.length; i++) {
-				allMods = allMods + ' field-text_' + modList[i].trim();
+				allMods = allMods + ' text-field_' + modList[i].trim();
 			}
 		}
 
