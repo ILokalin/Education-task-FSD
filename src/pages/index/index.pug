@@ -1,9 +1,30 @@
 extends ../../template/template
 
+mixin block-lib(props)
+
+    //- Получает данные
+    //- title   string
+    //- mods    string
+    //- width   string
+     
+    .block-lib(style="width:"+props.width)
+        .block-lib__description-row
+            .block-lib__title= props.title
+            .block-lib__mods= props.mods
+        .block-lib__block-row
+            block
+
+
 block title
     | Ui Page
 
 block main
-    h1 Hello Pug
+    h1 UI kit
     include ../../modules/text-field/text-field
-    +text-field('email', 'email')(class='ter')
+
+    +block-lib({title: 'TEXT_FIELD', mods:'DEFULT', width: '320px'})
+        +text-field({placeholder: 'Email'})
+
+    +block-lib({title: 'TEXT_FIELD', mods:'HOVER/FOCUS', width: '320px'})
+        +text-field({mods: 'focused', placeholder: 'This is pretty awesome'})
+    

@@ -1,6 +1,27 @@
-//placeholder name 
-mixin text-field(placeholder, name)
-	input(class='text-field' placeholder=placeholder name=name)&attributes(attributes)
+mixin text-field(props = {})
+
+	//- Получает параметры:
+	//- mods			string		Модификаторы через запятую
+	//- placeholder		stgring		Placeholder
+	//- attrs			object		
+	//- 	type		string		тип. Если не указан, то text
+	//- 	любые атрибуты для Input
+
+	-
+		let allMods = ''
+		if (typeof(props.mods) !== 'undefined' && props.mods) {
+			let modList = props.mods.split(',')
+			for (let i=0; i < modList.length; i++) {
+				allMods = allMods + ' text-field_' + modList[i].trim()
+			}
+		}
+
+	input.text-field(class = allMods,
+	placeholder =(typeof(props.placeholder) !== 'undefined' && props.placeholder) ? props.placeholder : '',
+	type =(typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text')&attributes(props.attrs)
+
+
+
 
 
 
