@@ -5,6 +5,9 @@ const scss = require('./webpack/scss')
 const images = require('./webpack/images')
 const fonts = require('./webpack/fonts')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const autoprefixer = require('autoprefixer');
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
@@ -19,11 +22,19 @@ const common = merge([{
             path: PATHS.build,
             filename: 'js/[name].js'
         },
+        optimization: {
+            minimizer: [
+                new OptimizeCssAssetsWebpackPlugin({})
+            ]
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 chunks: ['index', 'common'],
                 template: PATHS.source + '/pages/index/index.pug'
+            }),
+            new MiniCssExtractPlugin({
+                filename: 'style.css'
             })
         ]
     },
