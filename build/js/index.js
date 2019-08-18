@@ -81,49 +81,75 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
+
+//import '../../modules/text-field/text-field'
+//import '../../modules/dropdown/dropdown'
+
+console.log("Where are you?")
+
+
+let elementDropDown = document.querySelector('.dropdown')
+
+
+const toggleDropdown = () => {
+    elementDropDown.classList.toggle('dropdown_open');
+}
+
+const dropDownClose = () => {
+    elementDropDown.classList.remove('dropdown_open')
+}
+
+/*
+class Menu {
+    handleEvent(event) {
+        // mousedown -> onMousedown
+        let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
+        this[method](event);
+    }
+
+    onMousedown() {
+        elem.innerHTML = "Кнопка мыши нажата";
+    }
+
+    onMouseup() {
+        elem.innerHTML += "...и отжата.";
+    }
+}
+
+let menu = new Menu();
+
+*/
+document.querySelector('body').addEventListener('click', (e) => {
+    dropDownClose()
+    console.log('I closed', e.target)
+})
+
+document.querySelector('.dropdown__menu').addEventListener('click', (e) => {
+    e.stopPropagation()
+})
+
+elementDropDown.addEventListener('click', (e) => {
+    e.stopPropagation()
+    toggleDropdown()
+    console.log('click')
+})
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./src/pages/index/index.scss
-var index = __webpack_require__(0);
-
-// EXTERNAL MODULE: ./src/modules/text-field/text-field.scss
-var text_field = __webpack_require__(1);
-
-// CONCATENATED MODULE: ./src/modules/text-field/text-field.js
-
-// EXTERNAL MODULE: ./src/modules/dropdown/dropdown.js
-var dropdown = __webpack_require__(2);
-
-// CONCATENATED MODULE: ./src/pages/index/index.js
-
-
-
 
 /***/ })
 /******/ ]);

@@ -11,8 +11,10 @@
     padding: 0 15px;
     justify-content: space-between;
     cursor: pointer;
+    user-select: none;
 
     &__selection {
+        z-index: -1;
         margin: 0;
         padding: 0;
         color: rgba(31, 32, 65, 0.75);
@@ -22,6 +24,12 @@
         font-size: 14px;
         line-height: 24px;
 
+        position: relative;
+        user-select: none;
+    }
+
+    &__mark {
+        z-index: -1;
     }
 
     &__menu {
