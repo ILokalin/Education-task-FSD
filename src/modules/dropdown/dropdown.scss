@@ -11,6 +11,7 @@
     padding: 0 15px;
     justify-content: space-between;
     user-select: none;
+    cursor: pointer;
 
     &__selection {
 
@@ -47,6 +48,7 @@
         width: 100%;
         padding-top: 5px;
         padding-bottom: 1px;
+        cursor: default;
     }
 
     &__menuRow_btn {
