@@ -139,8 +139,8 @@ document.querySelector('.dropdown__menu').addEventListener('click', (e) => {
     e.stopPropagation()
 })
 
-elementDropDown.addEventListener('click', (e) => {
-    e.stopPropagation()
+elementDropDown.addEventListener('click', event => {
+    event.stopPropagation()
     toggleDropdown()
     console.log('click')
 })

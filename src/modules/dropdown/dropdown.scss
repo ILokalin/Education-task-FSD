@@ -10,11 +10,10 @@
     align-items: center;
     padding: 0 15px;
     justify-content: space-between;
-    cursor: pointer;
     user-select: none;
 
     &__selection {
-        z-index: -1;
+
         margin: 0;
         padding: 0;
         color: rgba(31, 32, 65, 0.75);
@@ -23,14 +22,13 @@
         font-weight: normal;
         font-size: 14px;
         line-height: 24px;
+        cursor: pointer;
 
         position: relative;
-        user-select: none;
+
     }
 
-    &__mark {
-        z-index: -1;
-    }
+    &__mark {}
 
     &__menu {
         border: 1px solid rgba(31, 32, 65, 0.50);
@@ -90,7 +88,7 @@
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
-        line-height: 30px;
+        line-height: 28px;
     }
 
     &__iconIncrement {
@@ -108,6 +106,7 @@
         border: 1px solid rgba(31, 32, 65, 0.25);
         text-align: center;
         cursor: pointer;
+
     }
 
     &__controlBtn:hover {
@@ -121,8 +120,11 @@
         font-size: 12px;
         line-height: 15px;
         color: rgba(31, 32, 65, 0.5);
-        flex-grow: 1;
         cursor: pointer;
+    }
+
+    &__btnSeparate {
+        flex-grow: 1;
     }
 
     &__btnSubmit {
