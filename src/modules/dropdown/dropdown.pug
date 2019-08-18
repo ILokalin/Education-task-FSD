@@ -1,0 +1,80 @@
+mixin dropdown(props={})
+
+    //- Dropdown с счетчиком количества в каждой строке
+    //- Данные для JS храняться в атрибутах Data
+    //- 
+    //- Принимает параметры в props:
+    //- mods                    string      'open' - открыто меню
+    //- isBtnSubmit               boolean
+    //- isBtnClear                boolean
+    //- dropStrings             array
+    //-     lineTitle           string      текст строки
+    //-     minCount            string      если не задан, то 0
+    //-     maxCount            string      если не задан, без ограничений
+    //-     isCountSeparate     boolean     если тру, то прописываем отдельно
+    //-     namingForCount      name        если countSeparate
+    //- namingForAll            name        склонения для общего числа
+    //- namingForEmpty          string      строка при отсутствии выбора
+    //- 
+    //- Создается структура. Управляется JS
+    //- dropdown dropdown_open
+            p.dropdown__selection    
+            dropdown__menu   // open управялет раскрытием меню
+                dropdown__menu-row
+                    dropdown__lineTitle
+                    dropdown__controls
+                        dropdown__control-increment
+                        dropdown__control-decrement
+                        dropdown__contron-count
+    
+    -
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' dropdown_' + modList[i].trim()
+            }
+        }
+
+    .dropdown(class = allMods)
+        p.dropdown__selection= props.namingForEmpty
+        i.dropdown__mark.material-icons expand_more
+        
+        .dropdown__menu(
+            data-separate= (props.namingForAll) ? props.namingForAll : 'элемент, элемента, элементов'
+            )
+            each rowStrings, index in props.dropStrings
+                .dropdown__menuRow(
+                    data-maxcount= (typeof(rowStrings.maxCount) !== 'undefined' && rowStrings.maxCount) ? rowStrings.maxCount : '',
+                    data-mincoumt= (typeof(rowStrings.minCount) !== 'undefined' && rowStrings.minCount) ? rowStrings.minCount : 0,
+                    data-separate= (rowStrings.isCountSeparate) ? rowStrings.namingForCount: ''
+                    )
+                    p.dropdown__lineTitle= rowStrings.lineTitle
+                    .dropdown__controls
+                        .dropdown__controlDecrement.dropdown__controlBtn
+                            span.dropdown__iconDecrement -
+                        if rowStrings.minCount
+                            span.dropdown__controlCount= rowStrings.minCount
+                        else
+                            span.dropdown__controlCount 0
+                        .dropdown__controlIncrement.dropdown__controlBtn
+                            span.dropdown__iconIncrement +
+            if props.isBtnClear||props.isBtnSubmit
+                .dropdown__menuRow.dropdown__menuRow_btn
+                    .dropdown__btnClear= (props.isBtnClear) ? 'ОЧИСТИТЬ' : ''
+                    .dropdown__btnSubmit= (props.isBtnSubmit) ? 'ПРИМЕНИТЬ' : ''
+
+
+
+//- Пример вызова
+    +dropdown({
+        mods: 'open',
+        dropStrings: [
+            {lineTitle: 'Позиция 1', minCount: '1'},
+            {lineTitle: 'Позиция 2',
+            isCountSeparate: true,
+            namingForCount: 'бухта, бухты, бухт'}
+            ],
+        namingForAll: 'гость, гостя, гостей',
+        namingForEmpty: 'Укажите имя соседа'
+        })
