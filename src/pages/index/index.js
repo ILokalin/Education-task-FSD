@@ -1,52 +1,23 @@
 import './index.scss'
 //import '../../modules/text-field/text-field'
-//import '../../modules/dropdown/dropdown'
-
-console.log("Where are you?")
 
 
-let elementDropDown = document.querySelector('.dropdown')
+
+import {
+    dropdown
+} from '../../modules/dropdown/dropdown.js'
 
 
-const toggleDropdown = () => {
-    elementDropDown.classList.toggle('dropdown_open');
-}
+//dropdown.init('.dropdown')
 
-const dropDownClose = () => {
-    elementDropDown.classList.remove('dropdown_open')
-}
 
-/*
-class Menu {
-    handleEvent(event) {
-        // mousedown -> onMousedown
-        let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
-        this[method](event);
-    }
+/*let dropDownGuests = dropdown;
+dropDownGuests.init('.dropdown')*/
 
-    onMousedown() {
-        elem.innerHTML = "Кнопка мыши нажата";
-    }
 
-    onMouseup() {
-        elem.innerHTML += "...и отжата.";
-    }
-}
 
-let menu = new Menu();
 
-*/
-document.querySelector('body').addEventListener('click', (e) => {
-    dropDownClose()
-    console.log('I closed', e.target)
-})
+let k = dropdown().init('.dropdown')
 
-document.querySelector('.dropdown__menu').addEventListener('click', (e) => {
-    e.stopPropagation()
-})
 
-elementDropDown.addEventListener('click', event => {
-    event.stopPropagation()
-    toggleDropdown()
-    console.log('click')
-})
+console.log(k.grossValue())
