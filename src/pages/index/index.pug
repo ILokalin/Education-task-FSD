@@ -1,10 +1,51 @@
 extends ../../template/template
 
+mixin block-lib(props)
+
+    //- Получает данные:
+    //- title       string  Заголовок - название элемента
+    //- mods        string  Описание модификатора
+    //- width       string  Ширина в виде 'XXpix'
+     
+    .block-lib(style="width:"+props.width)
+        .block-lib__description-row
+            .block-lib__title= props.title
+            .block-lib__mods= props.mods
+        .block-lib__block-row
+            block
+
+
 block title
     | Ui Page
 
 block main
-    h1 Hello Pug
+    h1 UI kit
+
+    //- импорт всех блоков UI набора
     include ../../modules/text-field/text-field
-    +text-field({placeholder: 'email'})
-    +text-field({mods: 'focused'})
+    include ../../modules/dropdown/dropdown
+
+
+    //- ------------------------------------------------------------
+    //- Набор UI
+    +block-lib({title: 'TEXT FIELD', mods:'DEFULT', width: '320px'})
+        +text-field({placeholder: 'Email'})
+
+    +block-lib({title: 'TEXT FIELD', mods:'HOVER / FOCUS', width: '320px'})
+        +text-field({mods: 'focused', placeholder: 'This is pretty awesome'})
+
+    +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+        +dropdown({
+            mods: 'open',
+            isBtnClear: 'true',
+            isBtnSubmit: 'true',
+            dropStrings: [
+                {lineTitle: 'СПАЛЬНИ', minCount: '1'},
+                {lineTitle: 'КРОВАТИ',
+                isCountSeparate: true,
+                namingForCount: 'бухта, бухты, бухт'}
+            ],
+            namingForAll: 'гость, гостя, гостей',
+            namingForEmpty: 'Укажите имя соседа'
+            })
+    

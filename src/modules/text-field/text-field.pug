@@ -1,24 +1,25 @@
 mixin text-field(props = {})
-	
-	//- Принимает:
-	//- props {
-	//- mods: '' 			string список модификаторов через запятую
-	//- placeholder: '' 	string
-	//- attrs: 				object атрибуты для input
-	//- 	type:			string - если нет, то text
-	//- 	name: ''		string name для формы	
-	//- }
+
+	//- Получает параметры:
+	//- mods			string		Модификаторы через запятую
+	//- placeholder		stgring		Placeholder
+	//- attrs			object		
+	//- 	type		string		тип. Если не указан, то text
+	//- 	любые атрибуты для Input
 
 	-
-		let allMods = '';
-		if (typeof(props.mods !== 'undefined') && props.mods) {
-			let modList = props.mods.split(',');
-			for (let i = 0; i < modList.length; i++) {
-				allMods = allMods + ' text-field_' + modList[i].trim();
+		let allMods = ''
+		if (typeof(props.mods) !== 'undefined' && props.mods) {
+			let modList = props.mods.split(',')
+			for (let i=0; i < modList.length; i++) {
+				allMods = allMods + ' text-field_' + modList[i].trim()
 			}
 		}
 
-	input.text-field(class = allMods, placeholder = props.placeholder, type = (typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text')&attributes(props.attrs)
+	input.text-field(class = allMods,
+	placeholder =(typeof(props.placeholder) !== 'undefined' && props.placeholder) ? props.placeholder : '',
+	type =(typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text')&attributes(props.attrs)
+
 
 
 

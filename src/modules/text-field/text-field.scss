@@ -1,35 +1,31 @@
-// @mixin text-field($width, $height, $color-border) {
-//    width: $width;
-/*    height: $height;
-    border: 1px solid $color-border;
-    border-radius: 2px;
-    color: $color-border;
-    padding-left: 15px;
-}*/
+
 
 .text-field {
-    width: 320px;
-    height: 44px;
+    width: calc(100% - 15px - 2px);
+    height: 42px;
     border: 1px solid rgba(31, 32, 65, 0.25);
-    color: rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+    padding: 0;
+    padding-left: 15px;
+
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    padding-left: 15px;
-    border-radius: 4px;
 }
 
-%text-field_hover-focus {
+%hover-focus {
     border: 1px solid rgba(31, 32, 65, 0.50);
-    color: rgba(31, 32, 65, 0.50);
 }
 
 .text-field:hover {
-    @extend %text-field_hover-focus;
+    @extend %hover-focus;
 }
 
-input.text-field_focused {
-    @extend %text-field_hover-focus;
+.text-field_focused {
+    @extend %hover-focus;
 }
 
+.text-field::placeholder {
+    color: red;
+}
