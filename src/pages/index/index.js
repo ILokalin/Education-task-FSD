@@ -17,7 +17,4 @@ dropDownGuests.init('.dropdown')*/
 
 
 
-let k = dropdown().init('.dropdown')
-
-
-console.log(k.grossValue())
+let demoDropDown = dropdown().init('.dropdown')
