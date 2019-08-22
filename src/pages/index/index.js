@@ -16,5 +16,6 @@ dropDownGuests.init('.dropdown')*/
 
 
 
-
-let demoDropDown = dropdown().init('.dropdown')
+demoDropDown = new dropdown('.dropdown')
+demoDropDown2 = new dropdown('.dropdown_new')
+//let demoDropDown = dropdown().init('.dropdown')

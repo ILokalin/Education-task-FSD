@@ -41,6 +41,9 @@
         top: 42px;
         left: -1px;
         padding: 0px 0px 10px 15px;
+
+        z-index: 999;
+        background-color: white;
     }
 
     &__menuRow {

@@ -49,4 +49,21 @@ block main
             namingForAll: 'гость,гостя,гостей',
             namingForEmpty: 'Укажите количество гостей'
             })
+
+    +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+        +dropdown({
+            mods: 'new',
+            isBtnClear: 'true',
+            isBtnSubmit: 'true',
+            dropStrings: [
+                {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+                {lineTitle: 'ДЕТИ', maxCount: '5'},
+                {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+                isCountSeparate: true,
+                namingForCount: 'младенец,младенца,младенцев'}
+            ],
+            namingForAll: 'гость,гостя,гостей',
+            namingForEmpty: 'Укажите количество гостей'
+            })
     
+

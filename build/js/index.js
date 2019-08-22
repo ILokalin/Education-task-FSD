@@ -101,51 +101,14 @@ __webpack_require__.r(__webpack_exports__);
 var index = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./src/modules/dropdown/dropdown.js
-/*export let dropdown = {
-
-    get grossCount() {
-        return this.grossCount
-    },
-
-    elementDropDown: document,
-
-    toggleDropDown: function () {
-        this.elementDropDown.classList.toggle('dropdown_open')
-    },
-
-    closeDropDown: function () {
-        this.elementDropDown.classList.remove('dropdown_open')
-    },
-
-    init: function (element) {
-        this.elementDropDown = document.querySelector(element)
-
-        document.addEventListener('click', event => {
-            this.closeDropDown()
-        })
-
-        this.elementDropDown.querySelector('.dropdown__menu').addEventListener('click', event => {
-            event.stopPropagation()
-        })
-
-        this.elementDropDown.addEventListener('click', event => {
-            event.stopPropagation()
-            this.toggleDropDown()
-
-        })
-    }
-}
-*/
 
 
-function dropdown() {
+function dropdown(elementClassName) {
 
     let elementDropDown = document,
         gross = [],
         optionMenu = {},
         optionRow = []
-
-
 
     const toggleDropdown = () => {
         elementDropDown.classList.toggle('dropdown_open');
@@ -155,62 +118,56 @@ function dropdown() {
         elementDropDown.classList.remove('dropdown_open')
     }
 
+    elementDropDown = document.querySelector(elementClassName)
 
+    function writeSelect() {
+        let commonValue = 0
+        let commonString = ''
+        let isHaveCommon = false
+        let addString = ''
 
+        console.log('write prepare')
 
+        function goodNaming(value, namingString) {
 
-    function init(elementClassName) {
-        console.log('start init')
-        elementDropDown = document.querySelector(elementClassName)
-
-        function writeSelect() {
-            let commonValue = 0
-            let commonString = ''
-            let isHaveCommon = false
-            let addString = ''
-
-            console.log('write prepare')
-
-            function goodNaming(value, namingString) {
-
-                /*
-                if (value > 20) {
-                    value -= 20
-                    value = value % 10
-                }*/
-                console.log(' выбираем имя для ', value, namingString)
-                if (value === 0) {
-                    return namingString[2]
-                } else if (value === 1) {
-                    return namingString[0]
-                } else if ((value > 1) && (value < 5)) {
-                    return namingString[1]
-                } else if ((value > 4)) {
-                    return namingString[2]
-                }
+            /*
+            if (value > 20) {
+                value -= 20
+                value = value % 10
+            }*/
+            console.log(' выбираем имя для ', value, namingString)
+            if (value === 0) {
+                return namingString[2]
+            } else if (value === 1) {
+                return namingString[0]
+            } else if ((value > 1) && (value < 5)) {
+                return namingString[1]
+            } else if ((value > 4)) {
+                return namingString[2]
             }
-
-            for (let i = 0; i < gross.length; i++) {
-                console.log(optionRow[i].separate)
-                if (optionRow[i].separate.length > 1) {
-                    console.log('список нейминга больше 1')
-                    // строка счиатется отдельно
-                    if (gross[i] > 0) {
-                        addString += ', ' + gross[i] + ' ' + goodNaming(gross[i], optionRow[i].separate)
-                    }
-                } else {
-                    isHaveCommon = true
-                    commonValue += gross[i]
-                }
-            }
-
-            if (isHaveCommon) {
-                commonString = commonValue + ' ' + goodNaming(commonValue, optionMenu.naming)
-            }
-
-            elementDropDown.querySelector('.dropdown__selection').innerHTML = commonString + addString
-
         }
+
+        for (let i = 0; i < gross.length; i++) {
+            console.log(optionRow[i].separate)
+            if (optionRow[i].separate.length > 1) {
+                console.log('список нейминга больше 1')
+                // строка счиатется отдельно
+                if (gross[i] > 0) {
+                    addString += ', ' + gross[i] + ' ' + goodNaming(gross[i], optionRow[i].separate)
+                }
+            } else {
+                isHaveCommon = true
+                commonValue += gross[i]
+            }
+        }
+
+        if (isHaveCommon) {
+            commonString = commonValue + ' ' + goodNaming(commonValue, optionMenu.naming)
+        }
+
+        elementDropDown.querySelector('.dropdown__selection').innerHTML = commonString + addString
+
+    }
 
 
 
@@ -286,7 +243,7 @@ function dropdown() {
         })
 
         console.log('end init')
-    }
+
 
     function grossValue() {
         return gross
@@ -315,8 +272,12 @@ dropDownGuests.init('.dropdown')*/
 
 
 
+demoDropDown = new dropdown
+demoDropDown2 = new dropdown
 
-let demoDropDown = dropdown().init('.dropdown')
+demoDropDown('.dropdown')
+demoDropDown2('.dropdown_new')
+//let demoDropDown = dropdown().init('.dropdown')
 
 /***/ })
 /******/ ]);
