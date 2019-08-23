@@ -105,6 +105,8 @@ var index = __webpack_require__(0);
 
 function dropdown(elementClassName) {
 
+    console.log('настройка с ', elementClassName)
+
     let elementDropDown = document,
         gross = [],
         optionMenu = {},
@@ -186,11 +188,8 @@ function dropdown(elementClassName) {
             let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
 
             if (!elementRow.classList.contains('dropdown__menuRow_btn')) {
-                //console.log(elementRow)
-
                 // Обработка событий по нажатию кнопок инкремента и декремента
                 gross[i] = Number(elementRow.dataset.mincount)
-
 
                 optionRow[i] = {
                     mincount: gross[i],
@@ -229,8 +228,6 @@ function dropdown(elementClassName) {
                         dropDownClose()
                     }
                 })
-
-
             }
         }
 
@@ -242,15 +239,13 @@ function dropdown(elementClassName) {
             }
         })
 
-        console.log('end init')
-
-
     function grossValue() {
         return gross
     }
 
+    console.log('настройка ', elementClassName, ' закончена')
+
     return {
-        init: init,
         grossValue: grossValue
     }
 
@@ -271,12 +266,11 @@ function dropdown(elementClassName) {
 dropDownGuests.init('.dropdown')*/
 
 
-
-demoDropDown = new dropdown
-demoDropDown2 = new dropdown
-
-demoDropDown('.dropdown')
-demoDropDown2('.dropdown_new')
+//demoDrop1.__proto__ = dropdown('.dropdown')
+//demoDrop2.__proto__ = dropdown('.dropdown_new')
+let demoDropDown = new dropdown('.dropdown')
+console.log('отправка новой инициализации')
+let demoDropDown2 = new dropdown('.dropdown_new')
 //let demoDropDown = dropdown().init('.dropdown')
 
 /***/ })

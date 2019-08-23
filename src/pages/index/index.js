@@ -15,7 +15,9 @@ import {
 dropDownGuests.init('.dropdown')*/
 
 
-
-demoDropDown = new dropdown('.dropdown')
-demoDropDown2 = new dropdown('.dropdown_new')
+//demoDrop1.__proto__ = dropdown('.dropdown')
+//demoDrop2.__proto__ = dropdown('.dropdown_new')
+let demoDropDown = new dropdown('.dropdown')
+console.log('отправка новой инициализации')
+let demoDropDown2 = new dropdown('.dropdown_new')
 //let demoDropDown = dropdown().init('.dropdown')

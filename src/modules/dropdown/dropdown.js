@@ -2,6 +2,8 @@
 
 export function dropdown(elementClassName) {
 
+    console.log('настройка с ', elementClassName)
+
     let elementDropDown = document,
         gross = [],
         optionMenu = {},
@@ -83,11 +85,8 @@ export function dropdown(elementClassName) {
             let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
 
             if (!elementRow.classList.contains('dropdown__menuRow_btn')) {
-                //console.log(elementRow)
-
                 // Обработка событий по нажатию кнопок инкремента и декремента
                 gross[i] = Number(elementRow.dataset.mincount)
-
 
                 optionRow[i] = {
                     mincount: gross[i],
@@ -126,8 +125,6 @@ export function dropdown(elementClassName) {
                         dropDownClose()
                     }
                 })
-
-
             }
         }
 
@@ -139,15 +136,13 @@ export function dropdown(elementClassName) {
             }
         })
 
-        console.log('end init')
-
-
     function grossValue() {
         return gross
     }
 
+    console.log('настройка ', elementClassName, ' закончена')
+
     return {
-        init: init,
         grossValue: grossValue
     }
 
