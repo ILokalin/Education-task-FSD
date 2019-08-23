@@ -36,6 +36,7 @@ block main
 
     +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
         +dropdown({
+            moduleClass: 'dropdownVisitors',
             mods: 'open',
             isBtnClear: 'true',
             isBtnSubmit: 'true',
@@ -47,23 +48,27 @@ block main
                 namingForCount: 'младенец,младенца,младенцев'}
             ],
             namingForAll: 'гость,гостя,гостей',
-            namingForEmpty: 'Укажите количество гостей'
+            namingForEmpty: 'Сколько гостей'
             })
 
     +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
         +dropdown({
-            mods: 'new',
+            moduleClass: 'dropdownEnvarenment',
             isBtnClear: 'true',
             isBtnSubmit: 'true',
             dropStrings: [
-                {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
-                {lineTitle: 'ДЕТИ', maxCount: '5'},
-                {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+                {lineTitle: 'СПАЛЬНИ', maxCount: '2',
+                isCountSeparate: true,
+                namingForCount: 'спальня,спальни,спален'},
+                {lineTitle: 'КРОВАТИ', minCount: '1', maxCount: '4',
+                isCountSeparate: true,
+                namingForCount: 'кровать,кровати,кроватей'},
+                {lineTitle: 'ВАННЫЕ КОМНАТЫ', maxCount: '2',
                 isCountSeparate: true,
                 namingForCount: 'младенец,младенца,младенцев'}
             ],
-            namingForAll: 'гость,гостя,гостей',
-            namingForEmpty: 'Укажите количество гостей'
+            namingForAll: '',
+            namingForEmpty: 'Выбрать удобства'
             })
     
 

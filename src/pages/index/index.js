@@ -17,7 +17,7 @@ dropDownGuests.init('.dropdown')*/
 
 //demoDrop1.__proto__ = dropdown('.dropdown')
 //demoDrop2.__proto__ = dropdown('.dropdown_new')
-let demoDropDown = new dropdown('.dropdown')
+let demoDropDown = new dropdown('.dropdownVisitors')
 console.log('отправка новой инициализации')
-let demoDropDown2 = new dropdown('.dropdown_new')
+let demoDropDown2 = new dropdown('.dropdownEnvarenment')
 //let demoDropDown = dropdown().init('.dropdown')

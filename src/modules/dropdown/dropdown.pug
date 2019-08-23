@@ -4,6 +4,7 @@ mixin dropdown(props={})
     //- Данные для JS храняться в атрибутах Data
     //- 
     //- Принимает параметры в props:
+    //- moduleClass             string
     //- mods                    string      'open' - открыто меню
     //- isBtnSubmit               boolean
     //- isBtnClear                boolean
@@ -28,6 +29,7 @@ mixin dropdown(props={})
                         dropdown__contron-count
     
     -
+        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
         let allMods = ''
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
@@ -36,7 +38,7 @@ mixin dropdown(props={})
             }
         }
 
-    .dropdown(class = allMods)
+    .dropdown(class = moduleClass + allMods)
         p.dropdown__selection= props.namingForEmpty
         i.dropdown__mark.material-icons expand_more
         

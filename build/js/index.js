@@ -101,8 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 var index = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./src/modules/dropdown/dropdown.js
-
-
 function dropdown(elementClassName) {
 
     console.log('настройка с ', elementClassName)
@@ -155,7 +153,10 @@ function dropdown(elementClassName) {
                 console.log('список нейминга больше 1')
                 // строка счиатется отдельно
                 if (gross[i] > 0) {
-                    addString += ', ' + gross[i] + ' ' + goodNaming(gross[i], optionRow[i].separate)
+                    if (addString !== '') {
+                        addString += ', '
+                    }
+                    addString += gross[i] + ' ' + goodNaming(gross[i], optionRow[i].separate)
                 }
             } else {
                 isHaveCommon = true
@@ -165,6 +166,9 @@ function dropdown(elementClassName) {
 
         if (isHaveCommon) {
             commonString = commonValue + ' ' + goodNaming(commonValue, optionMenu.naming)
+            if (addString !== '') {
+                commonString += ', '
+            }
         }
 
         elementDropDown.querySelector('.dropdown__selection').innerHTML = commonString + addString
@@ -173,71 +177,71 @@ function dropdown(elementClassName) {
 
 
 
-        document.addEventListener('click', event => {
-            if (!event.target.closest(elementClassName)) {
-                dropDownClose()
-            }
-
-        })
-
-        optionMenu.initSelection = elementDropDown.querySelector('.dropdown__selection').innerHTML
-        optionMenu.naming = elementDropDown.querySelector('.dropdown__menu').dataset.separate.split(',')
-
-        for (let i = 0; i < elementDropDown.querySelector('.dropdown__menu').childElementCount; i++) {
-
-            let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
-
-            if (!elementRow.classList.contains('dropdown__menuRow_btn')) {
-                // Обработка событий по нажатию кнопок инкремента и декремента
-                gross[i] = Number(elementRow.dataset.mincount)
-
-                optionRow[i] = {
-                    mincount: gross[i],
-                    maxcount: (Number(elementRow.dataset.maxcount)) ? Number(elementRow.dataset.maxcount) : Infinity,
-                    separate: elementRow.dataset.separate.split(',')
-                }
-
-                elementRow.addEventListener('click', event => {
-                    if (event.target.closest('.dropdown__controlDecrement')) {
-                        if (gross[i] > optionRow[i].mincount) {
-                            gross[i]--
-                            elementRow.querySelector('.dropdown__controlCount').innerHTML = gross[i]
-                            writeSelect()
-                        }
-                    }
-                    if (event.target.closest('.dropdown__controlIncrement')) {
-                        if (gross[i] < optionRow[i].maxcount) {
-                            gross[i]++
-                            elementRow.querySelector('.dropdown__controlCount').innerHTML = gross[i]
-                            writeSelect()
-                        }
-                    }
-                })
-            } else {
-                // Обработка событий по нажатию кнопок выбора и отмены
-                elementRow.addEventListener('click', event => {
-                    if (event.target.closest('.dropdown__btnClear')) {
-                        for (let i = 0; i < optionRow.length; i++) {
-                            gross[i] = optionRow[i].mincount
-                            elementDropDown.querySelector('.dropdown__menu').children[i].querySelector('.dropdown__controlCount').innerHTML = gross[i]
-                        }
-                        elementDropDown.querySelector('.dropdown__selection').innerHTML = optionMenu.initSelection
-                    }
-
-                    if (event.target.closest('.dropdown__btnSubmit')) {
-                        dropDownClose()
-                    }
-                })
-            }
+    document.addEventListener('click', event => {
+        if (!event.target.closest(elementClassName)) {
+            dropDownClose()
         }
 
-        elementDropDown.addEventListener('click', event => {
-            // Так как dropdown при раскрытии меню увеличивается на его размер, при клике для переключения 
-            // открыть/закрыть необходимо исключить поле раскрытого меню
-            if (!(event.target.closest('.dropdown__menu')) && (event.target.closest(elementClassName))) {
-                toggleDropdown()
+    })
+
+    optionMenu.initSelection = elementDropDown.querySelector('.dropdown__selection').innerHTML
+    optionMenu.naming = elementDropDown.querySelector('.dropdown__menu').dataset.separate.split(',')
+
+    for (let i = 0; i < elementDropDown.querySelector('.dropdown__menu').childElementCount; i++) {
+
+        let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
+
+        if (!elementRow.classList.contains('dropdown__menuRow_btn')) {
+            // Обработка событий по нажатию кнопок инкремента и декремента
+            gross[i] = Number(elementRow.dataset.mincount)
+
+            optionRow[i] = {
+                mincount: gross[i],
+                maxcount: (Number(elementRow.dataset.maxcount)) ? Number(elementRow.dataset.maxcount) : Infinity,
+                separate: elementRow.dataset.separate.split(',')
             }
-        })
+
+            elementRow.addEventListener('click', event => {
+                if (event.target.closest('.dropdown__controlDecrement')) {
+                    if (gross[i] > optionRow[i].mincount) {
+                        gross[i]--
+                        elementRow.querySelector('.dropdown__controlCount').innerHTML = gross[i]
+                        writeSelect()
+                    }
+                }
+                if (event.target.closest('.dropdown__controlIncrement')) {
+                    if (gross[i] < optionRow[i].maxcount) {
+                        gross[i]++
+                        elementRow.querySelector('.dropdown__controlCount').innerHTML = gross[i]
+                        writeSelect()
+                    }
+                }
+            })
+        } else {
+            // Обработка событий по нажатию кнопок выбора и отмены
+            elementRow.addEventListener('click', event => {
+                if (event.target.closest('.dropdown__btnClear')) {
+                    for (let i = 0; i < optionRow.length; i++) {
+                        gross[i] = optionRow[i].mincount
+                        elementDropDown.querySelector('.dropdown__menu').children[i].querySelector('.dropdown__controlCount').innerHTML = gross[i]
+                    }
+                    elementDropDown.querySelector('.dropdown__selection').innerHTML = optionMenu.initSelection
+                }
+
+                if (event.target.closest('.dropdown__btnSubmit')) {
+                    dropDownClose()
+                }
+            })
+        }
+    }
+
+    elementDropDown.addEventListener('click', event => {
+        // Так как dropdown при раскрытии меню увеличивается на его размер, при клике для переключения 
+        // открыть/закрыть необходимо исключить поле раскрытого меню
+        if (!(event.target.closest('.dropdown__menu')) && (event.target.closest(elementClassName))) {
+            toggleDropdown()
+        }
+    })
 
     function grossValue() {
         return gross
@@ -268,9 +272,9 @@ dropDownGuests.init('.dropdown')*/
 
 //demoDrop1.__proto__ = dropdown('.dropdown')
 //demoDrop2.__proto__ = dropdown('.dropdown_new')
-let demoDropDown = new dropdown('.dropdown')
+let demoDropDown = new dropdown('.dropdownVisitors')
 console.log('отправка новой инициализации')
-let demoDropDown2 = new dropdown('.dropdown_new')
+let demoDropDown2 = new dropdown('.dropdownEnvarenment')
 //let demoDropDown = dropdown().init('.dropdown')
 
 /***/ })
