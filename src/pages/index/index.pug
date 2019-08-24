@@ -24,6 +24,7 @@ block main
     //- импорт всех блоков UI набора
     include ../../modules/text-field/text-field
     include ../../modules/dropdown/dropdown
+    include ../../modules/field-checkbox/field-checkbox
 
 
     //- ------------------------------------------------------------
@@ -71,4 +72,6 @@ block main
             namingForEmpty: 'Выбрать удобства'
             })
     
+    +block-lib({title: 'CHECKBOX', mods: 'DEFULT', width: '320px'})
+        +field-checkbox({moduleClass: 'test', labelTitle: 'Текстовый тест'})
 

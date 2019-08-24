@@ -1,0 +1,30 @@
+mixin field-checkbox(props={})
+
+    //- checkbox с label
+    //- Данные для JS храняться в атрибутах Data
+    //- 
+    //- Принимает параметры в props:
+    //- moduleClass             string      имя класса
+    //- mods                    string      'open' - открыто меню
+    //- labelTitle              string      
+    //- attrs:                  {object}
+    //-     name:               {string}
+    //- ...
+    //- Создается структура. Управляется JS
+    //- 
+
+
+    -
+        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' dropdown_' + modList[i].trim()
+            }
+        }
+
+    .field-checkbox(class = moduleClass + allMods)
+        input.field-checkbox__input(type='checkbox', id=moduleClass)&attributes(props.attrs)
+        label.field-checkbox__mark(for=moduleClass)
+        label.field-checkbox__name(for=moduleClass)= props.labelTitle
