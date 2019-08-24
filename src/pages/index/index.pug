@@ -25,6 +25,7 @@ block main
     include ../../modules/text-field/text-field
     include ../../modules/dropdown/dropdown
     include ../../modules/field-checkbox/field-checkbox
+    include ../../modules/exp-checkbox-list/exp-checkbox-list
 
 
     //- ------------------------------------------------------------
@@ -39,8 +40,8 @@ block main
         +dropdown({
             moduleClass: 'dropdownVisitors',
             mods: 'open',
-            isBtnClear: 'true',
-            isBtnSubmit: 'true',
+            isBtnClear: true,
+            isBtnSubmit: true,
             dropStrings: [
                 {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
                 {lineTitle: 'ДЕТИ', maxCount: '5'},
@@ -55,8 +56,8 @@ block main
     +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
         +dropdown({
             moduleClass: 'dropdownEnvarenment',
-            isBtnClear: 'true',
-            isBtnSubmit: 'true',
+            isBtnClear: false,
+            isBtnSubmit: false,
             dropStrings: [
                 {lineTitle: 'СПАЛЬНИ', maxCount: '2',
                 isCountSeparate: true,
@@ -66,7 +67,7 @@ block main
                 namingForCount: 'кровать,кровати,кроватей'},
                 {lineTitle: 'ВАННЫЕ КОМНАТЫ', maxCount: '2',
                 isCountSeparate: true,
-                namingForCount: 'младенец,младенца,младенцев'}
+                namingForCount: 'ванная комната,ванных комнаты,ванных комнат'}
             ],
             namingForAll: '',
             namingForEmpty: 'Выбрать удобства'
@@ -74,4 +75,14 @@ block main
     
     +block-lib({title: 'CHECKBOX', mods: 'DEFULT', width: '320px'})
         +field-checkbox({moduleClass: 'test', labelTitle: 'Текстовый тест'})
+
+    +block-lib({title: '', mods: '', width: '320px'})
+        +exp-checkbox-list({
+            listTitle: 'EXPANDABLE CHECKBOX LIST', 
+            moduleClass: 'checkList-test',
+            dropStrings: [
+                {moduleClass: 'field-checkbox__menuRowCamod', labelTitle: 'Шкаф для брюк'},
+                {moduleClass: 'field-checkbox__menuRowTV', labelTitle: 'Телевизор'}
+            ]
+        })
 

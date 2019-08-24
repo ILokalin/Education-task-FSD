@@ -1,0 +1,40 @@
+include ../../modules/field-checkbox/field-checkbox
+
+mixin exp-checkbox-list(props={})
+
+    //- expCheckboxList  раскрываемый список чекбоксов
+    //- Данные для JS храняться в атрибутах Data
+    //- 
+    //- Принимает параметры в props:
+    //- moduleClass             string      имя класса списка
+    //- mods                    string      'open' - открыто меню
+    //- listTitle              string      название спсика
+    //- dropStrings             array
+    //-     labelTitle           string      текст строки
+    //-     lineEnable          boolean     разрешен по умолчанию    
+    //-     lineMods            string      модификатор для чека
+
+    
+    -
+        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' exp-checkbox-list_' + modList[i].trim()
+            }
+        }
+
+    .exp-checkbox-list(class = moduleClass + allMods)
+        p.exp-checkbox-list__title= props.listTitle
+        i.exp-checkbox-list__mark.material-icons expand_more
+
+        .exp-checkbox-list__menu
+            each rowString, index in props.dropStrings
+                .exp-checkbox-list__menuRow
+
+                    //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
+                    +field-checkbox({
+                        moduleClass: rowString.moduleClass,
+                        labelTitle: rowString.labelTitle
+                    })

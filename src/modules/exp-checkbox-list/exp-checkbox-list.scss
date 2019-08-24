@@ -1,0 +1,30 @@
+.exp-checkbox-list {
+    margin: 0;
+    padding: 0 15px;
+
+    width: calc(100% - 15px - 15px);
+    height: 42px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    user-select: none;
+
+    &__menu {
+        padding: 0;
+        margin: 0;
+        padding-top: 17px;
+        position: absolute;
+        top: 42px;
+        left: 0px;
+
+    }
+
+    &__menuRow {
+        padding: 0;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+}
