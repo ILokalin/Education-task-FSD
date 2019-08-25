@@ -8,13 +8,32 @@ mixin exp-checkbox-list(props={})
     //- Принимает параметры в props:
     //- moduleClass             string      имя класса списка
     //- mods                    string      'open' - открыто меню
-    //- listTitle              string      название спсика
+    //- listTitle               string      название спсика
     //- dropStrings             array
-    //-     labelTitle           string      текст строки
-    //-     lineEnable          boolean     разрешен по умолчанию    
-    //-     lineMods            string      модификатор для чека
+    //-     *moduleClass        string      имя класса для чекбокса
+    //-     *labelTitle         string      текст строки
+    //-     mods                string      Модификация: disabled
+    //-     checked             boolean     Установка в состояние checked
 
-    
+        Пример вызова:
+        +exp-checkbox-list({
+            moduleClass: 'TestCheckList',
+            mods: 'open',
+            lineTitle: 'Test Expanded Checkbox List',
+            drpString: [
+                {
+                    moduleClass: 'testCheckColor',
+                    labelTitle: 'Я выбираю цвет',
+                    mods: 'redColor',
+                    checked: true
+                },
+                {
+                    moduleClass: 'testCheckBold',
+                    labelTitle: 'Установить жирый шрифт',
+                }
+            ]
+            })
+     
     -
         let moduleClass = (props.moduleClass) ? props.moduleClass : ''
         let allMods = ''
@@ -36,5 +55,7 @@ mixin exp-checkbox-list(props={})
                     //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
                     +field-checkbox({
                         moduleClass: rowString.moduleClass,
-                        labelTitle: rowString.labelTitle
+                        labelTitle: rowString.labelTitle,
+                        mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
+                        checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
                     })

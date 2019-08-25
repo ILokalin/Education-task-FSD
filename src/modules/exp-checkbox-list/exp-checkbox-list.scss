@@ -1,25 +1,37 @@
 .exp-checkbox-list {
     margin: 0;
-    padding: 0 15px;
+    padding: 0 15px 0 0;
 
-    width: calc(100% - 15px - 15px);
+    width: calc(100% - 15px);
     height: 42px;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-
     user-select: none;
 
+    &_open .exp-checkbox-list__menu {
+        display: block;
+    }
+
     &__menu {
+        display: none;
         padding: 0;
         margin: 0;
         padding-top: 17px;
         position: absolute;
         top: 42px;
         left: 0px;
+    }
 
+    &__title {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
     }
 
     &__menuRow {

@@ -15,16 +15,20 @@ mixin field-checkbox(props={})
 
 
     -
-        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+        let moduleClass = (props.moduleClass) ? ' field-checkbox_' + props.moduleClass : ''
         let allMods = ''
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
         for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' dropdown_' + modList[i].trim()
+            allMods = allMods + ' field-checkbox_' + modList[i].trim()
             }
         }
 
     .field-checkbox(class = moduleClass + allMods)
-        input.field-checkbox__input(type='checkbox', id=moduleClass)&attributes(props.attrs)
+        input.field-checkbox__input(
+            type='checkbox',
+             id=moduleClass,
+             checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
+             )&attributes(props.attrs)
         label.field-checkbox__mark(for=moduleClass)
         label.field-checkbox__name(for=moduleClass)= props.labelTitle
