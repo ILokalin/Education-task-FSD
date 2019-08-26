@@ -7,15 +7,26 @@ export function dropdown(elementClassName) {
         optionMenu = {},
         optionRow = []
 
+
+    const correctMark = () => {
+        if (elementDropDown.classList.contains('dropdown_open')) {
+            elementDropDown.querySelector('.dropdown__mark').innerText = 'expand_less'
+        } else {
+            elementDropDown.querySelector('.dropdown__mark').innerText = 'expand_more'
+        }
+    }
+
     const toggleDropdown = () => {
-        elementDropDown.classList.toggle('dropdown_open');
+        elementDropDown.classList.toggle('dropdown_open')
+        correctMark()
     }
 
     const dropDownClose = () => {
         elementDropDown.classList.remove('dropdown_open')
+        correctMark()
     }
 
-    // elementDropDown = document.querySelector(elementClassName)
+
 
     function writeSelect() {
         let commonValue = 0
@@ -145,6 +156,8 @@ export function dropdown(elementClassName) {
     }
 
     console.log('настройка ', elementClassName, ' закончена')
+
+    correctMark()
 
     return {
         grossValue: grossValue

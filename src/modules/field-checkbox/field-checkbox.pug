@@ -16,7 +16,7 @@ mixin field-checkbox(props={})
 
 
     -
-        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+        let moduleClass = (props.moduleClass) ? props.moduleClass : props.dataName
         let allMods = ''
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
