@@ -2,7 +2,7 @@ export function dropdown(elementClassName) {
 
     console.log('настройка с ', elementClassName)
 
-    let elementDropDown = document,
+    let elementDropDown = document.querySelector(elementClassName),
         gross = [],
         optionMenu = {},
         optionRow = []
@@ -15,7 +15,7 @@ export function dropdown(elementClassName) {
         elementDropDown.classList.remove('dropdown_open')
     }
 
-    elementDropDown = document.querySelector(elementClassName)
+    // elementDropDown = document.querySelector(elementClassName)
 
     function writeSelect() {
         let commonValue = 0
