@@ -5,6 +5,7 @@ mixin field-checkbox(props={})
     //- 
     //- Принимает параметры в props:
     //- moduleClass             string      имя класса
+    //- dataName                string      имя для data-name
     //- mods                    string      'open' - открыто меню
     //- labelTitle              string      
     //- attrs:                  {object}
@@ -15,7 +16,7 @@ mixin field-checkbox(props={})
 
 
     -
-        let moduleClass = (props.moduleClass) ? ' field-checkbox_' + props.moduleClass : ''
+        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
         let allMods = ''
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
@@ -24,7 +25,10 @@ mixin field-checkbox(props={})
             }
         }
 
-    .field-checkbox(class = moduleClass + allMods)
+    .field-checkbox(
+        class = moduleClass + allMods,
+        data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
+        )
         input.field-checkbox__input(
             type='checkbox',
              id=moduleClass,
