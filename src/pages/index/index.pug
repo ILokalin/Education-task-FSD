@@ -26,6 +26,7 @@ block main
     include ../../modules/dropdown/dropdown
     include ../../modules/field-checkbox/field-checkbox
     include ../../modules/exp-checkbox-list/exp-checkbox-list
+    include ../../modules/checkbox-list/checkbox-list
 
 
     //- ------------------------------------------------------------
@@ -103,4 +104,22 @@ block main
                 labelTitle: 'Шампунь'}
             ]
         })
+
+
+    +block-lib({title: '', mods: '', width: '220px'})
+        +checkbox-list({
+            listTitle: 'CHECKBOX BUTTONS', 
+            moduleClass: 'checkList-buttons',
+            dropStrings: [
+                {dataName: 'checkbox-smoking',
+                labelTitle: 'Можно курить'},
+                {dataName: 'checkbox-pets',
+                labelTitle: 'Можно с питомцами',
+                checked: true},
+                {dataName: 'checkbox-guests',
+                labelTitle: 'Можно пригласить гостей (до 10 человек)',
+                checked: true},
+            ]
+        })
+
 
