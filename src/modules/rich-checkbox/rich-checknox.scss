@@ -1,4 +1,4 @@
-.field-checkbox {
+.rich-checkbox {
     position: relative;
     user-select: none;
     display: inline-block;
@@ -6,6 +6,10 @@
     cursor: pointer;
 
 
+    &__wrapper {
+        margin: 0;
+        padding: 0;
+    }
 
     &__name {
         padding: 0;
@@ -15,10 +19,22 @@
         margin-left: 30px;
         font-family: Montserrat;
         font-style: normal;
-        font-weight: normal;
+        font-weight: bold;
         font-size: 14px;
-        line-height: 20px;
-        //cursor: pointer;
+        line-height: 18px;
+
+        color: rgba(31, 32, 65, 0.75);
+    }
+
+    &__discription {
+        margin: 7px 0 0 30px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+
+        color: rgba(31, 32, 65, 0.5);
     }
 
     &__input {
@@ -55,7 +71,7 @@
         border-radius: 3px;
     }
 
-    &__input:checked+.field-checkbox__mark {
+    &__input:checked+.rich-checkbox__mark {
         opacity: 1.0;
     }
 

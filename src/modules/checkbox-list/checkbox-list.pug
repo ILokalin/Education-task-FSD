@@ -44,12 +44,12 @@ mixin checkbox-list(props={})
         }
 
     .checkbox-list(class = moduleClass + allMods)
-        p.checkbox-list__title= props.listTitle
+        .checkbox-list__title-wrapper
+            p.checkbox-list__title= props.listTitle
 
         .checkbox-list__menu
             each rowString, index in props.dropStrings
                 .checkbox-list__menuRow
-
                     //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
                     +field-checkbox({
                         moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',

@@ -34,5 +34,5 @@ mixin field-checkbox(props={})
              id=moduleClass,
              checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
              )&attributes(props.attrs)
-        label.field-checkbox__mark(for=moduleClass)
-        label.field-checkbox__name(for=moduleClass)= props.labelTitle
+        div.field-checkbox__mark(for=moduleClass)
+        span.field-checkbox__name(for=moduleClass)= props.labelTitle

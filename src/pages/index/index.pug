@@ -27,6 +27,7 @@ block main
     include ../../modules/field-checkbox/field-checkbox
     include ../../modules/exp-checkbox-list/exp-checkbox-list
     include ../../modules/checkbox-list/checkbox-list
+    include ../../modules/rich-checkbox/rich-checkbox
 
 
     //- ------------------------------------------------------------
@@ -122,4 +123,10 @@ block main
             ]
         })
 
+    +block-lib({title: 'RICH CHECKBOX', width: '220px'})
+        +rich-checkbox({
+            labelTitle: 'Широкий коридор',
+            labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
+            moduleClass: 'rich-checkbox-test'
+        })
 

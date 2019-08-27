@@ -1,0 +1,42 @@
+mixin rich-checkbox(props={})
+
+    //- checkbox с label
+    //- Данные для JS храняться в атрибутах Data
+    //- 
+    //- Принимает параметры в props:
+    //- moduleClass             string      имя класса
+    //- dataName                string      имя для data-name
+    //- mods                    string      'open' - открыто меню
+    //- labelTitle              string      Заголовок чекбокса
+    //- labelDiscription        string      описание чекбокса
+    //- attrs:                  {object}    Возможные атрибуты
+    //-     name:               {string}
+    //- 
+    //- 
+    //- 
+
+
+    -
+        let moduleClass = (props.moduleClass) ? props.moduleClass : props.dataName
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' rich-checkbox_' + modList[i].trim()
+            }
+        }
+
+    label.rich-checkbox(
+        class = moduleClass + allMods,
+        data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : '',
+        for = moduleClass
+        )
+        .rich-checkbox__wrapper
+            input.rich-checkbox__input(
+                type='checkbox',
+                 id=moduleClass,
+                 checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
+                 )&attributes(props.attrs)
+            div.rich-checkbox__mark
+            span.rich-checkbox__name= props.labelTitle
+        p.rich-checkbox__discription= props.labelDiscription
