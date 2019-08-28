@@ -10,6 +10,7 @@ mixin radio-buttons(props={})
     //- buttonsList             {object}
     //-     buttonTitle         {string}
     //-     buttonValue         {string}
+    //-     checked             true/false
     //- attrs:                  {object}
     //-     name:               {string}
     //- ...
@@ -37,7 +38,8 @@ mixin radio-buttons(props={})
                     input.radio-button__input(
                         type = 'radio',
                         name = moduleClass,
-                        value = buttonString.buttonValue
+                        value = buttonString.buttonValue,
+                        checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
                     )&attributes(props.attrs)
                     .radio-button__marker
                     span.radio-button__button-title= buttonString.buttonTitle

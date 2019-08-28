@@ -30,6 +30,7 @@ block main
     include ../../modules/rich-checkbox/rich-checkbox
     include ../../modules/radio-buttons/radio-buttons
     include ../../modules/field-toggle/field-toggle
+    include ../../modules/like-button/like-button
 
 
     //- ------------------------------------------------------------
@@ -138,7 +139,8 @@ block main
             moduleClass: 'radio-battons-test',
             buttonsList: [
                 {buttonTitle: 'Мужчина',
-                buttonValue: 'man'},
+                buttonValue: 'man',
+                checked: true},
                 {buttonTitle: 'Женщина',
                 buttonValue: 'woman'}
                 ]
@@ -149,5 +151,11 @@ block main
             labelTitle: 'Получать спецпредложения',
             moduleClass: 'field-toggle-test',
             checked: true
+        })
+
+    +block-lib({title: 'LIKE BUTTON', width: '220px'})
+        +like-button({
+            labelTitle: '2',
+            moduleClass: 'like-button-test'
         })
 
