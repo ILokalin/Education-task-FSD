@@ -29,6 +29,7 @@ block main
     include ../../modules/checkbox-list/checkbox-list
     include ../../modules/rich-checkbox/rich-checkbox
     include ../../modules/radio-buttons/radio-buttons
+    include ../../modules/field-toggle/field-toggle
 
 
     //- ------------------------------------------------------------
@@ -142,4 +143,11 @@ block main
                 buttonValue: 'woman'}
                 ]
             })
+
+    +block-lib({title: 'TOGGLE', width: '320px'})
+        +field-toggle({
+            labelTitle: 'Получать спецпредложения',
+            moduleClass: 'field-toggle-test',
+            checked: true
+        })
 
