@@ -28,6 +28,7 @@ block main
     include ../../modules/exp-checkbox-list/exp-checkbox-list
     include ../../modules/checkbox-list/checkbox-list
     include ../../modules/rich-checkbox/rich-checkbox
+    include ../../modules/radio-buttons/radio-buttons
 
 
     //- ------------------------------------------------------------
@@ -129,4 +130,16 @@ block main
             labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
             moduleClass: 'rich-checkbox-test'
         })
+
+    +block-lib({width: '320px'})
+        +radio-buttons({
+            labelTitle: 'RADIO BUTTONS',
+            moduleClass: 'radio-battons-test',
+            buttonsList: [
+                {buttonTitle: 'Мужчина',
+                buttonValue: 'man'},
+                {buttonTitle: 'Женщина',
+                buttonValue: 'woman'}
+                ]
+            })
 
