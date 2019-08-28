@@ -30,12 +30,15 @@ mixin radio-buttons(props={})
     .radio-button(class = moduleClass + allMods)
         .radio-button__title-wrapper
             p.radio-button__section-title= (typeof(props.labelTitle) !=='undefined' && props.labelTitle) ? props.labelTitle : ''
-        each buttonString, index in props.buttonsList
-            label.radio-button__buttons-wrapper(name = moduleClass)
-                input.radio-button__input(
-                    type = 'radio',
-                    name = moduleClass,
-                    value = buttonString.buttonValue
-                )&attributes(props.attrs)
-                span.radio-button__button-title= buttonString.buttonTitle
+        
+        .radio-button__button-wrapper
+            each buttonString, index in props.buttonsList
+                label.radio-button__button-label(name = moduleClass)
+                    input.radio-button__input(
+                        type = 'radio',
+                        name = moduleClass,
+                        value = buttonString.buttonValue
+                    )&attributes(props.attrs)
+                    .radio-button__marker
+                    span.radio-button__button-title= buttonString.buttonTitle
 

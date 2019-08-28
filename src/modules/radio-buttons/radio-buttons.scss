@@ -1,7 +1,9 @@
 .radio-button {
+    user-select: none;
+
     &__title-wrapper {
         display: flex;
-        justify-content: center;
+        align-items: center;
         height: 42px;
     }
 
@@ -17,6 +19,7 @@
     }
 
     &__button-title {
+        padding-left: 30px;
         font-family: Montserrat;
         font-style: normal;
         font-weight: normal;
@@ -25,7 +28,15 @@
     }
 
     &__button-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__button-label {
         position: relative;
+        display: inline-block;
+        padding-right: 20px;
+        cursor: pointer;
     }
 
     &__input {
@@ -46,7 +57,7 @@
         left: -2px;
         width: 20px;
         height: 20px;
-        background-color: #BC9CFF;
+        background-color: rgba(31, 32, 65, 0.25);
         border-radius: 50%;
     }
 
@@ -60,6 +71,25 @@
         height: 18px;
         background-color: #fff;
         border-radius: 50%;
+    }
+
+    &__input:checked:before {
+        background-color: #BC9CFF;
+    }
+
+    &__marker {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        opacity: 0;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+
+    &__input:checked+.radio-button__marker {
+        opacity: 1;
     }
 
 }
