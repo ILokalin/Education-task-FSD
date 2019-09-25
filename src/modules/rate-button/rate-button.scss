@@ -1,7 +1,7 @@
 .rate-button {
     display: inline;
     cursor: pointer;
-    color: #BC9CFF;
+    // color: #BC9CFF;
     // display: flex;
     justify-content: flex-start;
 
@@ -10,11 +10,21 @@
     font-weight: normal;
     font-size: 24px;
 
+    
+
     &__star:after{
         content: "star_border";
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
     }
 
     &__star_full:after {
-        content: "star"
+        content: "star";
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
     }
 }
