@@ -1,0 +1,29 @@
+mixin rate-button(props={})
+
+    //- checkbox с label
+    //- Данные для JS храняться в атрибутах Data
+    //- 
+    //- Принимает параметры в props:
+    //- moduleClass             string      имя класса
+    //- mods                    string      'open' - открыто меню
+    //- rate                    string      рейтинг
+    //- 
+
+
+    -
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' rate-button_' + modList[i].trim()
+            }
+        }
+        let rate = (typeof(props.rate) !== 'undefined' && props.rate) ? parseInt(props.rate) : 0
+
+    .rate-button(
+        class = moduleClass + allMods,
+        data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
+        )
+        - let limit = rate - 5;
+        while rate > limit
+            .rate-button__star(class = (rate-- > 0) ? 'rate-button__star_full' : '')

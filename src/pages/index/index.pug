@@ -31,6 +31,7 @@ block main
     include ../../modules/radio-buttons/radio-buttons
     include ../../modules/field-toggle/field-toggle
     include ../../modules/like-button/like-button
+    include ../../modules/rate-button/rate-button
 
 
     //- ------------------------------------------------------------
@@ -157,5 +158,10 @@ block main
         +like-button({
             labelTitle: '2',
             moduleClass: 'like-button-test'
+        })
+
+    +block-lib({title: 'rate-button', width: '220px'})
+        +rate-button({
+            rate: '3'
         })
 

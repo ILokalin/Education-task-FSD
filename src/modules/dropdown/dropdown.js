@@ -151,7 +151,7 @@ export function dropdown(elementClassName) {
         }
     })
 
-    function grossValue() {
+    function getValue() {
         return gross
     }
 
@@ -160,7 +160,7 @@ export function dropdown(elementClassName) {
     correctMark()
 
     return {
-        grossValue: grossValue
+        getValue: getValue
     }
 
 }

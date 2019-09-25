@@ -4,6 +4,7 @@ const pug = require('./webpack/pug')
 const scss = require('./webpack/scss')
 const images = require('./webpack/images')
 const fonts = require('./webpack/fonts')
+const devServer = require('./webpack/devserver')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
@@ -49,6 +50,9 @@ module.exports = function (env) {
         return common
     }
     if (env === 'development') {
-        return common
+        return merge([
+            common,
+        devServer()
+        ])
     }
 }

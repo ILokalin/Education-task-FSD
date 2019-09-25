@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --env development"
+    "start": "webpack-dev-server --env development",
+    "dev": "webpack --env development",
+    "build": "webpack --env production"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
   },
   "dependencies": {
     "air-datepicker": "^2.2.3",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "webpack-dev-server": "^3.8.1"
   }
 }
