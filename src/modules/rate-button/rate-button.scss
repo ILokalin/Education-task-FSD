@@ -1,16 +1,12 @@
 .rate-button {
     display: inline;
     cursor: pointer;
-    // color: #BC9CFF;
-    // display: flex;
     justify-content: flex-start;
 
     font-family: Material Icons;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-
-    
 
     &__star:after{
         content: "star_border";
