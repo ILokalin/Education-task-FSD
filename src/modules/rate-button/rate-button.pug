@@ -21,9 +21,9 @@ mixin rate-button(props={})
         let rate = (typeof(props.rate) !== 'undefined' && props.rate) ? parseInt(props.rate) : 0
 
     .rate-button(
-        class = moduleClass + allMods,
+        class = allMods,
         data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
         )
         - let limit = rate - 5;
         while rate > limit
-            .rate-button__star(class = (rate-- > 0) ? 'rate-button__star_full' : '')
+            span.rate-button__star(class = (rate-- > 0) ? 'rate-button__star_full' : '')
