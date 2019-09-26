@@ -1,4 +1,4 @@
-mixin rate-button(props={})
+mixin range-slider(props={})
 
     //- checkbox с label
     //- Данные для JS храняться в атрибутах Data
@@ -6,9 +6,9 @@ mixin rate-button(props={})
     //- Принимает параметры в props:
     //- moduleClass             string      имя класса
     //- mods                    string      'open' - открыто меню
-    //- rate                    string      рейтинг
-    //- 
-
+    //- rangeLeft               string      Граница значений слева
+    //- rangeRight              string      Граница значений справа
+    //- maxValue                string      
 
     -
         let moduleClass = (props.moduleClass) ? props.moduleClass : ''
@@ -19,9 +19,14 @@ mixin rate-button(props={})
             allMods = allMods + ' rate-button_' + modList[i].trim()
             }
         }
-        let rate = (typeof(props.rate) !== 'undefined' && props.rate) ? parseInt(props.rate) : 0
 
-    .rate-button(class = moduleClass + allMods)
-        - let limit = rate - 5;
-        while rate > limit
-            span.rate-button__star(class = (rate-- > 0) ? 'rate-button__star_full' : '')
+    .range-slider(
+        class= moduleClass + allMods,
+        data-max-value = props.maxValue,
+        data-range-left = props.rangeLeft,
+        data-range-right = props.rangeRight
+        )
+        .range-slider__axis
+        .range-slider__select
+        a.range-slider__range-left(href= '#')
+        a.range-slider__range-right(href= '#')

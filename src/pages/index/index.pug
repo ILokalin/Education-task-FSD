@@ -32,6 +32,7 @@ block main
     include ../../modules/field-toggle/field-toggle
     include ../../modules/like-button/like-button
     include ../../modules/rate-button/rate-button
+    include ../../modules/range-slider/range-slider
 
 
     //- ------------------------------------------------------------
@@ -166,6 +167,13 @@ block main
         })
         +rate-button({
             rate: '5'
+        })
+    
+    +block-lib({title: 'RANGE-SLIDER', width: '266px', mods: '5 000Р - 10 000Р'})
+        +range-slider({
+            maxValue: '15000',
+            rangeLeft: '5000',
+            rangeRight: '10000'
         })
         
 
