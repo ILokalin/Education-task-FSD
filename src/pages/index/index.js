@@ -11,20 +11,20 @@ import {
     expCheckboxList
 } from '../../modules/exp-checkbox-list/exp-checkbox-list.js'
 
-//dropdown.init('.dropdown')
+import {
+    rangeSlider
+} from '../../modules/range-slider/range-slider.js'
 
-
-/*let dropDownGuests = dropdown;
-dropDownGuests.init('.dropdown')*/
-
-
-//demoDrop1.__proto__ = dropdown('.dropdown')
-//demoDrop2.__proto__ = dropdown('.dropdown_new')
+window.onload = function() {
 let demoDropDown = new dropdown('.dropdownVisitors')
 console.log('отправка новой инициализации')
 let demoDropDown2 = new dropdown('.dropdownEnvarenment')
-//let demoDropDown = dropdown().init('.dropdown')
+
 
 let expCheckBoxList = expCheckboxList('.checkList-test')
 console.log('список чекбоксов инициирован')
 console.log(expCheckBoxList.getList())
+
+rangeSlider()
+
+}
