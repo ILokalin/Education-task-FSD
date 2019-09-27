@@ -9,7 +9,13 @@
 @import '../../modules/like-button/like-button';
 @import '../../modules/rate-button/rate-button';
 @import '../../modules/range-slider/range-slider';
+@import '../../modules/test-slider/test-slider.scss';
+// @import '../../../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css';
 
+
+body {
+    padding-left: 50px;
+}
 
 @mixin font-face($font-name, $font-path, $font-weight: 400, $font-style: normal) {
     @font-face {

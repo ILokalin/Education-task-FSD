@@ -6,7 +6,7 @@ module.exports = function () {
     return {
         module: {
             rules: [{
-                test: /\.scss$/,
+                test: /\.s*css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     //"style-loader", // creates style nodes from JS strings

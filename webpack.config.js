@@ -8,7 +8,8 @@ const devServer = require('./webpack/devserver')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
@@ -36,6 +37,10 @@ const common = merge([{
             }),
             new MiniCssExtractPlugin({
                 filename: 'style.css'
+            }),
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery'
             })
         ]
     },
