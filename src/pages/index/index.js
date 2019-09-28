@@ -34,9 +34,9 @@ rangeSlider()
 $(".js-range-slider").ionRangeSlider({
     type: "double",
     min: 0,
-    max: 1000,
-    from: 200,
-    to: 500,
+    max: 15,
+    from: 5,
+    to: 10,
     grid: true
 });
 
