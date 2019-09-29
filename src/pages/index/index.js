@@ -2,7 +2,7 @@ import './index.scss'
 //import '../../modules/text-field/text-field'
 
 import 'ion-rangeslider/js/ion.rangeSlider.js'
-import 'ion-rangeslider/css/ion.rangeSlider.min.css'
+// import 'ion-rangeslider/css/ion.rangeSlider.min.css'
 
 import {
     dropdown
@@ -37,7 +37,7 @@ $(".js-range-slider").ionRangeSlider({
     max: 15,
     from: 5,
     to: 10,
-    grid: true
+    grid: false
 });
 
 }
