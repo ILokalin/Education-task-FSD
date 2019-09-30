@@ -1,25 +1,50 @@
 
 import 'ion-rangeslider/js/ion.rangeSlider.js'
 
-export function rangeSlider(props = {}, element = '.range-slider') {
+export class RangeSlider {
+    constructor(props = {}, element = '.range-slider')
+    {
+        this.props = props
+        this.element = element
+        this.sliderElement = document.querySelector(element + ' .range-slider__input')
 
-    const sliderElement = document.querySelector(element + ' .range-slider__input')
+        function writeValue(data) {
+            function spaceThousend(value) {
+                let valueSpace = '';
+                for (let i = 0; i < value.length; i++) {
+                    if ((value.length - i) % 3 === 0) {
+                        valueSpace += ' '
+                    }
+                    valueSpace += value[i]
+                }
+                return valueSpace
+            }
 
-    $(sliderElement).ionRangeSlider({
-        type: "double",
-        min: 0,
-        max: 15000,
-        from: props.from || 5000,
-        to: props.to    || 10000,
-        grid: false,
-        postfix: 'P',
-        onChange: function (data) {
-        
+            document.querySelector(element + ' .range-slider__value').innerHTML = 
+            spaceThousend(data.from.toString()) + '₽ - ' + spaceThousend(data.to.toString()) + '₽'
         }
-    })
+        
+        $(this.sliderElement).ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 15500,
+            from: props.from || 5000,
+            to: props.to    || 10000,
+            grid: false,
+            hideFromTo: 'true',
+            hideMinMax: 'true',
+            onChange: function(data) {
+                writeValue(data)
+            },
+            onStart: function(data) {
+                writeValue(data)
+            }
+        })
 
-    function update (props = {}) {
-        let range = $(sliderElement).data("ionRangeSlider")
+    }
+
+    update (props = {}) {
+        let range = $(this.sliderElement).data("ionRangeSlider")
  
         props.from = props.from || range.options.min
         props.to = props.to || range.options.max
@@ -29,19 +54,11 @@ export function rangeSlider(props = {}, element = '.range-slider') {
         })
     }
 
-    function getValue () {
-        const range = $(sliderElement).data("ionRangeSlider");
+    getValue () {
+        const range = $(this.sliderElement).data("ionRangeSlider");
         return {
             from: range.options.from,
             to: range.options.to
         }
     }
-
-    return {
-        getValue: getValue,
-        update: update
-    }
 }
-
-
-

@@ -52,16 +52,6 @@ Build date: 2018-12-11 23:23:51
 .irs-max {
   right: 0;
 }
-.irs-from,
-.irs-to,
-.irs-single {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  cursor: default;
-  white-space: nowrap;
-}
 
 .irs-disable-mask {
   position: absolute;
@@ -74,6 +64,7 @@ Build date: 2018-12-11 23:23:51
   background: rgba(0, 0, 0, 0);
   z-index: 2;
 }
+
 .lt-ie9 .irs-disable-mask {
   background: #000;
   filter: alpha(opacity=0);
@@ -115,8 +106,7 @@ Build date: 2018-12-11 23:23:51
   top: 25px;
   height: 6px;
   
-  background-color: #ed5565;
-  /* my */
+    /* my */
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 }
 .irs--flat .irs-bar--single {
@@ -134,42 +124,46 @@ Build date: 2018-12-11 23:23:51
 
 .irs--flat .irs-min,
 .irs--flat .irs-max {
-  top: 0;
-  padding: 1px 3px;
-  color: #999;
-  font-size: 10px;
-  line-height: 1.333;
-  text-shadow: none;
-  background-color: #e1e4e9;
-  border-radius: 4px;
-  /* my */
   display: none;
 }
+
 .irs--flat .irs-from,
 .irs--flat .irs-to,
 .irs--flat .irs-single {
+  display: none;
+}
 
-  padding: 1px 5px;
+.range-slider {
+  position: relative;
 
+}
 
+.range-slider__line-title {
+  margin: 0;
   font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: right;
-
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
 }
 
-.irs--flat .irs-from {
-  left: 160px !important;
-
+.range-slider__value {
+  margin: 0;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;
 }
 
-.irs--flat .irs-to {
-  left: 213px !important;
-}
-
-.irs--flat .irs-single {
-  left: 160px !important;
+.range-slider__description {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
 }

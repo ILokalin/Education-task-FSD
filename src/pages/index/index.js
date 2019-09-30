@@ -11,7 +11,7 @@ import {
     expCheckboxList
 } from '../../modules/exp-checkbox-list/exp-checkbox-list.js'
 
-import { rangeSlider } from '../../modules/range-slider/range-slider.js';
+import { RangeSlider } from '../../modules/range-slider/range-slider.js';
 
 
 window.onload = function() {
@@ -24,9 +24,10 @@ let expCheckBoxList = expCheckboxList('.checkList-test')
 console.log('список чекбоксов инициирован')
 console.log(expCheckBoxList.getList())
 
-const ur = new rangeSlider()
+const ur = new RangeSlider()
 // ur.update() //метод для изменений
 // let foog = ur.getValue() //чтение состояния
+
 
 
 }

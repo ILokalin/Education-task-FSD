@@ -26,8 +26,8 @@ mixin range-slider(props={})
         data-range-right = props.rangeRight
         )
         h3.range-slider__line-title= (typeof(props.lineTitle) !== 'undefined' && props.lineTitle) ? props.lineTitle : ''
-        span.range-slider__value= '5 000P - 10 000P'
+        span.range-slider__value= ''
         input.range-slider__input(type="text", name="my_range" value="" )
-        p.range-slider__discription= (typeof(props.description) !== 'undefined' && props.description) ? props.description : ''
+        p.range-slider__description= (typeof(props.description) !== 'undefined' && props.description) ? props.description : ''
 
         
