@@ -1,7 +1,4 @@
 import './index.scss'
-//import '../../modules/text-field/text-field'
-
-
 
 import {
     dropdown
@@ -14,20 +11,22 @@ import {
 import { RangeSlider } from '../../modules/range-slider/range-slider.js';
 
 
-window.onload = function() {
-let demoDropDown = new dropdown('.dropdownVisitors')
-console.log('отправка новой инициализации')
-let demoDropDown2 = new dropdown('.dropdownEnvarenment')
 
+var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+  }
 
-let expCheckBoxList = expCheckboxList('.checkList-test')
-console.log('список чекбоксов инициирован')
-console.log(expCheckBoxList.getList())
+ready(() => { 
+    const demoDropDown = new dropdown('.dropdownVisitors')
+    
+    const demoDropDown2 = new dropdown('.dropdownEnvarenment')
+        
+    const expCheckBoxList = expCheckboxList('.checkList-test')
+        
+    const rangeSlider = new RangeSlider()
+    // ur.update() //метод для изменений
+    // let foog = ur.getValue() //чтение состояния
+    
+});
 
-const ur = new RangeSlider()
-// ur.update() //метод для изменений
-// let foog = ur.getValue() //чтение состояния
-
-
-
-}
