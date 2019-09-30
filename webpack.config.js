@@ -51,7 +51,7 @@ const common = merge([{
 ])
 
 module.exports = function (env) {
-    if (env === 'prodduction') {
+    if (env === 'production') {
         return common
     }
     if (env === 'development') {

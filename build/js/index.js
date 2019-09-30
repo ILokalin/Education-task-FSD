@@ -13473,7 +13473,6 @@ var range_slider = __webpack_require__(1);
 
 // CONCATENATED MODULE: ./src/pages/index/index.js
 
-//import '../../modules/text-field/text-field'
 
 
 
@@ -13483,24 +13482,25 @@ var range_slider = __webpack_require__(1);
 
 
 
+var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+  }
 
-window.onload = function() {
-let demoDropDown = new dropdown('.dropdownVisitors')
-console.log('отправка новой инициализации')
-let demoDropDown2 = new dropdown('.dropdownEnvarenment')
+ready(() => { 
+    const demoDropDown = new dropdown('.dropdownVisitors')
+    
+    const demoDropDown2 = new dropdown('.dropdownEnvarenment')
+        
+    const expCheckBoxList = expCheckboxList('.checkList-test')
+        
+    const rangeSlider = new range_slider["a" /* RangeSlider */]()
+    // ur.update() //метод для изменений
+    // let foog = ur.getValue() //чтение состояния
+    
+});
 
 
-let expCheckBoxList = expCheckboxList('.checkList-test')
-console.log('список чекбоксов инициирован')
-console.log(expCheckBoxList.getList())
-
-const ur = new range_slider["a" /* RangeSlider */]()
-// ur.update() //метод для изменений
-// let foog = ur.getValue() //чтение состояния
-
-
-
-}
 
 /***/ })
 /******/ ]);
