@@ -27,12 +27,7 @@ Build date: 2018-12-11 23:23:51
   left: 0;
   width: 0;
 }
-.irs-shadow {
-  position: absolute;
-  display: none;
-  left: 0;
-  width: 0;
-}
+
 .irs-handle {
 
   position: absolute;
@@ -64,44 +59,10 @@ Build date: 2018-12-11 23:23:51
   display: block;
   top: 0;
   left: 0;
-
-  
   cursor: default;
   white-space: nowrap;
 }
-.irs-grid {
-  position: absolute;
-  display: none;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-}
-.irs-with-grid .irs-grid {
-  display: block;
-}
-.irs-grid-pol {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 8px;
-  background: #000;
-}
-.irs-grid-pol.small {
-  height: 4px;
-}
-.irs-grid-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 9px;
-  line-height: 9px;
-  padding: 0 3px;
-  color: #000;
-}
+
 .irs-disable-mask {
   position: absolute;
   display: block;
@@ -142,9 +103,7 @@ Build date: 2018-12-11 23:23:51
 .irs--flat {
   height: 40px;
 }
-.irs--flat.irs-with-grid {
-  height: 60px;
-}
+
 .irs--flat .irs-line {
   top: 25px;
   height: 12px;
@@ -163,11 +122,7 @@ Build date: 2018-12-11 23:23:51
 .irs--flat .irs-bar--single {
   border-radius: 4px 0 0 4px;
 }
-.irs--flat .irs-shadow {
-  height: 1px;
-  bottom: 16px;
-  background-color: #e1e4e9;
-}
+
 .irs--flat .irs-handle {
   top: 20px;
   width: 16px;
@@ -176,25 +131,7 @@ Build date: 2018-12-11 23:23:51
   border: 2px solid #FFFFFF;
   border-radius: 10px;
 }
-.irs--flat .irs-handle > i:first-child {
-  
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 50%;
-  width: 2px;
-  height: 100%;
-  margin-left: -1px;
-  background-color: #da4453;
-  /* my */
-  display: none;
-  
-}
-.irs--flat .irs-handle.state_hover > i:first-child,
-.irs--flat .irs-handle:hover > i:first-child {
-  background-color: #a43540;
-  display: none;
-}
+
 .irs--flat .irs-min,
 .irs--flat .irs-max {
   top: 0;
@@ -211,34 +148,28 @@ Build date: 2018-12-11 23:23:51
 .irs--flat .irs-from,
 .irs--flat .irs-to,
 .irs--flat .irs-single {
-  color: white;
-  font-size: 10px;
-  line-height: 1.333;
-  text-shadow: none;
+
   padding: 1px 5px;
-  background-color: #ed5565;
-  border-radius: 4px;
-  /* my */
-  display: none;
+
+
+  font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+
 }
-.irs--flat .irs-from:before,
-.irs--flat .irs-to:before,
-.irs--flat .irs-single:before {
-  position: absolute;
-  display: block;
-  content: "";
-  bottom: -6px;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -3px;
-  overflow: hidden;
-  border: 3px solid transparent;
-  border-top-color: #ed5565;
+
+.irs--flat .irs-from {
+  left: 160px !important;
+
 }
-.irs--flat .irs-grid-pol {
-  background-color: #e1e4e9;
+
+.irs--flat .irs-to {
+  left: 213px !important;
 }
-.irs--flat .irs-grid-text {
-  color: #999;
+
+.irs--flat .irs-single {
+  left: 160px !important;
 }

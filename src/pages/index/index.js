@@ -34,10 +34,11 @@ rangeSlider()
 $(".js-range-slider").ionRangeSlider({
     type: "double",
     min: 0,
-    max: 15,
-    from: 5,
-    to: 10,
-    grid: false
+    max: 15000,
+    from: 5000,
+    to: 10000,
+    grid: false,
+    postfix: 'P'
 });
 
 }
