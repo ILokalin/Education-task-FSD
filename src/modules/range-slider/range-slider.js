@@ -1,43 +1,47 @@
-export function rangeSlider() {
-    const leftRange = document.querySelector('.range-slider__range-left')
-    let borderLeft = leftRange.getBoundingClientRect().left
-    const rightRange = document.querySelector('.range-slider__range-right')
 
-    leftRange.addEventListener('mousedown', (event) => {
-        document.removeEventListener('mousemove', onMouseMove)
-        leftRange.onmouseup = null
+import 'ion-rangeslider/js/ion.rangeSlider.js'
 
-        let shiftX = event.clientX - leftRange.getBoundingClientRect().left
-        let shiftY = event.clientY - leftRange.getBoundingClientRect().top
-        let stateY = event.pageY
-        document.body.append(leftRange)
+export function rangeSlider(props = {}, element = '.range-slider') {
 
-        function moveAt(pageX, pageY) {
+    const sliderElement = document.querySelector(element + ' .range-slider__input')
 
-            if ((pageX+10 < rightRange.getBoundingClientRect().left) && (pageX > borderLeft)) {
-                leftRange.style.left = pageX - shiftX + 'px';
-            }
-            
-
-            leftRange.style.top = pageY - shiftY + 'px';
-          }
-
-        moveAt(event.pageX, event.pageY)
-
-        function onMouseMove(event) {
-            moveAt(event.pageX, stateY)
-        }
-
-        document.addEventListener('mousemove', onMouseMove)
-
-        leftRange.onmouseup = function() {
-            document.removeEventListener('mousemove', onMouseMove)
-            leftRange.onmouseup = null
+    $(sliderElement).ionRangeSlider({
+        type: "double",
+        min: 0,
+        max: 15000,
+        from: props.from || 5000,
+        to: props.to    || 10000,
+        grid: false,
+        postfix: 'P',
+        onChange: function (data) {
+        
         }
     })
 
-    leftRange.ondragstart = function() {
-        return false
+    function update (props = {}) {
+        let range = $(sliderElement).data("ionRangeSlider")
+ 
+        props.from = props.from || range.options.min
+        props.to = props.to || range.options.max
+        range.update({
+            from: props.from,
+            to: props.to
+        })
     }
 
+    function getValue () {
+        const range = $(sliderElement).data("ionRangeSlider");
+        return {
+            from: range.options.from,
+            to: range.options.to
+        }
+    }
+
+    return {
+        getValue: getValue,
+        update: update
+    }
 }
+
+
+

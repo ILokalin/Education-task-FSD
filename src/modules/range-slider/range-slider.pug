@@ -6,9 +6,8 @@ mixin range-slider(props={})
     //- Принимает параметры в props:
     //- moduleClass             string      имя класса
     //- mods                    string      'open' - открыто меню
-    //- rangeLeft               string      Граница значений слева
-    //- rangeRight              string      Граница значений справа
-    //- maxValue                string      
+    //- lineTitle               string      заголовок
+    //- description             string      Описание
 
     -
         let moduleClass = (props.moduleClass) ? props.moduleClass : ''
@@ -26,7 +25,9 @@ mixin range-slider(props={})
         data-range-left = props.rangeLeft,
         data-range-right = props.rangeRight
         )
-        .range-slider__axis
-        .range-slider__select
-        a.range-slider__range-left(href= '#')
-        a.range-slider__range-right(href= '#')
+        h3.range-slider__line-title= (typeof(props.lineTitle) !== 'undefined' && props.lineTitle) ? props.lineTitle : ''
+        span.range-slider__value= '5 000P - 10 000P'
+        input.range-slider__input(type="text", name="my_range" value="" )
+        p.range-slider__discription= (typeof(props.description) !== 'undefined' && props.description) ? props.description : ''
+
+        

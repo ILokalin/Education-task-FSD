@@ -1,8 +1,7 @@
 import './index.scss'
 //import '../../modules/text-field/text-field'
 
-import 'ion-rangeslider/js/ion.rangeSlider.js'
-// import 'ion-rangeslider/css/ion.rangeSlider.min.css'
+
 
 import {
     dropdown
@@ -12,12 +11,8 @@ import {
     expCheckboxList
 } from '../../modules/exp-checkbox-list/exp-checkbox-list.js'
 
-import {
-    rangeSlider
-} from '../../modules/range-slider/range-slider.js'
+import { rangeSlider } from '../../modules/range-slider/range-slider.js';
 
-
-import { testSlider } from './../../modules/test-slider/test-slider';
 
 window.onload = function() {
 let demoDropDown = new dropdown('.dropdownVisitors')
@@ -29,16 +24,9 @@ let expCheckBoxList = expCheckboxList('.checkList-test')
 console.log('список чекбоксов инициирован')
 console.log(expCheckBoxList.getList())
 
-rangeSlider()
+const ur = new rangeSlider()
+// ur.update() //метод для изменений
+// let foog = ur.getValue() //чтение состояния
 
-$(".js-range-slider").ionRangeSlider({
-    type: "double",
-    min: 0,
-    max: 15000,
-    from: 5000,
-    to: 10000,
-    grid: false,
-    postfix: 'P'
-});
 
 }

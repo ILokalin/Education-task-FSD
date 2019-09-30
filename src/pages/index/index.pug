@@ -33,7 +33,7 @@ block main
     include ../../modules/like-button/like-button
     include ../../modules/rate-button/rate-button
     include ../../modules/range-slider/range-slider
-    include ../../modules/test-slider/test-slider
+ 
 
 
     //- ------------------------------------------------------------
@@ -169,16 +169,13 @@ block main
         +rate-button({
             rate: '5'
         })
-    
-    +block-lib({title: 'RANGE-SLIDER', width: '266px', mods: '5 000Р - 10 000Р'})
-        +range-slider({
-            maxValue: '15000',
-            rangeLeft: '5000',
-            rangeRight: '10000'
-        })
 
-    +block-lib({title: 'ION SLIDER', width: '266px', mods: '5 000P - 10 000P'})
-        <input type="text" class="js-range-slider" name="my_range" value="" />
+    +block-lib({title: '', width: '266px', mods: ''})
+        +range-slider({
+            lineTitle: 'RANGE SLIDER',
+            description: 'Описание на странице'
+        })
+        
 
 
         

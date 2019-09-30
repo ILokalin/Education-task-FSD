@@ -1,6 +1,6 @@
 export function dropdown(elementClassName) {
 
-    console.log('настройка с ', elementClassName)
+    // console.log('настройка с ', elementClassName)
 
     let elementDropDown = document.querySelector(elementClassName),
         gross = [],
@@ -34,7 +34,7 @@ export function dropdown(elementClassName) {
         let isHaveCommon = false
         let addString = ''
 
-        console.log('write prepare')
+        // console.log('write prepare')
 
         function goodNaming(value, namingString) {
 
@@ -43,7 +43,7 @@ export function dropdown(elementClassName) {
                 value -= 20
                 value = value % 10
             }*/
-            console.log(' выбираем имя для ', value, namingString)
+            // console.log(' выбираем имя для ', value, namingString)
             if (value === 0) {
                 return namingString[2]
             } else if (value === 1) {
@@ -56,9 +56,9 @@ export function dropdown(elementClassName) {
         }
 
         for (let i = 0; i < gross.length; i++) {
-            console.log(optionRow[i].separate)
+            // console.log(optionRow[i].separate)
             if (optionRow[i].separate.length > 1) {
-                console.log('список нейминга больше 1')
+                // console.log('список нейминга больше 1')
                 // строка счиатется отдельно
                 if (gross[i] > 0) {
                     if (addString !== '') {
