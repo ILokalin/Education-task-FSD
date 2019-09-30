@@ -1,0 +1,38 @@
+mixin button(props={})
+
+    //- button с надписью
+    //- Принимает параметры в props:
+    //- moduleClass             string      доп имя класса
+    //- mods                    string      модификации
+    //-                             border
+                                    full
+                                    clear
+    //- labelTitle              string      надпись в кнопке
+
+
+    -
+        let moduleClass = props.moduleClass
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' radio-button_' + modList[i].trim()
+            }
+        }
+
+    .radio-button(class = moduleClass + allMods)
+        .radio-button__title-wrapper
+            p.radio-button__section-title= (typeof(props.labelTitle) !=='undefined' && props.labelTitle) ? props.labelTitle : ''
+        
+        .radio-button__button-wrapper
+            each buttonString, index in props.buttonsList
+                label.radio-button__button-label(name = moduleClass)
+                    input.radio-button__input(
+                        type = 'radio',
+                        name = moduleClass,
+                        value = buttonString.buttonValue,
+                        checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
+                    )&attributes(props.attrs)
+                    .radio-button__marker
+                    span.radio-button__button-title= buttonString.buttonTitle
+

@@ -58,6 +58,25 @@ body {
 }
 
 
+.page {
+    &__header {
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    &__description {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        padding-bottom: 30px;
+    }
+}
+
 .block-lib {
     padding-bottom: 21px;
 

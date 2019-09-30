@@ -8,7 +8,8 @@
     </title>
   <link href="style.css" rel="stylesheet"></head>
   <body>
-    <h1>UI kit</h1>
+    <h1 class="page__header">UI kit for FSD 2</h1>
+    <p class="page__description">Webpack + pug + scss + JS</p>
     <div class="block-lib" style="width:320px">
       <div class="block-lib__description-row">
         <div class="block-lib__title">TEXT FIELD</div>
@@ -265,6 +266,31 @@
             <label class="like-button like-button-test" data-name="">
               <input class="like-button__input" type="checkbox" id="like-button-test"><span class="like-button__mark">favorite_border</span><span class="like-button__name">2</span>
             </label>
+      </div>
+    </div>
+    <div class="block-lib" style="width:320px">
+      <div class="block-lib__description-row">
+        <div class="block-lib__title">RATE-BUTTON</div>
+        <div class="block-lib__mods"></div>
+      </div>
+      <div class="block-lib__block-row">
+            <div class="rate-button"><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star"></span><span class="rate-button__star"></span>
+            </div>
+            <div class="rate-button"><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star rate-button__star_full"></span><span class="rate-button__star rate-button__star_full"></span>
+            </div>
+      </div>
+    </div>
+    <div class="block-lib" style="width:266px">
+      <div class="block-lib__description-row">
+        <div class="block-lib__title"></div>
+        <div class="block-lib__mods"></div>
+      </div>
+      <div class="block-lib__block-row">
+            <div class="range-slider">
+              <h3 class="range-slider__line-title">RANGE SLIDER</h3><span class="range-slider__value"></span>
+              <input class="range-slider__input" type="text" name="my_range" value="">
+              <p class="range-slider__description"></p>
+            </div>
       </div>
     </div>
   <script type="text/javascript" src="js/index.js"></script></body>

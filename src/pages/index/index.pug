@@ -19,7 +19,8 @@ block title
     | Ui Page
 
 block main
-    h1 UI kit
+    h1.page__header UI kit for FSD 2
+    p.page__description Webpack + pug + scss + JS
 
     //- импорт всех блоков UI набора
     include ../../modules/text-field/text-field
@@ -173,7 +174,6 @@ block main
     +block-lib({title: '', width: '266px', mods: ''})
         +range-slider({
             lineTitle: 'RANGE SLIDER',
-            description: 'Описание на странице'
         })
         
 
