@@ -1,0 +1,20 @@
+.button-block_border .button-block__button{
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    color: #BC9CFF;
+    border: none;
+    background: white;
+}
+
+.button-block_border .button-block__button::before {
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    content: '';
+    border-radius: 23px;
+    background: linear-gradient(#BC9CFf, #8BA4F9);   
+}

@@ -34,6 +34,7 @@ block main
     include ../../modules/like-button/like-button
     include ../../modules/rate-button/rate-button
     include ../../modules/range-slider/range-slider
+    include ../../modules/button-block/button-block
  
 
 
@@ -175,7 +176,43 @@ block main
         +range-slider({
             lineTitle: 'RANGE SLIDER',
         })
-        
+
+    +block-lib({title: 'BUTTONS', width: '320px'})
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'full'
+            })
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'full, hover'
+            })
+    
+    +block-lib({title: '', width: '320px'})
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'border'
+            })
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'border, hover'
+            })
+
+    +block-lib({title: '', width: '320px'})
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'link'
+            })
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'link, dark'
+            })
+    
+    +block-lib({title: '', width: '320px'})
+        +button-block({
+            lineTitle: 'CLICK ME',
+            mods: 'full, arrow'
+            })
+
 
 
         

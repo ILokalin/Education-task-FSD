@@ -1,0 +1,25 @@
+mixin button-block(props={})
+
+    //- button с надписью
+    //- Принимает параметры в props:
+    //- moduleClass             string      доп имя класса
+    //- mods                    string      модификации
+    //-                             border
+                                    full
+                                    link
+                                    hover
+                                    arrow
+    //- labelTitle              string      надпись в кнопке
+
+
+    -
+        let moduleClass = props.moduleClass || ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' button-block_' + modList[i].trim()
+            }
+        }
+    .button-block(class= moduleClass + allMods)
+        button.button-block__button(type="button")= props.lineTitle

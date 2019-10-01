@@ -15,7 +15,7 @@ mixin range-slider(props={})
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
         for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' rate-button_' + modList[i].trim()
+            allMods = allMods + ' range-slider_' + modList[i].trim()
             }
         }
 
