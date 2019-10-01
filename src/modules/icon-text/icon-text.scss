@@ -2,6 +2,8 @@
     position: relative;
     width: 100%;
     padding-left: 58px;
+    user-select: none;
+    cursor: pointer;
 
     &__icon {
         position: absolute;
@@ -30,9 +32,8 @@
         font-feature-settings: 'liga';
 
 
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        background: $PrimaryGradient;
         background-clip: text;
-        // -webkit-background-clip: text;
         color: transparent;
     }
 

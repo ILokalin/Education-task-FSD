@@ -36,6 +36,7 @@ block main
     include ../../modules/range-slider/range-slider
     include ../../modules/button-block/button-block
     include ../../modules/icon-text/icon-text
+    include ../../modules/icon-text-list/icon-text-list
  
 
 
@@ -219,6 +220,22 @@ block main
             icon: 'location_city',
             lineTitle: 'Удобство',
             description: 'Окно в каждой из спален'
+        })
+
+    +block-lib({title: 'ICON-TEXT LIST', width: '280px'})
+        +icon-text-list({
+            iconStrings: [
+                {
+                icon: 'insert_emoticon',
+                lineTitle: 'Комфорт',
+                description: 'Шумопоглощающие стены'
+                },
+                {
+                icon: 'location_city',
+                lineTitle: 'Удобство',
+                description: 'Окно в каждой из спален'
+                }
+            ]
         })
 
 
