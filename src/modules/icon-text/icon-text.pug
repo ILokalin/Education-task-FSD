@@ -16,7 +16,7 @@ mixin icon-text(props={})
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
         for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' button-block_' + modList[i].trim()
+            allMods = allMods + ' icon-text_' + modList[i].trim()
             }
         }
     .icon-text(class= moduleClass + allMods)

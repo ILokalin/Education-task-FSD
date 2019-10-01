@@ -1,0 +1,25 @@
+.bullet-list {
+    
+
+    &__line {
+        position: relative;
+        padding-left: 20px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+
+    &__line::before {
+        position: absolute;
+        top: 7px;
+        left: 0px;
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: $DarkShade25;
+        border-radius: 50%;
+    }
+}

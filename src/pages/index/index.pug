@@ -37,6 +37,7 @@ block main
     include ../../modules/button-block/button-block
     include ../../modules/icon-text/icon-text
     include ../../modules/icon-text-list/icon-text-list
+    include ../../modules/bullet-list/bullet-list
  
 
 
@@ -238,6 +239,14 @@ block main
             ]
         })
 
+    +block-lib({title: 'BULLET LIST', width: '280px'})
+        +bullet-list({
+            bulletStrings: [
+                {description: 'Нельзя с питомцами'},
+                {description: 'Без вечеринок и мероприятий'},
+                {description: 'Время прибытия — после 13:00,<br>а выезд до 12:00'}
+            ]
+        })
 
 
         

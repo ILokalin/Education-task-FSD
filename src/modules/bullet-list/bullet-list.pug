@@ -1,0 +1,35 @@
+mixin bullet-list(props={})
+
+    //- Список текста с иконками
+    //- Принимает параметры в props:
+    //- moduleClass             string      доп имя класса для списка
+    //- mods                    string      модификации
+    //- lineTitle               string      Заголовок
+    //- bulletStrings           string      Строки с иконками icon-text
+    //-     mods                string      
+    //-     description         string      описание
+
+    
+
+    -
+        let moduleClass = props.moduleClass || ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' button-block_' + modList[i].trim()
+            }
+        }
+
+    .bullet-list(class= moduleClass + allMods)
+        each bulletRow, index in props.bulletStrings
+
+            -
+                let rowMods = ''
+                if (typeof(bulletRow.mods) !== 'undefined' && bulletRow.mods) {
+                let rowModList = bulletRow.mods.split(',')
+                for (let i=0; i < rowModList.length; i++) {
+                    rowMods = rowMods + ' bullet-list__line_' + modList[i].trim()
+                    }
+                }
+            .bullet-list__line(class= rowMods)!= bulletRow.description || ''
