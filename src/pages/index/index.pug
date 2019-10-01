@@ -35,6 +35,7 @@ block main
     include ../../modules/rate-button/rate-button
     include ../../modules/range-slider/range-slider
     include ../../modules/button-block/button-block
+    include ../../modules/icon-text/icon-text
  
 
 
@@ -212,6 +213,13 @@ block main
             lineTitle: 'CLICK ME',
             mods: 'full, arrow, big'
             })
+
+    +block-lib({title: 'ICON-TEXT', mods: 'SINGLE', width: '220px;'})
+        +icon-text({
+            icon: 'location_city',
+            lineTitle: 'Удобство',
+            description: 'Окно в каждой из спален'
+        })
 
 
 
