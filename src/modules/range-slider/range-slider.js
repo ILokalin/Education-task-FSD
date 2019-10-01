@@ -31,6 +31,7 @@ export class RangeSlider {
             from: props.from || 5000,
             to: props.to    || 10000,
             grid: false,
+            step: 100,
             hideFromTo: 'true',
             hideMinMax: 'true',
             onChange: function(data) {
