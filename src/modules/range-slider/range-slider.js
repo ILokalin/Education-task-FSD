@@ -45,7 +45,7 @@ export class RangeSlider {
     }
 
     update (props = {}) {
-        let range = $(this.sliderElement).data("ionRangeSlider")
+        const range = $(this.sliderElement).data("ionRangeSlider")
  
         props.from = props.from || range.options.min
         props.to = props.to || range.options.max

@@ -1,0 +1,43 @@
+include ../../modules/like-button/like-button
+
+mixin comment(props={})
+
+    //- Comment  раскрытый список чекбоксов
+    //- 
+    //- Принимает параметры в props:
+    //- moduleClass             string      имя класса списка
+    //- mods                    string      
+    //- commentUser             string      пользователь
+    //- commentPhoto            string url
+    //- commentDate             string
+    //- commentLike             string num
+    //- commentText
+    //- dropStrings             array
+
+
+
+
+    -
+        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' checkbox-list_' + modList[i].trim()
+            }
+        }
+
+    .comment(class = moduleClass + allMods)
+        .comment__ring
+            img.comment__photo(width="48px",
+            alt="user",
+            src= props.commentPhoto || ''
+            )
+        .comment__like-button
+            +like-button({
+            labelTitle: '12',
+            checked: props.commentChecked || ''
+            })
+        .comment__user-name= props.commentUser || ''
+        .comment__date= props.commentDate || ''
+        .comment__text= props.commentText || ''

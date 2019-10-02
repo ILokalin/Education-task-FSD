@@ -38,6 +38,7 @@ block main
     include ../../modules/icon-text/icon-text
     include ../../modules/icon-text-list/icon-text-list
     include ../../modules/bullet-list/bullet-list
+    include ../../modules/comment/comment
  
 
 
@@ -247,6 +248,17 @@ block main
                 {description: 'Время прибытия — после 13:00,<br>а выезд до 12:00'}
             ]
         })
+
+    +block-lib({width: '711px'})
+        +comment({
+            commentUser:    'Мурад Сарафанов',
+            commentPhoto:   './images/avatar.png',
+            commentDate:    '5 дней назад',
+            commentLike:    '12',
+            commentChecked: true,
+            commentText:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+        })
+
 
 
         
