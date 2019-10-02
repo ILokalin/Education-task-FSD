@@ -1,0 +1,20 @@
+mixin pagination(props={})
+
+    //- Текст с иконкой
+    //- Принимает параметры в props:
+    //- moduleClass             string      доп имя класса
+    //- mods                    string      модификации
+    //- length                  string      число страниц
+    //- lineTitle               string      Заголовок текста
+    //- description             string      описание
+
+    -
+        let moduleClass = props.moduleClass || ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' pagination_' + modList[i].trim()
+            }
+        }
+    .pagination(class= moduleClass + allMods)

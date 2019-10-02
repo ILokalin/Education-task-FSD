@@ -39,7 +39,7 @@ block main
     include ../../modules/icon-text-list/icon-text-list
     include ../../modules/bullet-list/bullet-list
     include ../../modules/comment/comment
- 
+    include ../../modules/pagination/pagination
 
 
     //- ------------------------------------------------------------
@@ -258,6 +258,9 @@ block main
             commentChecked: true,
             commentText:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
         })
+
+    +block-lib({title: 'PAGINATION', width: "240px"})
+        +pagination({})
 
 
 
