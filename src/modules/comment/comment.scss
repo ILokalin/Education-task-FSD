@@ -1,19 +1,25 @@
 .comment {
     position: relative;
     padding-left: 60px;
+    width: 100%;
 
     &__ring {
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 50%;
         overflow: hidden;
         border: 2px solid white;
+        margin: auto;
+        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1);
     }
 
-    &__like-button {
+     &__like-button {
         position: absolute;
         top: 62px;
         left: 5px;

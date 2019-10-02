@@ -7,7 +7,7 @@ mixin block-lib(props)
     //- mods        string  Описание модификатора
     //- width       string  Ширина в виде 'XXpix'
      
-    .block-lib(style="width:"+props.width)
+    .block-lib(style="max-width:"+props.width)
         .block-lib__description-row
             .block-lib__title= props.title
             .block-lib__mods= props.mods
