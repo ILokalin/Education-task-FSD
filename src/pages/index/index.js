@@ -15,6 +15,7 @@ import {
 } from '../../modules/exp-checkbox-list/exp-checkbox-list.js'
 
 import { RangeSlider } from '../../modules/range-slider/range-slider.js';
+import { Pager } from './../../modules/pagination/pagination';
 
 
 
@@ -33,6 +34,10 @@ ready(() => {
     const rangeSlider = new RangeSlider()
     // ur.update() //метод для изменений
     // let foog = ur.getValue() //чтение состояния
-    
+    const pager = new Pager({
+        items: 6,
+        itemsOnPage: 12,
+        element: '.pager'
+    })
 });
 
