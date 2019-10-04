@@ -35,8 +35,8 @@ ready(() => {
     // ur.update() //метод для изменений
     // let foog = ur.getValue() //чтение состояния
     const pager = new Pager({
-        items: 6,
-        itemsOnPage: 12,
+        items: 15,
+        itemsOnPage: 5,
         element: '.pager'
     })
 });

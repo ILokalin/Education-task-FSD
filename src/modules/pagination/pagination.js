@@ -1,47 +1,56 @@
 export class Pager {
     constructor(props = {})
     {
-        debugger
         // Принимает объект с ключами
         // items        число элементов
         // itemsOnPage  количество элементов на листе
         // element      DOM желемент для пагинатора
         this.items = props.items
-        this.pagerPrev  = document.createElement("a")
-        this.pagerNext  = document.createElement("a")
-        this.pagerPrev.classList.add = 'pager__item pager__prev'
-        this.pagerNext.classList.add = 'pager__item pager__next'
+        this.pagerPrev  = document.createElement('a')
+        this.pagerNext  = document.createElement('a')
+        this.pagerPrev.classList.add('pager__item','pager__item_prev', 'pager__item_hiden')
+        this.pagerNext.classList.add('pager__item','pager__item_next')
+        this.pagerPrev.innerText = 'arrow_backforward'
+        this.pagerNext.innerText = 'arrow_forward'
         this.pagerVisible   = []
         this.itemsOnPage    = props.itemsOnPage
         this.element        = document.querySelector(props.element)
-        this.child = document.createElement
+        this.child = document.createDocumentFragment()
 
-        this.child.addChild(this.pagerPrev)
+        this.child.appendChild(this.pagerPrev)
 
+        
         for (let i = 0; i < this.itemsOnPage; i++) {
-            // если число элементов меньше отображаемого числа, то создаем только их
-            this.pagerVisible[i] = document.createElement("a")
-            this.pagerVisible[i].classList.add = 'pager__item'
+            
+            this.pagerVisible[i] = document.createElement('a')
+            this.pagerVisible[i].classList.add('pager__item')
 
+            // если число элементов меньше отображаемого числа, то создаем только их
             if (i >= this.items) {
-                this.pagerVisible[i].classList.add = 'pager__empty'
+                this.pagerVisible[i].classList.add('pager__item_empty')
             } else {
-                this.pagerVisible[i].innerHtml = i
+                this.pagerVisible[i].innerText = i+1
             }
 
-            this.child.addChild(this.pagerVisible[i])
+            this.child.appendChild(this.pagerVisible[i])
         }
 
-        this.pagerVisible[0].classList.add = "pager__activ"
-        this.pagerVisible[this.pagerVisible.length-1].classList.add = (this.items > this.itemsOnPage) ? "pager__free" : ''
+        // Первый элемент активный
+        this.pagerVisible[0].classList.add('pager__item_active')
+
+        this.pagerVisible[0].classList.add('pager__item_activ')
+
+        if (this.items > this.itemsOnPage) {
+            this.pagerVisible[this.itemsOnPage-2].classList.add('pager__item_free')
+            this.pagerVisible[this.itemsOnPage-2].innerText = ''
+            this.pagerVisible[this.itemsOnPage-1].innerText = this.items
+        } 
 
         if (this.items > 1) {
-            this.child.addChild(this.pagerNext)
+            this.child.appendChild(this.pagerNext)
         }
 
-        this.element.innerHtml = this.child
+        this.element.appendChild(this.child)
         }
-
-
-
+    
     }
