@@ -1,92 +1,76 @@
 .field-checkbox {
     position: relative;
-    user-select: none;
-    display: inline-block;
-    // height: 20px;
     cursor: pointer;
+    width: 100%;
 
-
-
-    &__name {
-        padding: 0;
-        margin: 0;
-        display: inline-block;
-
-        margin-left: 30px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 20px;
-        //cursor: pointer;
-    }
-
-    &__input {
-        margin: 0;
-        padding: 0;
+    &__input { 
         position: absolute;
         z-index: -1;
-        border: 0;
-        top: 2px;
-        left: 2px;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
     }
 
-    &__input:before {
-        cursor: pointer;
+    &__input::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1rem;
+        width: 1rem;
         content: '';
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        width: 20px;
-        height: 20px;
-        background-color: #BC9CFF;
-        border-radius: 4px;
+        border-radius: 0.25rem;
+        border: solid 0.125rem transparent;
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $Purple;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 0.125rem 2rem 0px #fff inset;
     }
 
-    &__input:after {
-        cursor: pointer;
-        content: "";
+    &__marker {
         position: absolute;
-        top: -1px;
-        left: -1px;
-        width: 18px;
-        height: 18px;
-        background-color: #fff;
-        border-radius: 3px;
-    }
 
-    &__input:checked+.field-checkbox__mark {
-        opacity: 1.0;
-    }
-
-
-    &__mark {
-        cursor: pointer;
-        content: "";
-        position: absolute;
-        top: 5px;
+        top: 0.1875rem;
         opacity: 0;
-        transition: opacity .2s linear 0s;
+        transition: opacity .1s linear 0s;
+        height: 1rem;
+        width: 1rem;
+        overflow: hidden;
     }
 
-    &__mark:before {
+    &__marker::before {
         content: "";
+        opacity: 1;
+    
+        display: block;
         position: absolute;
-        left: 7px;
-        width: 6px;
-        height: 8px;
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        top: 0.125rem;
+        left: 0.4375rem;
+        width: 0.375rem;
+        height: 0.5rem;
+        background: $PrimaryGradient;
         transform: rotate(-135deg);
     }
 
-    &__mark:after {
+    &__marker::after {
         content: "";
         position: absolute;
-        left: 7px;
-        top: -3px;
-        width: 6px;
-        height: 8px;
+        left: 0.4375rem;
+        top: -0.125rem;
+        width: 0.375rem;
+        height: 0.5rem;
         background-color: #fff;
         transform: rotate(45deg);
+    }
+
+    &__input:checked + &__marker {
+        opacity: 1.0;
+    }
+
+    &__label {
+        padding: 0;
+        margin: 0;
+        padding-left: 1.875rem;
+        display: block;
     }
 }

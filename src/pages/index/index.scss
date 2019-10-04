@@ -1,7 +1,7 @@
 @import '../../modules/varibles.scss';
 @import '../../modules/text-field/text-field';
 @import '../../modules/dropdown/dropdown';
-@import '../../modules/field-checkbox/field-checkbox';
+// @import '../../modules/field-checkbox/field-checkbox';
 @import '../../modules/exp-checkbox-list/exp-checkbox-list';
 @import '../../modules//checkbox-list/checkbox-list';
 @import '../../modules/rich-checkbox/rich-checknox';
@@ -44,9 +44,8 @@
 
 body,
 a,
-ul {
-    padding-left: 50px;
-
+ul,
+span {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
@@ -103,6 +102,7 @@ h3 {
 
 
 .block-lib {
+    padding-left: 50px;
     padding-bottom: 21px;
 
     &__description-row {
@@ -139,5 +139,9 @@ h3 {
         width: 90%;
         padding: 0;
         margin: 0 auto;
+    }
+
+    .block-lib {
+        padding-left: 0;
     }
 }

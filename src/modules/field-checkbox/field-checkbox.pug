@@ -4,7 +4,6 @@ mixin field-checkbox(props={})
     //- Данные для JS храняться в атрибутах Data
     //- 
     //- Принимает параметры в props:
-    //- moduleClass             string      имя класса
     //- dataName                string      имя для data-name
     //- mods                    string      'open' - открыто меню
     //- labelTitle              string      
@@ -14,9 +13,7 @@ mixin field-checkbox(props={})
     //- 
     //- 
 
-
     -
-        let moduleClass = (props.moduleClass) ? props.moduleClass : props.dataName
         let allMods = ''
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
@@ -26,13 +23,24 @@ mixin field-checkbox(props={})
         }
 
     label.field-checkbox(
-        class = moduleClass + allMods,
-        data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
+        class= allMods,
+        data-name= props.dataName || ''
         )
         input.field-checkbox__input(
-            type='checkbox',
-             id=moduleClass,
-             checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
-             )&attributes(props.attrs)
-        div.field-checkbox__mark(for=moduleClass)
-        span.field-checkbox__name(for=moduleClass)= props.labelTitle
+            type="checkbox",
+            checked= props.checked || false
+            )
+        .field-checkbox__marker
+        span.field-checkbox__label= props.labelTitle || ''
+
+    //- label.checkbox-buttons(
+    //-     class = moduleClass + allMods,
+    //-     data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
+    //-     )
+    //-     input.checkbox-buttons__input(
+    //-         type='checkbox',
+    //-          id=moduleClass,
+    //-          checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
+    //-          )&attributes(props.attrs)
+    //-     div.checkbox-buttons__mark(for=moduleClass)
+    //-     span.checkbox-buttons__name(for=moduleClass)= props.labelTitle
