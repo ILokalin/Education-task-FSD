@@ -34,7 +34,7 @@ block main
     include ../../modules/like-button/like-button
     include ../../modules/rate-button/rate-button
     include ../../modules/range-slider/range-slider
-    include ../../modules/button-block/button-block
+    include ../../modules/buttons/buttons
     include ../../modules/icon-text/icon-text
     include ../../modules/icon-text-list/icon-text-list
     include ../../modules/bullet-list/bullet-list
@@ -182,37 +182,37 @@ block main
         })
 
     +block-lib({title: 'BUTTONS', width: '320px'})
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'full'
             })
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'full, hover'
             })
     
     +block-lib({title: '', width: '320px'})
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'border'
             })
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'border, hover'
             })
 
     +block-lib({title: '', width: '320px'})
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'link'
             })
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'link, dark'
             })
-    
+
     +block-lib({title: '', width: '320px'})
-        +button-block({
+        +buttons({
             lineTitle: 'CLICK ME',
             mods: 'full, arrow, big'
             })

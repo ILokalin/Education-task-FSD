@@ -1,4 +1,4 @@
-mixin button-block(props={})
+mixin buttons(props={})
 
     //- button с надписью
     //- Принимает параметры в props:
@@ -18,8 +18,11 @@ mixin button-block(props={})
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
         for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' button-block_' + modList[i].trim()
+            allMods = allMods + ' buttons_' + modList[i].trim()
             }
         }
-    .button-block(class= moduleClass + allMods)
-        button.button-block__button(type="button")= props.lineTitle
+
+    button.buttons(
+        class= moduleClass + allMods,
+        type="button"
+        )= props.lineTitle

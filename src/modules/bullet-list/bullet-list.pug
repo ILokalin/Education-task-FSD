@@ -21,7 +21,7 @@ mixin bullet-list(props={})
             }
         }
 
-    .bullet-list(class= moduleClass + allMods)
+    ul.bullet-list(class= moduleClass + allMods)
         each bulletRow, index in props.bulletStrings
 
             -
@@ -32,4 +32,4 @@ mixin bullet-list(props={})
                     rowMods = rowMods + ' bullet-list__line_' + modList[i].trim()
                     }
                 }
-            .bullet-list__line(class= rowMods)!= bulletRow.description || ''
+            li.bullet-list__item(class= rowMods)!= bulletRow.description || ''
