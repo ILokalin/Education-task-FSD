@@ -24,6 +24,7 @@ block main
 
     //- импорт всех блоков UI набора
     include ../../modules/text-field/text-field
+    include ../../modules/masked-text-field/masked-text-field
     include ../../modules/dropdown/dropdown
     include ../../modules/field-checkbox/field-checkbox
     include ../../modules/expandable-checkbox-list/expandable-checkbox-list
@@ -49,6 +50,11 @@ block main
 
     +block-lib({title: 'TEXT FIELD', mods:'HOVER / FOCUS', width: '320px'})
         +text-field({mods: 'focused', placeholder: 'This is pretty awesome'})
+
+    +block-lib({title: 'MASKED-TEXT-FIELD', mods: 'DEFAULT', width: '320px'})
+        +masked-text-field({
+            placeholder: 'ДД.ММ.ГГГ',
+            maskType: 'date'})
 
     +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
         +dropdown({

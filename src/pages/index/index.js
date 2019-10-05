@@ -17,7 +17,7 @@ import {
 import { RangeSlider } from '../../modules/range-slider/range-slider.js';
 import { Pager } from './../../modules/pagination/pagination';
 
-
+import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
 
 var ready = (callback) => {
     if (document.readyState != "loading") callback();
@@ -25,19 +25,23 @@ var ready = (callback) => {
   }
 
 ready(() => { 
+    const maskedTextDate = new MaskedTextField('date')
+
     const demoDropDown = new dropdown('.dropdownVisitors')
-    
     const demoDropDown2 = new dropdown('.dropdownEnvarenment')
-        
     const expCheckBoxList = expCheckboxList('.checkList-test')
         
     const rangeSlider = new RangeSlider()
     // ur.update() //метод для изменений
     // let foog = ur.getValue() //чтение состояния
+
     const pager = new Pager({
         items: 15,
         itemsOnPage: 5,
         element: '.pager'
     })
+
+
+
 });
 

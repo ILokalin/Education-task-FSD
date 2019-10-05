@@ -1,6 +1,6 @@
 
 
-.text-field {
+.masked-text-field {
     width: calc(100% - 0.9375rem - 0.125rem);
     height: 2.625rem;
     border: 0.0625rem solid rgba(31, 32, 65, 0.25);
@@ -20,7 +20,6 @@
 &_focused {
     @extend %hover-focus;
 }
-
 
 &::placeholder {
     color: $DarkShade25;
