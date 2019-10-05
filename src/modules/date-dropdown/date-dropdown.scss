@@ -1,0 +1,11 @@
+.date-dropdown {
+    position: relative;
+    display: inline-block;
+
+    &__marker {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        @extend %MaterialIcon;
+    }
+}

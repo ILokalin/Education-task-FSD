@@ -1,13 +1,14 @@
 extends ../../template/template
 
-mixin block-lib(props)
+mixin block-lib(props={})
 
     //- Получает данные:
     //- title       string  Заголовок - название элемента
     //- mods        string  Описание модификатора
     //- width       string  Ширина в виде 'XXpix'
      
-    .block-lib(style="max-width:"+props.width)
+    .block-lib(class= props.type || '',
+    style="max-width:"+props.width)
         .block-lib__description-row
             .block-lib__title= props.title
             .block-lib__mods= props.mods
@@ -26,6 +27,7 @@ block main
     include ../../modules/text-field/text-field
     include ../../modules/masked-text-field/masked-text-field
     include ../../modules/dropdown/dropdown
+    include ../../modules/date-dropdown/date-dropdown
     include ../../modules/field-checkbox/field-checkbox
     include ../../modules/expandable-checkbox-list/expandable-checkbox-list
     include ../../modules/checkbox-buttons/checkbox-buttons
@@ -72,6 +74,12 @@ block main
             namingForAll: 'гость,гостя,гостей',
             namingForEmpty: 'Сколько гостей'
             })
+
+    +block-lib({title: 'DATE DPROPDOWN', width: '150px', type: 'block-lib_inline'})
+        +date-dropdown({})
+
+    +block-lib({title: 'DATE DPROPDOWN', width: '150px'})
+        +date-dropdown({placeholder: '19.08.2019'})
 
     +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
         +dropdown({
