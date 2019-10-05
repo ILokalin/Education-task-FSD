@@ -1,6 +1,6 @@
 include ../../modules/field-checkbox/field-checkbox
 
-mixin checkbox-list(props={})
+mixin checkbox-buttons(props={})
 
     //- CheckboxList  раскрытый список чекбоксов
     //- Данные для JS храняться в атрибутах Data
@@ -39,17 +39,17 @@ mixin checkbox-list(props={})
         if (typeof(props.mods) !== 'undefined' && props.mods) {
         let modList = props.mods.split(',')
         for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' checkbox-list_' + modList[i].trim()
+            allMods = allMods + ' checkbox-buttons_' + modList[i].trim()
             }
         }
 
-    .checkbox-list(class = moduleClass + allMods)
-        .checkbox-list__title-wrapper
-            p.checkbox-list__title= props.listTitle
+    .checkbox-buttons(class = moduleClass + allMods)
+        .checkbox-buttons__title-wrapper
+            p.checkbox-buttons__title= props.listTitle
 
-        .checkbox-list__menu
+        .checkbox-buttons__menu
             each rowString, index in props.dropStrings
-                .checkbox-list__menuRow
+                .checkbox-buttons__menuRow
                     //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
                     +field-checkbox({
                         moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
