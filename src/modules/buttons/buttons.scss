@@ -4,8 +4,6 @@
 }
 
 .buttons{
-    font-family: Montserrat;
-    font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
     text-align: center;
@@ -48,6 +46,8 @@
 
 // Модификатор _link
 .buttons_link {
+    margin: 0;
+    padding: 0;
     color: #BC9CFF;
     border: none;
     background: transparent;
@@ -78,7 +78,7 @@
     content: 'arrow_forward';
     top: 0.625rem;
     right: 0.625rem;
-    @extend %Material-icon
+    @extend %MaterialIcon
 }
 
 

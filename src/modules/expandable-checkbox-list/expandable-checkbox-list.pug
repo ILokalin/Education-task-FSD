@@ -46,7 +46,7 @@ mixin expandable-checkbox-list(props={})
 
     .expandable-checkbox-list(class = moduleClass + allMods)
         p.expandable-checkbox-list__title= props.listTitle
-        i.expandable-checkbox-list__toggle-marker expand_more
+        span.expandable-checkbox-list__toggle-marker expand_more
 
         .expandable-checkbox-list__menu
             each rowString, index in props.dropStrings

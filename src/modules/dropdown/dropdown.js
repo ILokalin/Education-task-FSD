@@ -99,7 +99,7 @@ export function dropdown(elementClassName) {
 
         let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
 
-        if (!elementRow.classList.contains('dropdown__menuRow_btn')) {
+        if (!elementRow.classList.contains('dropdown__menu-row_buttons')) {
             // Обработка событий по нажатию кнопок инкремента и декремента
             gross[i] = Number(elementRow.dataset.mincount)
 
@@ -110,17 +110,17 @@ export function dropdown(elementClassName) {
             }
 
             elementRow.addEventListener('click', event => {
-                if (event.target.closest('.dropdown__controlDecrement')) {
+                if (event.target.closest('.dropdown__control-decrement')) {
                     if (gross[i] > optionRow[i].mincount) {
                         gross[i]--
-                        elementRow.querySelector('.dropdown__controlCount').innerHTML = gross[i]
+                        elementRow.querySelector('.dropdown__control-count').innerHTML = gross[i]
                         writeSelect()
                     }
                 }
-                if (event.target.closest('.dropdown__controlIncrement')) {
+                if (event.target.closest('.dropdown__control-increment')) {
                     if (gross[i] < optionRow[i].maxcount) {
                         gross[i]++
-                        elementRow.querySelector('.dropdown__controlCount').innerHTML = gross[i]
+                        elementRow.querySelector('.dropdown__control-count').innerHTML = gross[i]
                         writeSelect()
                     }
                 }
@@ -128,15 +128,15 @@ export function dropdown(elementClassName) {
         } else {
             // Обработка событий по нажатию кнопок выбора и отмены
             elementRow.addEventListener('click', event => {
-                if (event.target.closest('.dropdown__btnClear')) {
+                if (event.target.closest('.dropdown__button-clear')) {
                     for (let i = 0; i < optionRow.length; i++) {
                         gross[i] = optionRow[i].mincount
-                        elementDropDown.querySelector('.dropdown__menu').children[i].querySelector('.dropdown__controlCount').innerHTML = gross[i]
+                        elementDropDown.querySelector('.dropdown__menu').children[i].querySelector('.dropdown__control-count').innerHTML = gross[i]
                     }
                     elementDropDown.querySelector('.dropdown__selection').innerHTML = optionMenu.initSelection
                 }
 
-                if (event.target.closest('.dropdown__btnSubmit')) {
+                if (event.target.closest('.dropdown__button-submit')) {
                     dropDownClose()
                 }
             })
@@ -144,8 +144,6 @@ export function dropdown(elementClassName) {
     }
 
     elementDropDown.addEventListener('click', event => {
-        // Так как dropdown при раскрытии меню увеличивается на его размер, при клике для переключения 
-        // открыть/закрыть необходимо исключить поле раскрытого меню
         if (!(event.target.closest('.dropdown__menu')) && (event.target.closest(elementClassName))) {
             toggleDropdown()
         }
@@ -155,7 +153,7 @@ export function dropdown(elementClassName) {
         return gross
     }
 
-    console.log('настройка ', elementClassName, ' закончена')
+    // console.log('настройка ', elementClassName, ' закончена')
 
     correctMark()
 

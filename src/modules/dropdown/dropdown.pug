@@ -1,3 +1,5 @@
+include ../buttons/buttons
+
 mixin dropdown(props={})
 
     //- Dropdown с счетчиком количества в каждой строке
@@ -6,8 +8,8 @@ mixin dropdown(props={})
     //- Принимает параметры в props:
     //- moduleClass             string
     //- mods                    string      'open' - открыто меню
-    //- isBtnSubmit               boolean
-    //- isBtnClear                boolean
+    //- isBtnSubmit             boolean     наличие кнопки "Применить"
+    //- isBtnClear              boolean     Наличие кнопки "Очистить"
     //- dropStrings             array
     //-     lineTitle           string      текст строки
     //-     minCount            string      если не задан, то 0
@@ -40,33 +42,44 @@ mixin dropdown(props={})
 
     .dropdown(class = moduleClass + allMods)
         p.dropdown__selection= props.namingForEmpty
-        i.dropdown__mark.material-icons expand_more
+        span.dropdown__mark.material-icons expand_more
         
         .dropdown__menu(
             data-separate= (props.namingForAll) ? props.namingForAll : 'элемент, элемента, элементов'
             )
             each rowStrings, index in props.dropStrings
-                .dropdown__menuRow(
+                .dropdown__menu-row(
                     data-maxcount= (typeof(rowStrings.maxCount) !== 'undefined' && rowStrings.maxCount) ? rowStrings.maxCount : '',
                     data-mincount= (typeof(rowStrings.minCount) !== 'undefined' && rowStrings.minCount) ? rowStrings.minCount : 0,
                     data-separate= (rowStrings.isCountSeparate) ? rowStrings.namingForCount: ''
                     )
-                    p.dropdown__lineTitle= rowStrings.lineTitle
+                    p.dropdown__line-title= rowStrings.lineTitle
                     .dropdown__controls
-                        .dropdown__controlDecrement.dropdown__controlBtn
-                            span.dropdown__iconDecrement -
+                        .dropdown__control-decrement.dropdown__control-button
+                            span.dropdown__icon-decrement -
                         if rowStrings.minCount
-                            span.dropdown__controlCount= rowStrings.minCount
+                            span.dropdown__control-count= rowStrings.minCount
                         else
-                            span.dropdown__controlCount 0
-                        .dropdown__controlIncrement.dropdown__controlBtn
-                            span.dropdown__iconIncrement +
-            if props.isBtnClear||props.isBtnSubmit
-                .dropdown__menuRow.dropdown__menuRow_btn
-                    .dropdown__btnClear= (props.isBtnClear) ? 'ОЧИСТИТЬ' : ''
-                    .dropdown__btnSeparate
-                    .dropdown__btnSubmit= (props.isBtnSubmit) ? 'ПРИМЕНИТЬ' : ''
+                            span.dropdown__control-count 0
+                        .dropdown__control-increment.dropdown__control-button
+                            span.dropdown__icon-increment +
 
+            //- Если нужны "Очистить" или "Применить"
+            if props.isBtnClear||props.isBtnSubmit
+                .dropdown__menu-row.dropdown__menu-row_buttons
+                    if props.isBtnClear
+                        .dropdown__button-clear
+                            +buttons({
+                                mods: 'link, dark',
+                                lineTitle: 'ОЧИСТИТЬ'
+                            })
+                    .dropdown__separator
+                    if props.isBtnSubmit
+                        .dropdown__button-submit
+                            +buttons({
+                                mods: 'link',
+                                lineTitle: 'ПРИМЕНИТЬ'
+                            })
 
 
 //- Пример вызова
