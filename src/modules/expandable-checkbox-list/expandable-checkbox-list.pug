@@ -1,0 +1,61 @@
+include ../../modules/field-checkbox/field-checkbox
+
+mixin expandable-checkbox-list(props={})
+
+    //- expCheckboxList  раскрываемый список чекбоксов
+    //- Данные для JS храняться в атрибутах Data
+    //- 
+    //- Принимает параметры в props:
+    //- moduleClass             string      имя класса списка
+    //- mods                    string      'open' - открыто меню
+    //- listTitle               string      название спсика
+    //- dropStrings             array
+    //-     *moduleClass        string      имя класса для чекбокса
+    //-     *labelTitle         string      текст строки
+    //-     mods                string      Модификация: disabled
+    //-     checked             boolean     Установка в состояние checked
+
+        Пример вызова:
+        +expandable-checkbox-list({
+            moduleClass: 'TestCheckList',
+            mods: 'open',
+            lineTitle: 'Test Expanded Checkbox List',
+            drpString: [
+                {
+                    moduleClass: 'testCheckColor',
+                    labelTitle: 'Я выбираю цвет',
+                    mods: 'redColor',
+                    checked: true
+                },
+                {
+                    moduleClass: 'testCheckBold',
+                    labelTitle: 'Установить жирый шрифт',
+                }
+            ]
+            })
+     
+    -
+        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+        let allMods = ''
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            allMods = allMods + ' expandable-checkbox-list_' + modList[i].trim()
+            }
+        }
+
+    .expandable-checkbox-list(class = moduleClass + allMods)
+        p.expandable-checkbox-list__title= props.listTitle
+        i.expandable-checkbox-list__mark expand_more
+
+        .expandable-checkbox-list__menu
+            each rowString, index in props.dropStrings
+                .expandable-checkbox-list__menuRow
+
+                    +field-checkbox({
+                        moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
+                        labelTitle: (typeof(rowString.labelTitle) !== 'undefined' && rowString.labelTitle) ? rowString.labelTitle : '',
+                        dataName: (typeof(rowString.dataName) !== 'undefined' && rowString.dataName) ? rowString.dataName : '',
+                        mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
+                        checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
+                    })

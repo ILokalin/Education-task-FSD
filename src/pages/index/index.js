@@ -12,7 +12,7 @@ import {
 
 import {
     expCheckboxList
-} from '../../modules/exp-checkbox-list/exp-checkbox-list.js'
+} from '../../modules/expandable-checkbox-list/expandable-checkbox-list.js'
 
 import { RangeSlider } from '../../modules/range-slider/range-slider.js';
 import { Pager } from './../../modules/pagination/pagination';

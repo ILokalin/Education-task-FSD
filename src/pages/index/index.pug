@@ -26,7 +26,7 @@ block main
     include ../../modules/text-field/text-field
     include ../../modules/dropdown/dropdown
     include ../../modules/field-checkbox/field-checkbox
-    include ../../modules/exp-checkbox-list/exp-checkbox-list
+    include ../../modules/expandable-checkbox-list/expandable-checkbox-list
     include ../../modules/checkbox-buttons/checkbox-buttons
     include ../../modules/rich-checkbox/rich-checkbox
     include ../../modules/radio-buttons/radio-buttons
@@ -87,8 +87,8 @@ block main
             namingForEmpty: 'Выбрать удобства'
             })
     
-    +block-lib({title: '', mods: '', width: '320px'})
-        +exp-checkbox-list({
+    +block-lib({title: '', mods: '', width: '266px'})
+        +expandable-checkbox-list({
             listTitle: 'EXPANDABLE CHECKBOX LIST', 
             moduleClass: 'checkList-test',
             mods: 'open',
@@ -116,7 +116,7 @@ block main
         })
 
 
-    +block-lib({title: '', mods: '', width: '220px'})
+    +block-lib({title: '', mods: '', width: '222px'})
         +checkbox-buttons({
             listTitle: 'CHECKBOX BUTTONS', 
             moduleClass: 'checkList-buttons',
