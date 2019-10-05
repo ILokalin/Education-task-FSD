@@ -16,9 +16,9 @@ mixin text-field(props = {})
 			}
 		}
 
-	input.text-field(class = allMods,
-	placeholder =(typeof(props.placeholder) !== 'undefined' && props.placeholder) ? props.placeholder : '',
-	type =(typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text')&attributes(props.attrs)
+	input.text-field(class= allMods,
+	placeholder= (typeof(props.placeholder) !== 'undefined' && props.placeholder) ? props.placeholder : '',
+	type= (typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text')&attributes(props.attrs)
 
 
 
