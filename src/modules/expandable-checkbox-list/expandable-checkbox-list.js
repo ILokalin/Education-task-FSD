@@ -12,9 +12,9 @@ export function expCheckboxList(elementClassName) {
 
     function correctMark() {
         if (elementChekboxList.classList.contains('expandable-checkbox-list_open')) {
-            elementChekboxList.querySelector('.expandable-checkbox-list__mark').innerText = 'expand_less'
+            elementChekboxList.querySelector('.expandable-checkbox-list__toggle-marker').innerText = 'expand_less'
         } else {
-            elementChekboxList.querySelector('.expandable-checkbox-list__mark').innerText = 'expand_more'
+            elementChekboxList.querySelector('.expandable-checkbox-list__toggle-marker').innerText = 'expand_more'
         }
     }
 
