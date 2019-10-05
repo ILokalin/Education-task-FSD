@@ -48,8 +48,8 @@ span {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
+    font-size: 0.875rem; //14px
+    line-height: 1.5rem; //24px
 }
 
 h1, h2, h3 {
@@ -73,6 +73,10 @@ h3 {
     line-height: 0.9375rem;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
 
 // требует рефакторинг. Замена на extend
 .material-icons {

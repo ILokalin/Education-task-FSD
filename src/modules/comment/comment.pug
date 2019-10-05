@@ -28,7 +28,7 @@ mixin comment(props={})
         }
 
     .comment(class = moduleClass + allMods)
-        .comment__ring
+        .comment__photo-ring
             img.comment__photo(width="48px",
             alt="user",
             src= props.commentPhoto || ''
@@ -39,5 +39,5 @@ mixin comment(props={})
             checked: props.commentChecked || ''
             })
         .comment__user-name= props.commentUser || ''
-        .comment__date= props.commentDate || ''
-        .comment__text= props.commentText || ''
+        p.comment__date= props.commentDate || ''
+        p.comment__text= props.commentText || ''
