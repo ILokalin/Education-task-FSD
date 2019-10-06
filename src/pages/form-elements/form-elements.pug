@@ -1,0 +1,368 @@
+extends ../../template/template
+
+mixin block-lib(props={})
+
+    //- Микс задает место для элемента на странице, добавляет подписи, задает размер
+    //- Получает данные:
+    //- title       string  Заголовок - название элемента
+    //- mods        string  Описание модификатора
+    //- width       string  Ширина в виде 'XXpix'
+
+    .block-lib(class= props.type || '',
+    style="max-width:"+props.width)
+        .block-lib__description-row
+            .block-lib__title= props.title
+            .block-lib__mods= props.mods
+        .block-lib__block-row
+            block
+
+
+block title
+    | Form Elements
+
+block main
+    include ../../modules/text-field/text-field
+    include ../../modules/masked-text-field/masked-text-field
+    include ../../modules/dropdown/dropdown
+    include ../../modules/date-dropdown/date-dropdown
+    include ../../modules/field-checkbox/field-checkbox
+    include ../../modules/expandable-checkbox-list/expandable-checkbox-list
+    include ../../modules/checkbox-buttons/checkbox-buttons
+    include ../../modules/rich-checkbox/rich-checkbox
+    include ../../modules/radio-buttons/radio-buttons
+    include ../../modules/field-toggle/field-toggle
+    include ../../modules/like-button/like-button
+    include ../../modules/rate-button/rate-button
+    include ../../modules/range-slider/range-slider
+    include ../../modules/buttons/buttons
+    include ../../modules/icon-text/icon-text
+    include ../../modules/icon-text-list/icon-text-list
+    include ../../modules/bullet-list/bullet-list
+    include ../../modules/comment/comment
+    include ../../modules/pagination/pagination
+    include ../../modules/subscription-text-field/subscription-text-field
+
+    section.elements
+        .elements__column
+
+            +block-lib({title: 'TEXT FIELD', mods:'DEFULT', width: '320px'})
+                +text-field({placeholder: 'Email'})
+
+            +block-lib({title: 'TEXT FIELD', mods:'HOVER / FOCUS', width: '320px'})
+                +text-field({mods: 'focused', placeholder: 'This is pretty awesome'})
+
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+                +dropdown({
+                    moduleClass: 'dropdownVisitors',
+                    isBtnClear: true,
+                    isBtnSubmit: true,
+                    dropStrings: [
+                        {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+                        {lineTitle: 'ДЕТИ', maxCount: '5'},
+                        {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+                        isCountSeparate: true,
+                        namingForCount: 'младенец,младенца,младенцев'}
+                    ],
+                    namingForAll: 'гость,гостя,гостей',
+                    namingForEmpty: 'Сколько гостей'
+                    })
+
+            +block-lib({title: 'MASKED-TEXT-FIELD', mods: 'DEFAULT', width: '320px'})
+                +masked-text-field({
+                    placeholder: 'ДД.ММ.ГГГ',
+                    maskType: 'date'})
+
+            .half-column
+                +block-lib({title: 'DATE DPROPDOWN', width: '150px', type: 'block-lib_inline'})
+                    +date-dropdown({})
+
+            .half-column
+                +block-lib({title: 'DATE DPROPDOWN', width: '150px'})
+                    +date-dropdown({placeholder: '19.08.2019'})
+
+            +block-lib({title: 'SUBSCRIPTION TEXT FIELD', width: '267px'})
+                +subscription-text-field({placeholder: 'Email'})
+
+        .elements__column
+            +block-lib({title: '', mods: '', width: '222px'})
+                +checkbox-buttons({
+                    listTitle: 'CHECKBOX BUTTONS', 
+                    moduleClass: 'checkList-buttons',
+                    dropStrings: [
+                        {dataName: 'checkbox-smoking',
+                        labelTitle: 'Можно курить'},
+                        {dataName: 'checkbox-pets',
+                        labelTitle: 'Можно с питомцами',
+                        checked: true},
+                        {dataName: 'checkbox-guests',
+                        labelTitle: 'Можно пригласить гостей (до 10 человек)',
+                        checked: true},
+                        ]
+                    })
+
+            +block-lib({width: '320px'})
+                +radio-buttons({
+                    labelTitle: 'RADIO BUTTONS',
+                    moduleClass: 'radio-battons-test',
+                    buttonsList: [
+                        {buttonTitle: 'Мужчина',
+                        buttonValue: 'man',
+                        checked: true},
+                        {buttonTitle: 'Женщина',
+                        buttonValue: 'woman'}
+                        ]
+                    })
+
+            +block-lib({title: 'TOGGLE', width: '320px'})
+                +field-toggle({
+                    labelTitle: 'Получать спецпредложения',
+                    moduleClass: 'field-toggle-test',
+                    checked: true
+                    })
+
+            +block-lib({title: 'LIKE BUTTON', width: '220px'})
+                +like-button({
+                    labelTitle: '2',
+                    moduleClass: 'like-button-test'
+                    })
+
+            +block-lib({title: 'RATE-BUTTON', width: '320px'})
+                .half-column
+                    +rate-button({
+                        rate: '4'
+                    })
+                .half-column
+                    +rate-button({
+                        rate: '5'
+                    })
+
+        .elements__column
+            +block-lib({title: '', width: '266px', mods: ''})
+                +range-slider({
+                    lineTitle: 'RANGE SLIDER',
+                })
+
+            +block-lib({title: 'BUTTONS', width: '320px'})
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'full'
+                    })
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'full, hover'
+                    })
+
+            +block-lib({title: '', width: '320px'})
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'border'
+                    })
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'border, hover'
+                    })
+
+            +block-lib({title: '', width: '320px'})
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'link'
+                    })
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'link, dark'
+                    })
+
+            +block-lib({title: '', width: '320px'})
+                +buttons({
+                    lineTitle: 'CLICK ME',
+                    mods: 'full, arrow, big'
+                    })
+
+            +block-lib({title: 'PAGINATION', width: "240px"})
+                +pagination({})
+
+
+    section.elements
+        .elements__column
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+                +dropdown({
+                    moduleClass: 'dropdownEnvarenmentClose',
+                    isBtnClear: false,
+                    isBtnSubmit: false,
+                    dropStrings: [
+                        {lineTitle: 'СПАЛЬНИ', maxCount: '2',
+                        isCountSeparate: true,
+                        namingForCount: 'спальня,спальни,спален'},
+                        {lineTitle: 'КРОВАТИ', minCount: '1', maxCount: '4',
+                        isCountSeparate: true,
+                        namingForCount: 'кровать,кровати,кроватей'},
+                        {lineTitle: 'ВАННЫЕ КОМНАТЫ', maxCount: '2',
+                        isCountSeparate: true,
+                        namingForCount: 'ванная комната,ванных комнаты,ванных комнат'}
+                    ],
+                    namingForAll: '',
+                    namingForEmpty: 'Выбрать удобства'
+                    })
+
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+                +dropdown({
+                    moduleClass: 'dropdown-envarenment-open',
+                    mods: 'open',
+                    isBtnClear: false,
+                    isBtnSubmit: false,
+                    dropStrings: [
+                        {lineTitle: 'СПАЛЬНИ', maxCount: '2',
+                        isCountSeparate: true,
+                        namingForCount: 'спальня,спальни,спален'},
+                        {lineTitle: 'КРОВАТИ', minCount: '1', maxCount: '4',
+                        isCountSeparate: true,
+                        namingForCount: 'кровать,кровати,кроватей'},
+                        {lineTitle: 'ВАННЫЕ КОМНАТЫ', maxCount: '2',
+                        isCountSeparate: true,
+                        namingForCount: 'ванная комната,ванных комнаты,ванных комнат'}
+                    ],
+                    namingForAll: '',
+                    namingForEmpty: 'Выбрать удобства'
+                    })
+
+        .elements__column
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+                +dropdown({
+                    moduleClass: 'dropdown-visitors-without-clear',
+                    mods: 'open',
+                    isBtnClear: false,
+                    isBtnSubmit: true,
+                    dropStrings: [
+                        {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+                        {lineTitle: 'ДЕТИ', maxCount: '5'},
+                        {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+                        isCountSeparate: true,
+                        namingForCount: 'младенец,младенца,младенцев'}
+                    ],
+                    namingForAll: 'гость,гостя,гостей',
+                    namingForEmpty: 'Сколько гостей'
+                    })
+
+        .elements__column
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+                +dropdown({
+                    moduleClass: 'dropdown-visitors-clear',
+                    mods: 'open',
+                    isBtnClear: true,
+                    isBtnSubmit: true,
+                    dropStrings: [
+                        {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+                        {lineTitle: 'ДЕТИ', maxCount: '5'},
+                        {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+                        isCountSeparate: true,
+                        namingForCount: 'младенец,младенца,младенцев'}
+                    ],
+                    namingForAll: 'гость,гостя,гостей',
+                    namingForEmpty: 'Сколько гостей'
+                    })
+
+
+    section.elements
+        .elements__column
+            +block-lib({title: '', mods: '', width: '266px'})
+                +expandable-checkbox-list({
+                    listTitle: 'EXPANDABLE CHECKBOX LIST', 
+                    moduleClass: 'checkList-test',
+                    dropStrings: [
+                        {dataName: 'checkbox-breakfast',
+                        labelTitle: 'Завтрак'},
+                        {dataName: 'checkbox-table',
+                        labelTitle: 'Письменный стол',
+                        checked: true},
+                        {dataName: 'checkbox-childChair',
+                        labelTitle: 'Стул для кормления',
+                        checked: true},
+                        {dataName: 'checkbox-childBed',
+                        labelTitle: 'Кроватка',
+                        checked: true},
+                        {dataName: 'checkbox-TV1',
+                        labelTitle: 'Телевизор'},
+                        {dataName: 'checkbox-showerGel1',
+                        labelTitle: 'Шампунь'},
+                        {dataName: 'checkbox-TV2',
+                        labelTitle: 'Телевизор'},
+                        {dataName: 'checkbox-showerGel2',
+                        labelTitle: 'Шампунь'}
+                    ]
+                })
+
+            +block-lib({title: '', mods: '', width: '266px'})
+                +expandable-checkbox-list({
+                    listTitle: 'EXPANDABLE CHECKBOX LIST', 
+                    moduleClass: 'checkList-test',
+                    mods: 'open',
+                    dropStrings: [
+                        {dataName: 'checkbox-breakfast',
+                        labelTitle: 'Завтрак'},
+                        {dataName: 'checkbox-table',
+                        labelTitle: 'Письменный стол',
+                        checked: true},
+                        {dataName: 'checkbox-childChair',
+                        labelTitle: 'Стул для кормления',
+                        checked: true},
+                        {dataName: 'checkbox-childBed',
+                        labelTitle: 'Кроватка',
+                        checked: true},
+                        {dataName: 'checkbox-TV1',
+                        labelTitle: 'Телевизор'},
+                        {dataName: 'checkbox-showerGel1',
+                        labelTitle: 'Шампунь'},
+                        {dataName: 'checkbox-TV2',
+                        labelTitle: 'Телевизор'},
+                        {dataName: 'checkbox-showerGel2',
+                        labelTitle: 'Шампунь'}
+                    ]
+                })
+
+        .elements__column
+            +block-lib({title: 'RICH CHECKBOX', width: '220px'})
+                +rich-checkbox({
+                    labelTitle: 'Широкий коридор',
+                    labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
+                    moduleClass: 'rich-checkbox-test'
+                })
+
+        .elements__column
+            +block-lib({title: 'BULLET LIST', width: '280px'})
+                +bullet-list({
+                    bulletStrings: [
+                        {description: 'Нельзя с питомцами'},
+                        {description: 'Без вечеринок и мероприятий'},
+                        {description: 'Время прибытия — после 13:00,<br>а выезд до 12:00'}
+                    ]
+                })    
+
+
+    section.elements
+        .elements__column
+            +block-lib({title: 'ICON-TEXT LIST', width: '280px'})
+                +icon-text-list({
+                    iconStrings: [
+                        {
+                        icon: 'insert_emoticon',
+                        lineTitle: 'Комфорт',
+                        description: 'Шумопоглощающие стены'
+                        },
+                        {
+                        icon: 'location_city',
+                        lineTitle: 'Удобство',
+                        description: 'Окно в каждой из спален'
+                        }
+                    ]
+                })
+
+
+        +block-lib({width: '712px'})
+            +comment({
+                commentUser:    'Мурад Сарафанов',
+                commentPhoto:   './images/avatar.png',
+                commentDate:    '5 дней назад',
+                commentLike:    '12',
+                commentChecked: true,
+                commentText:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+            })

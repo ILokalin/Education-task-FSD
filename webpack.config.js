@@ -18,7 +18,8 @@ const PATHS = {
 
 const common = merge([{
         entry: {
-            'index': PATHS.source + '/pages/index/index.js'
+            'index': PATHS.source + '/pages/index/index.js',
+            'form-elements': PATHS.source +'/pages/form-elements/form-elements.js'
         },
         output: {
             path: PATHS.build,
@@ -35,8 +36,14 @@ const common = merge([{
                 chunks: ['index', 'common'],
                 template: PATHS.source + '/pages/index/index.pug'
             }),
+            new HtmlWebpackPlugin({
+                filename: 'form-elements.html',
+                chunks: ['form-elements', 'common'],
+                template: PATHS.source + '/pages/form-elements/form-elements.pug'
+            }),
             new MiniCssExtractPlugin({
-                filename: 'style.css'
+                filename: '[name].css',
+                chunks: ['index', 'common', 'form-elements']
             }),
             new webpack.ProvidePlugin({
                 $: 'jquery',

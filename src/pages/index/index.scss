@@ -1,4 +1,4 @@
-@import '../../modules/varibles.scss';
+@import '../common.scss';
 @import '../../modules/text-field/text-field.scss';
 @import '../../modules/masked-text-field/masked-text-field.scss';
 @import '../../modules/dropdown/dropdown';
@@ -22,63 +22,63 @@
 
 
 
-@mixin font-face($font-name, $font-path, $font-weight: 400, $font-style: normal) {
-    @font-face {
-        font-family: $font-name;
-        font-style: $font-style;
-        font-weight: $font-weight;
-        src: url('#{$font-path}.woff2') format('woff2'),
-        url('#{$font-path}.woff') format('woff'),
-        url('#{$font-path}.ttf') format('truetype');
-    }
-}
+// @mixin font-face($font-name, $font-path, $font-weight: 400, $font-style: normal) {
+//     @font-face {
+//         font-family: $font-name;
+//         font-style: $font-style;
+//         font-weight: $font-weight;
+//         src: url('#{$font-path}.woff2') format('woff2'),
+//         url('#{$font-path}.woff') format('woff'),
+//         url('#{$font-path}.ttf') format('truetype');
+//     }
+// }
 
-@include font-face("Material Icons", "fonts/MaterialIcons-Regular");
+// @include font-face("Material Icons", "fonts/MaterialIcons-Regular");
 
-@include font-face("Montserrat", "fonts/Montserrat-Regular");
-@include font-face("Montserrat", "fonts/Montserrat-Bold", bold);
+// @include font-face("Montserrat", "fonts/Montserrat-Regular");
+// @include font-face("Montserrat", "fonts/Montserrat-Bold", bold);
 
-@include font-face("Quicksand", "fonts/OpenSans-Bold", bold);
-@include font-face("Quicksand", "fonts/OpenSans-Regular");
-
-
+// @include font-face("Quicksand", "fonts/OpenSans-Bold", bold);
+// @include font-face("Quicksand", "fonts/OpenSans-Regular");
 
 
-body,
-a, button,
-ul {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.875rem; //14px
-    line-height: 1.5rem; //24px
-}
 
-h1, h2, h3 {
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: bold;
-}
 
-h1 {
-    font-size: 1.5rem;
-    line-height: 1.875rem;
-}
+// body,
+// a, button,
+// ul {
+//     font-family: Montserrat;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 0.875rem; //14px
+//     line-height: 1.5rem; //24px
+// }
 
-h2 {
-    font-size: 19px;
-    line-height: 30px;
-}
+// h1, h2, h3 {
+//     font-family: Quicksand;
+//     font-style: normal;
+//     font-weight: bold;
+// }
 
-h3 {
-    font-size: 0.75rem;
-    line-height: 0.9375rem;
-}
+// h1 {
+//     font-size: 1.5rem;
+//     line-height: 1.875rem;
+// }
 
-p {
-    margin: 0;
-    padding: 0;
-}
+// h2 {
+//     font-size: 19px;
+//     line-height: 30px;
+// }
+
+// h3 {
+//     font-size: 0.75rem;
+//     line-height: 0.9375rem;
+// }
+
+// p {
+//     margin: 0;
+//     padding: 0;
+// }
 
 // требует рефакторинг. Замена на extend
 .material-icons {

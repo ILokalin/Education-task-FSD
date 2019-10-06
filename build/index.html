@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ui Page
     </title>
-  <link href="style.css" rel="stylesheet"></head>
+  <link href="index.css" rel="stylesheet"></head>
   <body>
     <h1 class="page__header">UI kit for FSD 2</h1>
     <p class="page__description">Webpack + pug + scss + JS</p>
@@ -30,40 +30,86 @@
     </div>
     <div class="block-lib" style="max-width:320px">
       <div class="block-lib__description-row">
+        <div class="block-lib__title">MASKED-TEXT-FIELD</div>
+        <div class="block-lib__mods">DEFAULT</div>
+      </div>
+      <div class="block-lib__block-row">
+            <input class="masked-text-field" placeholder="ДД.ММ.ГГГ" type="text" name="date" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}">
+      </div>
+    </div>
+    <div class="block-lib" style="max-width:320px">
+      <div class="block-lib__description-row">
         <div class="block-lib__title">DROPDOWN</div>
         <div class="block-lib__mods">DEFAULT</div>
       </div>
       <div class="block-lib__block-row">
             <div class="dropdown dropdownVisitors dropdown_open">
-              <p class="dropdown__selection">Сколько гостей</p><i class="dropdown__mark material-icons">expand_more</i>
+              <p class="dropdown__selection">Сколько гостей</p><span class="dropdown__mark material-icons">expand_more</span>
               <div class="dropdown__menu" data-separate="гость,гостя,гостей">
-                <div class="dropdown__menuRow" data-maxcount="5" data-mincount="0" data-separate="">
-                  <p class="dropdown__lineTitle">ВЗРОСЛЫЕ</p>
+                <div class="dropdown__menu-row" data-maxcount="5" data-mincount="0" data-separate="">
+                  <p class="dropdown__line-title">ВЗРОСЛЫЕ</p>
                   <div class="dropdown__controls">
-                    <div class="dropdown__controlDecrement dropdown__controlBtn"><span class="dropdown__iconDecrement">-</span></div><span class="dropdown__controlCount">0</span>
-                    <div class="dropdown__controlIncrement dropdown__controlBtn"><span class="dropdown__iconIncrement">+</span></div>
+                    <div class="dropdown__control-decrement dropdown__control-button"><span class="dropdown__icon-decrement">-</span></div><span class="dropdown__control-count">0</span>
+                    <div class="dropdown__control-increment dropdown__control-button"><span class="dropdown__icon-increment">+</span></div>
                   </div>
                 </div>
-                <div class="dropdown__menuRow" data-maxcount="5" data-mincount="0" data-separate="">
-                  <p class="dropdown__lineTitle">ДЕТИ</p>
+                <div class="dropdown__menu-row" data-maxcount="5" data-mincount="0" data-separate="">
+                  <p class="dropdown__line-title">ДЕТИ</p>
                   <div class="dropdown__controls">
-                    <div class="dropdown__controlDecrement dropdown__controlBtn"><span class="dropdown__iconDecrement">-</span></div><span class="dropdown__controlCount">0</span>
-                    <div class="dropdown__controlIncrement dropdown__controlBtn"><span class="dropdown__iconIncrement">+</span></div>
+                    <div class="dropdown__control-decrement dropdown__control-button"><span class="dropdown__icon-decrement">-</span></div><span class="dropdown__control-count">0</span>
+                    <div class="dropdown__control-increment dropdown__control-button"><span class="dropdown__icon-increment">+</span></div>
                   </div>
                 </div>
-                <div class="dropdown__menuRow" data-maxcount="5" data-mincount="0" data-separate="младенец,младенца,младенцев">
-                  <p class="dropdown__lineTitle">МЛАДЕНЦЫ</p>
+                <div class="dropdown__menu-row" data-maxcount="5" data-mincount="0" data-separate="младенец,младенца,младенцев">
+                  <p class="dropdown__line-title">МЛАДЕНЦЫ</p>
                   <div class="dropdown__controls">
-                    <div class="dropdown__controlDecrement dropdown__controlBtn"><span class="dropdown__iconDecrement">-</span></div><span class="dropdown__controlCount">0</span>
-                    <div class="dropdown__controlIncrement dropdown__controlBtn"><span class="dropdown__iconIncrement">+</span></div>
+                    <div class="dropdown__control-decrement dropdown__control-button"><span class="dropdown__icon-decrement">-</span></div><span class="dropdown__control-count">0</span>
+                    <div class="dropdown__control-increment dropdown__control-button"><span class="dropdown__icon-increment">+</span></div>
                   </div>
                 </div>
-                <div class="dropdown__menuRow dropdown__menuRow_btn">
-                  <div class="dropdown__btnClear">ОЧИСТИТЬ</div>
-                  <div class="dropdown__btnSeparate"></div>
-                  <div class="dropdown__btnSubmit">ПРИМЕНИТЬ</div>
+                <div class="dropdown__menu-row dropdown__menu-row_buttons">
+                  <div class="dropdown__button-clear">
+                        <button class="buttons  buttons_link buttons_dark" type="button">ОЧИСТИТЬ</button>
+                  </div>
+                  <div class="dropdown__separator"></div>
+                  <div class="dropdown__button-submit">
+                        <button class="buttons  buttons_link" type="button">ПРИМЕНИТЬ</button>
+                  </div>
                 </div>
               </div>
+            </div>
+      </div>
+    </div>
+    <div class="block-lib block-lib_inline" style="max-width:150px">
+      <div class="block-lib__description-row">
+        <div class="block-lib__title">DATE DPROPDOWN</div>
+        <div class="block-lib__mods"></div>
+      </div>
+      <div class="block-lib__block-row">
+            <div class="date-dropdown">
+                  <input class="masked-text-field" placeholder="ДД.ММ.ГГГГ" type="text" name="date" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}"><span class="date-dropdown__marker">expand_more</span>
+            </div>
+      </div>
+    </div>
+    <div class="block-lib" style="max-width:150px">
+      <div class="block-lib__description-row">
+        <div class="block-lib__title">DATE DPROPDOWN</div>
+        <div class="block-lib__mods"></div>
+      </div>
+      <div class="block-lib__block-row">
+            <div class="date-dropdown">
+                  <input class="masked-text-field" placeholder="19.08.2019" type="text" name="date" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}"><span class="date-dropdown__marker">expand_more</span>
+            </div>
+      </div>
+    </div>
+    <div class="block-lib" style="max-width:267px">
+      <div class="block-lib__description-row">
+        <div class="block-lib__title">SUBSCRIPTION TEXT FIELD</div>
+        <div class="block-lib__mods"></div>
+      </div>
+      <div class="block-lib__block-row">
+            <div class="subscription-text-field">
+                  <input class="text-field" placeholder="Email" type="text"><span class="subscription-text-field__marker">arrow_forward</span>
             </div>
       </div>
     </div>
@@ -74,133 +120,132 @@
       </div>
       <div class="block-lib__block-row">
             <div class="dropdown dropdownEnvarenment">
-              <p class="dropdown__selection">Выбрать удобства</p><i class="dropdown__mark material-icons">expand_more</i>
+              <p class="dropdown__selection">Выбрать удобства</p><span class="dropdown__mark material-icons">expand_more</span>
               <div class="dropdown__menu" data-separate="элемент, элемента, элементов">
-                <div class="dropdown__menuRow" data-maxcount="2" data-mincount="0" data-separate="спальня,спальни,спален">
-                  <p class="dropdown__lineTitle">СПАЛЬНИ</p>
+                <div class="dropdown__menu-row" data-maxcount="2" data-mincount="0" data-separate="спальня,спальни,спален">
+                  <p class="dropdown__line-title">СПАЛЬНИ</p>
                   <div class="dropdown__controls">
-                    <div class="dropdown__controlDecrement dropdown__controlBtn"><span class="dropdown__iconDecrement">-</span></div><span class="dropdown__controlCount">0</span>
-                    <div class="dropdown__controlIncrement dropdown__controlBtn"><span class="dropdown__iconIncrement">+</span></div>
+                    <div class="dropdown__control-decrement dropdown__control-button"><span class="dropdown__icon-decrement">-</span></div><span class="dropdown__control-count">0</span>
+                    <div class="dropdown__control-increment dropdown__control-button"><span class="dropdown__icon-increment">+</span></div>
                   </div>
                 </div>
-                <div class="dropdown__menuRow" data-maxcount="4" data-mincount="1" data-separate="кровать,кровати,кроватей">
-                  <p class="dropdown__lineTitle">КРОВАТИ</p>
+                <div class="dropdown__menu-row" data-maxcount="4" data-mincount="1" data-separate="кровать,кровати,кроватей">
+                  <p class="dropdown__line-title">КРОВАТИ</p>
                   <div class="dropdown__controls">
-                    <div class="dropdown__controlDecrement dropdown__controlBtn"><span class="dropdown__iconDecrement">-</span></div><span class="dropdown__controlCount">1</span>
-                    <div class="dropdown__controlIncrement dropdown__controlBtn"><span class="dropdown__iconIncrement">+</span></div>
+                    <div class="dropdown__control-decrement dropdown__control-button"><span class="dropdown__icon-decrement">-</span></div><span class="dropdown__control-count">1</span>
+                    <div class="dropdown__control-increment dropdown__control-button"><span class="dropdown__icon-increment">+</span></div>
                   </div>
                 </div>
-                <div class="dropdown__menuRow" data-maxcount="2" data-mincount="0" data-separate="ванная комната,ванных комнаты,ванных комнат">
-                  <p class="dropdown__lineTitle">ВАННЫЕ КОМНАТЫ</p>
+                <div class="dropdown__menu-row" data-maxcount="2" data-mincount="0" data-separate="ванная комната,ванных комнаты,ванных комнат">
+                  <p class="dropdown__line-title">ВАННЫЕ КОМНАТЫ</p>
                   <div class="dropdown__controls">
-                    <div class="dropdown__controlDecrement dropdown__controlBtn"><span class="dropdown__iconDecrement">-</span></div><span class="dropdown__controlCount">0</span>
-                    <div class="dropdown__controlIncrement dropdown__controlBtn"><span class="dropdown__iconIncrement">+</span></div>
+                    <div class="dropdown__control-decrement dropdown__control-button"><span class="dropdown__icon-decrement">-</span></div><span class="dropdown__control-count">0</span>
+                    <div class="dropdown__control-increment dropdown__control-button"><span class="dropdown__icon-increment">+</span></div>
                   </div>
                 </div>
               </div>
             </div>
       </div>
     </div>
-    <div class="block-lib" style="max-width:320px">
-      <div class="block-lib__description-row">
-        <div class="block-lib__title">CHECKBOX</div>
-        <div class="block-lib__mods">DEFULT</div>
-      </div>
-      <div class="block-lib__block-row">
-            <label class="field-checkbox test" data-name="">
-              <input class="field-checkbox__input" type="checkbox" id="test">
-              <div class="field-checkbox__mark" for="test"></div><span class="field-checkbox__name" for="test">Текстовый тест</span>
-            </label>
-      </div>
-    </div>
-    <div class="block-lib" style="max-width:320px">
+    <div class="block-lib" style="max-width:266px">
       <div class="block-lib__description-row">
         <div class="block-lib__title"></div>
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="exp-checkbox-list checkList-test exp-checkbox-list_open">
-              <p class="exp-checkbox-list__title">EXPANDABLE CHECKBOX LIST</p><i class="exp-checkbox-list__mark material-icons">expand_moreй</i>
-              <div class="exp-checkbox-list__menu">
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-breakfast" data-name="checkbox-breakfast">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-breakfast">
-                        <div class="field-checkbox__mark" for="checkbox-breakfast"></div><span class="field-checkbox__name" for="checkbox-breakfast">Завтрак</span>
+            <div class="expandable-checkbox-list checkList-test expandable-checkbox-list_open">
+              <p class="expandable-checkbox-list__title">EXPANDABLE CHECKBOX LIST</p><span class="expandable-checkbox-list__toggle-marker">expand_more</span>
+              <div class="expandable-checkbox-list__menu">
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-breakfast">
+                        <input class="field-checkbox__input" type="checkbox">
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Завтрак</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-table" data-name="checkbox-table">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-table" checked>
-                        <div class="field-checkbox__mark" for="checkbox-table"></div><span class="field-checkbox__name" for="checkbox-table">Письменный стол</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-table">
+                        <input class="field-checkbox__input" type="checkbox" checked>
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Письменный стол</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-childChair" data-name="checkbox-childChair">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-childChair" checked>
-                        <div class="field-checkbox__mark" for="checkbox-childChair"></div><span class="field-checkbox__name" for="checkbox-childChair">Стул для кормления</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-childChair">
+                        <input class="field-checkbox__input" type="checkbox" checked>
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Стул для кормления</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-childBed" data-name="checkbox-childBed">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-childBed" checked>
-                        <div class="field-checkbox__mark" for="checkbox-childBed"></div><span class="field-checkbox__name" for="checkbox-childBed">Кроватка</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-childBed">
+                        <input class="field-checkbox__input" type="checkbox" checked>
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Кроватка</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-TV1" data-name="checkbox-TV1">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-TV1">
-                        <div class="field-checkbox__mark" for="checkbox-TV1"></div><span class="field-checkbox__name" for="checkbox-TV1">Телевизор</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-TV1">
+                        <input class="field-checkbox__input" type="checkbox">
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Телевизор</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-showerGel1" data-name="checkbox-showerGel1">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-showerGel1">
-                        <div class="field-checkbox__mark" for="checkbox-showerGel1"></div><span class="field-checkbox__name" for="checkbox-showerGel1">Шампунь</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-showerGel1">
+                        <input class="field-checkbox__input" type="checkbox">
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Шампунь</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-TV2" data-name="checkbox-TV2">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-TV2">
-                        <div class="field-checkbox__mark" for="checkbox-TV2"></div><span class="field-checkbox__name" for="checkbox-TV2">Телевизор</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-TV2">
+                        <input class="field-checkbox__input" type="checkbox">
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Телевизор</p>
                       </label>
                 </div>
-                <div class="exp-checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-showerGel2" data-name="checkbox-showerGel2">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-showerGel2">
-                        <div class="field-checkbox__mark" for="checkbox-showerGel2"></div><span class="field-checkbox__name" for="checkbox-showerGel2">Шампунь</span>
+                <div class="expandable-checkbox-list__menu-row">
+                      <label class="field-checkbox" data-name="checkbox-showerGel2">
+                        <input class="field-checkbox__input" type="checkbox">
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Шампунь</p>
                       </label>
                 </div>
               </div>
             </div>
       </div>
     </div>
-    <div class="block-lib" style="max-width:220px">
+    <div class="block-lib" style="max-width:222px">
       <div class="block-lib__description-row">
         <div class="block-lib__title"></div>
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="checkbox-list checkList-buttons">
-              <div class="checkbox-list__title-wrapper">
-                <p class="checkbox-list__title">CHECKBOX BUTTONS</p>
+            <div class="checkbox-buttons checkList-buttons">
+              <div class="checkbox-buttons__title-wrapper">
+                <p class="checkbox-buttons__title">CHECKBOX BUTTONS</p>
               </div>
-              <div class="checkbox-list__menu">
-                <div class="checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-smoking" data-name="checkbox-smoking">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-smoking">
-                        <div class="field-checkbox__mark" for="checkbox-smoking"></div><span class="field-checkbox__name" for="checkbox-smoking">Можно курить</span>
+              <div class="checkbox-buttons__menu">
+                <div class="checkbox-buttons__menuRow">
+                      <label class="field-checkbox" data-name="checkbox-smoking">
+                        <input class="field-checkbox__input" type="checkbox">
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Можно курить</p>
                       </label>
                 </div>
-                <div class="checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-pets" data-name="checkbox-pets">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-pets" checked>
-                        <div class="field-checkbox__mark" for="checkbox-pets"></div><span class="field-checkbox__name" for="checkbox-pets">Можно с питомцами</span>
+                <div class="checkbox-buttons__menuRow">
+                      <label class="field-checkbox" data-name="checkbox-pets">
+                        <input class="field-checkbox__input" type="checkbox" checked>
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Можно с питомцами</p>
                       </label>
                 </div>
-                <div class="checkbox-list__menuRow">
-                      <label class="field-checkbox checkbox-guests" data-name="checkbox-guests">
-                        <input class="field-checkbox__input" type="checkbox" id="checkbox-guests" checked>
-                        <div class="field-checkbox__mark" for="checkbox-guests"></div><span class="field-checkbox__name" for="checkbox-guests">Можно пригласить гостей (до 10 человек)</span>
+                <div class="checkbox-buttons__menuRow">
+                      <label class="field-checkbox" data-name="checkbox-guests">
+                        <input class="field-checkbox__input" type="checkbox" checked>
+                        <div class="field-checkbox__marker"></div>
+                        <p class="field-checkbox__label">Можно пригласить гостей (до 10 человек)</p>
                       </label>
                 </div>
               </div>
@@ -299,12 +344,8 @@
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="button-block  button-block_full">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
-            <div class="button-block  button-block_full button-block_hover">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
+            <button class="buttons  buttons_full" type="button">CLICK ME</button>
+            <button class="buttons  buttons_full buttons_hover" type="button">CLICK ME</button>
       </div>
     </div>
     <div class="block-lib" style="max-width:320px">
@@ -313,12 +354,8 @@
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="button-block  button-block_border">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
-            <div class="button-block  button-block_border button-block_hover">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
+            <button class="buttons  buttons_border" type="button">CLICK ME</button>
+            <button class="buttons  buttons_border buttons_hover" type="button">CLICK ME</button>
       </div>
     </div>
     <div class="block-lib" style="max-width:320px">
@@ -327,12 +364,8 @@
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="button-block  button-block_link">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
-            <div class="button-block  button-block_link button-block_dark">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
+            <button class="buttons  buttons_link" type="button">CLICK ME</button>
+            <button class="buttons  buttons_link buttons_dark" type="button">CLICK ME</button>
       </div>
     </div>
     <div class="block-lib" style="max-width:320px">
@@ -341,21 +374,7 @@
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="button-block  button-block_full button-block_arrow button-block_big">
-              <button class="button-block__button" type="button">CLICK ME</button>
-            </div>
-      </div>
-    </div>
-    <div class="block-lib" style="max-width:220px;">
-      <div class="block-lib__description-row">
-        <div class="block-lib__title">ICON-TEXT</div>
-        <div class="block-lib__mods">SINGLE</div>
-      </div>
-      <div class="block-lib__block-row">
-            <div class="icon-text">
-              <div class="icon-text__icon">location_city</div><span class="icon-text__lineTitle">Удобство</span>
-              <p class="icon-text__description">Окно в каждой из спален</p>
-            </div>
+            <button class="buttons  buttons_full buttons_arrow buttons_big" type="button">CLICK ME</button>
       </div>
     </div>
     <div class="block-lib" style="max-width:280px">
@@ -384,29 +403,29 @@
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="bullet-list">
-              <div class="bullet-list__line">Нельзя с питомцами</div>
-              <div class="bullet-list__line">Без вечеринок и мероприятий</div>
-              <div class="bullet-list__line">Время прибытия — после 13:00,<br>а выезд до 12:00</div>
-            </div>
+            <ul class="bullet-list">
+              <li class="bullet-list__item">Нельзя с питомцами</li>
+              <li class="bullet-list__item">Без вечеринок и мероприятий</li>
+              <li class="bullet-list__item">Время прибытия — после 13:00,<br>а выезд до 12:00</li>
+            </ul>
       </div>
     </div>
-    <div class="block-lib" style="max-width:711px">
+    <div class="block-lib" style="max-width:712px">
       <div class="block-lib__description-row">
         <div class="block-lib__title"></div>
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
             <div class="comment">
-              <div class="comment__ring"><img class="comment__photo" width="48px" alt="user" src="./images/avatar.png"></div>
+              <div class="comment__photo-ring"><img class="comment__photo" width="48px" alt="user" src="./images/avatar.png"></div>
               <div class="comment__like-button">
                     <label class="like-button undefined" data-name="">
                       <input class="like-button__input" type="checkbox" checked><span class="like-button__mark">favorite_border</span><span class="like-button__name">12</span>
                     </label>
               </div>
               <div class="comment__user-name">Мурад Сарафанов</div>
-              <div class="comment__date">5 дней назад</div>
-              <div class="comment__text">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</div>
+              <p class="comment__date">5 дней назад</p>
+              <p class="comment__text">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</p>
             </div>
       </div>
     </div>
@@ -416,7 +435,7 @@
         <div class="block-lib__mods"></div>
       </div>
       <div class="block-lib__block-row">
-            <div class="pagination"></div>
+            <div class="pager"></div>
       </div>
     </div>
   <script type="text/javascript" src="js/index.js"></script></body>
