@@ -110,6 +110,10 @@
         padding-right: 0.375rem;
         cursor: pointer;
     }
+
+    &__marker {
+        @extend %MaterialIcon;
+    }
 }
 
 .dropdown_open {

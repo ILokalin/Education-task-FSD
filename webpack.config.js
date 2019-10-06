@@ -43,7 +43,7 @@ const common = merge([{
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].css',
-                chunks: ['index', 'common', 'form-elements']
+                // chunks: ['index', 'common', 'form-elements']
             }),
             new webpack.ProvidePlugin({
                 $: 'jquery',

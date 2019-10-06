@@ -10,9 +10,9 @@ export function dropdown(elementClassName) {
 
     const correctMark = () => {
         if (elementDropDown.classList.contains('dropdown_open')) {
-            elementDropDown.querySelector('.dropdown__mark').innerText = 'expand_less'
+            elementDropDown.querySelector('.dropdown__marker').innerText = 'expand_less'
         } else {
-            elementDropDown.querySelector('.dropdown__mark').innerText = 'expand_more'
+            elementDropDown.querySelector('.dropdown__marker').innerText = 'expand_more'
         }
     }
 

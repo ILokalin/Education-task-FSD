@@ -42,7 +42,7 @@ mixin dropdown(props={})
 
     .dropdown(class = moduleClass + allMods)
         p.dropdown__selection= props.namingForEmpty
-        span.dropdown__mark.material-icons expand_more
+        span.dropdown__marker expand_more
         
         .dropdown__menu(
             data-separate= (props.namingForAll) ? props.namingForAll : 'элемент, элемента, элементов'

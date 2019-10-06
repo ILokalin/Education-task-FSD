@@ -10694,8 +10694,240 @@ return jQuery;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return dropdown; });
+function dropdown(elementClassName) {
+
+    // console.log('настройка с ', elementClassName)
+
+    let elementDropDown = document.querySelector(elementClassName),
+        gross = [],
+        optionMenu = {},
+        optionRow = []
+
+
+    const correctMark = () => {
+        if (elementDropDown.classList.contains('dropdown_open')) {
+            elementDropDown.querySelector('.dropdown__marker').innerText = 'expand_less'
+        } else {
+            elementDropDown.querySelector('.dropdown__marker').innerText = 'expand_more'
+        }
+    }
+
+    const toggleDropdown = () => {
+        elementDropDown.classList.toggle('dropdown_open')
+        correctMark()
+    }
+
+    const dropDownClose = () => {
+        elementDropDown.classList.remove('dropdown_open')
+        correctMark()
+    }
+
+
+
+    function writeSelect() {
+        let commonValue = 0
+        let commonString = ''
+        let isHaveCommon = false
+        let addString = ''
+
+        // console.log('write prepare')
+
+        function goodNaming(value, namingString) {
+
+            /*
+            if (value > 20) {
+                value -= 20
+                value = value % 10
+            }*/
+            // console.log(' выбираем имя для ', value, namingString)
+            if (value === 0) {
+                return namingString[2]
+            } else if (value === 1) {
+                return namingString[0]
+            } else if ((value > 1) && (value < 5)) {
+                return namingString[1]
+            } else if ((value > 4)) {
+                return namingString[2]
+            }
+        }
+
+        for (let i = 0; i < gross.length; i++) {
+            // console.log(optionRow[i].separate)
+            if (optionRow[i].separate.length > 1) {
+                // console.log('список нейминга больше 1')
+                // строка счиатется отдельно
+                if (gross[i] > 0) {
+                    if (addString !== '') {
+                        addString += ', '
+                    }
+                    addString += gross[i] + ' ' + goodNaming(gross[i], optionRow[i].separate)
+                }
+            } else {
+                isHaveCommon = true
+                commonValue += gross[i]
+            }
+        }
+
+        if (isHaveCommon) {
+            commonString = commonValue + ' ' + goodNaming(commonValue, optionMenu.naming)
+            if (addString !== '') {
+                commonString += ', '
+            }
+        }
+
+        elementDropDown.querySelector('.dropdown__selection').innerHTML = commonString + addString
+
+    }
+
+
+
+    document.addEventListener('click', event => {
+        if (!event.target.closest(elementClassName)) {
+            dropDownClose()
+        }
+
+    })
+
+    optionMenu.initSelection = elementDropDown.querySelector('.dropdown__selection').innerHTML
+    optionMenu.naming = elementDropDown.querySelector('.dropdown__menu').dataset.separate.split(',')
+
+    for (let i = 0; i < elementDropDown.querySelector('.dropdown__menu').childElementCount; i++) {
+
+        let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
+
+        if (!elementRow.classList.contains('dropdown__menu-row_buttons')) {
+            // Обработка событий по нажатию кнопок инкремента и декремента
+            gross[i] = Number(elementRow.dataset.mincount)
+
+            optionRow[i] = {
+                mincount: gross[i],
+                maxcount: (Number(elementRow.dataset.maxcount)) ? Number(elementRow.dataset.maxcount) : Infinity,
+                separate: elementRow.dataset.separate.split(',')
+            }
+
+            elementRow.addEventListener('click', event => {
+                if (event.target.closest('.dropdown__control-decrement')) {
+                    if (gross[i] > optionRow[i].mincount) {
+                        gross[i]--
+                        elementRow.querySelector('.dropdown__control-count').innerHTML = gross[i]
+                        writeSelect()
+                    }
+                }
+                if (event.target.closest('.dropdown__control-increment')) {
+                    if (gross[i] < optionRow[i].maxcount) {
+                        gross[i]++
+                        elementRow.querySelector('.dropdown__control-count').innerHTML = gross[i]
+                        writeSelect()
+                    }
+                }
+            })
+        } else {
+            // Обработка событий по нажатию кнопок выбора и отмены
+            elementRow.addEventListener('click', event => {
+                if (event.target.closest('.dropdown__button-clear')) {
+                    for (let i = 0; i < optionRow.length; i++) {
+                        gross[i] = optionRow[i].mincount
+                        elementDropDown.querySelector('.dropdown__menu').children[i].querySelector('.dropdown__control-count').innerHTML = gross[i]
+                    }
+                    elementDropDown.querySelector('.dropdown__selection').innerHTML = optionMenu.initSelection
+                }
+
+                if (event.target.closest('.dropdown__button-submit')) {
+                    dropDownClose()
+                }
+            })
+        }
+    }
+
+    elementDropDown.addEventListener('click', event => {
+        if (!(event.target.closest('.dropdown__menu')) && (event.target.closest(elementClassName))) {
+            toggleDropdown()
+        }
+    })
+
+    function getValue() {
+        return gross
+    }
+
+    // console.log('настройка ', elementClassName, ' закончена')
+
+    correctMark()
+
+    return {
+        getValue: getValue
+    }
+
+}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return expCheckboxList; });
+function expCheckboxList(elementClassName) {
+    let elementChekboxList = document.querySelector(elementClassName)
+
+    const toggleCheckboxList = () => {
+        elementChekboxList.classList.toggle('expandable-checkbox-list_open')
+    }
+
+    const closeCheckboxList = () => {
+        elementChekboxList.classList.remove('expandable-checkbox-list_open')
+    }
+
+
+    function correctMark() {
+        if (elementChekboxList.classList.contains('expandable-checkbox-list_open')) {
+            elementChekboxList.querySelector('.expandable-checkbox-list__toggle-marker').innerText = 'expand_less'
+        } else {
+            elementChekboxList.querySelector('.expandable-checkbox-list__toggle-marker').innerText = 'expand_more'
+        }
+    }
+
+    document.addEventListener('click', event => {
+        if (!event.target.closest(elementClassName)) {
+            closeCheckboxList()
+            correctMark()
+        }
+    })
+
+    document.addEventListener('click', event => {
+        if (!(event.target.closest('.eexpandable-checkbox-list__menu')) && (event.target.closest(elementClassName))) {
+            toggleCheckboxList()
+            correctMark()
+        }
+    })
+
+    function getList() {
+        let grossCheckList = []
+        for (let i = 0; i < elementChekboxList.querySelector('.expandable-checkbox-list__menu').children.length; i++) {
+            let fieldCheckboxElement = elementChekboxList.querySelector('.expandable-checkbox-list__menu').children[i]
+            grossCheckList[i] = {}
+            grossCheckList[i].fieldCheckboxName = fieldCheckboxElement.querySelector('.field-checkbox').dataset.name
+            grossCheckList[i].fieldCheckboxState = fieldCheckboxElement.querySelector('.field-checkbox__input').checked
+        }
+        return grossCheckList
+    }
+
+    correctMark()
+   
+    return {
+        getList: getList
+    }
+
+
+
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RangeSlider; });
-/* harmony import */ var ion_rangeslider_js_ion_rangeSlider_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var ion_rangeslider_js_ion_rangeSlider_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var ion_rangeslider_js_ion_rangeSlider_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(ion_rangeslider_js_ion_rangeSlider_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -10765,12 +10997,76 @@ class RangeSlider {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 2 */
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Pager; });
+class Pager {
+    constructor(props = {})
+    {
+        // Принимает объект с ключами
+        // items        число элементов
+        // itemsOnPage  количество элементов на листе
+        // element      DOM желемент для пагинатора
+        this.items = props.items
+        this.pagerPrev  = document.createElement('a')
+        this.pagerNext  = document.createElement('a')
+        this.pagerPrev.classList.add('pager__item','pager__item_prev', 'pager__item_hiden')
+        this.pagerNext.classList.add('pager__item','pager__item_next')
+        this.pagerPrev.innerText = 'arrow_backforward'
+        this.pagerNext.innerText = 'arrow_forward'
+        this.pagerVisible   = []
+        this.itemsOnPage    = props.itemsOnPage
+        this.element        = document.querySelector(props.element)
+        this.child = document.createDocumentFragment()
+
+        this.child.appendChild(this.pagerPrev)
+
+        
+        for (let i = 0; i < this.itemsOnPage; i++) {
+            
+            this.pagerVisible[i] = document.createElement('a')
+            this.pagerVisible[i].classList.add('pager__item')
+
+            // если число элементов меньше отображаемого числа, то создаем только их
+            if (i >= this.items) {
+                this.pagerVisible[i].classList.add('pager__item_empty')
+            } else {
+                this.pagerVisible[i].innerText = i+1
+            }
+
+            this.child.appendChild(this.pagerVisible[i])
+        }
+
+        // Первый элемент активный
+        this.pagerVisible[0].classList.add('pager__item_active')
+
+        this.pagerVisible[0].classList.add('pager__item_activ')
+
+        if (this.items > this.itemsOnPage) {
+            this.pagerVisible[this.itemsOnPage-2].classList.add('pager__item_free')
+            this.pagerVisible[this.itemsOnPage-2].innerText = ''
+            this.pagerVisible[this.itemsOnPage-1].innerText = this.items
+        } 
+
+        if (this.items > 1) {
+            this.child.appendChild(this.pagerNext)
+        }
+
+        this.element.appendChild(this.child)
+        }
+    
+    }
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaskedTextField; });
-/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_0__);
 // Doc's cod's
 // https://github.com/igorescobar/jQuery-Mask-Plugin
@@ -10786,13 +11082,7 @@ class MaskedTextField {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {;(function (window, $, undefined) { ;(function () {
@@ -13034,19 +13324,19 @@ class MaskedTextField {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "images/avatar.png";
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Ion.RangeSlider
@@ -13062,7 +13352,7 @@ module.exports = __webpack_require__.p + "images/avatar.png";
 // =====================================================================================================================
 
 ;(function(factory) {
-    if (!jQuery && "function" === "function" && __webpack_require__(8)) {
+    if (!jQuery && "function" === "function" && __webpack_require__(10)) {
         !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (jQuery) {
             return factory(jQuery, document, window, navigator);
         }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -15503,7 +15793,7 @@ module.exports = __webpack_require__.p + "images/avatar.png";
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -15512,7 +15802,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, {}))
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -16122,311 +16412,24 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */,
-/* 11 */,
 /* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./src/pages/index/index.scss
-var index = __webpack_require__(3);
-
-// EXTERNAL MODULE: ./node_modules/air-datepicker/dist/js/datepicker.js
-var datepicker = __webpack_require__(4);
-
-// EXTERNAL MODULE: ./node_modules/air-datepicker/dist/css/datepicker.min.css
-var datepicker_min = __webpack_require__(5);
-
-// EXTERNAL MODULE: ./src/modules/comment/img/avatar.png
-var avatar = __webpack_require__(6);
-
-// CONCATENATED MODULE: ./src/modules/dropdown/dropdown.js
-function dropdown(elementClassName) {
-
-    // console.log('настройка с ', elementClassName)
-
-    let elementDropDown = document.querySelector(elementClassName),
-        gross = [],
-        optionMenu = {},
-        optionRow = []
-
-
-    const correctMark = () => {
-        if (elementDropDown.classList.contains('dropdown_open')) {
-            elementDropDown.querySelector('.dropdown__mark').innerText = 'expand_less'
-        } else {
-            elementDropDown.querySelector('.dropdown__mark').innerText = 'expand_more'
-        }
-    }
-
-    const toggleDropdown = () => {
-        elementDropDown.classList.toggle('dropdown_open')
-        correctMark()
-    }
-
-    const dropDownClose = () => {
-        elementDropDown.classList.remove('dropdown_open')
-        correctMark()
-    }
-
-
-
-    function writeSelect() {
-        let commonValue = 0
-        let commonString = ''
-        let isHaveCommon = false
-        let addString = ''
-
-        // console.log('write prepare')
-
-        function goodNaming(value, namingString) {
-
-            /*
-            if (value > 20) {
-                value -= 20
-                value = value % 10
-            }*/
-            // console.log(' выбираем имя для ', value, namingString)
-            if (value === 0) {
-                return namingString[2]
-            } else if (value === 1) {
-                return namingString[0]
-            } else if ((value > 1) && (value < 5)) {
-                return namingString[1]
-            } else if ((value > 4)) {
-                return namingString[2]
-            }
-        }
-
-        for (let i = 0; i < gross.length; i++) {
-            // console.log(optionRow[i].separate)
-            if (optionRow[i].separate.length > 1) {
-                // console.log('список нейминга больше 1')
-                // строка счиатется отдельно
-                if (gross[i] > 0) {
-                    if (addString !== '') {
-                        addString += ', '
-                    }
-                    addString += gross[i] + ' ' + goodNaming(gross[i], optionRow[i].separate)
-                }
-            } else {
-                isHaveCommon = true
-                commonValue += gross[i]
-            }
-        }
-
-        if (isHaveCommon) {
-            commonString = commonValue + ' ' + goodNaming(commonValue, optionMenu.naming)
-            if (addString !== '') {
-                commonString += ', '
-            }
-        }
-
-        elementDropDown.querySelector('.dropdown__selection').innerHTML = commonString + addString
-
-    }
-
-
-
-    document.addEventListener('click', event => {
-        if (!event.target.closest(elementClassName)) {
-            dropDownClose()
-        }
-
-    })
-
-    optionMenu.initSelection = elementDropDown.querySelector('.dropdown__selection').innerHTML
-    optionMenu.naming = elementDropDown.querySelector('.dropdown__menu').dataset.separate.split(',')
-
-    for (let i = 0; i < elementDropDown.querySelector('.dropdown__menu').childElementCount; i++) {
-
-        let elementRow = elementDropDown.querySelector('.dropdown__menu').children[i]
-
-        if (!elementRow.classList.contains('dropdown__menu-row_buttons')) {
-            // Обработка событий по нажатию кнопок инкремента и декремента
-            gross[i] = Number(elementRow.dataset.mincount)
-
-            optionRow[i] = {
-                mincount: gross[i],
-                maxcount: (Number(elementRow.dataset.maxcount)) ? Number(elementRow.dataset.maxcount) : Infinity,
-                separate: elementRow.dataset.separate.split(',')
-            }
-
-            elementRow.addEventListener('click', event => {
-                if (event.target.closest('.dropdown__control-decrement')) {
-                    if (gross[i] > optionRow[i].mincount) {
-                        gross[i]--
-                        elementRow.querySelector('.dropdown__control-count').innerHTML = gross[i]
-                        writeSelect()
-                    }
-                }
-                if (event.target.closest('.dropdown__control-increment')) {
-                    if (gross[i] < optionRow[i].maxcount) {
-                        gross[i]++
-                        elementRow.querySelector('.dropdown__control-count').innerHTML = gross[i]
-                        writeSelect()
-                    }
-                }
-            })
-        } else {
-            // Обработка событий по нажатию кнопок выбора и отмены
-            elementRow.addEventListener('click', event => {
-                if (event.target.closest('.dropdown__button-clear')) {
-                    for (let i = 0; i < optionRow.length; i++) {
-                        gross[i] = optionRow[i].mincount
-                        elementDropDown.querySelector('.dropdown__menu').children[i].querySelector('.dropdown__control-count').innerHTML = gross[i]
-                    }
-                    elementDropDown.querySelector('.dropdown__selection').innerHTML = optionMenu.initSelection
-                }
-
-                if (event.target.closest('.dropdown__button-submit')) {
-                    dropDownClose()
-                }
-            })
-        }
-    }
-
-    elementDropDown.addEventListener('click', event => {
-        if (!(event.target.closest('.dropdown__menu')) && (event.target.closest(elementClassName))) {
-            toggleDropdown()
-        }
-    })
-
-    function getValue() {
-        return gross
-    }
-
-    // console.log('настройка ', elementClassName, ' закончена')
-
-    correctMark()
-
-    return {
-        getValue: getValue
-    }
-
-}
-// CONCATENATED MODULE: ./src/modules/expandable-checkbox-list/expandable-checkbox-list.js
-function expCheckboxList(elementClassName) {
-    let elementChekboxList = document.querySelector(elementClassName)
-
-    const toggleCheckboxList = () => {
-        elementChekboxList.classList.toggle('expandable-checkbox-list_open')
-    }
-
-    const closeCheckboxList = () => {
-        elementChekboxList.classList.remove('expandable-checkbox-list_open')
-    }
-
-
-    function correctMark() {
-        if (elementChekboxList.classList.contains('expandable-checkbox-list_open')) {
-            elementChekboxList.querySelector('.expandable-checkbox-list__toggle-marker').innerText = 'expand_less'
-        } else {
-            elementChekboxList.querySelector('.expandable-checkbox-list__toggle-marker').innerText = 'expand_more'
-        }
-    }
-
-    document.addEventListener('click', event => {
-        if (!event.target.closest(elementClassName)) {
-            closeCheckboxList()
-            correctMark()
-        }
-    })
-
-    document.addEventListener('click', event => {
-        if (!(event.target.closest('.eexpandable-checkbox-list__menu')) && (event.target.closest(elementClassName))) {
-            toggleCheckboxList()
-            correctMark()
-        }
-    })
-
-    function getList() {
-        let grossCheckList = []
-        for (let i = 0; i < elementChekboxList.querySelector('.expandable-checkbox-list__menu').children.length; i++) {
-            let fieldCheckboxElement = elementChekboxList.querySelector('.expandable-checkbox-list__menu').children[i]
-            grossCheckList[i] = {}
-            grossCheckList[i].fieldCheckboxName = fieldCheckboxElement.querySelector('.field-checkbox').dataset.name
-            grossCheckList[i].fieldCheckboxState = fieldCheckboxElement.querySelector('.field-checkbox__input').checked
-        }
-        return grossCheckList
-    }
-
-    correctMark()
-   
-    return {
-        getList: getList
-    }
-
-
-
-}
-// EXTERNAL MODULE: ./src/modules/range-slider/range-slider.js
-var range_slider = __webpack_require__(1);
-
-// CONCATENATED MODULE: ./src/modules/pagination/pagination.js
-class Pager {
-    constructor(props = {})
-    {
-        // Принимает объект с ключами
-        // items        число элементов
-        // itemsOnPage  количество элементов на листе
-        // element      DOM желемент для пагинатора
-        this.items = props.items
-        this.pagerPrev  = document.createElement('a')
-        this.pagerNext  = document.createElement('a')
-        this.pagerPrev.classList.add('pager__item','pager__item_prev', 'pager__item_hiden')
-        this.pagerNext.classList.add('pager__item','pager__item_next')
-        this.pagerPrev.innerText = 'arrow_backforward'
-        this.pagerNext.innerText = 'arrow_forward'
-        this.pagerVisible   = []
-        this.itemsOnPage    = props.itemsOnPage
-        this.element        = document.querySelector(props.element)
-        this.child = document.createDocumentFragment()
-
-        this.child.appendChild(this.pagerPrev)
-
-        
-        for (let i = 0; i < this.itemsOnPage; i++) {
-            
-            this.pagerVisible[i] = document.createElement('a')
-            this.pagerVisible[i].classList.add('pager__item')
-
-            // если число элементов меньше отображаемого числа, то создаем только их
-            if (i >= this.items) {
-                this.pagerVisible[i].classList.add('pager__item_empty')
-            } else {
-                this.pagerVisible[i].innerText = i+1
-            }
-
-            this.child.appendChild(this.pagerVisible[i])
-        }
-
-        // Первый элемент активный
-        this.pagerVisible[0].classList.add('pager__item_active')
-
-        this.pagerVisible[0].classList.add('pager__item_activ')
-
-        if (this.items > this.itemsOnPage) {
-            this.pagerVisible[this.itemsOnPage-2].classList.add('pager__item_free')
-            this.pagerVisible[this.itemsOnPage-2].innerText = ''
-            this.pagerVisible[this.itemsOnPage-1].innerText = this.items
-        } 
-
-        if (this.items > 1) {
-            this.child.appendChild(this.pagerNext)
-        }
-
-        this.element.appendChild(this.child)
-        }
-    
-    }
-
-// EXTERNAL MODULE: ./src/modules/masked-text-field/masked-text-field.js
-var masked_text_field = __webpack_require__(2);
-
-// CONCATENATED MODULE: ./src/pages/index/index.js
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_comment_img_avatar_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _modules_comment_img_avatar_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_comment_img_avatar_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_dropdown_dropdown_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
+/* harmony import */ var _modules_expandable_checkbox_list_expandable_checkbox_list_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2);
+/* harmony import */ var _modules_range_slider_range_slider_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3);
+/* harmony import */ var _modules_pagination_pagination__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4);
+/* harmony import */ var _modules_masked_text_field_masked_text_field__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5);
 
 
 
@@ -16450,27 +16453,33 @@ var ready = (callback) => {
   }
 
 ready(() => { 
-    const maskedTextDate = new masked_text_field["a" /* MaskedTextField */]('date')
+    // const maskedTextDate = new MaskedTextField('date')
 
-    const demoDropDown = new dropdown('.dropdownVisitors')
-    const demoDropDown2 = new dropdown('.dropdownEnvarenment')
-    const expCheckBoxList = expCheckboxList('.checkList-test')
+    // const demoDropDown = new dropdown('.dropdownVisitors')
+    // const demoDropDown2 = new dropdown('.dropdownEnvarenment')
+    // const expCheckBoxList = expCheckboxList('.checkList-test')
         
-    const rangeSlider = new range_slider["a" /* RangeSlider */]()
-    // ur.update() //метод для изменений
-    // let foog = ur.getValue() //чтение состояния
+    // const rangeSlider = new RangeSlider()
+    // // ur.update() //метод для изменений
+    // // let foog = ur.getValue() //чтение состояния
 
-    const pager = new Pager({
-        items: 15,
-        itemsOnPage: 5,
-        element: '.pager'
-    })
+    // const pager = new Pager({
+    //     items: 15,
+    //     itemsOnPage: 5,
+    //     element: '.pager'
+    // })
 
 
 
 });
 
 
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 /******/ ]);

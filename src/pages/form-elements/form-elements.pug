@@ -17,6 +17,21 @@ mixin block-lib(props={})
             block
 
 
+mixin free-space(props = {})
+    //- Задает свободное пространство на странице
+    //- width
+    //- height
+
+    -
+        let styleString = ''
+        if (typeof(props.width) !== 'undefined' && props.width) {
+            styleString += 'max-width:' + props.width + ';'
+        }
+        if (typeof(props.height) !== 'undefined' && props.height) {
+            styleString += 'height:' + props.height + ';'
+        }
+    .free-space(style= styleString)
+
 block title
     | Form Elements
 
@@ -42,9 +57,11 @@ block main
     include ../../modules/pagination/pagination
     include ../../modules/subscription-text-field/subscription-text-field
 
+
+    section.elements
+        .elements__logo
     section.elements
         .elements__column
-
             +block-lib({title: 'TEXT FIELD', mods:'DEFULT', width: '320px'})
                 +text-field({placeholder: 'Email'})
 
@@ -53,7 +70,7 @@ block main
 
             +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
                 +dropdown({
-                    moduleClass: 'dropdownVisitors',
+                    moduleClass: 'dropdown-visitors',
                     isBtnClear: true,
                     isBtnSubmit: true,
                     dropStrings: [
@@ -72,13 +89,16 @@ block main
                     placeholder: 'ДД.ММ.ГГГ',
                     maskType: 'date'})
 
-            .half-column
-                +block-lib({title: 'DATE DPROPDOWN', width: '150px', type: 'block-lib_inline'})
-                    +date-dropdown({})
+            +block-lib({width: '320px'})
+                +free-space({height: '14px'})
+                .elements__container
+                    .elements__half-column
+                        +block-lib({title: 'DATE DROPDOWN', width: '150px'})
+                            +date-dropdown({})
 
-            .half-column
-                +block-lib({title: 'DATE DPROPDOWN', width: '150px'})
-                    +date-dropdown({placeholder: '19.08.2019'})
+                    .elements__half-column
+                        +block-lib({title: 'DATE DROPDOWN', width: '150px'})
+                            +date-dropdown({placeholder: '19.08.2019'})
 
             +block-lib({title: 'SUBSCRIPTION TEXT FIELD', width: '267px'})
                 +subscription-text-field({placeholder: 'Email'})
@@ -87,7 +107,7 @@ block main
             +block-lib({title: '', mods: '', width: '222px'})
                 +checkbox-buttons({
                     listTitle: 'CHECKBOX BUTTONS', 
-                    moduleClass: 'checkList-buttons',
+                    moduleClass: 'check-list-buttons',
                     dropStrings: [
                         {dataName: 'checkbox-smoking',
                         labelTitle: 'Можно курить'},
@@ -126,15 +146,18 @@ block main
                     moduleClass: 'like-button-test'
                     })
 
-            +block-lib({title: 'RATE-BUTTON', width: '320px'})
-                .half-column
-                    +rate-button({
-                        rate: '4'
-                    })
-                .half-column
-                    +rate-button({
-                        rate: '5'
-                    })
+            +block-lib({title: 'RATE-BUTTON', width: '260px'})
+                .elements__container
+                    .elements__half-column
+                        +block-lib({width: '120px'})
+                            +rate-button({
+                                rate: '4'
+                            })
+                    .elements__half-column
+                        +block-lib({width: '120px'})
+                            +rate-button({
+                                rate: '5'
+                            })
 
         .elements__column
             +block-lib({title: '', width: '266px', mods: ''})
@@ -181,12 +204,12 @@ block main
             +block-lib({title: 'PAGINATION', width: "240px"})
                 +pagination({})
 
-
+    +free-space({height: '120px'})
     section.elements
         .elements__column
             +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
                 +dropdown({
-                    moduleClass: 'dropdownEnvarenmentClose',
+                    moduleClass: 'dropdown-envarenment-close',
                     isBtnClear: false,
                     isBtnSubmit: false,
                     dropStrings: [
@@ -267,7 +290,7 @@ block main
             +block-lib({title: '', mods: '', width: '266px'})
                 +expandable-checkbox-list({
                     listTitle: 'EXPANDABLE CHECKBOX LIST', 
-                    moduleClass: 'checkList-test',
+                    moduleClass: 'check-list-test',
                     dropStrings: [
                         {dataName: 'checkbox-breakfast',
                         labelTitle: 'Завтрак'},
@@ -294,7 +317,7 @@ block main
             +block-lib({title: '', mods: '', width: '266px'})
                 +expandable-checkbox-list({
                     listTitle: 'EXPANDABLE CHECKBOX LIST', 
-                    moduleClass: 'checkList-test',
+                    moduleClass: 'check-list-test-open',
                     mods: 'open',
                     dropStrings: [
                         {dataName: 'checkbox-breakfast',
