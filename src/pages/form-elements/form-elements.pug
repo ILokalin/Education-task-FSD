@@ -69,6 +69,7 @@ block main
     include ../../modules/comment/comment
     include ../../modules/pagination/pagination
     include ../../modules/subscription-text-field/subscription-text-field
+    include ../../modules/filter-date-dropdown/filter-date-dropdown
 
 
     section.elements
@@ -116,7 +117,10 @@ block main
                         +block-lib({title: 'DATE DROPDOWN', width: '150px'})
                             +date-dropdown({placeholder: '19.08.2019'})
 
-            +block-lib({title: 'SUBSCRIPTION TEXT FIELD', width: '267px'})
+            +block-lib({title: 'FILTER DATE DROPDOWN', width: '266px'})
+                +filter-date-dropdown({placeholder: '19 авг - 23 авг'})
+            
+            +block-lib({title: 'SUBSCRIPTION TEXT FIELD', width: '266px'})
                 +subscription-text-field({placeholder: 'Email'})
 
         .elements__column
