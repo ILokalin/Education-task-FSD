@@ -1,0 +1,31 @@
+mixin logo(props={})
+
+    //- Логотип
+    //- Принимает параметры в props:
+    //- moduleClass             string      доп имя класса
+    //- mods                    string      модификации
+            grey    серый только круг
+
+
+
+
+
+    -
+        let moduleClass = props.moduleClass || ''
+        let allMods = ''
+        let objectSvgString = './images/logo.svg'
+        if (typeof(props.mods) !== 'undefined' && props.mods) {
+        let modList = props.mods.split(',')
+        for (let i=0; i < modList.length; i++) {
+            if (modList[i].trim() === 'gray') {
+                objectSvgString = './images/gray-logo.svg'
+            }
+            allMods = allMods + ' logo_' + modList[i].trim()
+            }
+        }
+    .logo(class= moduleClass + allMods)
+        object.logo__svg(
+            data= objectSvgString,
+            type="image/svg+xml"
+            )
+

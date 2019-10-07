@@ -45,7 +45,7 @@ mixin checkbox-buttons(props={})
 
     .checkbox-buttons(class = moduleClass + allMods)
         .checkbox-buttons__title-wrapper
-            p.checkbox-buttons__title= props.listTitle
+            p.checkbox-buttons__title= props.listTitle || ''
 
         .checkbox-buttons__menu
             each rowString, index in props.dropStrings

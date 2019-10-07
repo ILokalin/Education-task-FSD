@@ -1,4 +1,5 @@
 @import '../common.scss';
+@import '../../modules/logo/logo.scss';
 @import '../../modules/text-field/text-field.scss';
 @import '../../modules/masked-text-field/masked-text-field.scss';
 @import '../../modules/dropdown/dropdown';
@@ -32,11 +33,29 @@ body {
     margin: 0 auto;
     max-width: 1440px;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    &__logo {
+        padding-left: 30px;
+        padding-top: 33px;
+
+    }
 
     &__column {
-        width: 33%;
-        padding-left: 10px;
-        padding-right: 10px;
+        flex-basis: 320px;
+    }
+
+    &__column:nth-child(2) {
+        padding-left: 3.5%;
+    }
+
+    &__column:first-child {
+        padding-left: 9.8%;
+    }
+
+    &__column:last-child {
+        padding-right: 9.8%;
     }
 
     &__container {
@@ -49,11 +68,15 @@ body {
         width: 50%;
     }
 
+
+
     &__half-column:last-child {
         display: flex;
         justify-content: flex-end;
     }
 }
+
+
 
 .block-lib {
     padding-bottom: 21px;
@@ -87,6 +110,20 @@ body {
     }
 }
 
+@media screen and (max-width: 1300px) {
+    .elements {
+        justify-content: space-around;
+        
+        &__column {
+            padding-left: 0;
+            padding-right: 0;
+            padding: 0;
+            margin: 0 auto;
+        }
+    }
+}
+
+
 @media screen and (max-width: 400px) {
     body {
         width: 90%;
@@ -94,7 +131,4 @@ body {
         margin: 0 auto;
     }
 
-    .block-lib {
-        padding-left: 0;
-    }
 }

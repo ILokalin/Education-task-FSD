@@ -1,0 +1,10 @@
+.logo {
+    &__svg {
+        height: 40px;
+    }
+}
+
+.logo_gray .logo__svg {
+    width: 48px;
+    height: 48px;
+}

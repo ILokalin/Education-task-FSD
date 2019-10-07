@@ -9,13 +9,25 @@ mixin block-lib(props={})
     //- width       string  Ширина в виде 'XXpix'
 
     .block-lib(class= props.type || '',
-    style="max-width:"+props.width)
+    style="width:"+props.width)
         .block-lib__description-row
             .block-lib__title= props.title
             .block-lib__mods= props.mods
         .block-lib__block-row
             block
 
+
+mixin block-lib-self-title(props={})
+
+    //- Микс задает место для элементов с собственным заголовком.
+        //- Получает данные:
+    //- title       string  Заголовок - название элемента
+    //- mods        string  Описание модификатора
+    //- width       string  Ширина в виде 'XXpix'
+
+    .block-lib(class= props.type || '',
+    style="width:"+props.width)
+            block
 
 mixin free-space(props = {})
     //- Задает свободное пространство на странице
@@ -36,6 +48,7 @@ block title
     | Form Elements
 
 block main
+    include ../../modules/logo/logo
     include ../../modules/text-field/text-field
     include ../../modules/masked-text-field/masked-text-field
     include ../../modules/dropdown/dropdown
@@ -60,9 +73,12 @@ block main
 
     section.elements
         .elements__logo
+            +logo({mods: 'gray'})
+    +free-space({height: '59px'})
+    
     section.elements
         .elements__column
-            +block-lib({title: 'TEXT FIELD', mods:'DEFULT', width: '320px'})
+            +block-lib({title: 'TEXT FIELD', mods:'DEFAULT', width: '320px'})
                 +text-field({placeholder: 'Email'})
 
             +block-lib({title: 'TEXT FIELD', mods:'HOVER / FOCUS', width: '320px'})
@@ -104,7 +120,7 @@ block main
                 +subscription-text-field({placeholder: 'Email'})
 
         .elements__column
-            +block-lib({title: '', mods: '', width: '222px'})
+            +block-lib-self-title({width: '222px'})
                 +checkbox-buttons({
                     listTitle: 'CHECKBOX BUTTONS', 
                     moduleClass: 'check-list-buttons',
@@ -160,7 +176,7 @@ block main
                             })
 
         .elements__column
-            +block-lib({title: '', width: '266px', mods: ''})
+            +block-lib-self-title({width: '266px'})
                 +range-slider({
                     lineTitle: 'RANGE SLIDER',
                 })
@@ -284,7 +300,7 @@ block main
                     namingForEmpty: 'Сколько гостей'
                     })
 
-
+    +free-space({height: '135px'})
     section.elements
         .elements__column
             +block-lib({title: '', mods: '', width: '266px'})
