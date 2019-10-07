@@ -1,6 +1,7 @@
 .like-button {
     position: relative;
     user-select: none;
+    width: 100%;
     // display: inline-block;
     cursor: pointer;
     display: flex;
@@ -8,27 +9,26 @@
     padding-left: 5px;
     height: 20px;
 
-    &__name {
+    &__like-count {
         padding: 0;
         margin: 0;
         display: inline-block;
-
         margin-left: 8px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
+        color: $DarkShade25;
         font-size: 9px;
-        // line-height: 12px;
-        /* identical to box height */
-
         text-align: center;
     }
 
+    // Привязка к элементам: Поменять цвет на $Purple при состоянии checked у блока
+    &__input:checked + &__mark + &__like-count {
+        color: $Purple;
+    }
+
     &__input {
-        margin: 0;
-        padding: 0;
         position: absolute;
         z-index: -1;
+        margin: 0;
+        padding: 0;
         border: 0;
         top: 2px;
         left: 2px;
@@ -42,8 +42,12 @@
         left: -2px;
         width: 40px;
         height: 20px;
-        background-color: #BC9CFF;
+        background-color: $DarkShade25;
         border-radius: 10px;
+    }
+
+    &__input::before:checked {
+        background-color: $Purple;
     }
 
     &__input:after {
@@ -66,18 +70,11 @@
         color: #BC9CFF;
     }
 
-
     &__mark {
         position: relative;
-
-
-        color: #BC9CFF;
-
-        font-family: Material Icons;
-        font-style: normal;
-        font-weight: normal;
+        color: $DarkShade25;
+        @extend %MaterialIcon;
         font-size: 10px;
-        // line-height: 20px;
     }
 
 

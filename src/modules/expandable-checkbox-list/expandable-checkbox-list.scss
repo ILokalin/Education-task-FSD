@@ -1,9 +1,10 @@
 @import '../field-checkbox/field-checkbox.scss';
 
 .expandable-checkbox-list {
+    width: calc(100% - 12px);
     position: relative;
     margin: 0;
-    padding: 0 15px 0 0;
+    padding: 0 12px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;

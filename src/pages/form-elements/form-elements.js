@@ -40,7 +40,9 @@ ready(() => {
     const expCheckBoxList       = expCheckboxList('.check-list-test')
     const expCheckBoxListOpen   = expCheckboxList('.check-list-test-open')
         
-    const rangeSlider = new RangeSlider()
+    const rangeSlider = new RangeSlider({
+        from: 4700
+    })
     // ur.update() //метод для изменений
     // let foog = ur.getValue() //чтение состояния
 

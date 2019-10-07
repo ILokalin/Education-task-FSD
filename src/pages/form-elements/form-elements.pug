@@ -37,7 +37,7 @@ mixin free-space(props = {})
     -
         let styleString = ''
         if (typeof(props.width) !== 'undefined' && props.width) {
-            styleString += 'max-width:' + props.width + ';'
+            styleString += 'width:' + props.width + ';'
         }
         if (typeof(props.height) !== 'undefined' && props.height) {
             styleString += 'height:' + props.height + ';'
@@ -120,6 +120,7 @@ block main
             +block-lib({title: 'FILTER DATE DROPDOWN', width: '266px'})
                 +filter-date-dropdown({placeholder: '19 авг - 23 авг'})
             
+            +free-space({height: '20px'})
             +block-lib({title: 'SUBSCRIPTION TEXT FIELD', width: '266px'})
                 +subscription-text-field({placeholder: 'Email'})
 
@@ -140,6 +141,7 @@ block main
                         ]
                     })
 
+            +free-space({height: '16px'})
             +block-lib({width: '320px'})
                 +radio-buttons({
                     labelTitle: 'RADIO BUTTONS',
@@ -153,20 +155,40 @@ block main
                         ]
                     })
 
+            +free-space({height: '16px'})
             +block-lib({title: 'TOGGLE', width: '320px'})
+                +free-space({height: '10px'})
                 +field-toggle({
                     labelTitle: 'Получать спецпредложения',
                     moduleClass: 'field-toggle-test',
                     checked: true
                     })
-
-            +block-lib({title: 'LIKE BUTTON', width: '220px'})
-                +like-button({
-                    labelTitle: '2',
-                    moduleClass: 'like-button-test'
+                +free-space({height: '10px'})
+                +field-toggle({
+                    labelTitle: 'Получать спецпредложения',
+                    moduleClass: 'field-toggle-test',
+                    checked: false
                     })
+            +free-space({height: '20px'})
+            +block-lib({title: 'LIKE BUTTON', width: '90px'})
+                +free-space({height: '10px'})
+                .elements__container
+                    .elements__half-column
+                        +like-button({
+                            labelTitle: '2',
+                            moduleClass: 'like-button-test'
+                            })
+                    .elements__half-column
+                        +free-space({width: '3px'})
+                        +like-button({
+                            labelTitle: '12',
+                            moduleClass: 'like-button-test',
+                            checked: true
+                            })
 
+            +free-space({height: '20px'})
             +block-lib({title: 'RATE-BUTTON', width: '260px'})
+                +free-space({height: '5px'})
                 .elements__container
                     .elements__half-column
                         +block-lib({width: '120px'})
@@ -185,49 +207,63 @@ block main
                     lineTitle: 'RANGE SLIDER',
                 })
 
-            +block-lib({title: 'BUTTONS', width: '320px'})
-                +buttons({
-                    lineTitle: 'CLICK ME',
-                    mods: 'full'
-                    })
-                +buttons({
-                    lineTitle: 'CLICK ME',
-                    mods: 'full, hover'
-                    })
+            +free-space({height: '12px'})
+            +block-lib({title: 'BUTTONS', width: '218px'})
+                +free-space({height: '12px'})
+                .elements__container
+                    .elements__half-column
+                        +buttons({
+                            lineTitle: 'CLICK ME',
+                            mods: 'full'
+                            })
+                    .elements__half-column
+                        +buttons({
+                            lineTitle: 'CLICK ME',
+                            mods: 'full, hover'
+                            })
+
+            +block-lib-self-title({title: '', width: '218px'})
+                +free-space({height: '8px'})
+                .elements__container
+                    .elements__half-column
+                        +buttons({
+                            lineTitle: 'CLICK ME',
+                            mods: 'border'
+                            })
+                    .elements__half-column
+                        +buttons({
+                            lineTitle: 'CLICK ME',
+                            mods: 'border, hover'
+                            })
+
+            +block-lib({title: '', width: '142px'})
+                .elements__container
+                    .elements__half-column
+                        +buttons({
+                            lineTitle: 'CLICK ME',
+                            mods: 'link'
+                            })
+                    .elements__half-column
+                        +buttons({
+                            lineTitle: 'CLICK ME',
+                            mods: 'link, dark'
+                            })
 
             +block-lib({title: '', width: '320px'})
                 +buttons({
-                    lineTitle: 'CLICK ME',
-                    mods: 'border'
-                    })
-                +buttons({
-                    lineTitle: 'CLICK ME',
-                    mods: 'border, hover'
-                    })
-
-            +block-lib({title: '', width: '320px'})
-                +buttons({
-                    lineTitle: 'CLICK ME',
-                    mods: 'link'
-                    })
-                +buttons({
-                    lineTitle: 'CLICK ME',
-                    mods: 'link, dark'
-                    })
-
-            +block-lib({title: '', width: '320px'})
-                +buttons({
-                    lineTitle: 'CLICK ME',
+                    lineTitle: 'ПЕРЕЙТИ К ОПЛАТЕ',
                     mods: 'full, arrow, big'
                     })
 
+            +free-space({height: '20px'})
             +block-lib({title: 'PAGINATION', width: "240px"})
+                +free-space({height: '10px'})
                 +pagination({})
 
-    +free-space({height: '120px'})
+    +free-space({height: '78px'})
     section.elements
         .elements__column
-            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '266px'})
                 +dropdown({
                     moduleClass: 'dropdown-envarenment-close',
                     isBtnClear: false,
@@ -247,7 +283,7 @@ block main
                     namingForEmpty: 'Выбрать удобства'
                     })
 
-            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '320px'})
+            +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '266px'})
                 +dropdown({
                     moduleClass: 'dropdown-envarenment-open',
                     mods: 'open',
@@ -304,10 +340,10 @@ block main
                     namingForEmpty: 'Сколько гостей'
                     })
 
-    +free-space({height: '135px'})
+    +free-space({height: '138px'})
     section.elements
         .elements__column
-            +block-lib({title: '', mods: '', width: '266px'})
+            +block-lib-self-title({width: '266px'})
                 +expandable-checkbox-list({
                     listTitle: 'EXPANDABLE CHECKBOX LIST', 
                     moduleClass: 'check-list-test',
@@ -334,7 +370,7 @@ block main
                     ]
                 })
 
-            +block-lib({title: '', mods: '', width: '266px'})
+            +block-lib-self-title({width: '266px'})
                 +expandable-checkbox-list({
                     listTitle: 'EXPANDABLE CHECKBOX LIST', 
                     moduleClass: 'check-list-test-open',
@@ -363,14 +399,22 @@ block main
                 })
 
         .elements__column
-            +block-lib({title: 'RICH CHECKBOX', width: '220px'})
+            +free-space({height: '13px'})
+            +block-lib({title: 'RICH CHECKBOX', width: '266px'})
+                +free-space({height: '10px'})
                 +rich-checkbox({
                     labelTitle: 'Широкий коридор',
                     labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
                     moduleClass: 'rich-checkbox-test'
                 })
+                +rich-checkbox({
+                    labelTitle: 'Помощник для инвалидов',
+                    labelDiscription: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                    moduleClass: 'rich-checkbox-test'
+                })
 
         .elements__column
+            +free-space({height: '13px'})
             +block-lib({title: 'BULLET LIST', width: '280px'})
                 +bullet-list({
                     bulletStrings: [
@@ -378,12 +422,13 @@ block main
                         {description: 'Без вечеринок и мероприятий'},
                         {description: 'Время прибытия — после 13:00,<br>а выезд до 12:00'}
                     ]
-                })    
+                })
 
 
+    +free-space({height: '188px'})
     section.elements
         .elements__column
-            +block-lib({title: 'ICON-TEXT LIST', width: '280px'})
+            +block-lib({ width: '280px'})
                 +icon-text-list({
                     iconStrings: [
                         {
@@ -401,6 +446,7 @@ block main
 
 
         +block-lib({width: '712px'})
+            +free-space({height: '7px'})
             +comment({
                 commentUser:    'Мурад Сарафанов',
                 commentPhoto:   './images/avatar.png',

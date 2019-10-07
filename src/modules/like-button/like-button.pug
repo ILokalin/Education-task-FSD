@@ -35,4 +35,4 @@ mixin like-button(props={})
              checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
              )&attributes(props.attrs)
         span.like-button__mark favorite_border
-        span.like-button__name= props.labelTitle
+        span.like-button__like-count= props.labelTitle
