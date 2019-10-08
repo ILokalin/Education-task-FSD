@@ -1,0 +1,103 @@
+extends ../../template/template
+
+mixin block-color(props={})
+
+    //- Микс задает место для элемента на странице, добавляет подписи, задает размер
+    //- Получает данные:
+    //- title       string  Заголовок - название цвета
+    //- color       string  цвет
+
+    -
+        var colorRGBA    = ''
+        var colorOpacity = '1'
+        var colorHex = '#'
+        if (props.color[0] !== '#') {
+            //- Если цвет RGB или RGBA - получаем список десятичных значений            
+            colorRGBA = props.color.split('(')[1].split(')')[0].split(',')
+            colorOpacity = (colorRGBA.length === 4) ? colorRGBA[3] : 1
+            for (let i = 0; i < 3; i++) {
+                var itemHex = Number(colorRGBA[i]).toString(16)
+                colorHex += (itemHex.length == 1 ) ? '0' + itemHex : itemHex
+            }
+        } else {
+            colorHex = props.color
+        }
+        
+        
+        var styleBlockColor = 'background-color:'+colorHex+';' + 'opacity:' + colorOpacity + ';'
+        //- class= 'block-color_' + colorHex.slice(1,7) + ' ' + 'block-color_' + Number(colorOpacity)*100 
+    .block-color
+        .block-color__example(style= styleBlockColor)
+        h2.block-color__title= props.title || ''
+        p.block-color__hex-color= colorHex
+
+
+mixin free-space(props = {})
+    //- Задает свободное пространство на странице
+    //- width
+    //- height
+
+    -
+        let styleString = ''
+        if (typeof(props.width) !== 'undefined' && props.width) {
+            styleString += 'width:' + props.width + ';'
+        }
+        if (typeof(props.height) !== 'undefined' && props.height) {
+            styleString += 'height:' + props.height + ';'
+        }
+    .free-space(style= styleString)
+
+block title
+    | Color and Type
+
+block main
+    include ../../modules/logo/logo
+
+    section.elements
+        .elements__logo
+            +logo({mods: 'gray'})
+    +free-space({height: '60px'})
+
+    section.elements
+        .elements__column
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Dark Shade 100%',
+                    color: 'rgba(31,32,65,1)'
+                })
+
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Dark Shade 75%',
+                    color: 'rgba(31,32,65,.75)'
+                })
+
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Dark Shade 50%',
+                    color: 'rgba(31,32,65,.5)'
+                })
+
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Dark Shade 25%',
+                    color: 'rgba(31,32,65,.25)'
+                })
+
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Dark Shade 5%',
+                    color: 'rgba(31,32,65,0.05)'
+                })
+
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Purple',
+                    color: '#BC9CFF'
+                })
+
+            .elements__block-color-wrap
+                +block-color({
+                    title: 'Green',
+                    color: '#6FCF97'
+                })

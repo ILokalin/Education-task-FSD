@@ -68,20 +68,27 @@ ul {
     line-height: 1.5rem; //24px
 }
 
-h1, h2, h3 {
+h1,
+h2 {
     font-family: Quicksand;
     font-style: normal;
     font-weight: bold;
 }
 
 h1 {
-    font-size: 1.5rem;
-    line-height: 1.875rem;
+    font-size: 1.5rem; // 24px
+    line-height: 1.875rem; // 30px
+}
+
+h3 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 19px;
-    line-height: 30px;
+    font-size: 1.1875rem; // 19px
+    line-height: 1.875rem; // 30px
 }
 
 h3 {
