@@ -74,6 +74,21 @@ body {
         text-transform: uppercase;
         line-height: 29px;
     }
+}
 
+.block-types {
+    width: 403px;
+    display: flex;
+    justify-content: space-between;
 
+    &__title {
+        width: 37px;
+        text-align: right;
+        color: $DarkShade25;
+        font-weight: normal;
+
+    }
+    &__description {
+        width: 336px;
+    }
 }

@@ -32,6 +32,12 @@ mixin block-color(props={})
         p.block-color__hex-color= colorHex
 
 
+mixin block-types(props = {})
+
+    .block-types
+        block
+
+
 mixin free-space(props = {})
     //- Задает свободное пространство на странице
     //- width
@@ -101,3 +107,20 @@ block main
                     title: 'Green',
                     color: '#6FCF97'
                 })
+
+        .elements__column
+            +block-types
+                h1.block-types__title H1
+                h1.block-types__description This one is the sub-section or widget title
+
+            +block-types
+                h2.block-types__title H2
+                h2.block-types__description Next one is the item title inside widgets
+
+            +block-types
+                h3.block-types__title H3
+                h3.block-types__description This is a label or CTA text
+
+            +block-types
+                p.block-types__title Body
+                p.block-types__description This is the body text which is used for most of the design, like paragraphs, lists, etc.
