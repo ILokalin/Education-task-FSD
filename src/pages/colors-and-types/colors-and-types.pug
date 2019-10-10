@@ -196,7 +196,12 @@ mixin type-side(props = {})
       let tagOpen = '<' + typeRow.tagName
       let tagClose = '</' + typeRow.tagName + '>'
     
-    .block-types!= tagOpen + tagNameClass + typeRow.tagTitle + tagClose + tagOpen + tagDescriptionClass + typeRow.description + tagClose 
+    .block-types
+      |
+      != tagOpen + tagNameClass 
+      != typeRow.tagTitle + tagClose 
+      != tagOpen + tagDescriptionClass
+      != typeRow.description + tagClose 
 
 
 mixin free-space(props = {})

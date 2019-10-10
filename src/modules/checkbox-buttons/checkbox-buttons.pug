@@ -2,10 +2,10 @@ include ../../modules/field-checkbox/field-checkbox
 
 mixin checkbox-buttons(props={})
 
-  //- CheckboxList  раскрытый список чекбоксов
+  //- checkbox-buttons  раскрытый список чекбоксов
   //- Данные для JS храняться в атрибутах Data
   //- 
-  //- Принимает параметры в props:
+  //- Принимает объект props с ключами:
   //- moduleClass             string      имя класса списка
   //- mods                    string      
   //- listTitle               string      название спсика
@@ -16,7 +16,7 @@ mixin checkbox-buttons(props={})
   //-     checked             boolean     Установка в состояние checked
 
     Пример вызова:
-    +exp-checkbox-list({
+    +checkbox-buttons({
       moduleClass: 'TestCheckList',
       lineTitle: 'Test Expanded Checkbox List',
       drpString: [

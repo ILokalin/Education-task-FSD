@@ -22,16 +22,11 @@ mixin field-checkbox(props={})
       }
     }
 
-  label.field-checkbox(
-    class= allMods,
-    data-name= props.dataName || ''
-    )
-    input.field-checkbox__input(
-      type="checkbox",
-      checked= props.checked || false
-      )
-    .field-checkbox__marker
-    p.field-checkbox__label= props.labelTitle || ''
+  label.field-checkbox(class = allMods, data-name= props.dataName || '')
+    input.field-checkbox__input(type = "checkbox", checked = props.checked || false)
+    span.field-checkbox__box
+    |
+    = props.labelTitle || ''
 
   //- label.checkbox-buttons(
   //-     class = moduleClass + allMods,
