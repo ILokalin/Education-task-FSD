@@ -1,88 +1,87 @@
 %button-hover {
-    opacity: .5;
-    transition-duration: .5s;
+  opacity: .5;
+  transition-duration: .5s;
 }
 
-.buttons{
-    font-weight: bold;
-    font-size: 0.75rem;
-    text-align: center;
-    cursor: pointer;
+.buttons {
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+  cursor: pointer;
 
-    &:hover {
-        @extend %button-hover;
-    }
+  &:hover {
+    @extend %button-hover;
+  }
 }
 
 .buttons_full {
-    height: 2.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    border: none;
-    border-radius: 1.375rem;
-    background: $PrimaryGradient;
-    color: white;
+  height: 2.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border: none;
+  border-radius: 1.375rem;
+  background: $PrimaryGradient;
+  color: white;
 }
 
 .buttons.buttons_hover {
-    @extend %button-hover;
+  @extend %button-hover;
 }
 
 
 // Модификатор _border
 .buttons_border {
-    height: 2.75rem;
-    border-radius: 1.375rem;
-    padding-left: 1.125rem;
-    padding-right: 1.125rem;
-    color: $Purple;
-    border: solid 0.125rem transparent;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $PrimaryGradient;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    box-shadow: 2px 1000px 1px #fff inset;
+  height: 2.75rem;
+  border-radius: 1.375rem;
+  padding-left: 1.125rem;
+  padding-right: 1.125rem;
+  color: $Purple;
+  border: solid 0.125rem transparent;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $PrimaryGradient;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
 }
 
 
 // Модификатор _link
 .buttons_link {
-    margin: 0;
-    padding: 0;
-    color: #BC9CFF;
-    border: none;
-    background: transparent;
-    display: inline-block;
-    border: none;
+  margin: 0;
+  padding: 0;
+  color: #BC9CFF;
+  border: none;
+  background: transparent;
+  display: inline-block;
+  border: none;
 }
 
 
 // Модификатор _big
 .buttons_big {
-    width: 20rem;
+  width: 20rem;
 }
 
 @media screen and (max-width: 400px) {
-    .button-block_big .button-block__button{
-        width: 17.5rem;
-    }
+  .button-block_big .button-block__button {
+    width: 17.5rem;
+  }
 }
 
 
 // Модификатор _arrow
 .buttons_arrow {
-    position: relative;
+  position: relative;
 }
 
 .buttons_arrow::after {
-    position: absolute;
-    content: 'arrow_forward';
-    top: 0.625rem;
-    right: 0.625rem;
-    @extend %MaterialIcon
+  position: absolute;
+  content: 'arrow_forward';
+  top: 0.625rem;
+  right: 0.625rem;
+  @extend %MaterialIcon
 }
 
 
 .buttons_dark {
-    color: $DarkShade50;
+  color: $DarkShade50;
 }
-

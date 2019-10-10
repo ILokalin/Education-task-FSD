@@ -2,59 +2,59 @@ include ../../modules/field-checkbox/field-checkbox
 
 mixin checkbox-buttons(props={})
 
-    //- CheckboxList  раскрытый список чекбоксов
-    //- Данные для JS храняться в атрибутах Data
-    //- 
-    //- Принимает параметры в props:
-    //- moduleClass             string      имя класса списка
-    //- mods                    string      
-    //- listTitle               string      название спсика
-    //- dropStrings             array
-    //-     *moduleClass        string      имя класса для чекбокса
-    //-     *labelTitle         string      текст строки
-    //-     mods                string      Модификация: disabled
-    //-     checked             boolean     Установка в состояние checked
+  //- CheckboxList  раскрытый список чекбоксов
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает параметры в props:
+  //- moduleClass             string      имя класса списка
+  //- mods                    string      
+  //- listTitle               string      название спсика
+  //- dropStrings             array
+  //-     *moduleClass        string      имя класса для чекбокса
+  //-     *labelTitle         string      текст строки
+  //-     mods                string      Модификация: disabled
+  //-     checked             boolean     Установка в состояние checked
 
-        Пример вызова:
-        +exp-checkbox-list({
-            moduleClass: 'TestCheckList',
-            lineTitle: 'Test Expanded Checkbox List',
-            drpString: [
-                {
-                    moduleClass: 'testCheckColor',
-                    labelTitle: 'Я выбираю цвет',
-                    mods: 'redColor',
-                    checked: true
-                },
-                {
-                    moduleClass: 'testCheckBold',
-                    labelTitle: 'Установить жирый шрифт',
-                }
-            ]
-            })
-
-    -
-        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' checkbox-buttons_' + modList[i].trim()
-            }
+    Пример вызова:
+    +exp-checkbox-list({
+      moduleClass: 'TestCheckList',
+      lineTitle: 'Test Expanded Checkbox List',
+      drpString: [
+        {
+          moduleClass: 'testCheckColor',
+          labelTitle: 'Я выбираю цвет',
+          mods: 'redColor',
+          checked: true
+        },
+        {
+          moduleClass: 'testCheckBold',
+          labelTitle: 'Установить жирый шрифт',
         }
+      ]
+      })
 
-    .checkbox-buttons(class = moduleClass + allMods)
-        .checkbox-buttons__title-wrapper
-            p.checkbox-buttons__title= props.listTitle || ''
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' checkbox-buttons_' + modList[i].trim()
+      }
+    }
 
-        .checkbox-buttons__menu
-            each rowString, index in props.dropStrings
-                .checkbox-buttons__menuRow
-                    //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
-                    +field-checkbox({
-                        moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
-                        labelTitle: (typeof(rowString.labelTitle) !== 'undefined' && rowString.labelTitle) ? rowString.labelTitle : '',
-                        dataName: (typeof(rowString.dataName) !== 'undefined' && rowString.dataName) ? rowString.dataName : '',
-                        mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
-                        checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
-                    })
+  .checkbox-buttons(class = moduleClass + allMods)
+    .checkbox-buttons__title-wrapper
+      p.checkbox-buttons__title= props.listTitle || ''
+
+    .checkbox-buttons__menu
+      each rowString, index in props.dropStrings
+        .checkbox-buttons__menuRow
+          //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
+          +field-checkbox({
+            moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
+            labelTitle: (typeof(rowString.labelTitle) !== 'undefined' && rowString.labelTitle) ? rowString.labelTitle : '',
+            dataName: (typeof(rowString.dataName) !== 'undefined' && rowString.dataName) ? rowString.dataName : '',
+            mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
+            checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
+          })

@@ -1,40 +1,38 @@
-
-
 .text-field {
-    width: calc(100% - 0.9375rem - 0.125rem);
-    height: 2.625rem;
-    border: 0.0625rem solid rgba(31, 32, 65, 0.25);
-    border-radius: 0.25rem;
-    padding: 0;
-    padding-left: 0.9375rem;
+  width: calc(100% - 0.9375rem - 0.125rem);
+  height: 2.625rem;
+  border: 0.0625rem solid rgba(31, 32, 65, 0.25);
+  border-radius: 0.25rem;
+  padding: 0;
+  padding-left: 0.9375rem;
 
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.875rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem;
 
-&:hover {
+  &:hover {
     @extend %hover-focus;
-}
+  }
 
-&_focused {
+  &_focused {
     @extend %hover-focus;
-}
+  }
 
 
-&::placeholder {
+  &::placeholder {
     color: $DarkShade25;
-}
+  }
 
-&_focused::placeholder {
+  &_focused::placeholder {
     color: $DarkShade75;
-}
+  }
 
-&:hover::placeholder {
+  &:hover::placeholder {
     color: $DarkShade75;
-}
+  }
 }
 
 %hover-focus {
-    border: 0.0625rem solid $DarkShade50;
+  border: 0.0625rem solid $DarkShade50;
 }

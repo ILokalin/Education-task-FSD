@@ -2,24 +2,24 @@ include ../masked-text-field/masked-text-field
 
 mixin filter-date-dropdown(props = {})
 
-    //- Получает параметры:
-    //- mods			string		Модификаторы через запятую
-    //- placeholder		stgring		Placeholder
-    //- attrs			object		
+  //- Получает параметры:
+  //- mods			string		Модификаторы через запятую
+  //- placeholder		stgring		Placeholder
+  //- attrs			object		
 
-    -
+  -
 
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-            let modList = props.mods.split(',')
-            for (let i=0; i < modList.length; i++) {
-                allMods = allMods + ' filter-date-dropdown_' + modList[i].trim()
-            }
-        }
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+      let modList = props.mods.split(',')
+      for (let i=0; i < modList.length; i++) {
+        allMods = allMods + ' filter-date-dropdown_' + modList[i].trim()
+      }
+    }
 
-    .filter-date-dropdown
-        +masked-text-field({
-            maskType: 'date',
-            placeholder: props.placeholder || 'ДД месяц - ДД месяц'
-        })
-        span.filter-date-dropdown__marker expand_more
+  .filter-date-dropdown
+    +masked-text-field({
+      maskType: 'date',
+      placeholder: props.placeholder || 'ДД месяц - ДД месяц'
+    })
+    span.filter-date-dropdown__marker expand_more

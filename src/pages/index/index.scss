@@ -64,86 +64,85 @@
 
 // требует рефакторинг. Замена на extend
 .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
 
 .page {
-    &__description {
-        position: absolute;
-        top: 150px;
-        left: -65px;
-        color: $DarkShade25;
-        transform: rotate(-90deg)
-
-    }
+  &__description {
+    position: absolute;
+    top: 150px;
+    left: -65px;
+    color: $DarkShade25;
+    transform: rotate(-90deg)
+  }
 }
 
 .block-lib {
-    padding-left: 50px;
-    padding-bottom: 21px;
+  padding-left: 50px;
+  padding-bottom: 21px;
 
-    &__description-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-    }
+  &__description-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
 
-    &__block-row {
-        padding-top: 5px;
-    }
+  &__block-row {
+    padding-top: 5px;
+  }
 
-    &__title {
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 15px;
-        text-align: left;
-    }
+  &__title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: left;
+  }
 
-    &__mods {
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-        line-height: 15px;
-        text-align: right;
-    }
+  &__mods {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+  }
 
-    &_inline {
-        display: inline-block;
-        margin-right: 20px;
-    }
+  &_inline {
+    display: inline-block;
+    margin-right: 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    body {
-        width: 90%;
-        padding: 0;
-        margin: 0 auto;
-    }
+  body {
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+  }
 
-    .block-lib {
-        padding-left: 0;
-    }
+  .block-lib {
+    padding-left: 0;
+  }
 }

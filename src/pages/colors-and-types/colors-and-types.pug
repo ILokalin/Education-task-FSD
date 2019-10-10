@@ -1,126 +1,220 @@
 extends ../../template/template
 
-mixin block-color(props={})
+//- Миксины используемые на странице описаны в конце
+//- mixin block-color(props={})   блок с примерами цвета
+//- mixin color-side(props={})    размещает сторону с цветными блоками. Использует block-color
+//- mixin type-side(props = {})   размещает сторону с описанием тегов и примерами шрифтов
+//- mixin free-space(props={})    задает отступ по ширине и/или высоте
 
-    //- Микс задает место для элемента на странице, добавляет подписи, задает размер
-    //- Получает данные:
-    //- title       string  Заголовок - название цвета
-    //- color       string  цвет
+
+block append meta
+  meta(name="keywords", content="toxin, color and types")
+  meta(name="description" content="Учебный проект FSD. Второе задание. Лист color&types")
+
+
+block title
+  | Color and Type
+
+
+block main
+  include ../../modules/logo/logo
+
+  section.elements
+    .elements__logo
+      +logo({mods: 'gray'})
+  +free-space({height: '60px'})
+
+  section.elements
+    .elements__column
+      +color-side({
+        colorStrings: [
+          {
+            title: 'Dark Shade 100%',
+            color: 'rgba(31,32,65,1)'
+          },
+          {
+            title: 'Dark Shade 75%',
+            color: 'rgba(31,32,65,.75)'
+          },
+          {
+            title: 'Dark Shade 50%',
+            color: 'rgba(31,32,65,.5)'
+          },
+          {
+            title: 'Dark Shade 25%',
+            color: 'rgba(31,32,65,.25)'
+          },
+          {
+            title: 'Dark Shade 5%',
+            color: 'rgba(31,32,65,0.05)'
+          },
+          {
+            title: 'Purple',
+            color: '#BC9CFF'
+          },
+          {
+            title: 'Purple',
+            color: '#BC9CFF'
+          },
+          {
+            title: 'Green',
+            color: '#6FCF97'
+          }
+        ]
+        })
+
+    .elements__column
+      +type-side({
+        typeStrings: [
+          {
+          tagName: 'h1',
+          tagTitle: 'H1',
+          description: 'This one is the sub-section or widget title'
+          },
+          {
+          tagName: 'h2',
+          tagTitle: 'H2',
+          description: 'Next one is the item title inside widgets'
+          },
+          {
+          tagName: 'h3',
+          tagTitle: 'H3',
+          description: 'This is a label or CTA text'
+          },
+          {
+          tagName: 'p',
+          tagTitle: 'Body',
+          description: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+          }
+        ]
+      })
+
+
+mixin block-color(props={})
+  //- Микс задает место для блока с цветом на странице, добавляет подписи, задает размер
+  //- Принимает объект props с ключами
+  //-   title       {string}  название цвета со страницы
+  //-   color       {string}  цвет в любом формате (hex, RGB, RGBA)
+
+    Пример вызова
+      +block-color({
+        title: 'LightGrey',
+        color: #B0B0B0
+          })
+
+  -
+    var colorRGBA    = ''
+    var colorOpacity = '1'
+    var colorHex = '#'
+    if (props.color[0] !== '#') {
+      //- Если цвет RGB или RGBA - получаем список десятичных значений            
+      colorRGBA = props.color.split('(')[1].split(')')[0].split(',')
+      colorOpacity = (colorRGBA.length === 4) ? colorRGBA[3] : 1
+      for (let i = 0; i < 3; i++) {
+        var itemHex = Number(colorRGBA[i]).toString(16)
+        colorHex += (itemHex.length == 1 ) ? '0' + itemHex : itemHex
+      }
+    } else {
+      colorHex = props.color
+    }
+    var styleBlockColor = 'background-color:'+colorHex+';' + 'opacity:' + colorOpacity + ';'
+
+  .block-color
+    .block-color__example(style= styleBlockColor)
+    h2.block-color__title= props.title || ''
+    p.block-color__hex-color= colorHex
+
+
+mixin color-side(props={})
+  //- Список блоков цвета и их названий
+  //- Принимает объект props с ключами
+  //- colorStrings  {object}  список элементов
+  //-   title       {string}  название цвета со страницы
+  //-   color       {string}  цвет в любом формате (hex, RGB, RGBA)
+
+    Пример вызова
+    +color-side({
+        colorStrings: [
+          {
+            title: 'Dark Shade 100%',
+            color: 'rgba(31,32,65,1)'
+          },
+          {
+            title: 'Dark Shade 75%',
+            color: 'rgba(31,32,65,.75)'
+          },
+          {
+            title: 'Green',
+            color: '#6FCF97'
+          }
+        ]
+        })
+
+  each colorRow, index in props.colorStrings
+    .elements__block-color-wrap
+      +block-color({
+        title: colorRow.title,
+        color: colorRow.color
+          })
+
+
+mixin type-side(props = {})
+
+  //- Список тегов и используемых с ними шрифтов
+  //- Принимает объект props с ключами
+  //- typeStrings   {object}  список элементов
+  //-     tagName             описываемый тег
+  //-     tagTitle            назвние тега на листе*
+  //-     description         описание назначения в проекте
+  //- 
+  //- * - отличие названия тега на листе в пункте Body: на листе 'Body', в коде требуется тег 'p'
+
+    Пример вызова
+    +type-side({
+        typeStrings: [
+          {
+          tagName: 'h1',
+          tagTitle: 'H1',
+          description: 'This one is the sub-section or widget title'
+          },
+          {
+          tagName: 'p',
+          tagTitle: 'Body',
+          description: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+          }
+        ]
+      })
+
+  -
+    
+    let tagNameClass = ' class="block-types__title">'
+    let tagDescriptionClass = ' class="block-types__description">'
+
+  each typeRow, index in props.typeStrings
 
     -
-        var colorRGBA    = ''
-        var colorOpacity = '1'
-        var colorHex = '#'
-        if (props.color[0] !== '#') {
-            //- Если цвет RGB или RGBA - получаем список десятичных значений            
-            colorRGBA = props.color.split('(')[1].split(')')[0].split(',')
-            colorOpacity = (colorRGBA.length === 4) ? colorRGBA[3] : 1
-            for (let i = 0; i < 3; i++) {
-                var itemHex = Number(colorRGBA[i]).toString(16)
-                colorHex += (itemHex.length == 1 ) ? '0' + itemHex : itemHex
-            }
-        } else {
-            colorHex = props.color
-        }
-        
-        
-        var styleBlockColor = 'background-color:'+colorHex+';' + 'opacity:' + colorOpacity + ';'
-        //- class= 'block-color_' + colorHex.slice(1,7) + ' ' + 'block-color_' + Number(colorOpacity)*100 
-    .block-color
-        .block-color__example(style= styleBlockColor)
-        h2.block-color__title= props.title || ''
-        p.block-color__hex-color= colorHex
-
-
-mixin block-types(props = {})
-
-    .block-types
-        block
+      let tagOpen = '<' + typeRow.tagName
+      let tagClose = '</' + typeRow.tagName + '>'
+    
+    .block-types!= tagOpen + tagNameClass + typeRow.tagTitle + tagClose + tagOpen + tagDescriptionClass + typeRow.description + tagClose 
 
 
 mixin free-space(props = {})
-    //- Задает свободное пространство на странице
-    //- width
-    //- height
+  //- Задает свободное пространство на странице
+  //- Принимает объект props с ключами
+  //- width   {string}    ширина отступа 
+  //- height  {string}    высота отступа
 
-    -
-        let styleString = ''
-        if (typeof(props.width) !== 'undefined' && props.width) {
-            styleString += 'width:' + props.width + ';'
-        }
-        if (typeof(props.height) !== 'undefined' && props.height) {
-            styleString += 'height:' + props.height + ';'
-        }
-    .free-space(style= styleString)
-
-block title
-    | Color and Type
-
-block main
-    include ../../modules/logo/logo
-
-    section.elements
-        .elements__logo
-            +logo({mods: 'gray'})
+    Примеры вызова
     +free-space({height: '60px'})
+    +free-space({height: '3rem', width: '50px'})
 
-    section.elements
-        .elements__column
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Dark Shade 100%',
-                    color: 'rgba(31,32,65,1)'
-                })
-
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Dark Shade 75%',
-                    color: 'rgba(31,32,65,.75)'
-                })
-
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Dark Shade 50%',
-                    color: 'rgba(31,32,65,.5)'
-                })
-
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Dark Shade 25%',
-                    color: 'rgba(31,32,65,.25)'
-                })
-
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Dark Shade 5%',
-                    color: 'rgba(31,32,65,0.05)'
-                })
-
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Purple',
-                    color: '#BC9CFF'
-                })
-
-            .elements__block-color-wrap
-                +block-color({
-                    title: 'Green',
-                    color: '#6FCF97'
-                })
-
-        .elements__column
-            +block-types
-                h1.block-types__title H1
-                h1.block-types__description This one is the sub-section or widget title
-
-            +block-types
-                h2.block-types__title H2
-                h2.block-types__description Next one is the item title inside widgets
-
-            +block-types
-                h3.block-types__title H3
-                h3.block-types__description This is a label or CTA text
-
-            +block-types
-                p.block-types__title Body
-                p.block-types__description This is the body text which is used for most of the design, like paragraphs, lists, etc.
+  -
+    let styleString = ''
+    if (typeof(props.width) !== 'undefined' && props.width) {
+      styleString += 'width:' + props.width + ';'
+    }
+    if (typeof(props.height) !== 'undefined' && props.height) {
+      styleString += 'height:' + props.height + ';'
+    }
+  .free-space(style= styleString)

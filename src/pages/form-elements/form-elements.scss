@@ -11,7 +11,7 @@
 @import '../../modules/field-toggle/field-toggle';
 @import '../../modules/like-button/like-button';
 @import '../../modules/rate-button/rate-button';
-@import '../../modules/range-slider/range-slider.css';
+@import '../../modules/range-slider/range-slider';
 @import '../../modules/buttons/buttons.scss';
 @import '../../modules/icon-text/icon-text.scss';
 @import '../../modules/icon-text-list/icon-text-list.scss';
@@ -23,135 +23,135 @@
 
 
 body {
-    width: 100%;
+  width: 100%;
 }
 
 .free-space {
-    content: '';
+  content: '';
 }
 
 .elements {
-    margin: 0 auto;
-    max-width: 1440px;
+  margin: 0 auto;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  &__logo {
+    padding-left: 30px;
+    padding-top: 33px;
+
+  }
+
+  &__column {
+    flex-basis: 320px;
+  }
+
+  &__column:nth-child(2) {
+    padding-left: 4%;
+  }
+
+  &__column:first-child {
+    padding-left: 9.8%;
+  }
+
+  &__column:last-child {
+    padding-right: 9.8%;
+  }
+
+  &__container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 
-    &__logo {
-        padding-left: 30px;
-        padding-top: 33px;
-
-    }
-
-    &__column {
-        flex-basis: 320px;
-    }
-
-    &__column:nth-child(2) {
-        padding-left: 4%;
-    }
-
-    &__column:first-child {
-        padding-left: 9.8%;
-    }
-
-    &__column:last-child {
-        padding-right: 9.8%;
-    }
-
-    &__container {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
-
-    &__half-column {
-        width: 50%;
-    }
+  &__half-column {
+    width: 50%;
+  }
 
 
 
-    &__half-column:last-child {
-        display: flex;
-        justify-content: flex-end;
-    }
+  &__half-column:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 
 
 .block-lib {
-    padding-bottom: 21px;
+  padding-bottom: 21px;
 
-    &__description-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-    }
+  &__description-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
 
-    &__block-row {
-        padding-top: 5px;
-    }
+  &__block-row {
+    padding-top: 5px;
+  }
 
-    &__title {
-        // font-family: Montserrat;
-        // font-style: normal;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 15px;
-        text-align: left;
-    }
+  &__title {
+    // font-family: Montserrat;
+    // font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: left;
+  }
 
-    &__mods {
-        // font-family: Montserrat;
-        // font-style: normal;
-        // font-weight: normal;
-        font-size: 12px;
-        line-height: 15px;
-        text-align: right;
-    }
+  &__mods {
+    // font-family: Montserrat;
+    // font-style: normal;
+    // font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+  }
 }
 
 @media screen and (max-width: 1300px) {
-    .elements {
-        justify-content: space-around;
+  .elements {
+    justify-content: space-around;
 
-        &__column:nth-child(2) {
-            padding: 0;
-        }
-
-        &__column:first-child {
-            padding: 0;
-        }
-
-        &__column:last-child {
-            padding: 0;
-        }
-        
-        &__column {
-            padding-left: 0;
-            padding-right: 0;
-            padding: 0;
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
-            
-        }
+    &__column:nth-child(2) {
+      padding: 0;
     }
+
+    &__column:first-child {
+      padding: 0;
+    }
+
+    &__column:last-child {
+      padding: 0;
+    }
+
+    &__column {
+      padding-left: 0;
+      padding-right: 0;
+      padding: 0;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
+
+    }
+  }
 }
 
 @media screen and (max-width: 1000px) {
-    .elements {
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-    }
+  .elements {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    body {
-        width: 90%;
-        padding: 0;
-        margin: 0 auto;
-    }
+  body {
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+  }
 
 }

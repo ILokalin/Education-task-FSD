@@ -1,25 +1,25 @@
 mixin icon-text(props={})
 
-    //- Текст с иконкой
-    //- Принимает параметры в props:
-    //- moduleClass             string      доп имя класса
-    //- mods                    string      модификации
-    //- icon                    string      иконка из шрифта material icons
-    //- lineTitle               string      Заголовок текста
-    //- description             string      описание
+  //- Текст с иконкой
+  //- Принимает параметры в props:
+  //- moduleClass             string      доп имя класса
+  //- mods                    string      модификации
+  //- icon                    string      иконка из шрифта material icons
+  //- lineTitle               string      Заголовок текста
+  //- description             string      описание
 
 
 
-    -
-        let moduleClass = props.moduleClass || ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' icon-text_' + modList[i].trim()
-            }
-        }
-    .icon-text(class= moduleClass + allMods)
-        .icon-text__icon= props.icon
-        span.icon-text__lineTitle= props.lineTitle || ''
-        p.icon-text__description= props.description || ''
+  -
+    let moduleClass = props.moduleClass || ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' icon-text_' + modList[i].trim()
+      }
+    }
+  .icon-text(class= moduleClass + allMods)
+    .icon-text__icon= props.icon
+    span.icon-text__lineTitle= props.lineTitle || ''
+    p.icon-text__description= props.description || ''

@@ -1,14 +1,14 @@
 @import '../icon-text/icon-text.scss';
 
 .icon-text-list {
-    &__separate {
-        width: 100%;
-        border: 1px solid $DarkShade10;
-        background-color: transparent;
-        margin: 20px 0;
-    }
+  &__separate {
+    width: 100%;
+    border: 1px solid $DarkShade10;
+    background-color: transparent;
+    margin: 20px 0;
+  }
 
-    &__separate:nth-last-child() {
-        margin-bottom: 0px;
-    }
+  &__separate:nth-last-child() {
+    margin-bottom: 0px;
+  }
 }

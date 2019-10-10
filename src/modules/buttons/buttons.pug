@@ -1,28 +1,28 @@
 mixin buttons(props={})
 
-    //- button с надписью
-    //- Принимает параметры в props:
-    //- moduleClass             string      доп имя класса
-    //- mods                    string      модификации
-    //-                             border
-                                    full
-                                    link
-                                    hover
-                                    arrow
-    //- lineTitle              string      надпись в кнопке
+  //- button с надписью
+  //- Принимает параметры в props:
+  //- moduleClass             string      доп имя класса
+  //- mods                    string      модификации
+  //-                             border
+    full
+    link
+    hover
+    arrow
+  //- lineTitle              string      надпись в кнопке
 
 
-    -
-        let moduleClass = props.moduleClass || ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' buttons_' + modList[i].trim()
-            }
-        }
+  -
+    let moduleClass = props.moduleClass || ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' buttons_' + modList[i].trim()
+      }
+    }
 
-    button.buttons(
-        class= moduleClass + allMods,
-        type="button"
-        )= props.lineTitle
+  button.buttons(
+    class= moduleClass + allMods,
+    type="button"
+    )= props.lineTitle

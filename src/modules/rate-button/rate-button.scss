@@ -1,23 +1,23 @@
 .rate-button {
-    display: inline-flex;
-    cursor: pointer;
-    justify-content: flex-start;
+  display: inline-flex;
+  cursor: pointer;
+  justify-content: flex-start;
 
-    @extend %MaterialIcon;
+  @extend %MaterialIcon;
 
-    &__star:after{
-        content: "star_border";
-        background: $PrimaryGradient;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-    }
+  &__star:after {
+    content: "star_border";
+    background: $PrimaryGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 
-    &__star_full:after {
-        content: "star";
-        background: $PrimaryGradient;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-    }
+  &__star_full:after {
+    content: "star";
+    background: $PrimaryGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
