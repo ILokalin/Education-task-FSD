@@ -3,44 +3,52 @@ mixin radio-buttons(props={})
   //- radio-button с label
   //- Данные для JS храняться в атрибутах Data
   //- 
-  //- Принимает параметры в props:
-  //- moduleClass             string      имя класса
-  //- mods                    string      'open' - открыто меню
+  //- Принимает объект props с ключами:
+  //- radioButtonsSet         string      обязательное название
+  //- mods                    string      модификации
   //- labelTitle              string
-  //- buttonsList             {object}
-  //-     buttonTitle         {string}
-  //-     buttonValue         {string}
-  //-     checked             true/false
-  //- attrs:                  {object}
-  //-     name:               {string}
-  //- ...
-  //- 
-  //- 
+  //- buttonsList             {object}    список радио кнопок
+  //-     buttonTitle         {string}    название кнопки
+  //-     buttonValue         {string}    переменная
+  //-     checked             true/false  состояние
 
+    Пример вызова
+    +radio-buttons({
+          labelTitle: 'RADIO BUTTONS',
+          radioButtonsSet: 'radio-battons-test',
+          buttonsList: [
+            {buttonTitle: 'Мужчина',
+            buttonValue: 'man',
+            checked: true},
+            {buttonTitle: 'Женщина',
+            buttonValue: 'woman'}
+            ]
+          })
 
   -
-    let moduleClass = props.moduleClass
+    let moduleClass = props.moduleClass || ''
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
     for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' radio-button_' + modList[i].trim()
+      allMods = allMods + ' radio-buttons_' + modList[i].trim()
       }
     }
 
-  .radio-button(class = moduleClass + allMods)
-    .radio-button__title-wrapper
-      p.radio-button__section-title= (typeof(props.labelTitle) !=='undefined' && props.labelTitle) ? props.labelTitle : ''
+  .radio-buttons(class = moduleClass + allMods)
+    header.radio-buttons__title-wrapper
+      h3.radio-buttons__title= props.labelTitle ? props.labelTitle : ''
+    .radio-buttons__button-wrapper
 
-    .radio-button__button-wrapper
       each buttonString, index in props.buttonsList
-        label.radio-button__button-label(name = moduleClass)
-          input.radio-button__input(
-            type = 'radio',
-            name = moduleClass,
+        label.radio-buttons__label
+          input.radio-buttons__input(
+            type  = 'radio',
+            name  = props.radioButtonsSet,
             value = buttonString.buttonValue,
             checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
-          )&attributes(props.attrs)
-          .radio-button__marker
-          span.radio-button__button-title= buttonString.buttonTitle
+            )
+          span.radio-buttons__marker
+          |
+          = buttonString.buttonTitle
 

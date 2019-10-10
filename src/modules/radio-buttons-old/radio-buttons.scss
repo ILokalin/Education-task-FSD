@@ -1,0 +1,97 @@
+.radio-button {
+  user-select: none;
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    // height: 42px;
+    margin-bottom: 1rem;
+  }
+
+  &__section-title {
+    margin: 0;
+    padding: 0;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__button-title {
+    padding-left: 30px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-label {
+    position: relative;
+    display: inline-block;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+
+  &__input {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+    border: 0;
+    top: 2px;
+    left: 2px;
+  }
+
+  &__input:before {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(31, 32, 65, 0.25);
+    border-radius: 50%;
+  }
+
+  &__input:after {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  &__input:checked:before {
+    background-color: #BC9CFF;
+  }
+
+  &__marker {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    opacity: 0;
+    transition: opacity .3s linear 0s;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  }
+
+  &__input:checked+.radio-button__marker {
+    opacity: 1;
+  }
+
+}
