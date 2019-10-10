@@ -5,7 +5,6 @@
   &__item {
     position: relative;
     padding-left: 1.3rem;
-
     margin-top: 0.5625rem;
     list-style-type: none;
   }
@@ -13,11 +12,11 @@
   &__item::before {
     position: absolute;
     top: 0.4375rem;
-    left: 0px;
+    left: 0;
     content: '';
     width: 0.625rem;
     height: 0.625rem;
     background-color: $DarkShade25;
     border-radius: 0.625rem;
   }
-}
+} 

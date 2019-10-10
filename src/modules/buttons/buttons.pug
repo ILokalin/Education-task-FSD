@@ -1,26 +1,28 @@
 mixin buttons(props={})
 
-  //- button с надписью
-  //- Принимает параметры в props:
-  //- moduleClass             string      доп имя класса
-  //- mods                    string      модификации
-  //-                             border
-    full
-    link
-    hover
-    arrow
-  //- lineTitle              string      надпись в кнопке
+  //- Кнопка с надписью
+  //- Принимает объект props с ключами
+  //- lineTitle     string      надпись в кнопке
+  //- moduleClass   string      доп имя класса
+  //- mods          string      строка модификаций через запятую
+  //-   border                  белая кнопка с градиентной границей
+  //-   full                    кнопка залита градиентом $PrimaryGradient
+  //-   link                    кнопка без бордера, в виде ссылки
+  //-   hover                   выглядит идентично состоянию :hover
+  //-   big                     кнопка большого размера 320px (20rem)
+  //-   arrow                   кнопка со стрелкой "arrow_forward"
+  
 
 
   -
     let moduleClass = props.moduleClass || ''
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
-    for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' buttons_' + modList[i].trim()
+      let modList = props.mods.split(',')
+      for (let i=0; i < modList.length; i++) {
+        allMods = allMods + ' buttons_' + modList[i].trim()
+        }
       }
-    }
 
   button.buttons(
     class= moduleClass + allMods,
