@@ -2,8 +2,8 @@
   position: relative;
   padding-left: 1.875rem;
   display: block;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
   cursor: pointer;
   
   &__input {
@@ -15,9 +15,9 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 0.25rem;
     border: 1px solid $DarkShade25;
   }
 
@@ -27,14 +27,17 @@
 
   &__input:checked + &__box:after {
     position: absolute;
-    background: url('../../img/check-box-marker-purple.svg') no-repeat;
-
+    // путь к изображению от страницы использования
+    background: url('../../modules/field-checkbox/img/check-box-marker-purple.svg') no-repeat;
     content: "";
-    left: 4px;
-    top: 3px;
-    width: 10px;
-    height: 10px;
-    // background-color: red;
+    left: 0.25rem;
+    top: 0.1875rem;
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  &__input:focus + &__box {
+    box-shadow: 0 0 0 1px $Purple;
   }
 
 }
