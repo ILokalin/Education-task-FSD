@@ -27,8 +27,7 @@
 
   &__input:checked + &__box:after {
     position: absolute;
-    // путь к изображению от страницы использования
-    background: url('../../modules/field-checkbox/img/check-box-marker-purple.svg') no-repeat;
+    background: url(./img/check-box-marker-purple.svg);
     content: "";
     left: 0.25rem;
     top: 0.1875rem;

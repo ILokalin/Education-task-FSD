@@ -1,0 +1,61 @@
+.toggle {
+  position: relative;
+  padding-left: 50px;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  cursor: pointer;
+  
+  &__input {
+    margin: 0;
+    appearance: none;
+  }
+  
+  &__marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid $DarkShade25;
+  }
+
+  &__marker:after {
+    position: absolute;
+    background-color: $DarkShade25;
+    border-radius: 50%;
+    content: "";
+    left: 4px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+  }
+
+  &__input:checked + &__marker{
+    border: 1px solid $Purple;
+  }
+
+  &__input:checked + &__marker:after {
+    position: absolute;
+    background: $PrimaryGradient;
+    border-radius: 50%;
+    content: "";
+    left: 23px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+  }
+
+  &__input:focus + &__marker {
+    box-shadow: 0 0 0 1px $Purple;
+  }
+
+  &_bold {
+    font-weight: bold;
+  }
+
+  &_dark-shade75 {
+    color: $DarkShade75;
+  }
+}

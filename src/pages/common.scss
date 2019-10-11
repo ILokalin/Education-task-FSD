@@ -47,13 +47,13 @@ $GreenGradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   }
 }
 
-@include font-face("Material Icons", "../../fonts/MaterialIcons-Regular");
+@include font-face("Material Icons", "../fonts/MaterialIcons-Regular");
 
-@include font-face("Montserrat", "../../fonts/Montserrat-Regular");
-@include font-face("Montserrat", "../../fonts/Montserrat-Bold", bold);
+@include font-face("Montserrat", "../fonts/Montserrat-Regular");
+@include font-face("Montserrat", "../fonts/Montserrat-Bold", bold);
 
-@include font-face("Quicksand", "../../fonts/OpenSans-Bold", bold);
-@include font-face("Quicksand", "../../fonts/OpenSans-Regular");
+@include font-face("Quicksand", "../fonts/OpenSans-Bold", bold);
+@include font-face("Quicksand", "../fonts/OpenSans-Regular");
 
 
 

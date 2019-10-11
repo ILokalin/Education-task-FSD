@@ -23,7 +23,7 @@ block main
   include ../../modules/checkbox-buttons/checkbox-buttons
   include ../../modules/rich-checkbox-buttons/rich-checkbox-buttons
   include ../../modules/radio-buttons/radio-buttons
-  include ../../modules/field-toggle/field-toggle
+  include ../../modules/toggle/toggle
   include ../../modules/like-button/like-button
   include ../../modules/rate-button/rate-button
   include ../../modules/range-slider/range-slider
@@ -122,13 +122,13 @@ block main
       +free-space({height: '16px'})
       +block-lib({title: 'TOGGLE', width: '320px'})
         +free-space({height: '10px'})
-        +field-toggle({
+        +toggle({
           labelTitle: 'Получать спецпредложения',
           moduleClass: 'field-toggle-test',
           checked: true
           })
         +free-space({height: '10px'})
-        +field-toggle({
+        +toggle({
           labelTitle: 'Получать спецпредложения',
           moduleClass: 'field-toggle-test',
           checked: false
