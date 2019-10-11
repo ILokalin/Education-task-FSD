@@ -1,0 +1,55 @@
+.rich-checkbox {
+  position: relative;
+  
+  user-select: none;
+  display: inline-block;
+  // height: 20px;
+  cursor: pointer;
+
+
+  &__wrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+    color: $DarkShade75;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 16px;
+
+  }
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 9px;
+  }
+
+  &__item:last-child {
+    padding-bottom: 0;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: $DarkShade50;
+    padding-left: 1.875rem;
+    padding-top: 7px;
+  }
+
+
+
+
+
+}

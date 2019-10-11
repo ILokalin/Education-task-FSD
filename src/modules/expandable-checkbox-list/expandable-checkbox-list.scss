@@ -39,10 +39,14 @@
     text-transform: uppercase;
   }
 
-  &__menu-row {
+  &__menu-item {
     padding: 0;
     margin: 0;
-    padding-bottom: 0.8125rem;
+    padding-bottom: 0.75rem;
+  }
+
+  &__menu-item:last-child {
+    padding-bottom: 0;
   }
 
   &__toggle-marker {

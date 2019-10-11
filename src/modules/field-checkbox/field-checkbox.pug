@@ -11,7 +11,14 @@ mixin field-checkbox(props={})
   //-     name:               {string}
   //- ...
   //- 
-  //- 
+    Пример вызова
+    +field-checkbox({
+            moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
+            labelTitle: (typeof(rowString.labelTitle) !== 'undefined' && rowString.labelTitle) ? rowString.labelTitle : '',
+            dataName: (typeof(rowString.dataName) !== 'undefined' && rowString.dataName) ? rowString.dataName : '',
+            mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
+            checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
+          })
 
   -
     let allMods = ''
@@ -28,14 +35,3 @@ mixin field-checkbox(props={})
     |
     = props.labelTitle || ''
 
-  //- label.checkbox-buttons(
-  //-     class = moduleClass + allMods,
-  //-     data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
-  //-     )
-  //-     input.checkbox-buttons__input(
-  //-         type='checkbox',
-  //-          id=moduleClass,
-  //-          checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
-  //-          )&attributes(props.attrs)
-  //-     div.checkbox-buttons__mark(for=moduleClass)
-  //-     span.checkbox-buttons__name(for=moduleClass)= props.labelTitle

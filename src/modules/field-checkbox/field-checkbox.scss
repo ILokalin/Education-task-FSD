@@ -40,4 +40,11 @@
     box-shadow: 0 0 0 1px $Purple;
   }
 
+  &_bold {
+    font-weight: bold;
+  }
+
+  &_dark-shade75 {
+    color: $DarkShade75;
+  }
 }

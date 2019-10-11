@@ -21,7 +21,7 @@ block main
   include ../../modules/field-checkbox/field-checkbox
   include ../../modules/expandable-checkbox-list/expandable-checkbox-list
   include ../../modules/checkbox-buttons/checkbox-buttons
-  include ../../modules/rich-checkbox/rich-checkbox
+  include ../../modules/rich-checkbox-buttons/rich-checkbox-buttons
   include ../../modules/radio-buttons/radio-buttons
   include ../../modules/field-toggle/field-toggle
   include ../../modules/like-button/like-button
@@ -363,22 +363,26 @@ block main
         })
 
     .elements__column
-      +free-space({height: '13px'})
-      +block-lib({title: 'RICH CHECKBOX', width: '266px'})
-        +free-space({height: '10px'})
-        +rich-checkbox({
-          labelTitle: 'Широкий коридор',
-          labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
-          moduleClass: 'rich-checkbox-test'
-        })
-        +rich-checkbox({
-          labelTitle: 'Помощник для инвалидов',
-          labelDiscription: 'На 1 этаже вас встретит специалист  и проводит до номера.',
-          moduleClass: 'rich-checkbox-test'
+      +free-space({height: '14px'})
+      +block-lib-self-title({width: '266px'})
+        +rich-checkbox-buttons({
+          listTitle: 'rich checkbox buttons',
+          listStrings: [
+            {
+              labelTitle: 'Широкий коридор',
+              labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
+              moduleClass: 'rich-checkbox-test'
+            },
+            {
+              labelTitle: 'Помощник для инвалидов',
+              labelDiscription: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+              moduleClass: 'rich-checkbox-test'
+            }
+          ]
         })
 
     .elements__column
-      +free-space({height: '13px'})
+      +free-space({height: '14px'})
       +block-lib({title: 'BULLET LIST', width: '280px'})
         +bullet-list({
           bulletStrings: [

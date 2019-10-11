@@ -50,7 +50,7 @@ mixin expandable-checkbox-list(props={})
 
     .expandable-checkbox-list__menu
       each rowString, index in props.dropStrings
-        .expandable-checkbox-list__menu-row
+        .expandable-checkbox-list__menu-item
 
           +field-checkbox({
             moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',

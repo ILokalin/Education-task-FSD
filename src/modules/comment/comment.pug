@@ -23,7 +23,7 @@ mixin comment(props={})
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
     for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' checkbox-list_' + modList[i].trim()
+      allMods = allMods + ' comment_' + modList[i].trim()
       }
     }
 
@@ -38,6 +38,6 @@ mixin comment(props={})
       labelTitle: '12',
       checked: props.commentChecked || ''
       })
-    .comment__user-name= props.commentUser || ''
+    h3.comment__user-name= props.commentUser || ''
     p.comment__date= props.commentDate || ''
     p.comment__text= props.commentText || ''
