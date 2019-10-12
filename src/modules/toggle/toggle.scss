@@ -15,10 +15,10 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 40px;
-    height: 20px;
-    border-radius: 10px;
-    border: 1px solid $DarkShade25;
+    width: 2.375rem;
+    height: 1.125rem;
+    border-radius: 0.625rem;
+    border: 0.0625rem solid $DarkShade25;
   }
 
   &__marker:after {
@@ -26,14 +26,14 @@
     background-color: $DarkShade25;
     border-radius: 50%;
     content: "";
-    left: 4px;
-    top: 4px;
-    width: 12px;
-    height: 12px;
+    left: 0.25rem;
+    top: 0.1875rem;
+    width: 0.75rem;
+    height: 0.75rem;
   }
 
   &__input:checked + &__marker{
-    border: 1px solid $Purple;
+    border: 0.0625rem solid $Purple;
   }
 
   &__input:checked + &__marker:after {
@@ -41,10 +41,10 @@
     background: $PrimaryGradient;
     border-radius: 50%;
     content: "";
-    left: 23px;
-    top: 4px;
-    width: 12px;
-    height: 12px;
+    left: 1.4375rem;
+    top: 0.1875rem;
+    width: 0.75rem;
+    height: 0.75rem;
   }
 
   &__input:focus + &__marker {

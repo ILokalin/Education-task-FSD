@@ -1,1 +1,0 @@
-var method = document.querySelector("[name='radio']:checked").value;

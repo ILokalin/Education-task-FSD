@@ -2,80 +2,51 @@
   position: relative;
   user-select: none;
   width: 100%;
-  // display: inline-block;
+  display: block;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  height: 20px;
-
-  &__like-count {
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-    margin-left: 8px;
-    color: $DarkShade25;
-    font-size: 9px;
-    text-align: center;
-  }
-
-  // Привязка к элементам: Поменять цвет на $Purple при состоянии checked у блока
-  &__input:checked+&__mark+&__like-count {
-    color: $Purple;
-  }
+  padding-left: 20px;
+  color: $DarkShade25;
+  font-size: 9px;
+  line-height: 20px;
 
   &__input {
     position: absolute;
-    z-index: -1;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    top: 2px;
-    left: 2px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
   }
 
-  &__input:before {
-    cursor: pointer;
-    content: '';
+  &__marker {
     position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 40px;
-    height: 20px;
-    background-color: $DarkShade25;
-    border-radius: 10px;
-  }
-
-  &__input::before:checked {
-    background-color: $Purple;
-  }
-
-  &__input:after {
-    cursor: pointer;
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    width: 38px;
-    height: 18px;
-    background-color: #fff;
-    border-radius: 10px;
-  }
-
-  &__input:checked+.like-button__mark:after {
-    position: absolute;
-    top: 0;
     left: 0;
-    content: 'favorite';
-    color: #BC9CFF;
+    top: 0;
+    width: 2.375rem;
+    height: 1.125rem;
+    border-radius: 10px;
+    border: 1px solid $DarkShade25;
   }
 
-  &__mark {
-    position: relative;
+  &__marker::before {
+    position: absolute;
+    left: 4px;
+    content: "favorite_border";
     color: $DarkShade25;
     @extend %MaterialIcon;
     font-size: 10px;
+    line-height: 18px;
   }
 
+  &__input:checked + &__marker {
+    border: 1px solid $Purple;
+  }
 
+  &__input:checked + &__marker::before {
+    content: "favorite";
+    color: $Purple;
+  }
+
+  &__input:focus + &__marker {
+    box-shadow: 0 0 0 1px $Purple;
+  }
 }
