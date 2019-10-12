@@ -50,11 +50,10 @@ mixin checkbox-buttons(props={})
     .checkbox-buttons__menu
       each rowString, index in props.dropStrings
         .checkbox-buttons__menu-row
-          //- - let checkString = ('{moduleClass: ' +  rowString.moduleClass + ', +labelTitle:' + rowString.labelTitle + '}')
           +field-checkbox({
-            moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
-            labelTitle: (typeof(rowString.labelTitle) !== 'undefined' && rowString.labelTitle) ? rowString.labelTitle : '',
-            dataName: (typeof(rowString.dataName) !== 'undefined' && rowString.dataName) ? rowString.dataName : '',
-            mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
-            checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
+            moduleClass: rowString.moduleClass || '',
+            labelTitle: rowString.labelTitle || '',
+            dataName: rowString.dataName || '',
+            mods: rowString.mods || '',
+            checked: rowString.checked || '',
           })

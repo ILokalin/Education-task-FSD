@@ -1,16 +1,21 @@
-mixin masked-text-field(props = {})
+mixin masked-text-field(props = {maskType: 'date'})
 
   //- Получает параметры:
-  //- mods			string		Модификаторы через запятую
-  //- placeholder		stgring		Placeholder
-  //- attrs			object		
-  //- 	type		string		тип. Если не указан, то text
-  //- 	любые атрибуты для Input
+  //- mods			    string		Модификаторы через запятую
+  //- placeholder		string		текст маски
+  //- maskType      string    тип маскирования
+                      date    маска для ввода даты. По умолчанию
 
+    Примеры вызова
+      +masked-text-field({
+          placeholder: 'ДД.ММ.ГГГ',
+          maskType: 'date'})
+
+      +masked-text-field({placeholder: 'ДД.ММ.ГГГ'})
+  
   -
     let nameFieldText = ''
     let patternFieldText = ''
-    let placeholderFieldText = ''
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
       let modList = props.mods.split(',')
@@ -26,9 +31,10 @@ mixin masked-text-field(props = {})
       }
     }
 
-  input.masked-text-field(class= allMods,
-  placeholder= (typeof(props.placeholder) !== 'undefined' && props.placeholder) ? props.placeholder : '',
-  type= (typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text',
-    name= nameFieldText,
-    pattern= pattternFieldText
-    )&attributes(props.attrs)
+  input.masked-text-field(
+    class = allMods, 
+    placeholder = props.placeholder || '',
+    type = 'text',
+    name = nameFieldText,
+    pattern = pattternFieldText
+    )

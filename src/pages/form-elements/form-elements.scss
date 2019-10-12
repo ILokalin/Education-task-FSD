@@ -77,6 +77,9 @@ body {
   }
 }
 
+.elements:last-child {
+  justify-content: flex-start;
+}
 
 
 .block-lib {
@@ -95,6 +98,7 @@ body {
   &__title {
     // font-family: Montserrat;
     // font-style: normal;
+    margin: 0;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;

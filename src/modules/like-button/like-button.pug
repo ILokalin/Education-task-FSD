@@ -16,7 +16,6 @@ mixin like-button(props={})
 
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : props.dataName
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
@@ -26,13 +25,14 @@ mixin like-button(props={})
     }
 
   label.like-button(
-    class = moduleClass + allMods,
-    data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
+    class = allMods,
+    name = props.dataName || 'like-button'
     )
     input.like-button__input(
       type='checkbox',
-        id=moduleClass,
-        checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
-        )&attributes(props.attrs)
-    span.like-button__marker= props.labelTitle
+      name = props.dataName || 'like-button',
+      checked = props.checked || false
+    )
+    span.like-button__marker
+    p.like-button__title= props.labelTitle
 

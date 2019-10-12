@@ -5,8 +5,6 @@
   display: block;
   cursor: pointer;
   padding-left: 20px;
-  color: $DarkShade25;
-  font-size: 9px;
   line-height: 20px;
 
   &__input {
@@ -21,15 +19,10 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 18px;
-    height: 1.125rem;
+    width: 38px;
+    height: 18px;
     border-radius: 10px;
     border: 1px solid $DarkShade25;
-
-    color: $DarkShade25;
-    font-size: 9px;
-    line-height: 18px;
-    padding-left: 20px;
   }
 
   &__marker::before {
@@ -42,8 +35,16 @@
     line-height: 18px;
   }
 
+  &__title {
+    font-size: 9px;
+    color: $DarkShade25;
+  }
+
   &__input:checked + &__marker {
     border: 1px solid $Purple;
+  }
+
+  &__input:checked ~ &__title {
     color: $Purple;
   }
 

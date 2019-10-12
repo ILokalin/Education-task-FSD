@@ -4,8 +4,10 @@ mixin field-checkbox(props={})
   //- Данные для JS храняться в атрибутах Data
   //- 
   //- Принимает параметры в props:
-  //- dataName                string      имя для data-name
-  //- mods                    string      'open' - открыто меню
+  //- dataName                string      имя для name
+  //- mods                    string
+                        bold            жирный шрифт
+                        dark-shade75     цвет DarkShade75
   //- labelTitle              string      
   //- attrs:                  {object}
   //-     name:               {string}
@@ -29,8 +31,8 @@ mixin field-checkbox(props={})
       }
     }
 
-  label.field-checkbox(class = allMods, data-name= props.dataName || '')
-    input.field-checkbox__input(type = "checkbox", checked = props.checked || false)
+  label.field-checkbox(class = allMods, name= props.dataName || '')
+    input.field-checkbox__input(type = "checkbox", name = props.dataName || 'check-box', checked = props.checked || false)
     span.field-checkbox__box
     |
     = props.labelTitle || ''

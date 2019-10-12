@@ -13,10 +13,23 @@ mixin icon-text-list(props={})
   //-     lineTitle           string      Заголовок текста
   //-     description         string      описание
 
-
+    Пример вызова
+    +icon-text-list({
+          iconStrings: [
+            {
+            icon: 'insert_emoticon',
+            lineTitle: 'Комфорт',
+            description: 'Шумопоглощающие стены'
+            },
+            {
+            icon: 'location_city',
+            lineTitle: 'Удобство',
+            description: 'Окно в каждой из спален'
+            }
+          ]
+        })
 
   -
-    let moduleClass = props.moduleClass || ''
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
@@ -25,11 +38,10 @@ mixin icon-text-list(props={})
       }
     }
 
-  .icon-text-list(class= moduleClass + allMods)
+  .icon-text-list(class= allMods)
     each iconRow, index in props.iconStrings
       +icon-text({
         mods: iconRow.mods || '',
-        moduleClass: iconRow.moduleClass || '',
         icon: iconRow.icon || '',
         lineTitle: iconRow.lineTitle || '',
         description: iconRow.description || ''

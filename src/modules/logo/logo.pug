@@ -2,13 +2,11 @@ mixin logo(props={})
 
   //- Логотип
   //- Принимает параметры в props:
-  //- moduleClass             string      доп имя класса
-  //- mods                    string      модификации
-    grey    серый только круг
+  //- mods  string      модификации
+                grey    серый и только круг
 
-
-
-
+    Примеры использования
+    +logo({mods: 'gray'})
 
   -
     let moduleClass = props.moduleClass || ''

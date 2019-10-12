@@ -2,9 +2,11 @@ include ../text-field/text-field
 
 mixin subscription-text-field(props = {})
 
-  //- Получает параметры:
-  //- mods			string		Модификаторы через запятую
+  //- Получает объект props с ключами:
+  //- mods			    string		Модификаторы через запятую
   //- placeholder		stgring		Placeholder
+    Пример вызова
+    +subscription-text-field({placeholder: 'Email'})
 
   -
     let allMods = ''

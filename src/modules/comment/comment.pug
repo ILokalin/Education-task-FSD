@@ -5,17 +5,23 @@ mixin comment(props={})
   //- Comment  раскрытый список чекбоксов
   //- 
   //- Принимает параметры в props:
-  //- moduleClass             string      имя класса списка
-  //- mods                    string      
-  //- commentUser             string      пользователь
-  //- commentPhoto            string url
-  //- commentDate             string
-  //- commentLike             string num
-  //- commentText
-  //- dropStrings             array
-
-
-
+  //- moduleClass       string      имя класса списка
+  //- mods              string      модификаторы
+  //- user              string      Имя пользователя
+  //- photo             string      url фото пользователя
+  //- date              string      дата коментария
+  //- likes             string      число лайков
+  //- likeChecked       bolean     состояние лайка
+  //- text                         текст коментария
+    Пример вызова
+    +comment({
+        user:    'Мурад Сарафанов',
+        photo:   './images/avatar.png',
+        date:    '5 дней назад',
+        like:    '12',
+        likeChecked: true,
+        text:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+      })
 
   -
     let moduleClass = (props.moduleClass) ? props.moduleClass : ''
@@ -31,13 +37,13 @@ mixin comment(props={})
     .comment__photo-ring
       img.comment__photo(width="48px",
       alt="user",
-      src= props.commentPhoto || ''
+      src= props.photo || './images/avatar-free.png'
       )
     .comment__like-button
       +like-button({
       labelTitle: '12',
-      checked: props.commentChecked || ''
+      checked: props.likeChecked || ''
       })
-    h3.comment__user-name= props.commentUser || ''
-    p.comment__date= props.commentDate || ''
-    p.comment__text= props.commentText || ''
+    h3.comment__user-name= props.user || ''
+    p.comment__date= props.date || ''
+    p.comment__text= props.text || ''

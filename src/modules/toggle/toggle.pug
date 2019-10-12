@@ -3,20 +3,23 @@ mixin toggle(props={})
   //- checkbox с label
   //- Данные для JS храняться в атрибутах Data
   //- 
-  //- Принимает параметры в props:
+  //- Принимает объект props с ключами:
   //- moduleClass             string      имя класса
   //- dataName                string      имя для data-name
   //- mods                    string      'open' - открыто меню
   //- labelTitle              string      
   //- attrs:                  {object}
   //-     name:               {string}
-  //- ...
-  //- 
-  //- 
+
+    Пример вызова
+    +toggle({
+          labelTitle: 'Получать спецпредложения',
+          moduleClass: 'field-toggle-test',
+          checked: false
+          })
 
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : props.dataName
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
@@ -26,14 +29,14 @@ mixin toggle(props={})
     }
 
   label.toggle(
-    class = moduleClass + allMods,
-    data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
+    class = allMods,
+    name = props.dataName : 'toggle'
     )
     input.toggle__input(
-      type='checkbox',
-        id=moduleClass,
-        checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
+      type = 'checkbox',
+        name = props.dataName || 'toggle',
+        checked = props.checked || false
         )
-    span.toggle__marker(for=moduleClass)
+    span.toggle__marker
     |
     = props.labelTitle
