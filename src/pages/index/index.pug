@@ -2,30 +2,30 @@ extends ../../template/template
 
 mixin block-lib(props={})
 
-    //- Получает данные:
-    //- title       string  Заголовок - название элемента
-    //- mods        string  Описание модификатора
-    //- width       string  Ширина в виде 'XXpix'
+  //- Получает данные:
+  //- title       string  Заголовок - название элемента
+  //- mods        string  Описание модификатора
+  //- width       string  Ширина в виде 'XXpix'
 
-    .block-lib(class= props.type || '',
-    style="max-width:"+props.width)
-        .block-lib__description-row
-            .block-lib__title= props.title
-            .block-lib__mods= props.mods
-        .block-lib__block-row
-            block
+  .block-lib(class= props.type || '',
+  style="max-width:"+props.width)
+    .block-lib__description-row
+      .block-lib__title= props.title
+      .block-lib__mods= props.mods
+    .block-lib__block-row
+      block
 
 
 block title
-    | Ui Page
+  | Ui Page
 
 block main
 
-    ul.menu-page
-        li.menu-page__item
-            a.link-item(href= 'form-elements.html') FORM
-        li.menu-page__item
-            a.link-item(href= 'colors-and-types.html') COLOR
+  ul.menu-page
+    li.menu-page__item
+      a.link-item(href= 'form-elements.html') FORM
+    li.menu-page__item
+      a.link-item(href= 'colors-and-types.html') COLOR
 
 
 

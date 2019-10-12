@@ -1,35 +1,41 @@
 mixin bullet-list(props={})
 
-    //- Список текста с иконками
-    //- Принимает параметры в props:
-    //- moduleClass             string      доп имя класса для списка
-    //- mods                    string      модификации
-    //- lineTitle               string      Заголовок
-    //- bulletStrings           string      Строки с иконками icon-text
-    //-     mods                string      
-    //-     description         string      описание
+  //- Список текста с иконками без заголовка
+  //- Принимает объект props с ключами
+  //- moduleClass             string      доп имя класса для списка (опционально)
+  //- mods                    string      список модификаций
+  //- bulletStrings           string      список строк с описаниями
+  //-     mods                string      список модификаторов для строки
+  //-     description         string      текст для строки списка
 
-    
+  //- Пример вызова
+    +bullet-list({
+      bulletStrings: [
+        {description: 'Нельзя с питомцами'},
+        {description: 'Без вечеринок и мероприятий'},
+        {description: 'Время прибытия — после 13:00,<br>а выезд до 12:00'}
+      ]
+    })
 
-    -
-        let moduleClass = props.moduleClass || ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' button-block_' + modList[i].trim()
-            }
+  -
+    let moduleClass = props.moduleClass || ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' button-block_' + modList[i].trim()
+      }
+    }
+
+  ul.bullet-list(class= moduleClass + allMods)
+    each bulletRow, index in props.bulletStrings
+
+      -
+        let rowMods = ''
+        if (typeof(bulletRow.mods) !== 'undefined' && bulletRow.mods) {
+        let rowModList = bulletRow.mods.split(',')
+        for (let i=0; i < rowModList.length; i++) {
+          rowMods = rowMods + ' bullet-list__line_' + modList[i].trim()
+          }
         }
-
-    ul.bullet-list(class= moduleClass + allMods)
-        each bulletRow, index in props.bulletStrings
-
-            -
-                let rowMods = ''
-                if (typeof(bulletRow.mods) !== 'undefined' && bulletRow.mods) {
-                let rowModList = bulletRow.mods.split(',')
-                for (let i=0; i < rowModList.length; i++) {
-                    rowMods = rowMods + ' bullet-list__line_' + modList[i].trim()
-                    }
-                }
-            li.bullet-list__item(class= rowMods)!= bulletRow.description || ''
+      li.bullet-list__item(class= rowMods)!= bulletRow.description || ''

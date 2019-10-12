@@ -2,36 +2,48 @@ include ../../modules/icon-text/icon-text
 
 mixin icon-text-list(props={})
 
-    //- Список текста с иконками
-    //- Принимает параметры в props:
-    //- moduleClass             string      доп имя класса для списка
-    //- mods                    string      модификации
-    //- iconStrings             string      Строки с иконками icon-text
-    //-     moduleClass         string      доп имя класса
-    //-     mods                string      модификации
-    //-     icon                string      иконка из шрифта material icons
-    //-     lineTitle           string      Заголовок текста
-    //-     description         string      описание
+  //- Список текста с иконками
+  //- Принимает параметры в props:
+  //- moduleClass             string      доп имя класса для списка
+  //- mods                    string      модификации
+  //- iconStrings             string      Строки с иконками icon-text
+  //-     moduleClass         string      доп имя класса
+  //-     mods                string      модификации
+  //-     icon                string      иконка из шрифта material icons
+  //-     lineTitle           string      Заголовок текста
+  //-     description         string      описание
 
-    
-
-    -
-        let moduleClass = props.moduleClass || ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' icon-text-list_' + modList[i].trim()
+    Пример вызова
+    +icon-text-list({
+          iconStrings: [
+            {
+            icon: 'insert_emoticon',
+            lineTitle: 'Комфорт',
+            description: 'Шумопоглощающие стены'
+            },
+            {
+            icon: 'location_city',
+            lineTitle: 'Удобство',
+            description: 'Окно в каждой из спален'
             }
-        }
+          ]
+        })
 
-    .icon-text-list(class= moduleClass + allMods)
-        each iconRow, index in props.iconStrings
-            +icon-text({
-                mods: iconRow.mods || '',
-                moduleClass: iconRow.moduleClass || '',
-                icon: iconRow.icon || '',
-                lineTitle: iconRow.lineTitle || '',
-                description: iconRow.description || ''
-            })
-            hr.icon-text-list__separate(noshade = "noshade")
+  -
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' icon-text-list_' + modList[i].trim()
+      }
+    }
+
+  .icon-text-list(class= allMods)
+    each iconRow, index in props.iconStrings
+      +icon-text({
+        mods: iconRow.mods || '',
+        icon: iconRow.icon || '',
+        lineTitle: iconRow.lineTitle || '',
+        description: iconRow.description || ''
+      })
+      hr.icon-text-list__separate(noshade = "noshade")

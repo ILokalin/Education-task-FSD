@@ -11,6 +11,7 @@ module.exports = function () {
                     MiniCssExtractPlugin.loader,
                     //"style-loader", // creates style nodes from JS strings
                     "css-loader", // translates CSS into CommonJS
+                    
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -19,10 +20,16 @@ module.exports = function () {
                                     browsers: ['ie >= 8', 'last 4 version']
                                 })
                             ],
-                            sourceMap: true
+                            // sourceMap: true
                         }
                     },
-                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                    {
+                        loader: 'resolve-url-loader',
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: { sourceMap: true } // must be set for resolve-url-loader
+                      }
                 ]
             }]
         }

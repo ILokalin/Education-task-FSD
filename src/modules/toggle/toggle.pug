@@ -1,0 +1,42 @@
+mixin toggle(props={})
+
+  //- checkbox с label
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает объект props с ключами:
+  //- moduleClass             string      имя класса
+  //- dataName                string      имя для data-name
+  //- mods                    string      'open' - открыто меню
+  //- labelTitle              string      
+  //- attrs:                  {object}
+  //-     name:               {string}
+
+    Пример вызова
+    +toggle({
+          labelTitle: 'Получать спецпредложения',
+          moduleClass: 'field-toggle-test',
+          checked: false
+          })
+
+
+  -
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' toggle_' + modList[i].trim()
+      }
+    }
+
+  label.toggle(
+    class = allMods,
+    name = props.dataName : 'toggle'
+    )
+    input.toggle__input(
+      type = 'checkbox',
+        name = props.dataName || 'toggle',
+        checked = props.checked || false
+        )
+    span.toggle__marker
+    |
+    = props.labelTitle

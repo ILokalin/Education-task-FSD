@@ -14,13 +14,16 @@ Build date: 2018-12-11 23:23:51
   user-select: none;
   font-size: 12px;
   font-family: Arial, sans-serif;
+  cursor: pointer;
 }
+
 .irs-line {
   position: relative;
   display: block;
   overflow: hidden;
   outline: none !important;
 }
+
 .irs-bar {
   position: absolute;
   display: block;
@@ -34,21 +37,25 @@ Build date: 2018-12-11 23:23:51
   display: block;
 
   box-sizing: border-box;
-  cursor: default;
+  cursor: pointer;
   z-index: 1;
 }
+
 .irs-handle.type_last {
   z-index: 2;
 }
+
 .irs-min,
 .irs-max {
   position: absolute;
   display: block;
   cursor: default;
 }
+
 .irs-min {
   left: 0;
 }
+
 .irs-max {
   right: 0;
 }
@@ -70,27 +77,19 @@ Build date: 2018-12-11 23:23:51
   filter: alpha(opacity=0);
   cursor: not-allowed;
 }
+
 .irs-disabled {
   opacity: 0.4;
 }
+
 .irs-hidden-input {
-  position: absolute !important;
-  display: block !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 0 !important;
-  height: 0 !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-  outline: none !important;
-  z-index: -9999 !important;
-  background: none !important;
-  border-style: solid !important;
-  border-color: transparent !important;
+  clip: rect(0 0 0 0);
 }
+
 .irs--flat {
   height: 40px;
 }
@@ -102,13 +101,15 @@ Build date: 2018-12-11 23:23:51
   border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 10px;
 }
+
 .irs--flat .irs-bar {
   top: 25px;
   height: 6px;
-  
-    /* my */
+
+  /* my */
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 }
+
 .irs--flat .irs-bar--single {
   border-radius: 4px 0 0 4px;
 }
@@ -136,34 +137,33 @@ Build date: 2018-12-11 23:23:51
 .range-slider {
   position: relative;
 
-}
+  &__line-title {
+    margin: 0;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+  }
 
-.range-slider__line-title {
-  margin: 0;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 15px;
-}
+  &__value {
+    margin: 0;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+  }
 
-.range-slider__value {
-  margin: 0;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: right;
-}
-
-.range-slider__description {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
+  &__description {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+  }
 }

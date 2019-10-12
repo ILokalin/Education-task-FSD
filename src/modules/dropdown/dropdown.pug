@@ -2,95 +2,95 @@ include ../buttons/buttons
 
 mixin dropdown(props={})
 
-    //- Dropdown с счетчиком количества в каждой строке
-    //- Данные для JS храняться в атрибутах Data
-    //- 
-    //- Принимает параметры в props:
-    //- moduleClass             string
-    //- mods                    string      'open' - открыто меню
-    //- isBtnSubmit             boolean     наличие кнопки "Применить"
-    //- isBtnClear              boolean     Наличие кнопки "Очистить"
-    //- dropStrings             array
-    //-     lineTitle           string      текст строки
-    //-     minCount            string      если не задан, то 0
-    //-     maxCount            string      если не задан, без ограничений
-    //-     isCountSeparate     boolean     если тру, то прописываем отдельно
-    //-     namingForCount      name        если countSeparate
-    //- namingForAll            name        склонения для общего числа
-    //- namingForEmpty          string      строка при отсутствии выбора
-    //- 
-    //- Создается структура. Управляется JS
-    //- dropdown dropdown_open
-            p.dropdown__selection    
-            dropdown__menu   // open управялет раскрытием меню
-                dropdown__menu-row
-                    dropdown__lineTitle
-                    dropdown__controls
-                        dropdown__control-increment
-                        dropdown__control-decrement
-                        dropdown__contron-count
-    
-    -
-        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' dropdown_' + modList[i].trim()
-            }
-        }
+  //- Dropdown с счетчиком количества в каждой строке
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает параметры в props:
+  //- moduleClass             string
+  //- mods                    string      'open' - открыто меню
+  //- isBtnSubmit             boolean     наличие кнопки "Применить"
+  //- isBtnClear              boolean     Наличие кнопки "Очистить"
+  //- dropStrings             array
+  //-     lineTitle           string      текст строки
+  //-     minCount            string      если не задан, то 0
+  //-     maxCount            string      если не задан, без ограничений
+  //-     isCountSeparate     boolean     если тру, то прописываем отдельно
+  //-     namingForCount      name        если countSeparate
+  //- namingForAll            name        склонения для общего числа
+  //- namingForEmpty          string      строка при отсутствии выбора
+  //- 
+  //- Создается структура. Управляется JS
+  //- dropdown dropdown_open
+    p.dropdown__selection    
+    dropdown__menu   // open управялет раскрытием меню
+      dropdown__menu-row
+        dropdown__lineTitle
+        dropdown__controls
+          dropdown__control-increment
+          dropdown__control-decrement
+          dropdown__contron-count
 
-    .dropdown(class = moduleClass + allMods)
-        p.dropdown__selection= props.namingForEmpty
-        span.dropdown__marker expand_more
-        
-        .dropdown__menu(
-            data-separate= (props.namingForAll) ? props.namingForAll : 'элемент, элемента, элементов'
-            )
-            each rowStrings, index in props.dropStrings
-                .dropdown__menu-row(
-                    data-maxcount= (typeof(rowStrings.maxCount) !== 'undefined' && rowStrings.maxCount) ? rowStrings.maxCount : '',
-                    data-mincount= (typeof(rowStrings.minCount) !== 'undefined' && rowStrings.minCount) ? rowStrings.minCount : 0,
-                    data-separate= (rowStrings.isCountSeparate) ? rowStrings.namingForCount: ''
-                    )
-                    p.dropdown__line-title= rowStrings.lineTitle
-                    .dropdown__controls
-                        .dropdown__control-decrement.dropdown__control-button
-                            span.dropdown__icon-decrement -
-                        if rowStrings.minCount
-                            span.dropdown__control-count= rowStrings.minCount
-                        else
-                            span.dropdown__control-count 0
-                        .dropdown__control-increment.dropdown__control-button
-                            span.dropdown__icon-increment +
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' dropdown_' + modList[i].trim()
+      }
+    }
 
-            //- Если нужны "Очистить" или "Применить"
-            if props.isBtnClear||props.isBtnSubmit
-                .dropdown__menu-row.dropdown__menu-row_buttons
-                    if props.isBtnClear
-                        .dropdown__button-clear
-                            +buttons({
-                                mods: 'link, dark',
-                                lineTitle: 'ОЧИСТИТЬ'
-                            })
-                    .dropdown__separator
-                    if props.isBtnSubmit
-                        .dropdown__button-submit
-                            +buttons({
-                                mods: 'link',
-                                lineTitle: 'ПРИМЕНИТЬ'
-                            })
+  .dropdown(class = moduleClass + allMods)
+    p.dropdown__selection= props.namingForEmpty
+    span.dropdown__marker expand_more
+
+    .dropdown__menu(
+      data-separate= (props.namingForAll) ? props.namingForAll : 'элемент, элемента, элементов'
+      )
+      each rowStrings, index in props.dropStrings
+        .dropdown__menu-row(
+          data-maxcount= (typeof(rowStrings.maxCount) !== 'undefined' && rowStrings.maxCount) ? rowStrings.maxCount : '',
+          data-mincount= (typeof(rowStrings.minCount) !== 'undefined' && rowStrings.minCount) ? rowStrings.minCount : 0,
+          data-separate= (rowStrings.isCountSeparate) ? rowStrings.namingForCount: ''
+          )
+          p.dropdown__line-title= rowStrings.lineTitle
+          .dropdown__controls
+            .dropdown__control-decrement.dropdown__control-button
+              span.dropdown__icon-decrement -
+            if rowStrings.minCount
+              span.dropdown__control-count= rowStrings.minCount
+            else
+              span.dropdown__control-count 0
+            .dropdown__control-increment.dropdown__control-button
+              span.dropdown__icon-increment +
+
+      //- Если нужны "Очистить" или "Применить"
+      if props.isBtnClear||props.isBtnSubmit
+        .dropdown__menu-row.dropdown__menu-row_buttons
+          if props.isBtnClear
+            .dropdown__button-clear
+              +buttons({
+                mods: 'link, dark',
+                lineTitle: 'ОЧИСТИТЬ'
+              })
+          .dropdown__separator
+          if props.isBtnSubmit
+            .dropdown__button-submit
+              +buttons({
+                mods: 'link',
+                lineTitle: 'ПРИМЕНИТЬ'
+              })
 
 
 //- Пример вызова
-    +dropdown({
-        mods: 'open',
-        dropStrings: [
-            {lineTitle: 'Позиция 1', minCount: '1'},
-            {lineTitle: 'Позиция 2',
-            isCountSeparate: true,
-            namingForCount: 'бухта, бухты, бухт'}
-            ],
-        namingForAll: 'гость, гостя, гостей',
-        namingForEmpty: 'Укажите имя соседа'
-        })
+  +dropdown({
+    mods: 'open',
+    dropStrings: [
+      {lineTitle: 'Позиция 1', minCount: '1'},
+      {lineTitle: 'Позиция 2',
+      isCountSeparate: true,
+      namingForCount: 'бухта, бухты, бухт'}
+      ],
+    namingForAll: 'гость, гостя, гостей',
+    namingForEmpty: 'Укажите имя соседа'
+    })

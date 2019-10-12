@@ -1,0 +1,55 @@
+include ../../modules/field-checkbox/field-checkbox
+
+mixin rich-checkbox-buttons(props={})
+
+  //- checkbox с label
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает параметры в props:
+  //- moduleClass             string      имя класса
+  //- dataName                string      имя для data-name
+  //- mods                    string      'open' - открыто меню
+  //- labelTitle              string      Заголовок чекбокса
+  //- labelDiscription        string      описание чекбокса
+  //- attrs:                  {object}    Возможные атрибуты
+  //-     name:               {string}
+  //- 
+    Пример вызова
+    +rich-checkbox-buttons({
+          listTitle: 'rich checkbox buttons',
+          listStrings: [
+            {
+              labelTitle: 'Широкий коридор',
+              labelDiscription: 'Ширина коридоров в номере не менее 91 см.',
+              moduleClass: 'rich-checkbox-test'
+            },
+            {
+              labelTitle: 'Помощник для инвалидов',
+              labelDiscription: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+              moduleClass: 'rich-checkbox-test'
+            }
+          ]
+        })
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : props.dataName
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' rich-checkbox_' + modList[i].trim()
+      }
+    }
+  .rich-checkbox(class = moduleClass + allMods)
+    header.rich-checkbox__title-wrapper
+      h3.rich-checkbox__title= props.listTitle || ''
+
+    ul.rich-checkbox__list
+      each richRow, index in props.listStrings
+        li.rich-checkbox__item
+          //- .rich-checkbox__wrapper
+          +field-checkbox({
+            mods: 'dark-shade75, bold',
+            labelTitle: richRow.labelTitle
+          })
+          p.rich-checkbox__description= richRow.labelDiscription

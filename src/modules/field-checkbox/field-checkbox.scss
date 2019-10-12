@@ -1,79 +1,57 @@
 .field-checkbox {
-    position: relative;
-    cursor: pointer;
-    width: 100%;
+  position: relative;
+  padding-left: 1.875rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  cursor: pointer;
+  
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  
+  &__box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 0.25rem;
+    border: 1px solid $DarkShade25;
+  }
 
-    &__input { 
-        position: absolute;
-        line-height: 1.125rem;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        margin: 0;
-        padding: 0;
-    }
+  &__input:checked + &__box{
+    border: 1px solid $Purple;
+  }
 
-    &__input::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 1.125rem;
-        width: 1.125rem;
-        content: '';
-        border-radius: 0.25rem;
-        border: solid 0.0625rem transparent;
-        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $Purple;
-        background-origin: border-box;
-        background-clip: content-box, border-box;
-        box-shadow: 0.0625rem 2rem 0px #fff inset;
-    }
+  &__input:checked + &__box:after {
+    position: absolute;
+    @extend %MarkerPurple;
+    content: "";
+    left: 0.25rem;
+    top: 0.1875rem;
+    width: 0.625rem;
+    height: 0.625rem;
+  }
 
-    &__marker {
-        position: absolute;
+  &__input:focus + &__box {
+    box-shadow: 0 0 0 1px $Purple;
+  }
+// Модификаторы
+  &_bold {
+    font-weight: bold;
+  }
 
-        top: 0.1875rem;
-        opacity: 0;
-        transition: opacity .1s linear 0s;
-        height: 1rem;
-        width: 1rem;
-        overflow: hidden;
-    }
+  &_dark-shade75 {
+    color: $DarkShade75;
+  }
+}
 
-    &__marker::before {
-        content: "";
-        opacity: 1;
-    
-        display: block;
-        position: absolute;
-        top: 0.125rem;
-        left: 0.4375rem;
-        width: 0.375rem;
-        height: 0.5rem;
-        background: $PrimaryGradient;
-        transform: rotate(-135deg);
-    }
-
-    &__marker::after {
-        content: "";
-        position: absolute;
-        left: 0.4375rem;
-        top: -0.0625rem;
-        width: 0.375rem;
-        height: 0.5rem;
-        background-color: #fff;
-        transform: rotate(45deg);
-    }
-
-    &__input:checked + &__marker {
-        opacity: 1.0;
-    }
-
-    &__label {
-        display: block;
-        padding: 0;
-        margin: 0;
-        width: calc(100% - 1.875rem);
-        padding-left: 1.875rem;
-        line-height: 1.125rem;
-    }
+// Маркер чекбокса
+%MarkerPurple {
+  background-image: url('data:image/svg+xml,%3Csvg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M1.46439 4.40768L5.70703 8.65032L4.29282 10.0645L0.0501771 5.82189L1.46439 4.40768Z" fill="url(%23paint0_linear)"/%3E%3Cpath d="M8.53546 2.99347L9.94967 4.40768L4.29282 10.0645L2.8786 8.65032L8.53546 2.99347Z" fill="url(%23paint1_linear)"/%3E%3Cdefs%3E%3ClinearGradient id="paint0_linear" x1="7.82835" y1="2.28636" x2="2.1715" y2="7.94321" gradientUnits="userSpaceOnUse"%3E%3Cstop stop-color="%23BC9CFF"/%3E%3Cstop offset="1" stop-color="%238BA4F9"/%3E%3C/linearGradient%3E%3ClinearGradient id="paint1_linear" x1="7.82835" y1="2.28636" x2="2.1715" y2="7.94321" gradientUnits="userSpaceOnUse"%3E%3Cstop stop-color="%23BC9CFF"/%3E%3Cstop offset="1" stop-color="%238BA4F9"/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A');
 }

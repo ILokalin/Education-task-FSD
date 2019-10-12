@@ -1,33 +1,32 @@
 mixin range-slider(props={})
 
-    //- checkbox с label
-    //- Данные для JS храняться в атрибутах Data
-    //- 
-    //- Принимает параметры в props:
-    //- moduleClass             string      имя класса
-    //- mods                    string      'open' - открыто меню
-    //- lineTitle               string      заголовок
-    //- description             string      Описание
+  //- checkbox с label
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает параметры в props:
+  //- moduleClass             string      имя класса
+  //- lineTitle               string      заголовок
+  //- description             string      Описание
 
-    -
-        let moduleClass = (props.moduleClass) ? props.moduleClass : ''
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' range-slider_' + modList[i].trim()
-            }
-        }
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' range-slider_' + modList[i].trim()
+      }
+    }
 
-    .range-slider(
-        class= moduleClass + allMods,
-        data-max-value = props.maxValue,
-        data-range-left = props.rangeLeft,
-        data-range-right = props.rangeRight
-        )
-        h3.range-slider__line-title= (typeof(props.lineTitle) !== 'undefined' && props.lineTitle) ? props.lineTitle : ''
-        span.range-slider__value= ''
-        input.range-slider__input(type="text", name="my_range" value="" )
-        p.range-slider__description= (typeof(props.description) !== 'undefined' && props.description) ? props.description : ''
+  .range-slider(
+    class= moduleClass + allMods,
+    data-max-value = props.maxValue,
+    data-range-left = props.rangeLeft,
+    data-range-right = props.rangeRight
+    )
+    h3.range-slider__line-title= (typeof(props.lineTitle) !== 'undefined' && props.lineTitle) ? props.lineTitle : ''
+    span.range-slider__value= ''
+    input.range-slider__input(type="text", name="my_range" value="" )
+    p.range-slider__description= (typeof(props.description) !== 'undefined' && props.description) ? props.description : ''
 
-        
+

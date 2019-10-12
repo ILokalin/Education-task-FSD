@@ -1,12 +1,20 @@
+// Стили
 import './form-elements.scss'
 
-
+// Плагины
 import 'air-datepicker/dist/js/datepicker'
 import 'air-datepicker/dist/css/datepicker.min.css'
 
-import '../../modules/comment/img/avatar.png'
+
+// изображения
+import '../../modules/comment/img/avatar-free.png'
+import './images/avatar.png'
 import '../../modules/logo/images/logo.svg'
 import '../../modules/logo/images/gray-logo.svg'
+
+
+// собственные модули
+// import '../../modules/field-checkbox/field-checkbox'
 
 import {
     dropdown

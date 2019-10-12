@@ -1,51 +1,55 @@
 @import '../field-checkbox/field-checkbox.scss';
 
 .expandable-checkbox-list {
-    width: calc(100% - 12px);
-    position: relative;
+  width: calc(100% - 12px);
+  position: relative;
+  margin: 0;
+  padding: 0 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.625rem;
+
+  cursor: pointer;
+  user-select: none;
+
+  &_open &__menu {
+    display: block;
+  }
+
+  &__menu {
+    position: absolute;
+    z-index: 999;
+    top: 2.625rem;
+    left: 0;
+    padding: 0;
     margin: 0;
-    padding: 0 12px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2.625rem;
-   
-    cursor: pointer;
-    user-select: none;
+    margin-top: 5px;
+    width: 100%;
+    display: none;
 
-    &_open &__menu {
-        display: block;
-    }
+    background-color: white;
+  }
 
-    &__menu {
-        position: absolute;
-        z-index: 999;
-        top: 2.625rem;
-        left: 0;
-        padding: 0;
-        margin: 0;
-        margin-top: 5px;
-        width: 100%;
-        display: none;
+  &__title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+    text-transform: uppercase;
+  }
 
-        background-color: white;
-    }
+  &__menu-item {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0.75rem;
+  }
 
-    &__title {
-        margin: 0;
-        font-weight: bold;
-        font-size: 0.75rem;
-        line-height: 0.9375rem;
-        text-transform: uppercase;
-    }
+  &__menu-item:last-child {
+    padding-bottom: 0;
+  }
 
-    &__menu-row {
-        padding: 0;
-        margin: 0;
-        padding-bottom: 0.75rem;
-    }
-
-    &__toggle-marker {
-        @extend %MaterialIcon;
-    }
+  &__toggle-marker {
+    @extend %MaterialIcon;
+  }
 }

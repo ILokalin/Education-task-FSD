@@ -1,46 +1,39 @@
 mixin field-checkbox(props={})
 
-    //- checkbox с label
-    //- Данные для JS храняться в атрибутах Data
-    //- 
-    //- Принимает параметры в props:
-    //- dataName                string      имя для data-name
-    //- mods                    string      'open' - открыто меню
-    //- labelTitle              string      
-    //- attrs:                  {object}
-    //-     name:               {string}
-    //- ...
-    //- 
-    //- 
+  //- checkbox с label
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает параметры в props:
+  //- dataName                string      имя для name
+  //- mods                    string
+                        bold            жирный шрифт
+                        dark-shade75     цвет DarkShade75
+  //- labelTitle              string      
+  //- attrs:                  {object}
+  //-     name:               {string}
+  //- ...
+  //- 
+    Пример вызова
+    +field-checkbox({
+            moduleClass: (typeof(rowString.moduleClass) !== 'undefined' && rowString.moduleClass) ? rowString.moduleClass : '',
+            labelTitle: (typeof(rowString.labelTitle) !== 'undefined' && rowString.labelTitle) ? rowString.labelTitle : '',
+            dataName: (typeof(rowString.dataName) !== 'undefined' && rowString.dataName) ? rowString.dataName : '',
+            mods: (typeof(rowString.mods) !=='undefined' && rowString.mods) ? rowString.mods : '',
+            checked: (typeof(rowString.checked) !== 'undefined' && rowString.checked) ? rowString.checked : '',
+          })
 
-    -
-        let allMods = ''
-        if (typeof(props.mods) !== 'undefined' && props.mods) {
-        let modList = props.mods.split(',')
-        for (let i=0; i < modList.length; i++) {
-            allMods = allMods + ' field-checkbox_' + modList[i].trim()
-            }
-        }
+  -
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' field-checkbox_' + modList[i].trim()
+      }
+    }
 
-    label.field-checkbox(
-        class= allMods,
-        data-name= props.dataName || ''
-        )
-        input.field-checkbox__input(
-            type="checkbox",
-            checked= props.checked || false
-            )
-        .field-checkbox__marker
-        p.field-checkbox__label= props.labelTitle || ''
+  label.field-checkbox(class = allMods, name= props.dataName || '')
+    input.field-checkbox__input(type = "checkbox", name = props.dataName || 'check-box', checked = props.checked || false)
+    span.field-checkbox__box
+    |
+    = props.labelTitle || ''
 
-    //- label.checkbox-buttons(
-    //-     class = moduleClass + allMods,
-    //-     data-name = (typeof(props.dataName) !== 'undefined' && props.dataName) ? props.dataName : ''
-    //-     )
-    //-     input.checkbox-buttons__input(
-    //-         type='checkbox',
-    //-          id=moduleClass,
-    //-          checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
-    //-          )&attributes(props.attrs)
-    //-     div.checkbox-buttons__mark(for=moduleClass)
-    //-     span.checkbox-buttons__name(for=moduleClass)= props.labelTitle

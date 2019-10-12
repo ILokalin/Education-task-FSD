@@ -1,58 +1,33 @@
 .icon-text {
-    position: relative;
-    width: 100%;
-    padding-left: 58px;
-    user-select: none;
-    cursor: pointer;
+  position: relative;
+  width: 100%;
+  padding-left: 58px;
+  user-select: none;
+  cursor: pointer;
 
-    &__icon {
-        position: absolute;
-        top: 0;
-        left: 0;
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @extend %MaterialIcon;
+    line-height: 48px;
+    font-size: 48px;
+    
+    background: $PrimaryGradient;
+    background-clip: text;
+    color: transparent;
+  }
 
-        font-family: 'Material Icons';
-        font-weight: normal;
-        font-style: normal;
-        font-size: 48px;
-        /* Preferred icon size */
-        display: inline-block;
-        line-height: 1;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-        /* Support for all WebKit browsers. */
-        -webkit-font-smoothing: antialiased;
-        /* Support for Safari and Chrome. */
-        text-rendering: optimizeLegibility;
-        /* Support for Firefox. */
-        -moz-osx-font-smoothing: grayscale;
-        /* Support for IE. */
-        font-feature-settings: 'liga';
+  &__lineTitle {
+    margin: 0;
+    font-size: 14px;
+    line-height: 24px;
+  }
 
-
-        background: $PrimaryGradient;
-        background-clip: text;
-        color: transparent;
-    }
-
-    &__lineTitle {
-        margin: 0;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 24px;
-    }
-
-    &__description {
-        margin: 0;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 24px;
-    }
+  &__description {
+    margin: 0;
+    font-size: 14px;
+    line-height: 24px;
+  }
 
 }
