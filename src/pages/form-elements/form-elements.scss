@@ -69,17 +69,21 @@ body {
     width: 50%;
   }
 
-
-
   &__half-column:last-child {
     display: flex;
     justify-content: flex-end;
   }
+
+  &:last-child {
+    outline: 1px solid red;
+  }
 }
 
 .elements:last-child {
-  justify-content: flex-start;
+  outline: 1px solid red;
+  // justify-content: flex-start;
 }
+
 
 
 .block-lib {
