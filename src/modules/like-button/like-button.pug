@@ -34,6 +34,5 @@ mixin like-button(props={})
         id=moduleClass,
         checked= (typeof(props.checked) !== 'undefined' && props.checked) ? props.checked : false
         )&attributes(props.attrs)
-    span.like-button__marker
-    |
-    = props.labelTitle
+    span.like-button__marker= props.labelTitle
+

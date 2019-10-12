@@ -21,10 +21,15 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 2.375rem;
+    width: 18px;
     height: 1.125rem;
     border-radius: 10px;
     border: 1px solid $DarkShade25;
+
+    color: $DarkShade25;
+    font-size: 9px;
+    line-height: 18px;
+    padding-left: 20px;
   }
 
   &__marker::before {
@@ -39,6 +44,7 @@
 
   &__input:checked + &__marker {
     border: 1px solid $Purple;
+    color: $Purple;
   }
 
   &__input:checked + &__marker::before {
