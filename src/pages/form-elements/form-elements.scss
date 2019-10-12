@@ -38,9 +38,8 @@ body {
   flex-wrap: nowrap;
 
   &__logo {
-    padding-left: 30px;
-    padding-top: 33px;
-
+    padding-left: 23px;
+    padding-top: 35px;
   }
 
   &__column {
@@ -74,14 +73,16 @@ body {
     justify-content: flex-end;
   }
 
-  &:last-child {
-    outline: 1px solid red;
-  }
+
 }
 
-.elements:last-child {
-  outline: 1px solid red;
-  // justify-content: flex-start;
+.elements:last-of-type {
+  justify-content: flex-start;
+
+}
+
+.elements:last-of-type .elements__column:last-child {
+  padding-left: 10%;
 }
 
 
@@ -107,6 +108,7 @@ body {
     font-size: 12px;
     line-height: 15px;
     text-align: left;
+    text-transform: uppercase;
   }
 
   &__mods {

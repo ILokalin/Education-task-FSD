@@ -39,7 +39,7 @@ block main
   section.elements
     .elements__logo
       +logo({mods: 'gray'})
-  +free-space({height: '59px'})
+  +free-space({height: '57px'})
 
   section.elements
     .elements__column
@@ -224,7 +224,7 @@ block main
         +free-space({height: '10px'})
         +pagination({})
 
-  +free-space({height: '81px'})
+  +free-space({height: '79px'})
   section.elements
     .elements__column
       +block-lib({title: 'DROPDOWN', mods: 'DEFAULT', width: '266px'})
@@ -304,7 +304,7 @@ block main
           namingForEmpty: 'Сколько гостей'
           })
 
-  +free-space({height: '138px'})
+  +free-space({height: '137px'})
   section.elements
     .elements__column
       +block-lib-self-title({width: '266px'})
@@ -392,8 +392,9 @@ block main
           ]
         })
 
-  +free-space({height: '188px'})
+  +free-space({height: '190px'})
   section.elements
+    
     .elements__column
       +block-lib({ width: '280px'})
         +icon-text-list({
@@ -410,17 +411,17 @@ block main
             }
           ]
         })
-
-    +block-lib({width: '712px'})
-      +free-space({height: '7px'})
-      +comment({
-        user:    'Мурад Сарафанов',
-        photo:   './images/avatar.png',
-        date:    '5 дней назад',
-        like:    '12',
-        likeChecked: true,
-        text:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
-      })
+    .elements__column
+      +free-space({height: '12px'})
+      +block-lib({width: '712px'})
+        +comment({
+          user:    'Мурад Сарафанов',
+          photo:   './images/avatar.png',
+          date:    '5 дней назад',
+          like:    '12',
+          likeChecked: true,
+          text:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+        })
   
 
 

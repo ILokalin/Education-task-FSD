@@ -3,3 +3,15 @@
 body {
   background-color: #F4F4F6;
 }
+
+.test {
+  font-size: 24px;
+}
+
+// .test:last-child {
+//   color: red;
+// }
+
+.test:last-of-type {
+  color: green;
+}
