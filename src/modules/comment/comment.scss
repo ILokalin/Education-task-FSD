@@ -22,22 +22,25 @@
 
   &__like-button {
     position: absolute;
-    top: 3.75rem;
+    top: 63px;
     left: 0.3125rem;
   }
 
   &__date {
-    padding-top: 0.3125rem;
+    padding-top: 1px;
   }
 
   &__user-name {
     margin: 0;
     font-weight: bold;
     padding-top: 0.1875rem;
+    font-size: 14px;
+    line-height: 24px;
+    color: $DarkShade75;
   }
 
   &__text {
     width: calc(100% - 3.75rem);
-    padding-top: 0.6875rem;
+    padding-top: 10px;
   }
 }
