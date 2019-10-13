@@ -60,6 +60,11 @@
     border: none;
   }
 
+  &_link:focus {
+    box-shadow: none;
+  }
+
+
   // Модификатор _big
   &_big {
     width: 20rem;

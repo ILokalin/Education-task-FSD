@@ -8,6 +8,7 @@
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   padding: 20px 0 15px 0;
+  user-select: none;
 
   &__section {
     margin: 0 auto;
@@ -37,6 +38,7 @@
     width: 40px;
     line-height: 40px;
     text-align: center;
+    cursor: pointer;
   }
 
   &__section_days {

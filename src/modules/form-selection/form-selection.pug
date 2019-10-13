@@ -10,7 +10,7 @@ mixin form-selection(props={})
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
     for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' comment_' + modList[i].trim()
+      allMods = allMods + ' form-selection_' + modList[i].trim()
       }
     }
 

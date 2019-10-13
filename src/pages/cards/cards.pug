@@ -11,11 +11,17 @@ block main
   include ../../modules/form-selection/form-selection
   include ../../modules/form-booking/form-booking
   include ../../modules/form-datepicker/form-datepicker
+  include ../../modules/form-registration/form-registration
 
   section.cards-page
     .cards-page__elements-column
-      +form-selection()
+      .cards-page__container
+        +form-selection()
+      .cards-page__container
+        +form-registration()
     .cards-page__elements-column
-      +form-booking()
+      .cards-page__container
+        +form-booking()
     .cards-page__elements-column
-      +form-datepicker()
+      .cards-page__container
+        +form-datepicker()

@@ -1,0 +1,61 @@
+include ../../modules/radio-buttons/radio-buttons
+include ../../modules/toggle/toggle
+include ../../modules/text-field/text-field
+include ../../modules/masked-text-field/masked-text-field
+include ../../modules/buttons/buttons
+
+mixin form-registration(props={})
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' form-registration_' + modList[i].trim()
+      }
+    }
+
+  form.form-registration(class = moduleClass + allMods)
+    header.form-registration__section
+      h1.form-registration__title Регистрация аккаунта
+    
+    .form-registration__section
+      +text-field({placeholder: 'Имя'})
+      +text-field({placeholder: 'Фамилия'})
+      +radio-buttons({
+        radioButtonsSet: 'radio-battons-test',
+        buttonsList: [
+          {buttonTitle: 'Мужчина',
+          buttonValue: 'man',
+          checked: true},
+          {buttonTitle: 'Женщина',
+          buttonValue: 'woman'}
+          ]
+        })
+    .form-registration__section
+      h3.form-registration__sub-title День рождения
+      +masked-text-field({
+          placeholder: 'ДД.ММ.ГГГ',
+          maskType: 'date'})
+    .form-registration__section
+      h3.form-registration__sub-title Данные для входа в сервис
+      +text-field({placeholder: 'Email'})
+      +text-field({placeholder: 'Пароль'})
+      +toggle({
+          labelTitle: 'Получать спецпредложения',
+          moduleClass: 'field-toggle-test',
+          checked: false
+          })
+
+    .form-registration__section
+      +buttons({
+          lineTitle: 'Перейти к оплате',
+          mods: 'full, arrow, big'
+          })
+    .form-registration__section.form-registration__section_login
+      p.form-registration__invite Уже есть аккаунт на Toxin
+      +buttons({
+          lineTitle: 'Войти',
+          mods: 'border'
+          })

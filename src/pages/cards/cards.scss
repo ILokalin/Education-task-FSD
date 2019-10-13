@@ -2,6 +2,7 @@
 @import '../../modules/form-selection/form-selection.scss';
 @import '../../modules/form-booking/form-booking.scss';
 @import '../../modules/form-datepicker/form-datepicker.scss';
+@import '../../modules/form-registration/form-registration.scss';
 
 body {
   background-color: #F4F4F6;
@@ -14,6 +15,10 @@ body {
   justify-content:center;
 
   &__elements-column {
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 0 20px;
+  }
+
+  &__container {
+    padding-top: 40px;
   }
 }
