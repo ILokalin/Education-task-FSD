@@ -1,8 +1,9 @@
 .dropdown {
+  box-sizing: border-box;
   position: relative;
-  width: calc(100% - 0.5375rem - 0.9375rem - 2px);
+  width: 100%;
   padding: 0 0.5375rem 0 0.9375rem;
-  height: 2.625rem;
+  height: 2.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +23,7 @@
     z-index: 1999;
     top: 2.625rem;
     left: -0.0625rem;
-    padding: 0px 0px 0.625rem 0.9375rem;
+        padding: 0px 0px 0.375rem 0.9375rem;
     width: calc(100% - 0.9375rem);
 
     border: 1px solid $DarkShade50;
@@ -30,19 +31,19 @@
     border-bottom-left-radius: 4px;
     background-color: white;
 
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0px 10px 20px $DarkShade5;
   }
 
   &__menu-row {
     display: flex;
     width: 100%;
-    padding-top: 0.3125rem;
+    padding-top: 0.375rem;
     padding-bottom: 0.0625rem;
     cursor: default;
   }
 
   &__menu-row_buttons {
-    padding-top: 1.1875rem;
+    padding-top: 0.875rem;
   }
 
   &__line-title {
@@ -72,17 +73,13 @@
 
   &__icon-decrement {
     font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
   &__icon-increment {
     font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.875rem;
   }
 
@@ -93,7 +90,6 @@
     border: 1px solid $DarkShade25;
     text-align: center;
     cursor: pointer;
-
   }
 
   &__control-button:hover {
@@ -113,22 +109,19 @@
     cursor: pointer;
   }
 
-  &__marker {
-    @extend %MaterialIcon;
+  // Открытие-закрытие
+  &_open {
+    border: 1px solid $DarkShade50;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
   }
-}
 
-.dropdown_open {
-  border: 1px solid $DarkShade50;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom: none;
-}
+  & &__menu {
+    display: none;
+  }
 
-.dropdown .dropdown__menu {
-  display: none;
-}
-
-.dropdown_open .dropdown__menu {
-  display: block;
+  &_open &__menu {
+    display: block;
+  }
 }

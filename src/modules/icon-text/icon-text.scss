@@ -1,7 +1,8 @@
 .icon-text {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
-  padding-left: 58px;
+  padding-left: 3.625rem;
   user-select: none;
   cursor: pointer;
 
@@ -10,8 +11,8 @@
     top: 0;
     left: 0;
     @extend %MaterialIcon;
-    line-height: 48px;
-    font-size: 48px;
+    line-height: 3rem;
+    font-size: 3rem;
     
     background: $PrimaryGradient;
     background-clip: text;
@@ -20,14 +21,14 @@
 
   &__lineTitle {
     margin: 0;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
   }
 
   &__description {
     margin: 0;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
   }
 
 }

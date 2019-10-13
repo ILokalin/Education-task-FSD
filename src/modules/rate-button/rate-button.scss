@@ -3,8 +3,6 @@
   cursor: pointer;
   justify-content: flex-start;
 
-  @extend %MaterialIcon;
-
   &__star:after {
     content: "star_border";
     background: $PrimaryGradient;

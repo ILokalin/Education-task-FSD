@@ -1,10 +1,12 @@
 .masked-text-field {
-  width: calc(100% - 0.9375rem - 0.125rem);
-  height: 2.625rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 44px;
   border: 0.0625rem solid rgba(31, 32, 65, 0.25);
   border-radius: 0.25rem;
   padding: 0;
   padding-left: 0.9375rem;
+  outline: none;
 
   font-family: Montserrat;
   font-style: normal;
@@ -29,6 +31,10 @@
 
   &:hover::placeholder {
     color: $DarkShade75;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.5px $Purple;
   }
 }
 

@@ -1,23 +1,26 @@
 .toggle {
+  box-sizing: border-box;
   position: relative;
-  padding-left: 50px;
+  padding-left: 3.125rem;
   display: block;
   font-size: 0.875rem;
-  line-height: 1.125rem;
+  line-height: 1.25rem;
   cursor: pointer;
   user-select: none;
   
   &__input {
+    box-sizing: border-box;
     margin: 0;
     appearance: none;
   }
   
   &__marker {
+    box-sizing: border-box;
     position: absolute;
     left: 0;
     top: 0;
-    width: 2.375rem;
-    height: 1.125rem;
+    width: 2.5rem;
+    height: 1.25rem;
     border-radius: 0.625rem;
     border: 0.0625rem solid $DarkShade25;
   }

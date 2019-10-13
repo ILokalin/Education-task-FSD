@@ -1,12 +1,10 @@
 .checkbox-buttons {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  // width: calc(100% - 15px);
   user-select: none;
 
   &__title-wrapper {
-    // height: 2.6875rem;
     display: flex;
     align-items: center;
     margin-bottom: .3rem;
@@ -30,6 +28,6 @@
   &__menu-row {
     padding: 0;
     margin: 0;
-    padding-top: 12px;
+    padding-top: 0.75rem;
   }
 }

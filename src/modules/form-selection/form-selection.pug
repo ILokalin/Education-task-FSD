@@ -1,0 +1,50 @@
+include ../../modules/dropdown/dropdown
+include ../../modules/date-dropdown/date-dropdown
+include ../../modules/buttons/buttons
+
+mixin form-selection(props={})
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' comment_' + modList[i].trim()
+      }
+    }
+
+  .form-selection
+    header.form-selection__title-wrapper
+      h1.form-selection__title Найдём номера под ваши пожелания
+
+    .form-selection__date-picker-wrapper
+      .form-selection__arrival
+        h3.form-selection__sub-title Прибытие
+        +date-dropdown({placeholder: 'ДД.ММ.ГГГГ'})
+      .form-selection__departure
+        h3.form-selection__sub-title Выезд
+        +date-dropdown({placeholder: 'ДД.ММ.ГГГГ'})
+
+    .form-selection__dropdown
+      h3.form-selection__sub-title гости
+      +dropdown({
+          moduleClass: 'dropdown-visitors',
+          isBtnClear: true,
+          isBtnSubmit: true,
+          dropStrings: [
+            {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+            {lineTitle: 'ДЕТИ', maxCount: '5'},
+            {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+            isCountSeparate: true,
+            namingForCount: 'младенец,младенца,младенцев'}
+          ],
+          namingForAll: 'гость,гостя,гостей',
+          namingForEmpty: 'Сколько гостей'
+          })
+    +buttons({
+          lineTitle: 'ПОДОБРАТЬ НОМЕР',
+          mods: 'full, arrow, big'
+          })
+    
+

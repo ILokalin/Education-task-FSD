@@ -3,12 +3,14 @@
 .icon-text-list {
   &__separate {
     width: 100%;
-    border: 1px solid $DarkShade10;
-    background-color: transparent;
-    margin: 20px 0;
+    border: none;
+    background-color: $DarkShade10;
+    margin: 1.25rem 0;
+    color: $DarkShade10;
+    height: 0.0625rem;
   }
 
   &__separate:nth-last-child() {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 }
