@@ -1,0 +1,59 @@
+@import '../../modules/buttons/buttons.scss';
+
+.form-datepicker {
+  box-sizing: border-box;
+  width: 320px;
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  padding: 20px 0 15px 0;
+
+  &__section {
+    margin: 0 auto;
+    display: block;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 12px;
+    color: $DarkShade50;
+  }
+
+  &__title {
+    margin: 0;
+    line-height: 24px;
+    color: $DarkShade100;
+  }
+
+  &__control {
+    line-height: 24px;
+    color: $Purple;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  &__section_days {
+    color: $Purple;
+    font-weight: bold;
+  }
+
+  &__item_previus-month,
+  &__item_next-month {
+    color: $DarkShade25;
+  }
+
+  &__section_title {
+    padding-bottom: 30px;
+  }
+
+  &__section_buttons {
+    padding-top: 15px;
+  }
+}

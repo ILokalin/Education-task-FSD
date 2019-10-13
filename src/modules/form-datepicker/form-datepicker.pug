@@ -1,0 +1,58 @@
+include ../../modules/buttons/buttons
+
+mixin line-load(props={})
+
+  //- itemsList
+      mods
+      name
+
+  each item in props.itemsList
+    -
+      let allMods = ''
+      if (typeof(item.mods) !== 'undefined' && item.mods) {
+      let modList = item.mods.split(',')
+      for (let i=0; i < modList.length; i++) {
+        allMods = allMods + ' form-datepicker__item_' + modList[i].trim()
+        }
+      }
+    p.form-datepicker__item(class = allMods)= item.name
+
+
+mixin form-datepicker(props={})
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' form-datepicker_' + modList[i].trim()
+      }
+    }
+  
+  form.form-datepicker(class = moduleClass + allMods)
+    header.form-datepicker__section.form-datepicker__section_title
+      span.form-datepicker__control.form-datepicker__control_backward arrow_back
+      h2.form-datepicker__title Август 2019
+      span.form-datepicker__control.form-datepicker__control_forward arrow_forward
+    .form-datepicker__section.form-datepicker__section_days
+      +line-load({itemsList:[{name: 'Пн'},{name:'Вт'},{name:'Ср'},{name:'Чт'},{name:'Пт'},{name:'Сб'},{name:'Вс'}]})
+
+    .form-datepicker__section
+      +line-load({itemsList:[{name: '29', mods: 'previus-month'},{name:'30', mods: 'previus-month'},{name:'31', mods: 'previus-month'},{name:'1'},{name:'2'},{name:'3'},{name:'4'}]})
+    .form-datepicker__section
+      +line-load({itemsList:[{name: '5'},{name:'6'},{name:'7'},{name:'8'},{name:'9'},{name:'10'},{name:'11'}]})
+    .form-datepicker__section
+      +line-load({itemsList:[{name: '12'},{name:'13'},{name:'14'},{name:'15'},{name:'16'},{name:'17'},{name:'18'}]})
+    .form-datepicker__section
+      +line-load({itemsList:[{name: '19'},{name:'20'},{name:'21'},{name:'22'},{name:'23'},{name:'24'},{name:'25'}]})
+    .form-datepicker__section
+      +line-load({itemsList:[{name: '26'},{name:'27'},{name:'28'},{name:'29'},{name:'30'},{name:'31'},{name:'1', mods: 'next-month'}]})
+    
+    .form-datepicker__section.form-datepicker__section_buttons
+      +buttons({lineTitle: 'Очистить', mods: 'link, dark'})
+      +buttons({lineTitle: 'Применить', mods: 'link'})
+
+
+
+    
