@@ -1,0 +1,78 @@
+include ../../modules/dropdown/dropdown
+include ../../modules/date-dropdown/date-dropdown
+include ../../modules/buttons/buttons
+
+mixin form-booking(props={})
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' comment_' + modList[i].trim()
+      }
+    }
+
+  form.form-booking
+    header.form-booking__room-details
+      .form-booking__room-tag
+        h1.form-booking__number
+          em.form-booking__number-prefix № 
+          | 888
+        p.form-booking__room-type люкс
+
+      .form-booking__price-tag
+        p.form-booking__price
+          em.form-booking__price-digits 9 990₽
+          |  в сутки
+
+    .form-booking__date-picker-wrapper
+      .form-booking__arrival
+        h3.form-booking__sub-title Прибытие
+        +date-dropdown({placeholder: '19.08.2019'})
+      .form-booking__departure
+        h3.form-booking__sub-title Выезд
+        +date-dropdown({placeholder: '23.08.2019'})
+
+    .form-booking__dropdown
+      h3.form-booking__sub-title гости
+      +dropdown({
+          moduleClass: 'dropdown-form-booking',
+          isBtnClear: true,
+          isBtnSubmit: true,
+          dropStrings: [
+            {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+            {lineTitle: 'ДЕТИ', maxCount: '5'},
+            {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',
+            isCountSeparate: true,
+            namingForCount: 'младенец,младенца,младенцев'}
+          ],
+          namingForAll: 'гость,гостя,гостей',
+          namingForEmpty: 'Сколько гостей'
+          })
+
+    .form-booking__order-details
+      .form-booking__details-item
+        p.form-booking__item-name 9 990₽ х 4 суток
+        p.form-booking__item-price 39 960₽
+      .form-booking__details-item
+        p.form-booking__item-name Сбор за услуги: скидка 2 179₽
+        span.form-booking__info i
+        p.form-booking__item-price 0₽
+      .form-booking__details-item
+        p.form-booking__item-name Сбор за дополнительные услуги
+        span.form-booking__info i
+        p.form-booking__item-price 300₽
+      .form-booking__details-item
+        h2.form-booking__item-total Итого
+        span.form-booking__total-dots
+        h2.form-booking__item-price-total 38 081
+          em.form-booking__total-currency ₽
+
+    +buttons({
+          lineTitle: 'Забронировать',
+          mods: 'full, arrow, big'
+          })
+    
+

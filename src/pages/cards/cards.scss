@@ -1,18 +1,18 @@
 @import '../common.scss';
 @import '../../modules/form-selection/form-selection.scss';
+@import '../../modules/form-booking/form-booking.scss';
 
 body {
   background-color: #F4F4F6;
 }
 
-.test {
-  font-size: 24px;
-}
+.cards-page {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-content:center;
 
-// .test:last-child {
-//   color: red;
-// }
-
-.test:last-of-type {
-  color: green;
+  &__elements-column {
+    padding: 0 20px 20px 20px;
+  }
 }

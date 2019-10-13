@@ -1,0 +1,148 @@
+@import '../../modules/date-dropdown/date-dropdown.scss';
+@import '../../modules/dropdown/dropdown.scss';
+@import '../../modules/buttons/buttons.scss';
+
+.form-booking {
+  box-sizing: border-box;
+  width: 380px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  
+  &__room-details {
+    width: 320px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__room-tag {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+
+  &__number {
+    margin: 0;
+    padding-right: 5px;
+  }
+
+  &__number-prefix {
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  &__room-type {
+    font-size: 12px;
+    color: $Purple;
+    font-weight: bold;
+  }
+
+  &__price {
+    font-size: 12;
+    color: $DarkShade50;
+  }
+  &__price-digits {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  &__date-picker-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 320px;
+    padding: 18px 0 20px 0;
+  }
+
+  &__arrival, &__departure {
+    width: 150px;
+    box-sizing: padding-box;
+  }
+
+  &__sub-title {
+    margin: 0;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  &__dropdown {
+    width: 320px;
+    padding-bottom: 20px;
+  }
+
+  &__details-item {
+    position: relative;
+    width: 320px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 14px;
+    line-height: 20px;
+  }
+
+  &__details-item:last-child {
+    font-weight: bold;
+    padding: 9px 0 17px 0;
+  }
+
+  &__item-name {
+    max-width: 214px;
+  }
+
+  &__info {
+    box-sizing: border-box;
+    position: absolute;
+    left: 219px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+ 
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: bold;
+    color: $DarkShade25;
+    text-align: center;
+    
+    border-radius: 50%;
+    border: 1px solid $DarkShade25;
+  }
+
+  &__total-currency {
+    font-style: normal;
+    font-family: Montserrat;
+  }
+
+  &__item-total,
+  &__item-price-total {
+    margin: 0;
+    font-size: 19px;
+    text-transform: none;
+  }
+
+  &__item-total {
+    padding-right: 5px;
+  }
+
+  &__item-price-total {
+    padding-left: 5px;
+  }
+
+  &__total-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted $DarkShade25;
+  }
+
+}

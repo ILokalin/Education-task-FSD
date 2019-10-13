@@ -1,3 +1,19 @@
-include ../../modules/form-selection/form-selection
+extends ../../template/template
 
-+form-selection()
+block meta
+  meta(name="keywords", content="toxin, cards")
+  meta(name="description" content="Учебный проект FSD. Второе задание. Лист cards")
+
+block title
+  | Cards
+
+block main
+  include ../../modules/form-selection/form-selection
+  include ../../modules/form-booking/form-booking
+
+  section.cards-page
+    .cards-page__elements-column
+      +form-selection()
+    .cards-page__elements-column
+      +form-booking()
+    .cards-page__elements-column
