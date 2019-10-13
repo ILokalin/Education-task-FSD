@@ -1,21 +1,23 @@
 .radio-buttons {
   box-sizing: border-box;
   user-select: none;
+  display: flex;
+  justify-content: space-between;
 
-  &__title-wrapper {
-    margin-bottom: 0.9375rem;
-  }
+  // &__title-wrapper {
+  //   margin-bottom: 0.9375rem;
+  // }
 
-  &__title {
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-  }
+  // &__title {
+  //   margin: 0;
+  //   padding: 0;
+  //   text-transform: uppercase;
+  // }
 
-  &__button-wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
+  // &__button-wrapper {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
 
   &__label {
     position: relative;

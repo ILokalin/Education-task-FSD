@@ -21,13 +21,18 @@
     padding-top: 20px;
   }
 
-  &__section:nth-of-type() {
-    margin-top: 5px;
+  &__item {
+    padding-bottom: 10px;
   }
 
-  // &__title-wrapper {
-  //   width: 320px;
-  // }
+  &__item_radio-button {
+    width: 220px;
+    padding-bottom: 0;
+  }
+
+  &__item_toggle {
+    padding-bottom: 4px;
+  }
 
   &__title {
     text-transform: none;
@@ -39,6 +44,10 @@
     margin: 0;
     padding-bottom: 5px;
     text-transform: uppercase;
+  }
+
+  &__login-wrapper {
+    width: 99px;
   }
 
   &__section_login {

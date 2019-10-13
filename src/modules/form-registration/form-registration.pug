@@ -21,18 +21,22 @@ mixin form-registration(props={})
       h1.form-registration__title Регистрация аккаунта
     
     .form-registration__section
-      +text-field({placeholder: 'Имя'})
-      +text-field({placeholder: 'Фамилия'})
-      +radio-buttons({
-        radioButtonsSet: 'radio-battons-test',
-        buttonsList: [
-          {buttonTitle: 'Мужчина',
-          buttonValue: 'man',
-          checked: true},
-          {buttonTitle: 'Женщина',
-          buttonValue: 'woman'}
-          ]
-        })
+      .form-registration__item
+        +text-field({placeholder: 'Имя'})
+      .form-registration__item
+        +text-field({placeholder: 'Фамилия'})
+      .form-registration__item.form-registration__item_radio-button
+        +radio-buttons({
+          radioButtonsSet: 'radio-battons-test',
+          buttonsList: [
+            {buttonTitle: 'Мужчина',
+            buttonValue: 'man',
+            checked: true},
+            {buttonTitle: 'Женщина',
+            buttonValue: 'woman'}
+            ]
+          })
+
     .form-registration__section
       h3.form-registration__sub-title День рождения
       +masked-text-field({
@@ -40,22 +44,27 @@ mixin form-registration(props={})
           maskType: 'date'})
     .form-registration__section
       h3.form-registration__sub-title Данные для входа в сервис
-      +text-field({placeholder: 'Email'})
-      +text-field({placeholder: 'Пароль'})
-      +toggle({
-          labelTitle: 'Получать спецпредложения',
-          moduleClass: 'field-toggle-test',
-          checked: false
-          })
+      .form-registration__item
+        +text-field({placeholder: 'Email'})
+      .form-registration__item
+        +text-field({placeholder: 'Пароль'})
+      .form-registration__item.form-registration__item_toggle
+        +toggle({
+            labelTitle: 'Получать спецпредложения',
+            moduleClass: 'field-toggle-test',
+            checked: false
+            })
 
     .form-registration__section
-      +buttons({
-          lineTitle: 'Перейти к оплате',
-          mods: 'full, arrow, big'
-          })
+      .form-registration__item
+        +buttons({
+            lineTitle: 'Перейти к оплате',
+            mods: 'full, arrow, big'
+            })
     .form-registration__section.form-registration__section_login
       p.form-registration__invite Уже есть аккаунт на Toxin
-      +buttons({
-          lineTitle: 'Войти',
-          mods: 'border'
-          })
+      .form-registration__login-wrapper
+        +buttons({
+            lineTitle: 'Войти',
+            mods: 'border'
+            })

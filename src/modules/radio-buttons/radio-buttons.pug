@@ -36,19 +36,32 @@ mixin radio-buttons(props={})
     }
 
   .radio-buttons(class = moduleClass + allMods)
-    header.radio-buttons__title-wrapper
-      h3.radio-buttons__title= props.labelTitle ? props.labelTitle : ''
-    .radio-buttons__button-wrapper
+    each buttonString, index in props.buttonsList
+      label.radio-buttons__label
+        input.radio-buttons__input(
+          type  = 'radio',
+          name  = props.radioButtonsSet,
+          value = buttonString.buttonValue,
+          checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
+          )
+        span.radio-buttons__marker
+        |
+        = buttonString.buttonTitle
 
-      each buttonString, index in props.buttonsList
-        label.radio-buttons__label
-          input.radio-buttons__input(
-            type  = 'radio',
-            name  = props.radioButtonsSet,
-            value = buttonString.buttonValue,
-            checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
-            )
-          span.radio-buttons__marker
-          |
-          = buttonString.buttonTitle
+  //- .radio-buttons(class = moduleClass + allMods)
+  //-   header.radio-buttons__title-wrapper
+  //-     h3.radio-buttons__title= props.labelTitle ? props.labelTitle : ''
+  //-   .radio-buttons__button-wrapper
+
+  //-     each buttonString, index in props.buttonsList
+  //-       label.radio-buttons__label
+  //-         input.radio-buttons__input(
+  //-           type  = 'radio',
+  //-           name  = props.radioButtonsSet,
+  //-           value = buttonString.buttonValue,
+  //-           checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
+  //-           )
+  //-         span.radio-buttons__marker
+  //-         |
+  //-         = buttonString.buttonTitle
 

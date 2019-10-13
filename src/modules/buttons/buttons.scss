@@ -27,8 +27,9 @@
   // Модификатор full - градиент на кнопке
   &_full {
     height: 2.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    width: 100%;
+    // padding-left: 1.25rem;
+    // padding-right: 1.25rem;
     border: none;
     border-radius: 1.375rem;
     background: $PrimaryGradient;
@@ -39,8 +40,9 @@
   &_border {
     height: 2.75rem;
     border-radius: 1.375rem;
-    padding-left: 1.125rem;
-    padding-right: 1.125rem;
+    width: 100%;
+    // padding-left: 1.125rem;
+    // padding-right: 1.125rem;
     color: $Purple;
     border: solid 0.125rem transparent;
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $PrimaryGradient;
