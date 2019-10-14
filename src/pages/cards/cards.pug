@@ -12,6 +12,7 @@ block main
   include ../../modules/form-booking/form-booking
   include ../../modules/form-datepicker/form-datepicker
   include ../../modules/form-registration/form-registration
+  include ../../modules/form-login/form-login
 
   section.cards-page
     .cards-page__elements-column
@@ -22,6 +23,8 @@ block main
     .cards-page__elements-column
       .cards-page__container
         +form-booking()
+      .cards-page__container
+        +form-login()
     .cards-page__elements-column
       .cards-page__container
         +form-datepicker()

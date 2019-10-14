@@ -1,0 +1,39 @@
+include ../../modules/text-field/text-field
+include ../../modules/buttons/buttons
+
+mixin form-login(props={})
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' form-login_' + modList[i].trim()
+      }
+    }
+
+  form.form-login(class = moduleClass + allMods)
+    header.form-login__section
+      h1.form-login__title Войти
+    
+
+    .form-login__section
+      .form-login__item
+        +text-field({placeholder: 'Email'})
+      .form-login__item
+        +text-field({placeholder: 'Пароль'})
+
+    .form-login__section.form-login__section_button
+      .form-login__item
+        +buttons({
+            lineTitle: 'Войти',
+            mods: 'full, arrow, big'
+            })
+    .form-login__section.form-login__section_registration
+      p.form-login__invite Нет аккаунта на Toxin?
+      .form-login__registration-wrapper
+        +buttons({
+            lineTitle: 'Создать',
+            mods: 'border'
+            })
