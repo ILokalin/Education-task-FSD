@@ -1,0 +1,32 @@
+mixin room-details(props={})
+  //- Строка зогловок для номера
+  //- Принимает объект props с ключами
+  //- mods        {string}
+            h2-title
+  //- roomNumber  {String}    номер комнаты
+  //- roomType    {string}    тип номер
+            "Люкс", "Эконом"
+  //- price       {Number}    стоимость 
+
+  -
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' room-details_' + modList[i].trim()
+      }
+    }
+
+  header.room-details(class = allMods)
+    .room-details__room-tag
+      h1.room-details__number
+        em.room-details__number-prefix №
+        |
+        = props.roomNumber || ' xxx '
+        
+      p.room-details__room-type= props.roomType
+
+    .room-details__price-tag
+      p.room-details__price
+        em.room-details__price-digits= props.price
+        |  в сутки

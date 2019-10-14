@@ -1,0 +1,51 @@
+include ../room-details/room-details.pug
+include ../rate-button/rate-button.pug
+
+mixin card-room(props={})
+  //- Карточка номера
+  //- Принимает объект props с ключами
+  //- mods          {string}  модификаторы через запятую
+  //- roomImageSrc  {string}  адрес изображения
+  //- roomNumber    {string}  номер комнаты
+  //- roomType      {string}  тип номера
+  //- roomRate      {string}  рейтинг номера
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' card-room_' + modList[i].trim()
+      }
+    }
+
+  form.card-room(class = moduleClass + allMods)
+    .card-room__section
+      img.card-room__image(
+        src = props.imageSrc || './images/room-888.jpg',
+        alt = props.roomNumber)
+
+      .card-room__controls
+        span.card-room__slider-button.card-room__slider-button_prev expand_more
+        span.card-room__slider-button.card-room__slider-button_next expand_more
+
+      label.card-room__slider-radio
+        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '1')
+        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '2')
+        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '3')
+        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '4')
+  
+    .card-room__room-details
+      +room-details({
+        roomNumber: ' 888 ',
+        roomType: 'Люкс',
+        price: '9 999₽',
+        mods: 'litle-title'
+      })
+    hr.card-room__separator
+    .card-room__room-rating
+      +rate-button({
+        rate: '3'
+      })
+      | 65 Отзывов

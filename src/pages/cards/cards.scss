@@ -1,9 +1,15 @@
 @import '../common.scss';
-@import '../../modules/form-selection/form-selection.scss';
+@import '../../modules/buttons/buttons.scss';
+@import '../../modules/card-room/card-room.scss';
+@import '../../modules/date-dropdown/date-dropdown.scss';
+@import '../../modules/dropdown/dropdown.scss';
 @import '../../modules/form-booking/form-booking.scss';
 @import '../../modules/form-datepicker/form-datepicker.scss';
-@import '../../modules/form-registration/form-registration.scss';
 @import '../../modules/form-login/form-login.scss';
+@import '../../modules/form-registration/form-registration.scss';
+@import '../../modules/form-selection/form-selection.scss';
+@import '../../modules/room-details/room-details.scss';
+@import '../../modules/rate-button/rate-button';
 
 body {
   background-color: #F4F4F6;
@@ -11,9 +17,9 @@ body {
 
 .cards-page {
   display: flex;
-  max-width: 1440px;
-  margin: 0 auto;
   justify-content:center;
+  margin: 0 auto;
+  max-width: 1440px;
 
   &__elements-column {
     padding: 0 20px 0 20px;

@@ -1,0 +1,50 @@
+.card-room {
+  width: 270px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 19px;
+
+  &__section {
+    position: relative;
+  }
+
+  &__controls {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+  }
+
+  &__slider-button_prev {
+    transform: rotate(90deg);;
+  }
+  &__slider-button_next {
+    transform: rotate(-90deg);
+  }
+
+  &__slider-radio {
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+  }
+
+  &__room-details {
+    width: 234px;
+  }
+
+  &__room-rating {
+    padding: 0 5px 0 5px;
+    width: 234px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}

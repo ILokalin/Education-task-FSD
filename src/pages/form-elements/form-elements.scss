@@ -1,25 +1,26 @@
 @import '../common.scss';
-@import '../../modules/logo/logo.scss';
-@import '../../modules/text-field/text-field.scss';
-@import '../../modules/masked-text-field/masked-text-field.scss';
-@import '../../modules/dropdown/dropdown';
-@import '../../modules/date-dropdown/date-dropdown.scss';
-@import '../../modules/expandable-checkbox-list/expandable-checkbox-list';
-@import '../../modules/checkbox-buttons/checkbox-buttons';
-@import '../../modules/rich-checkbox-buttons/rich-checkbox-buttons';
-@import '../../modules/radio-buttons/radio-buttons';
-@import '../../modules/toggle/toggle';
-@import '../../modules/like-button/like-button';
-@import '../../modules/rate-button/rate-button';
-@import '../../modules/range-slider/range-slider';
-@import '../../modules/buttons/buttons.scss';
-@import '../../modules/icon-text/icon-text.scss';
-@import '../../modules/icon-text-list/icon-text-list.scss';
 @import '../../modules/bullet-list/bullet-list.scss';
+@import '../../modules/buttons/buttons.scss';
+@import '../../modules/checkbox-buttons/checkbox-buttons';
 @import '../../modules/comment/comment.scss';
-@import '../../modules/pagination/pagination.scss';
-@import '../../modules/subscription-text-field/subscription-text-field.scss';
+@import '../../modules/date-dropdown/date-dropdown.scss';
+@import '../../modules/dropdown/dropdown';
+@import '../../modules/expandable-checkbox-list/expandable-checkbox-list';
 @import '../../modules/filter-date-dropdown/filter-date-dropdown.scss';
+@import '../../modules/icon-text-list/icon-text-list.scss';
+@import '../../modules/icon-text/icon-text.scss';
+@import '../../modules/like-button/like-button';
+@import '../../modules/logo/logo.scss';
+@import '../../modules/masked-text-field/masked-text-field.scss';
+@import '../../modules/pagination/pagination.scss';
+@import '../../modules/radio-buttons/radio-buttons';
+@import '../../modules/range-slider/range-slider';
+@import '../../modules/rate-button/rate-button';
+@import '../../modules/rich-checkbox-buttons/rich-checkbox-buttons';
+@import '../../modules/subscription-text-field/subscription-text-field.scss';
+@import '../../modules/text-field/text-field.scss';
+@import '../../modules/toggle/toggle';
+
 
 
 body {
@@ -31,15 +32,15 @@ body {
 }
 
 .elements {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: 1440px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
 
   &__logo {
-    padding-left: 23px;
     padding-top: 35px;
+    padding-left: 23px;
   }
 
   &__column {
@@ -92,8 +93,8 @@ body {
 
   &__description-row {
     display: flex;
-    justify-content: space-between;
     flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
   &__block-row {
@@ -104,20 +105,20 @@ body {
     // font-family: Montserrat;
     // font-style: normal;
     margin: 0;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
     text-align: left;
     text-transform: uppercase;
+    line-height: 15px;
+    font-size: 12px;
+    font-weight: bold;
   }
 
   &__mods {
     // font-family: Montserrat;
     // font-style: normal;
     // font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
     text-align: right;
+    line-height: 15px;
+    font-size: 12px;
   }
 }
 
@@ -138,9 +139,9 @@ body {
     }
 
     &__column {
-      padding-left: 0;
-      padding-right: 0;
       padding: 0;
+      padding-right: 0;
+      padding-left: 0;
       // display: flex;
       // align-items: center;
       // justify-content: center;
@@ -159,9 +160,9 @@ body {
 
 @media screen and (max-width: 400px) {
   body {
-    width: 90%;
-    padding: 0;
     margin: 0 auto;
+    padding: 0;
+    width: 90%;
   }
 
 }

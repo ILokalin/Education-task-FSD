@@ -1,6 +1,7 @@
 include ../../modules/dropdown/dropdown
 include ../../modules/date-dropdown/date-dropdown
 include ../../modules/buttons/buttons
+include ../../modules/room-details/room-details.pug
 
 mixin form-booking(props={})
 
@@ -15,17 +16,12 @@ mixin form-booking(props={})
     }
 
   form.form-booking(class = moduleClass + allMods)
-    header.form-booking__room-details
-      .form-booking__room-tag
-        h1.form-booking__number
-          em.form-booking__number-prefix № 
-          | 888
-        p.form-booking__room-type люкс
-
-      .form-booking__price-tag
-        p.form-booking__price
-          em.form-booking__price-digits 9 990₽
-          |  в сутки
+    .form-booking__room-details
+      +room-details({
+        roomNumber: ' 566 ',
+        roomType: 'Люкс',
+        price: '9 999₽'
+      })
 
     .form-booking__date-picker-wrapper
       .form-booking__arrival

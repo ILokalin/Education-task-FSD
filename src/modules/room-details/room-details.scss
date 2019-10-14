@@ -1,0 +1,44 @@
+.room-details {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+
+  &__room-tag {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+
+  &__number {
+    margin: 0;
+    padding-right: 5px;
+  }
+
+  &__number-prefix {
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  &__room-type {
+    color: $Purple;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &__price {
+    font-size: 12px;
+    color: $DarkShade50;
+  }
+  &__price-digits {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  // Модификатор заголовка для карточки номера
+  &_litle-title &__number{
+    font-size: 19px;
+  }
+}

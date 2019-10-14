@@ -53,13 +53,13 @@
 
   // Модификатор _link
   &_link {
+    display: inline-block;
     margin: 0;
-    padding: 0;
-    color: #BC9CFF;
+    border: none;
     border: none;
     background: transparent;
-    display: inline-block;
-    border: none;
+    padding: 0;
+    color: #BC9CFF;
   }
 
   &_link:focus {
