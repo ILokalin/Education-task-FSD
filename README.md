@@ -10,14 +10,16 @@ FSD education program. The 2nd task
 Требуется установленный node.js (доступен: https://nodejs.org)
 Для развертывания проекта применить Clone or download, разархивировать в пустой папке.
 
+
 Для сборки npm i
 
+<br>
 Запуск проекта
+<br>
+npm run dev   - сборка версии в разработке,<br>
+npm run start - сборка и запуск сервера<br>
+npm run build - сборка продкат версии<br>
 
-npm run dev
-npm run start
-npm run build
-
-Совместимость
+Совместимость:
   Автоприфексер настроен на браузеры последних 4 версий. 
   Для изменения /webpack/scss.js
