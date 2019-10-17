@@ -2,16 +2,15 @@
 
 .expandable-checkbox-list {
   box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  margin: 0;
-  padding: 0 12px 0 0;
   display: flex;
-  justify-content: space-between;
+  position: relative;
   align-items: center;
-  height: 2.625rem;
-
+  justify-content: space-between;
+  margin: 0;
   cursor: pointer;
+  padding: 0 12px 0 0;
+  width: 100%;
+  height: 2.625rem;
   user-select: none;
 
   &_open &__menu {
@@ -19,30 +18,29 @@
   }
 
   &__menu {
+    display: none;
     position: absolute;
-    z-index: 999;
     top: 2.625rem;
     left: 0;
-    padding: 0;
+    z-index: 999;
     margin: 0;
     margin-top: 5px;
-    width: 100%;
-    display: none;
-
     background-color: white;
+    padding: 0;
+    width: 100%;
   }
 
   &__title {
     margin: 0;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.9375rem;
     text-transform: uppercase;
+    line-height: 0.9375rem;
+    font-size: 0.75rem;
+    font-weight: bold;
   }
 
   &__menu-item {
-    padding: 0;
     margin: 0;
+    padding: 0;
     padding-bottom: 0.75rem;
   }
 

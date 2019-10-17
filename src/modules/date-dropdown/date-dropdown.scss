@@ -1,13 +1,13 @@
 @import '../../modules/masked-text-field/masked-text-field.scss';
 
 .date-dropdown {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 100%;
 
   &__marker {
     position: absolute;
-    right: 10px;
     top: 10px;
+    right: 10px;
   }
 }

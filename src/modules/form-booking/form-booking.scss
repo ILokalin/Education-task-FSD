@@ -2,17 +2,17 @@
 
 .form-booking {
   box-sizing: border-box;
-  width: 380px;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  background: white;
+  background-color: white;
   padding-top: 40px;
   padding-bottom: 30px;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  width: 380px;
   
   &__room-details {
     width: 320px;
@@ -20,16 +20,16 @@
 
   &__date-picker-wrapper {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    width: 320px;
     padding: 18px 0 20px 0;
+    width: 320px;
   }
 
   &__arrival, &__departure {
-    width: 150px;
     box-sizing: padding-box;
+    width: 150px;
   }
 
   &__sub-title {
@@ -39,24 +39,24 @@
   }
 
   &__dropdown {
-    width: 320px;
     padding-bottom: 20px;
+    width: 320px;
   }
 
   &__details-item {
-    position: relative;
-    width: 320px;
     display: flex;
+    position: relative;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: baseline;
+    justify-content: space-between;
     padding-bottom: 14px;
+    width: 320px;
     line-height: 20px;
   }
 
   &__details-item:last-child {
-    font-weight: bold;
     padding: 9px 0 17px 0;
+    font-weight: bold;
   }
 
   &__item-name {
@@ -65,33 +65,31 @@
 
   &__info {
     box-sizing: border-box;
+    display: inline-block;
     position: absolute;
     left: 219px;
-    display: inline-block;
+    border: 1px solid $DarkShade25;
+    border-radius: 50%;
     width: 20px;
     height: 20px;
- 
+    text-align: center;
+    color: $DarkShade25;
     font-family: Montserrat;
-    font-style: normal;
     font-size: 12px;
     font-weight: bold;
-    color: $DarkShade25;
-    text-align: center;
-    
-    border-radius: 50%;
-    border: 1px solid $DarkShade25;
-  }
+    font-style: normal;
+   }
 
   &__total-currency {
-    font-style: normal;
     font-family: Montserrat;
+    font-style: normal;
   }
 
   &__item-total,
   &__item-price-total {
     margin: 0;
-    font-size: 19px;
     text-transform: none;
+    font-size: 19px;
   }
 
   &__item-total {

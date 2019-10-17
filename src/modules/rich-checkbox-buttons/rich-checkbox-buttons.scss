@@ -1,11 +1,9 @@
 .rich-checkbox {
   box-sizing: border-box;
-  position: relative;
-  
-  user-select: none;
   display: inline-block;
+  position: relative;
   cursor: pointer;
-
+  user-select: none;
 
   &__wrapper {
     margin: 0;
@@ -15,23 +13,23 @@
   &__title {
     margin: 0;
     padding: 0;
-    font-weight: bold;
-    font-size: 0.75rem;
-    line-height: 0.9375rem;
     text-transform: uppercase;
+    line-height: 0.9375rem;
+    font-size: 0.75rem;
+    font-weight: bold;
   }
 
   &__list {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     padding-top: 1rem;
+    list-style: none;
 
   }
 
   &__item {
-    padding: 0;
     margin: 0;
+    padding: 0;
     padding-bottom: 0.5625rem;
   }
 
@@ -41,10 +39,10 @@
 
   &__description {
     margin: 0;
-    font-size: 0.75rem;
+    padding-top: 0.4375rem;
+    padding-left: 1.875rem;
     line-height: 0.875rem;
     color: $DarkShade50;
-    padding-left: 1.875rem;
-    padding-top: 0.4375rem;
+    font-size: 0.75rem;
   }
 }

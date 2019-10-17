@@ -17,8 +17,8 @@
   }
 
   &__number-prefix {
-    font-style: normal;
     font-size: 14px;
+    font-style: normal;
   }
 
   &__room-type {
@@ -28,13 +28,13 @@
   }
 
   &__price {
-    font-size: 12px;
     color: $DarkShade50;
+    font-size: 12px;
   }
   &__price-digits {
     font-size: 14px;
-    font-style: normal;
     font-weight: bold;
+    font-style: normal;
   }
 
   // Модификатор заголовка для карточки номера

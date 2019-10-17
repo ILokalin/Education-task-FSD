@@ -4,41 +4,39 @@ Ion.RangeSlider, 2.3.0
 Build date: 2018-12-11 23:23:51
 */
 .irs {
-  position: relative;
   display: block;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
+  position: relative;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
   user-select: none;
-  font-size: 12px;
-  font-family: Arial, sans-serif;
-  cursor: pointer;
 }
 
 .irs-line {
-  position: relative;
   display: block;
-  overflow: hidden;
+  position: relative;
   outline: none !important;
+  overflow: hidden;
 }
 
 .irs-bar {
-  position: absolute;
   display: block;
+  position: absolute;
   left: 0;
   width: 0;
 }
 
 .irs-handle {
-
-  position: absolute;
-  display: block;
-
   box-sizing: border-box;
-  cursor: pointer;
+  display: block;
+  position: absolute;
   z-index: 1;
+  cursor: pointer;
 }
 
 .irs-handle.type_last {
@@ -47,8 +45,8 @@ Build date: 2018-12-11 23:23:51
 
 .irs-min,
 .irs-max {
-  position: absolute;
   display: block;
+  position: absolute;
   cursor: default;
 }
 
@@ -61,21 +59,21 @@ Build date: 2018-12-11 23:23:51
 }
 
 .irs-disable-mask {
-  position: absolute;
   display: block;
+  position: absolute;
   top: 0;
   left: -1%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0);
+  cursor: default;
   width: 102%;
   height: 100%;
-  cursor: default;
-  background: rgba(0, 0, 0, 0);
-  z-index: 2;
 }
 
 .lt-ie9 .irs-disable-mask {
   background: #000;
-  filter: alpha(opacity=0);
   cursor: not-allowed;
+  filter: alpha(opacity=0);
 }
 
 .irs-disabled {
@@ -96,10 +94,10 @@ Build date: 2018-12-11 23:23:51
 
 .irs--flat .irs-line {
   top: 25px;
-  height: 12px;
-  height: 4px;
   border: 1px solid $DarkShade25;
   border-radius: 10px;
+  height: 12px;
+  height: 4px;
 }
 
 .irs--flat .irs-bar {
@@ -116,11 +114,11 @@ Build date: 2018-12-11 23:23:51
 
 .irs--flat .irs-handle {
   top: 20px;
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   border: 2px solid #FFFFFF;
   border-radius: 10px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  width: 16px;
+  height: 16px;
 }
 
 .irs--flat .irs-min,
@@ -139,31 +137,31 @@ Build date: 2018-12-11 23:23:51
 
   &__line-title {
     margin: 0;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
     line-height: 15px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
   }
 
   &__value {
-    margin: 0;
     position: absolute;
-    right: 0px;
     top: 0px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
+    right: 0px;
+    margin: 0;
     text-align: right;
+    line-height: 15px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
   }
 
   &__description {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
     line-height: 14px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
   }
 }

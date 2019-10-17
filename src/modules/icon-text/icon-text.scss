@@ -10,25 +10,24 @@
     position: absolute;
     top: 0;
     left: 0;
-    @extend %MaterialIcon;
-    line-height: 3rem;
-    font-size: 3rem;
-    
     background: $PrimaryGradient;
     background-clip: text;
+    line-height: 3rem;
     color: transparent;
+    font-size: 3rem;
+    @extend %MaterialIcon;
   }
 
   &__lineTitle {
     margin: 0;
-    font-size: 0.875rem;
     line-height: 1.5rem;
+    font-size: 0.875rem;
   }
 
   &__description {
     margin: 0;
-    font-size: 0.875rem;
     line-height: 1.5rem;
+    font-size: 0.875rem;
   }
 
 }

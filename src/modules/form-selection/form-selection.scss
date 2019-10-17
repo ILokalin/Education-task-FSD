@@ -4,25 +4,25 @@
 
 .form-selection {
   box-sizing: border-box;
-  width: 380px;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  background: white;
+  background-color: white;
   padding-top: 40px;
   padding-bottom: 30px;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  width: 380px;
   
   &__title-wrapper {
     width: 320px;
   }
 
   &__title {
-    text-transform: none;
     margin: 0;
+    text-transform: none;
   }
 
   &__sub-title {
@@ -33,21 +33,20 @@
 
   &__date-picker-wrapper {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    width: 320px;
-    // margin: 0;
     padding: 20px 0 22px 0;
+    width: 320px;
   }
 
   &__arrival, &__departure {
-    width: 150px;
     box-sizing: padding-box;
+    width: 150px;
   }
 
   &__dropdown {
-    width: 320px;
     padding-bottom: 30px;
+    width: 320px;
   }
 }

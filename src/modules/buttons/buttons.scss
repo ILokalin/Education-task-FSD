@@ -1,16 +1,16 @@
 %button-hover {
-  opacity: .5;
   transition-duration: .5s;
+  opacity: .5;
 }
 
 .buttons {
   box-sizing: border-box;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-align: center;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
+  text-align: center;
   text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
 
   &:hover {
     @extend %button-hover;
@@ -26,29 +26,29 @@
 
   // Модификатор full - градиент на кнопке
   &_full {
-    height: 2.75rem;
-    width: 100%;
-    // padding-left: 1.25rem;
-    // padding-right: 1.25rem;
     border: none;
     border-radius: 1.375rem;
     background: $PrimaryGradient;
+    width: 100%;
+    height: 2.75rem;
     color: white;
+    // padding-left: 1.25rem;
+    // padding-right: 1.25rem;
   }
 
   // Модификатор _border
   &_border {
-    height: 2.75rem;
+    border: solid 0.125rem transparent;
     border-radius: 1.375rem;
+    box-shadow: 2px 1000px 1px #fff inset;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $PrimaryGradient;
+    background-clip: content-box, border-box;
+    background-origin: border-box;
     width: 100%;
+    height: 2.75rem;
+    color: $Purple;
     // padding-left: 1.125rem;
     // padding-right: 1.125rem;
-    color: $Purple;
-    border: solid 0.125rem transparent;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), $PrimaryGradient;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    box-shadow: 2px 1000px 1px #fff inset;
   }
 
   // Модификатор _link
@@ -79,9 +79,9 @@
 
   &_arrow::after {
     position: absolute;
-    content: 'arrow_forward';
     top: 0.625rem;
     right: 0.625rem;
+    content: 'arrow_forward';
     @extend %MaterialIcon
   }
 

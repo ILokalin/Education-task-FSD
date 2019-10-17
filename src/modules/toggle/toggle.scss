@@ -1,39 +1,39 @@
 .toggle {
   box-sizing: border-box;
-  position: relative;
-  padding-left: 3.125rem;
   display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  position: relative;
   cursor: pointer;
+  padding-left: 3.125rem;
+  line-height: 1.25rem;
+  font-size: 0.875rem;
   user-select: none;
   
   &__input {
+    appearance: none;
     box-sizing: border-box;
     margin: 0;
-    appearance: none;
   }
   
   &__marker {
     box-sizing: border-box;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    border: 0.0625rem solid $DarkShade25;
+    border-radius: 0.625rem;
     width: 2.5rem;
     height: 1.25rem;
-    border-radius: 0.625rem;
-    border: 0.0625rem solid $DarkShade25;
   }
 
   &__marker:after {
     position: absolute;
-    background-color: $DarkShade25;
-    border-radius: 50%;
-    content: "";
-    left: 0.25rem;
     top: 0.1875rem;
+    left: 0.25rem;
+    border-radius: 50%;
+    background-color: $DarkShade25;
     width: 0.75rem;
     height: 0.75rem;
+    content: "";
   }
 
   &__input:checked + &__marker{
@@ -42,13 +42,13 @@
 
   &__input:checked + &__marker:after {
     position: absolute;
-    background: $PrimaryGradient;
-    border-radius: 50%;
-    content: "";
-    left: 1.4375rem;
     top: 0.1875rem;
+    left: 1.4375rem;
+    border-radius: 50%;
+    background: $PrimaryGradient;
     width: 0.75rem;
     height: 0.75rem;
+    content: "";
   }
 
   &__input:focus + &__marker {

@@ -1,13 +1,13 @@
 .card-room {
-  width: 270px;
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  background: #FFFFFF;
   padding-bottom: 19px;
+  width: 270px;
 
   &__section {
     position: relative;
@@ -32,8 +32,8 @@
 
   &__slider-radio {
     position: absolute;
-    bottom: 15px;
     right: 5px;
+    bottom: 15px;
   }
 
   &__room-details {
@@ -41,10 +41,10 @@
   }
 
   &__room-rating {
-    padding: 0 5px 0 5px;
-    width: 234px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    padding: 0 5px 0 5px;
+    width: 234px;
   }
 }

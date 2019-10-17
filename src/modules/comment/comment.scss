@@ -3,21 +3,22 @@
   position: relative;
   padding-left: 3.75rem;
   width: 100%;
+  
 
   &__photo-ring {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    width: 2.75rem;
-    height: 2.75rem;
-    display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 0.125rem solid white;
     margin: auto;
+    border: 0.125rem solid white;
+    border-radius: 50%;
     box-shadow: 0px 0.625rem 1.25rem $DarkShade10;
+    width: 2.75rem;
+    height: 2.75rem;
+    overflow: hidden;
   }
 
   &__like-button {
@@ -32,15 +33,15 @@
 
   &__user-name {
     margin: 0;
-    font-weight: bold;
     padding-top: 0.1875rem;
-    font-size: 14px;
     line-height: 24px;
     color: $DarkShade75;
+    font-size: 14px;
+    font-weight: bold;
   }
 
   &__text {
-    width: calc(100% - 3.75rem);
     padding-top: 10px;
+    width: calc(100% - 3.75rem);
   }
 }

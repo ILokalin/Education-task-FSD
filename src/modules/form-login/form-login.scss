@@ -2,20 +2,19 @@
 @import '../../modules/buttons/buttons.scss';
 
 .form-login {
-  width: 380px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  background: #FFFFFF;
   padding-top: 20px;
   padding-bottom: 30px;
+  width: 380px;
 
   &__section {
     margin: 0 auto;
-    width: 320px;
     padding-top: 20px;
+    width: 320px;
   }
 
   &__section_button {
@@ -37,7 +36,7 @@
 
   &__section_registration {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 }

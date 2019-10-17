@@ -1,67 +1,6 @@
 @import '../common.scss';
 
 
-
-
-
-// @mixin font-face($font-name, $font-path, $font-weight: 400, $font-style: normal) {
-//     @font-face {
-//         font-family: $font-name;
-//         font-style: $font-style;
-//         font-weight: $font-weight;
-//         src: url('#{$font-path}.woff2') format('woff2'),
-//         url('#{$font-path}.woff') format('woff'),
-//         url('#{$font-path}.ttf') format('truetype');
-//     }
-// }
-
-// @include font-face("Material Icons", "fonts/MaterialIcons-Regular");
-
-// @include font-face("Montserrat", "fonts/Montserrat-Regular");
-// @include font-face("Montserrat", "fonts/Montserrat-Bold", bold);
-
-// @include font-face("Quicksand", "fonts/OpenSans-Bold", bold);
-// @include font-face("Quicksand", "fonts/OpenSans-Regular");
-
-
-
-
-// body,
-// a, button,
-// ul {
-//     font-family: Montserrat;
-//     font-style: normal;
-//     font-weight: normal;
-//     font-size: 0.875rem; //14px
-//     line-height: 1.5rem; //24px
-// }
-
-// h1, h2, h3 {
-//     font-family: Quicksand;
-//     font-style: normal;
-//     font-weight: bold;
-// }
-
-// h1 {
-//     font-size: 1.5rem;
-//     line-height: 1.875rem;
-// }
-
-// h2 {
-//     font-size: 19px;
-//     line-height: 30px;
-// }
-
-// h3 {
-//     font-size: 0.75rem;
-//     line-height: 0.9375rem;
-// }
-
-// p {
-//     margin: 0;
-//     padding: 0;
-// }
-
 // требует рефакторинг. Замена на extend
 .material-icons {
   font-family: 'Material Icons';
@@ -98,13 +37,13 @@
 }
 
 .block-lib {
-  padding-left: 50px;
   padding-bottom: 21px;
+  padding-left: 50px;
 
   &__description-row {
     display: flex;
-    justify-content: space-between;
     flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
   &__block-row {
@@ -112,21 +51,21 @@
   }
 
   &__title {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
     text-align: left;
+    line-height: 15px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
   }
 
   &__mods {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
     text-align: right;
+    line-height: 15px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
   }
 
   &_inline {
@@ -137,9 +76,9 @@
 
 @media screen and (max-width: 400px) {
   body {
-    width: 90%;
-    padding: 0;
     margin: 0 auto;
+    padding: 0;
+    width: 90%;
   }
 
   .block-lib {

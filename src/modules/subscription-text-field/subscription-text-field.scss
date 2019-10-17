@@ -1,12 +1,12 @@
 .subscription-text-field {
   box-sizing: border-box;;
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 100%;
 
   &__marker {
     position: absolute;
-    right: 0.625rem;
     top: 0.625rem;
+    right: 0.625rem;
   }
 }

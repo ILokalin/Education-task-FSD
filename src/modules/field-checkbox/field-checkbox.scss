@@ -1,11 +1,11 @@
 .field-checkbox {
   box-sizing: border-box;
-  position: relative;
-  padding-left: 1.875rem;
   display: block;
-  font-size: 0.875rem;
-  line-height: 1.125rem;
+  position: relative;
   cursor: pointer;
+  padding-left: 1.875rem;
+  line-height: 1.125rem;
+  font-size: 0.875rem;
   
   &__input {
     position: absolute;
@@ -18,12 +18,12 @@
   &__box {
     box-sizing: border-box;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    border: 1px solid $DarkShade25;
+    border-radius: 0.25rem;
     width: 1.25rem;
     height: 1.25rem;
-    border-radius: 0.25rem;
-    border: 1px solid $DarkShade25;
   }
 
   &__input:checked + &__box{
@@ -32,12 +32,12 @@
 
   &__input:checked + &__box:after {
     position: absolute;
-    @extend %MarkerPurple;
-    content: "";
-    left: 0.25rem;
     top: 0.1875rem;
+    left: 0.25rem;
     width: 0.625rem;
     height: 0.625rem;
+    content: "";
+    @extend %MarkerPurple;
   }
 
   &__input:focus + &__box {
