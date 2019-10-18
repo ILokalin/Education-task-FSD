@@ -44,8 +44,8 @@
 
   &__input:after {
     position: absolute;
-    height: 8px;
     width: 8px;
+    height: 8px;
     content: '';
 
   }
@@ -56,19 +56,19 @@
    }
 
   &__separator {
-      margin: 6px 0;
-      border: none;
-      background-color: $DarkShade10;
-      width: 100%;
-      height: 0.0625rem;
-      color: $DarkShade10;
+    margin: 6px 0;
+    border: none;
+    background-color: $DarkShade10;
+    width: 100%;
+    height: 0.0625rem;
+    color: $DarkShade10;
   }
 
   &__room-rating {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
     padding: 0 5px 0 5px;
     width: 234px;
   }
@@ -76,14 +76,13 @@
   &__commentsAmmount {
     margin: 0;
     padding-top: 5px;
-    // vertical-align: bottom;
+    vertical-align: center;
     line-height: 1.5rem;
   }
 
   &__commentsAmmountNum {
-    font-style: normal;
+    color: $DarkShade50;
     font-weight: bold;
-    color: $DarkShade50
-
+    font-style: normal;
   }
 }

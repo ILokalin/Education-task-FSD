@@ -1,5 +1,8 @@
 extends ../../template/template
 
+//- Миксины используемые на странице описаны в конце
+//- mixin free-space(props={})    задает отступ по ширине и/или высоте
+
 block meta
   meta(name="keywords", content="toxin, form elements")
   meta(name="description" content="Учебный проект FSD. Второе задание. Лист Headers & Footers")
@@ -10,3 +13,32 @@ block title
 
 block main
   include ../../modules/logo/logo
+  include ../../modules/standard-nav-bar/standard-nav-bar
+
+  section.elements
+    .elements__logo
+      +logo({mods: 'gray'})
+  +free-space({height: '57px'})
+
+  +standard-nav-bar()
+
+
+mixin free-space(props = {})
+  //- Задает свободное пространство на странице
+  //- Принимает объект props с ключами
+  //- width   {string}    ширина отступа 
+  //- height  {string}    высота отступа
+
+    Примеры вызова
+    +free-space({height: '60px'})
+    +free-space({height: '3rem', width: '50px'})
+
+  -
+    let styleString = ''
+    if (typeof(props.width) !== 'undefined' && props.width) {
+      styleString += 'width:' + props.width + ';'
+    }
+    if (typeof(props.height) !== 'undefined' && props.height) {
+      styleString += 'height:' + props.height + ';'
+    }
+  .free-space(style= styleString)

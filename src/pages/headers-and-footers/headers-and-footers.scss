@@ -1,0 +1,13 @@
+.elements {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1440px;
+  background-color: #F4F4F6;
+
+  &__logo {
+    padding-top: 35px;
+    padding-left: 23px;
+  }
+}

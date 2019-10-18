@@ -1,0 +1,21 @@
+mixin standard-nav-bar(props={})
+  //- standard nav-bav
+  //- Принимает объект props с ключами
+  //- mods    {string} модификаторы через запятую
+  //-             _logged-in
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' card-room_' + modList[i].trim()
+      }
+    }
+
+  article.standard-nav-bar
+    .standard-nav-bar__logo
+    .standard-nav-bar__menu
+    .standard-nav-bar__login
+    
