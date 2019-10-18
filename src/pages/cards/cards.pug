@@ -30,4 +30,21 @@ block main
       .cards-page__container
         +form-datepicker()
       .cards-page__container
-        +card-room()
+        +card-room({
+          imageSrc: './images/room-888.jpg',
+          roomNumber: '888',
+          roomRate: '5',
+          roomType: 'Люкс',
+          commentsAmmount: '145',
+          commentsAmmountText: ' отзывов',
+          roomPrice: '9 999₽'
+        })
+      .cards-page__container
+        +card-room({
+          imageSrc: './images/room-840.jpg',
+          roomNumber: '840',
+          roomRate: '4',
+          commentsAmmount: '65',
+          commentsAmmountText: ' отзывов',
+          roomPrice: '9 900₽'
+        })

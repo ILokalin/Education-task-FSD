@@ -38,14 +38,18 @@ mixin card-room(props={})
   
     .card-room__room-details
       +room-details({
-        roomNumber: ' 888 ',
-        roomType: 'Люкс',
-        price: '9 999₽',
+        roomNumber: props.roomNumber,
+        roomType: props.roomType,
+        price: props.roomPrice,
         mods: 'litle-title'
       })
-    hr.card-room__separator
+
+      hr.card-room__separator
     .card-room__room-rating
       +rate-button({
-        rate: '3'
+        rate: props.roomRate
       })
-      | 65 Отзывов
+      p.card-room__commentsAmmount
+        em.card-room__commentsAmmountNum= props.commentsAmmount
+        |
+        = props.commentsAmmountText

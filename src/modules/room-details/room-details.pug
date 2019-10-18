@@ -16,13 +16,15 @@ mixin room-details(props={})
       allMods = allMods + ' room-details_' + modList[i].trim()
       }
     }
+    let roomNumber = ' ' + props.roomNumber || '---'
+    roomNumber += ' '
 
   header.room-details(class = allMods)
     .room-details__room-tag
       h1.room-details__number
         em.room-details__number-prefix №
         |
-        = props.roomNumber || ' xxx '
+        = roomNumber
         
       p.room-details__room-type= props.roomType
 
