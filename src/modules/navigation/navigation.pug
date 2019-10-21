@@ -1,0 +1,19 @@
+mixin navigation(props = {})
+  //- Принимает объект props с ключами
+  //- mods      {string}  модификаторы
+  //- itemsList {string}  список пунктов или списков
+  //-   subList {string}
+
+  -
+    let moduleClass = props.moduleClass || ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' logo_' + modList[i].trim()
+      }
+    }
+
+  nav.navigation
+    each menuItem in props.itemsList
+      li.navigation__item= menuItem

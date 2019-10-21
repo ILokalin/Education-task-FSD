@@ -1,3 +1,7 @@
+include ../logo/logo.pug
+include ../navigation/navigation.pug
+include ../buttons/buttons.pug
+
 mixin standard-nav-bar(props={})
   //- standard nav-bav
   //- Принимает объект props с ключами
@@ -16,6 +20,14 @@ mixin standard-nav-bar(props={})
 
   article.standard-nav-bar
     .standard-nav-bar__logo
-    .standard-nav-bar__menu
-    .standard-nav-bar__login
+      +logo()
+    .standard-nav-bar__navigation-region
+      +navigation({
+        itemsList: ['menu', 'tebu']
+      })
+    .standard-nav-bar__login-region
+      +buttons({
+        lineTitle: 'LogIn',
+        mods: 'border'
+      })
     

@@ -18,9 +18,9 @@ block main
   section.elements
     .elements__logo
       +logo({mods: 'gray'})
-  +free-space({height: '57px'})
-
-  +standard-nav-bar()
+  section.elements
+    +free-space({height: '57px'})
+    +standard-nav-bar()
 
 
 mixin free-space(props = {})
