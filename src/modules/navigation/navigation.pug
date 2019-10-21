@@ -10,10 +10,38 @@ mixin navigation(props = {})
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
     for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' logo_' + modList[i].trim()
+      allMods = allMods + ' navigarion_' + modList[i].trim()
       }
     }
 
   nav.navigation
-    each menuItem in props.itemsList
-      li.navigation__item= menuItem
+    +navigation-items(props.itemsList)
+
+
+
+      
+
+
+
+mixin navigation-items(props = {})
+
+  each item in props
+
+    -
+      let allMods = ''
+      let sub = false
+      if (typeof(item.mods) !== 'undefined' && item.mods) {
+      let modList = item.mods.split(',')
+      for (let i=0; i < modList.length; i++) {
+        if (modList[i].trim() === 'sub') {
+          sub = true
+        }
+        allMods = allMods + ' navigarion__item_' + modList[i].trim()
+        }
+      }
+
+
+    li.navigation__item(class= allMods)
+      a.navagation__item-link(href = item.link)= item.item
+      if sub 
+        span.navigation__item-marker expand_more

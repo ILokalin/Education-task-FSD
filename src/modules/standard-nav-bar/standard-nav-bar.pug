@@ -23,7 +23,40 @@ mixin standard-nav-bar(props={})
       +logo()
     .standard-nav-bar__navigation-region
       +navigation({
-        itemsList: ['menu', 'tebu']
+        itemsList: [
+          {
+            item: 'Home',
+            link: '#',
+            mods: 'active'
+            },
+          {
+            item: 'About Us',
+            link: '#'
+            },
+          {
+            item: 'Services',
+            link: '#',
+            mods: 'sub',
+            subList: [
+              {
+                item: 'Our Services',
+                link: '#'
+              }
+            ]
+            },
+          {
+            item: 'Careers',
+            link: '#'
+            },
+          {
+            item: 'News',
+            link: '#'
+            },
+          {
+            item: 'Documentation',
+            link: '#'
+            }
+          ]
       })
     .standard-nav-bar__login-region
       +buttons({
