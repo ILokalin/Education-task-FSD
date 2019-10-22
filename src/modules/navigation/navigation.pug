@@ -36,12 +36,12 @@ mixin navigation-items(props = {})
         if (modList[i].trim() === 'sub') {
           sub = true
         }
-        allMods = allMods + ' navigarion__item_' + modList[i].trim()
+        allMods = allMods + ' navigation__item_' + modList[i].trim()
         }
       }
 
 
     li.navigation__item(class= allMods)
-      a.navagation__item-link(href = item.link)= item.item
+      a.navigation__item-link(href = item.link)= item.item
       if sub 
         span.navigation__item-marker expand_more

@@ -1,5 +1,5 @@
 %button-hover {
-  transition-duration: .5s;
+  transition-duration: .3s;
   opacity: .5;
 }
 
@@ -89,6 +89,15 @@
     color: $DarkShade50;
   }
 
+  &_free-height {
+    height: 100%;
+  }
+
+  &_padding20 {
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media screen and (max-width: 400px) {

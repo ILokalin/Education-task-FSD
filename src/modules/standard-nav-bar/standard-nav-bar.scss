@@ -1,15 +1,30 @@
 .standard-nav-bar {
-  width: 100%;
-  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  background: #FFFFFF;
+  padding: 0 140px;
+  width: 100%;
   height: 70px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 30px;
+  &__navigation-region {
+    flex-grow: 1;
+  }
 
   &__login-region {
-    width: 20%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__button {
+    height: 34px;
+    padding-right: 20px;
+  }
+
+  &__button:last-child {
+    padding-right: 0;
   }
 }

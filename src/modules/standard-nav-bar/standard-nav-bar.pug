@@ -59,8 +59,14 @@ mixin standard-nav-bar(props={})
           ]
       })
     .standard-nav-bar__login-region
-      +buttons({
-        lineTitle: 'LogIn',
-        mods: 'border'
-      })
+      .standard-nav-bar__button
+        +buttons({
+          lineTitle: 'LOGIN',
+          mods: 'border, free-height, padding20'
+        })
+      .standard-nav-bar__button
+        +buttons({
+          lineTitle: 'REGISTER',
+          mods: 'full, free-height, padding20'
+        })
     
