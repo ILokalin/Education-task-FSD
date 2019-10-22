@@ -3,6 +3,7 @@
 @import '../../modules/navigation/navigation';
 @import '../../modules/logo/logo';
 @import '../../modules/standard-nav-bar/standard-nav-bar';
+@import '../../modules/footer/footer';
 
 .free-space {
   content: '';
@@ -15,9 +16,14 @@
   margin: 0 auto;
   max-width: 1440px;
   background-color: #F4F4F6;
+  padding-bottom: 40px;
 
   &__logo {
-    padding-top: 35px;
-    padding-left: 23px;
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  &_logo {
+    padding-bottom: 73px;
   }
 }

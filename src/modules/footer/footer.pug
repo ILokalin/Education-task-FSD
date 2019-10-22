@@ -1,0 +1,30 @@
+include ../../modules/logo/logo.pug
+
+mixin footer(props={})
+
+  //- Футер 
+  //- Принимает объект props с ключами
+
+  //- mods          string      строка модификаций через запятую
+
+  -
+    let moduleClass = props.moduleClass || ''
+    let allMods = ''
+    let navigation = false
+    let aboutUs = false
+    let support = false
+    let subscribe = false
+    let copyrightBar = false
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+      let modList = props.mods.split(',')
+      for (let i=0; i < modList.length; i++) {
+        allMods = allMods + ' footer_' + modList[i].trim()
+        }
+      }
+
+  footer.footer(class= allMods)
+    .footer__login-region
+      +logo()
+      p.footer__login-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+      if !copyrightBar
+        span.footer__social

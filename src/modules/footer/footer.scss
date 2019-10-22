@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  background: white;
+  padding: 100px 140px 110px 140px;
+  display: flex;
+  justify-content: center;
+
+
+  &__login-text {
+    width: 560px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+
+  &__login-region {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__social:before {
+    content: '\f099';
+    font-family: Awesome brands;
+    background: $PrimaryGradient;
+    background-clip: text;
+    color: transparent;
+  }
+}

@@ -14,14 +14,15 @@ block title
 block main
   include ../../modules/logo/logo
   include ../../modules/standard-nav-bar/standard-nav-bar
+  include ../../modules/footer/footer
 
-  section.elements
+  section.elements.elements_logo
     .elements__logo
       +logo({mods: 'gray'})
   //- +free-space({height: '57px'})
   section.elements
     +standard-nav-bar()
-  +free-space({height: '40px'})
+  //- +free-space({height: '40px'})
   section.elements
     +standard-nav-bar(
       {
@@ -29,6 +30,9 @@ block main
         userName: 'Cosmin Negoita'
       }
     )
+  //- +free-space({height: '40px'})
+  section.elements
+    +footer()
 
 
 mixin free-space(props = {})

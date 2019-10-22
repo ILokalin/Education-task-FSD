@@ -55,6 +55,8 @@ $GreenGradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 @include font-face("Quicksand", "../fonts/OpenSans-Bold", bold);
 @include font-face("Quicksand", "../fonts/OpenSans-Regular");
 
+@include font-face('Awesome brands', '../fonts/fa-brands-400');
+
 
 
 
