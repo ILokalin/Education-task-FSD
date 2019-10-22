@@ -1,0 +1,21 @@
+mixin social(props={})
+  //- Блок иконок социальных сетей
+  //- Принимает объект props с ключами
+  //- mods    {string} модификаторы через запятую
+  //- socialList 
+
+  -
+    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    let allMods = ''
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    let modList = props.mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      allMods = allMods + ' social_' + modList[i].trim()
+      }
+    }
+
+  ul.social(class = allMods)
+    each icon in props.socialList
+      li.social__item
+        a.social__item-link(href = icon.link)
+          span.social__item-icon.fab(class= icon.name )

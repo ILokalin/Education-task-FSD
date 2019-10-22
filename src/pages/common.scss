@@ -1,3 +1,5 @@
+
+
 $DarkShade100: rgba(31, 32, 65, 1);
 $DarkShade75: rgba(31, 32, 65, 0.75);
 $DarkShade50: rgba(31, 32, 65, 0.5);
@@ -55,7 +57,7 @@ $GreenGradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 @include font-face("Quicksand", "../fonts/OpenSans-Bold", bold);
 @include font-face("Quicksand", "../fonts/OpenSans-Regular");
 
-@include font-face('Awesome brands', '../fonts/fa-brands-400');
+@include font-face('Font Awesome 5 Brands', '../fonts/fa-brands-400');
 
 
 
@@ -127,4 +129,13 @@ span {
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  background: $PrimaryGradient;
+  background-clip: text;
+  color: transparent;
+  font-size: 24px;
 }

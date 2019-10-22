@@ -1,4 +1,5 @@
 include ../../modules/logo/logo.pug
+include ../../modules/social/social
 
 mixin footer(props={})
 
@@ -27,4 +28,19 @@ mixin footer(props={})
       +logo()
       p.footer__login-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
       if !copyrightBar
-        span.footer__social
+        +social({
+          socialList: [
+            {
+              name: 'fa-twitter',
+              link: '#'
+            },
+            {
+              name: 'fa-facebook',
+              link: '#'
+            },
+            {
+              name: 'fa-instagram',
+              link: '#'
+            }
+          ]
+        })

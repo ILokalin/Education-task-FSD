@@ -1,0 +1,18 @@
+.social {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  list-style: none;
+
+  &__item-link {
+    text-decoration: none;
+  }
+
+  &__item {
+    padding-right: 20px;
+  }
+
+  &_item:last-child {
+    padding-right: 0;
+  }
+}
