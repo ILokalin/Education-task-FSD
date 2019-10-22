@@ -11,14 +11,18 @@ mixin standard-nav-bar(props={})
   -
     let moduleClass = (props.moduleClass) ? props.moduleClass : ''
     let allMods = ''
+    let loggedIn = false
     if (typeof(props.mods) !== 'undefined' && props.mods) {
     let modList = props.mods.split(',')
     for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' card-room_' + modList[i].trim()
+      if (modList[i].trim() === 'logged-in') {
+        loggedIn = true
+      }
+      allMods = allMods + ' standard-nav-bar_' + modList[i].trim()
       }
     }
 
-  article.standard-nav-bar
+  article.standard-nav-bar(class = allMods)
     .standard-nav-bar__logo
       +logo()
     .standard-nav-bar__navigation-region
@@ -59,14 +63,23 @@ mixin standard-nav-bar(props={})
           ]
       })
     .standard-nav-bar__login-region
-      .standard-nav-bar__button
-        +buttons({
-          lineTitle: 'LOGIN',
-          mods: 'border, free-height, padding20'
-        })
-      .standard-nav-bar__button
-        +buttons({
-          lineTitle: 'REGISTER',
-          mods: 'full, free-height, padding20'
-        })
+      if loggedIn
+        .standard-nav-bar__logged-element
+          span.standard-nav-bar__login-separator s
+        .standard-nav-bar__logged-element
+          p.standard-nav-bar__user-name= props.userName
+
+      else
+        .standard-nav-bar__logged-element
+          +buttons({
+            lineTitle: 'LOGIN',
+            mods: 'border, free-height, padding20'
+          })
+        .standard-nav-bar__logged-element
+          +buttons({
+            lineTitle: 'REGISTER',
+            mods: 'full, free-height, padding20'
+          })
+      
+
     

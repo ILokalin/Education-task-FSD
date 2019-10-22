@@ -4,6 +4,10 @@
 @import '../../modules/logo/logo';
 @import '../../modules/standard-nav-bar/standard-nav-bar';
 
+.free-space {
+  content: '';
+}
+
 .elements {
   display: flex;
   flex-wrap: nowrap;

@@ -19,12 +19,31 @@
     justify-content: space-between;
   }
 
-  &__button {
+  &__logged-element {
     height: 34px;
     padding-right: 20px;
   }
 
-  &__button:last-child {
+  &__logged-element:last-child {
     padding-right: 0;
+
+  }
+
+  &__login-separator {
+    content: '';
+    line-height: 30px;
+    border-left: 1px solid $DarkShade10;
+  }
+
+  &__user-name {
+    padding: 0;
+    margin: 0;
+    line-height: 34px;
+    color: $DarkShade50;
+  }
+
+  &_logged-in &__logged-element:first-child {
+    padding-top: 6px;
+    padding-right: 9px;
   }
 }

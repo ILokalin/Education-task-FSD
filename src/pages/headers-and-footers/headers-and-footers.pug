@@ -18,9 +18,17 @@ block main
   section.elements
     .elements__logo
       +logo({mods: 'gray'})
+  //- +free-space({height: '57px'})
   section.elements
-    +free-space({height: '57px'})
     +standard-nav-bar()
+  +free-space({height: '40px'})
+  section.elements
+    +standard-nav-bar(
+      {
+        mods: 'logged-in',
+        userName: 'Cosmin Negoita'
+      }
+    )
 
 
 mixin free-space(props = {})
