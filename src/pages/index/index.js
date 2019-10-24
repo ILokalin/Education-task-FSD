@@ -26,14 +26,12 @@ var ready = (callback) => {
   }
 
 ready(() => { 
-//   $('#minMaxExample').datepicker({
-//     minDate: new Date()
-// })
+
     $("#datepicker-arrival").datepicker({
     multipleDates: true,
-    onSelect: function (fd, d, picker){
-      $('#datapicker-arrival').val(fd.split(",")[0]);
-      $('#datapicker-depart').val(fd.split(",")[1]);
+    onSelect: function (fd){
+      $('#datepicker-arrival').val(fd.split(",")[0]);
+      $('#datepicker-depart').val(fd.split(",")[1]);
     },
     showButtonPanel: true,
     dateFarmat: 'yy.mm.dd',
@@ -44,6 +42,22 @@ ready(() => {
     currentText: 'ОЧИСТИТЬ',
     closeText: 'ПРИМЕНИТЬ'
     })
+
+    $("#datepicker-depart").datepicker({
+      multipleDates: true,
+      onSelect: function (fd){
+        $('#datepicker-arrival').val(fd.split(",")[0]);
+        $('#datepicker-depart').val(fd.split(",")[1]);
+      },
+      showButtonPanel: true,
+      dateFarmat: 'yy.mm.dd',
+      duration: 'slow',
+      range: true,
+      toggleSelected: false,
+      clearButton: true,
+      currentText: 'ОЧИСТИТЬ',
+      closeText: 'ПРИМЕНИТЬ'
+      })
 
 });
 
