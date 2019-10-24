@@ -27,10 +27,10 @@ mixin buttons(props={})
 
 
   -
-    let moduleClass = props.moduleClass || ''
+    const {moduleClass, mods, lineTitle} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-      let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
         allMods = allMods + ' buttons_' + modList[i].trim()
         }
@@ -39,4 +39,4 @@ mixin buttons(props={})
   button.buttons(
     class= moduleClass + allMods,
     type="button"
-    )= props.lineTitle
+    )= lineTitle

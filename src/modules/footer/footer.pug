@@ -8,16 +8,16 @@ mixin footer(props={})
 
   //- mods          string      строка модификаций через запятую
 
-  -
-    let moduleClass = props.moduleClass || ''
+  - 
+    const {mods} = props
     let allMods = ''
     let navigation = false
     let aboutUs = false
     let support = false
     let subscribe = false
     let copyrightBar = false
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-      let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
         allMods = allMods + ' footer_' + modList[i].trim()
         }

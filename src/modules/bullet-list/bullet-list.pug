@@ -18,24 +18,26 @@ mixin bullet-list(props={})
     })
 
   -
-    let moduleClass = props.moduleClass || ''
+    const {moduleClass, mods, bulletStrings} = props
+    //- let moduleClass = props.moduleClass || ''
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' button-block_' + modList[i].trim()
       }
     }
 
   ul.bullet-list(class= moduleClass + allMods)
-    each bulletRow, index in props.bulletStrings
+    each bulletRow in bulletStrings
 
       -
+        const {mods, description} = bulletRow
         let rowMods = ''
-        if (typeof(bulletRow.mods) !== 'undefined' && bulletRow.mods) {
-        let rowModList = bulletRow.mods.split(',')
+        if (typeof(mods) !== 'undefined' && mods) {
+        let rowModList = mods.split(',')
         for (let i=0; i < rowModList.length; i++) {
           rowMods = rowMods + ' bullet-list__line_' + modList[i].trim()
           }
         }
-      li.bullet-list__item(class= rowMods)!= bulletRow.description || ''
+      li.bullet-list__item(class= rowMods)!= description || ''

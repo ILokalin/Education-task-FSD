@@ -24,10 +24,10 @@ mixin comment(props={})
       })
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    const {moduleClass, mods, photo, likeChecked, user, date, text} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' comment_' + modList[i].trim()
       }
@@ -37,13 +37,13 @@ mixin comment(props={})
     .comment__photo-ring
       img.comment__photo(width="48px",
       alt="user",
-      src= props.photo || './images/avatar-free.png'
+      src= photo || './images/avatar-free.png'
       )
     .comment__like-button
       +like-button({
       labelTitle: '12',
-      checked: props.likeChecked || ''
+      checked: likeChecked || ''
       })
-    h3.comment__user-name= props.user || ''
-    p.comment__date= props.date || ''
-    p.comment__text= props.text || ''
+    h3.comment__user-name= user || ''
+    p.comment__date= date || ''
+    p.comment__text= text || ''

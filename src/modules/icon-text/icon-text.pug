@@ -16,14 +16,15 @@ mixin icon-text(props={})
       })
 
   -
+    const {mods, icon, lineTitle, description} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' icon-text_' + modList[i].trim()
       }
     }
   .icon-text(class= allMods)
-    span.icon-text__icon= props.icon
-    h3.icon-text__lineTitle= props.lineTitle || ''
-    p.icon-text__description= props.description || ''
+    span.icon-text__icon= icon
+    h3.icon-text__lineTitle= lineTitle || ''
+    p.icon-text__description= description || ''

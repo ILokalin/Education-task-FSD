@@ -5,17 +5,17 @@ mixin navigation(props = {})
   //-   subList {string}
 
   -
-    let moduleClass = props.moduleClass || ''
+    const {mods, itemsList} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' navigarion_' + modList[i].trim()
       }
     }
 
   nav.navigation
-    +navigation-items(props.itemsList)
+    +navigation-items(itemsList)
 
 
 
@@ -25,13 +25,14 @@ mixin navigation(props = {})
 
 mixin navigation-items(props = {})
 
-  each item in props
+  each element in props
 
     -
+      const {mods, item} = element
       let allMods = ''
       let sub = false
-      if (typeof(item.mods) !== 'undefined' && item.mods) {
-      let modList = item.mods.split(',')
+      if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
         if (modList[i].trim() === 'sub') {
           sub = true
@@ -42,6 +43,6 @@ mixin navigation-items(props = {})
 
 
     li.navigation__item(class= allMods)
-      a.navigation__item-link(href = item.link)= item.item
+      a.navigation__item-link(href = item.link)= item
       if sub 
         span.navigation__item-marker expand_more

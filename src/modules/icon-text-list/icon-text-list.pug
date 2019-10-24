@@ -30,20 +30,22 @@ mixin icon-text-list(props={})
         })
 
   -
+    const {mods, iconStrings} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' icon-text-list_' + modList[i].trim()
       }
     }
 
   .icon-text-list(class= allMods)
-    each iconRow, index in props.iconStrings
+    each iconRow in iconStrings
+      - const {mods, icon, lineTitle, description} = iconRow
       +icon-text({
-        mods: iconRow.mods || '',
-        icon: iconRow.icon || '',
-        lineTitle: iconRow.lineTitle || '',
-        description: iconRow.description || ''
+        mods: mods || '',
+        icon: icon || '',
+        lineTitle: lineTitle || '',
+        description: description || ''
       })
       hr.icon-text-list__separate(noshade = "noshade")

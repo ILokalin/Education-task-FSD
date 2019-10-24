@@ -34,10 +34,10 @@ mixin checkbox-buttons(props={})
       })
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    const {moduleClass, mods, listTitle, dropStrings} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' checkbox-buttons_' + modList[i].trim()
       }
@@ -45,15 +45,15 @@ mixin checkbox-buttons(props={})
 
   .checkbox-buttons(class = moduleClass + allMods)
     .checkbox-buttons__title-wrapper
-      p.checkbox-buttons__title= props.listTitle || ''
+      p.checkbox-buttons__title= listTitle || ''
 
     .checkbox-buttons__menu
-      each rowString, index in props.dropStrings
+      each rowString in dropStrings
+        - const {moduleClass, labelTitle, dataName, mods, checked} = rowString
         .checkbox-buttons__menu-row
           +field-checkbox({
-            moduleClass: rowString.moduleClass || '',
-            labelTitle: rowString.labelTitle || '',
-            dataName: rowString.dataName || '',
-            mods: rowString.mods || '',
-            checked: rowString.checked || '',
+            labelTitle: labelTitle || '',
+            dataName: dataName || '',
+            mods: mods || '',
+            checked: checked || '',
           })

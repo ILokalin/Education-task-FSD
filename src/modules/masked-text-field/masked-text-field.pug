@@ -14,18 +14,19 @@ mixin masked-text-field(props = {maskType: 'date'})
       +masked-text-field({placeholder: 'ДД.ММ.ГГГ'})
   
   -
+    const {mods, placeholder, maskType} = props
     let nameFieldText = ''
     let patternFieldText = ''
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
+    if (typeof(mods) !== 'undefined' && mods) {
       let modList = props.mods.split(',')
       for (let i=0; i < modList.length; i++) {
         allMods = allMods + ' masked-text-field_' + modList[i].trim()
       }
     }
 
-    if ((props.maskType) !== 'undefined' && props.maskType) {
-      if (props.maskType === 'date') {
+    if ((maskType) !== 'undefined' && maskType) {
+      if (maskType === 'date') {
         nameFieldText = 'date'
         pattternFieldText = '[0-9]{2}\.[0-9]{2}\.[0-9]{4}'
       }
@@ -33,7 +34,7 @@ mixin masked-text-field(props = {maskType: 'date'})
 
   input.masked-text-field(
     class = allMods, 
-    placeholder = props.placeholder || '',
+    placeholder = placeholder || '',
     type = 'text',
     name = nameFieldText,
     pattern = pattternFieldText

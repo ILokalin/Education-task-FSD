@@ -10,10 +10,10 @@ mixin filter-date-dropdown(props = {})
     +filter-date-dropdown({placeholder: '19 авг - 23 авг'})
 
   -
-
+    const {mods, placeholder } = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-      let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
         allMods = allMods + ' filter-date-dropdown_' + modList[i].trim()
       }
@@ -22,6 +22,6 @@ mixin filter-date-dropdown(props = {})
   .filter-date-dropdown
     +masked-text-field({
       maskType: 'date',
-      placeholder: props.placeholder || 'ДД месяц - ДД месяц'
+      placeholder: placeholder || 'ДД месяц - ДД месяц'
     })
     span.filter-date-dropdown__marker expand_more
