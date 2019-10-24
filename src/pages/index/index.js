@@ -6,18 +6,18 @@ import 'air-datepicker/dist/css/datepicker.min.css'
 
 
 
-import {
-    dropdown
-} from '../../modules/dropdown/dropdown.js'
+// import {
+//     dropdown
+// } from '../../modules/dropdown/dropdown.js'
 
-import {
-    expCheckboxList
-} from '../../modules/expandable-checkbox-list/expandable-checkbox-list.js'
+// import {
+//     expCheckboxList
+// } from '../../modules/expandable-checkbox-list/expandable-checkbox-list.js'
 
-import { RangeSlider } from '../../modules/range-slider/range-slider.js';
-import { Pager } from './../../modules/pagination/pagination';
+// import { RangeSlider } from '../../modules/range-slider/range-slider.js';
+// import { Pager } from './../../modules/pagination/pagination';
 
-import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
+// import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
 
 
 var ready = (callback) => {
@@ -26,6 +26,24 @@ var ready = (callback) => {
   }
 
 ready(() => { 
+//   $('#minMaxExample').datepicker({
+//     minDate: new Date()
+// })
+    $("#datepicker-arrival").datepicker({
+    multipleDates: true,
+    onSelect: function (fd, d, picker){
+      $('#datapicker-arrival').val(fd.split(",")[0]);
+      $('#datapicker-depart').val(fd.split(",")[1]);
+    },
+    showButtonPanel: true,
+    dateFarmat: 'yy.mm.dd',
+    duration: 'slow',
+    range: true,
+    toggleSelected: false,
+    clearButton: true,
+    currentText: 'ОЧИСТИТЬ',
+    closeText: 'ПРИМЕНИТЬ'
+    })
 
 });
 
