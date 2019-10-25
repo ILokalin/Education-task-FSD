@@ -9,11 +9,11 @@ mixin standard-nav-bar(props={})
   //-             _logged-in
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    const {mods, userName} = props
     let allMods = ''
     let loggedIn = false
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       if (modList[i].trim() === 'logged-in') {
         loggedIn = true
@@ -22,7 +22,7 @@ mixin standard-nav-bar(props={})
       }
     }
 
-  article.standard-nav-bar(class = allMods)
+  header.standard-nav-bar(class = allMods)
     .standard-nav-bar__logo
       +logo()
     .standard-nav-bar__navigation-region
@@ -67,7 +67,7 @@ mixin standard-nav-bar(props={})
         .standard-nav-bar__logged-element
           span.standard-nav-bar__login-separator s
         .standard-nav-bar__logged-element
-          p.standard-nav-bar__user-name= props.userName
+          p.standard-nav-bar__user-name= userName
 
       else
         .standard-nav-bar__logged-element

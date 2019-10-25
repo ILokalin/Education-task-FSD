@@ -5,17 +5,18 @@ mixin social(props={})
   //- socialList 
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    const {mods, socialList} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' social_' + modList[i].trim()
       }
     }
 
   ul.social(class = allMods)
-    each icon in props.socialList
+    each icon in socialList
+      - const {link, name} = icon
       li.social__item
-        a.social__item-link(href = icon.link)
-          span.social__item-icon.fab(class= icon.name )
+        a.social__item-link(href = link)
+          span.social__item-icon.fab(class= name )

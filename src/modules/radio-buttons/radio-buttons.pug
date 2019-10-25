@@ -26,27 +26,28 @@ mixin radio-buttons(props={})
           })
 
   -
-    let moduleClass = props.moduleClass || ''
+    const {mods, moduleClass, buttonsList, radioButtonsSet} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' radio-buttons_' + modList[i].trim()
       }
     }
 
   .radio-buttons(class = moduleClass + allMods)
-    each buttonString, index in props.buttonsList
+    each buttonString, index in buttonsList
+      - const {buttonTitle, checked, buttonValue} = buttonString
       label.radio-buttons__label
         input.radio-buttons__input(
           type  = 'radio',
-          name  = props.radioButtonsSet,
-          value = buttonString.buttonValue,
-          checked = (typeof(buttonString.checked) !== 'undefined' && buttonString.checked) ? buttonString : false
+          name  = radioButtonsSet,
+          value = buttonValue,
+          checked = checked ? checked : false
           )
         span.radio-buttons__marker
         |
-        = buttonString.buttonTitle
+        = buttonTitle
 
   //- .radio-buttons(class = moduleClass + allMods)
   //-   header.radio-buttons__title-wrapper

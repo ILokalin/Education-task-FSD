@@ -9,10 +9,10 @@ mixin range-slider(props={})
   //- description             string      Описание
 
   -
-    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    const {moduleClass, mods, maxValue, rangeLeft, rangeRight, description, lineTitle} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' range-slider_' + modList[i].trim()
       }
@@ -20,13 +20,13 @@ mixin range-slider(props={})
 
   .range-slider(
     class= moduleClass + allMods,
-    data-max-value = props.maxValue,
-    data-range-left = props.rangeLeft,
-    data-range-right = props.rangeRight
+    data-max-value = maxValue,
+    data-range-left = rangeLeft,
+    data-range-right = rangeRight
     )
-    h3.range-slider__line-title= (typeof(props.lineTitle) !== 'undefined' && props.lineTitle) ? props.lineTitle : ''
+    h3.range-slider__line-title= lineTitle ? lineTitle : ''
     span.range-slider__value= ''
     input.range-slider__input(type="text", name="my_range" value="" )
-    p.range-slider__description= (typeof(props.description) !== 'undefined' && props.description) ? props.description : ''
+    p.range-slider__description= description ? description : ''
 
 

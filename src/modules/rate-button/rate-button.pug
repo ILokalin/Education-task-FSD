@@ -8,16 +8,17 @@ mixin rate-button(props={})
 
 
   -
+    const {mods, rate} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' rate-button_' + modList[i].trim()
       }
     }
-    let rate = (typeof(props.rate) !== 'undefined' && props.rate) ? parseInt(props.rate) : 0
+    let rateCount = rate ? parseInt(rate) : 0
 
   .rate-button(class = allMods)
-    - let limit = rate - 5;
-    while rate > limit
-      span.rate-button__star(class = (rate-- > 0) ? 'rate-button__star_full' : '')
+    - let limit = rateCount - 5;
+    while rateCount > limit
+      span.rate-button__star(class = (rateCount-- > 0) ? 'rate-button__star_full' : '')

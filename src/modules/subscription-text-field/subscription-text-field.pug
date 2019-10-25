@@ -9,9 +9,10 @@ mixin subscription-text-field(props = {})
     +subscription-text-field({placeholder: 'Email'})
 
   -
+    const {mods, placeholder} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-      let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
         allMods = allMods + ' subscription-text-field_' + modList[i].trim()
       }
@@ -20,8 +21,8 @@ mixin subscription-text-field(props = {})
 
   .subscription-text-field(class= allMods)
     +text-field({
-      placeholder: props.placeholder || '',
-      mods: props.mods || ''
+      placeholder: placeholder || '',
+      mods: mods || ''
     })
     span.subscription-text-field__marker arrow_forward
 

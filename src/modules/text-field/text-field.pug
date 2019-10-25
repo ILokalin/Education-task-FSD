@@ -8,9 +8,10 @@ mixin text-field(props = {})
 		+text-field({placeholder: 'Email'})
 
 	-
+		const {mods, placeholder} = props
 		let allMods = ''
-		if (typeof(props.mods) !== 'undefined' && props.mods) {
-			let modList = props.mods.split(',')
+		if (typeof(mods) !== 'undefined' && mods) {
+			let modList = mods.split(',')
 			for (let i=0; i < modList.length; i++) {
 				allMods = allMods + ' text-field_' + modList[i].trim()
 			}
@@ -18,7 +19,7 @@ mixin text-field(props = {})
 
 	input.text-field(
 		class = allMods,
-		placeholder = props.placeholder : '',
+		placeholder = placeholder : '',
 		type= 'text'
 		)
 

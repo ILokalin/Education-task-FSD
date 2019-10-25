@@ -9,26 +9,27 @@ mixin room-details(props={})
   //- price       {Number}    стоимость 
 
   -
+    const {mods, roomNumber, roomType, price} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' room-details_' + modList[i].trim()
       }
     }
-    let roomNumber = ' ' + props.roomNumber || '---'
-    roomNumber += ' '
+    let roomNumberSpace = ' ' + roomNumber || '---'
+    roomNumberSpace += ' '
 
   header.room-details(class = allMods)
     .room-details__room-tag
       h1.room-details__number
         em.room-details__number-prefix №
         |
-        = roomNumber
+        = roomNumberSpace
         
-      p.room-details__room-type= props.roomType
+      p.room-details__room-type= roomType
 
     .room-details__price-tag
       p.room-details__price
-        em.room-details__price-digits= props.price
+        em.room-details__price-digits= price
         |  в сутки

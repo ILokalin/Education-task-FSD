@@ -20,9 +20,10 @@ mixin toggle(props={})
 
 
   -
+    const {mods, dataName, checked, labelTitle } = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' toggle_' + modList[i].trim()
       }
@@ -30,13 +31,13 @@ mixin toggle(props={})
 
   label.toggle(
     class = allMods,
-    name = props.dataName : 'toggle'
+    name = dataName : 'toggle'
     )
     input.toggle__input(
       type = 'checkbox',
-        name = props.dataName || 'toggle',
-        checked = props.checked || false
+        name = dataName || 'toggle',
+        checked = checked || false
         )
     span.toggle__marker
     |
-    = props.labelTitle
+    = labelTitle

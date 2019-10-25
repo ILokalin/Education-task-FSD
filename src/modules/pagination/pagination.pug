@@ -10,10 +10,10 @@ mixin pagination(props={})
     Инициация через JS
 
   -
-    let moduleClass = props.moduleClass || ''
+    const {mods, moduleClass} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' pagination_' + modList[i].trim()
       }

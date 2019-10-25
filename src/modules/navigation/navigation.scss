@@ -1,9 +1,14 @@
 .navigation {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  align-items: center;
-  list-style: none;
+
+
+  &__menu {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+  }
+
   
 
   &__item {
