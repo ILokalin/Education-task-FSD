@@ -2,7 +2,7 @@
 Учебный проект по фронтенду. 
 
 ## Демо:
-[form-elements] (http://ui-kit-fsd.lokalin.ru/)
+[form-elements](http://ui-kit-fsd.lokalin.ru/)
 
 
 ### `Развертывание`
