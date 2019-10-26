@@ -5,11 +5,16 @@
 @import '../../modules/standard-nav-bar/standard-nav-bar';
 @import '../../modules/footer/footer';
 @import '../../modules/social/social';
-
-
+@import '../../modules/subscription-text-field/subscription-text-field';
+@import '../../modules/text-field/text-field.scss';
+@import '../../modules/widget/widget';
 
 .free-space {
   content: '';
+}
+
+body {
+  background-color: #F4F4F6;
 }
 
 .elements {
@@ -18,7 +23,6 @@
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1440px;
-  background-color: #F4F4F6;
   padding-bottom: 40px;
 
   &__logo {

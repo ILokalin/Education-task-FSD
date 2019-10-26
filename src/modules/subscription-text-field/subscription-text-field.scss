@@ -9,4 +9,10 @@
     top: 0.625rem;
     right: 0.625rem;
   }
+
+  &_primari-gradient &__marker {
+    background: $PrimaryGradient;
+    background-clip: text;
+    color: transparent;
+  }
 }

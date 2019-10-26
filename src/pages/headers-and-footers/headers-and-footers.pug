@@ -32,6 +32,78 @@ block main
     )
   //- +free-space({height: '40px'})
   section.elements
+    +footer({
+      widgets: [
+        {
+          title: 'navigation',
+          mods: 'menu',
+          itemsList: [
+            {
+              link: 'link/about',
+              item: 'About Us'
+            },
+            {
+              link: 'link/news',
+              item: 'News'
+            },
+            {
+              link: 'link/support',
+              item: 'Support'
+            },
+            {
+              link: 'link/products',
+              item: 'Products'
+            }
+          ]
+        },
+        {
+          title: 'about us',
+          mods: 'menu',
+          itemsList: [
+            {
+              link: 'link/who-we-are',
+              item: 'Who we are'
+            },
+            {
+              link: 'link/our-team',
+              item: 'Our team'
+            },
+            {
+              link: 'link/careers',
+              item: 'Careers'
+            },
+            {
+              link: 'link/investors',
+              item: 'Investors'
+            }
+          ]
+        },
+        {
+          title: 'suppurt',
+          mods: 'menu',
+          itemsList: [
+            {
+              link: 'link/documentation',
+              item: 'Documentation'
+            },
+            {
+              link: 'link/community',
+              item: 'Community'
+            },
+            {
+              link: 'link/get-in-touch',
+              item: 'Get in Touch'
+            }
+          ]
+        },
+        {
+          title: 'Subscribe to our newsletter',
+          mods: 'subscribe',
+          subscribeText: 'Receive our latest news and promotions in your inbox!'
+        }
+
+      ]})
+  section.elements
     +footer()
 
 

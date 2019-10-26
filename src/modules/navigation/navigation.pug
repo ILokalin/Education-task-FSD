@@ -10,13 +10,13 @@ mixin navigation(props = {})
     if (typeof(mods) !== 'undefined' && mods) {
     let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
-      allMods = allMods + ' navigarion_' + modList[i].trim()
+      allMods = allMods + ' navigation_' + modList[i].trim()
       }
     }
 
-  nav.navigation
+  nav.navigation(class = allMods)
     ul.navigation__menu
-      +navigation-items(itemsList)
+      +navigation-items(itemsList, mods)
 
 
 
@@ -29,7 +29,7 @@ mixin navigation-items(props = {})
   each element in props
 
     -
-      const {mods, item} = element
+      const {mods, item, link} = element
       let allMods = ''
       let sub = false
       if (typeof(mods) !== 'undefined' && mods) {
@@ -44,6 +44,6 @@ mixin navigation-items(props = {})
 
 
     li.navigation__item(class= allMods)
-      a.navigation__item-link(href = item.link)= item
+      a.navigation__item-link(href = link)= item
       if sub 
         span.navigation__item-marker expand_more

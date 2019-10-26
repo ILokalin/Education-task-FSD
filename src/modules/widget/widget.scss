@@ -1,0 +1,21 @@
+.widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &__title {
+    text-transform: uppercase;
+    padding-bottom: 18px;
+    margin: 0;
+
+  }
+
+  &__description {
+    padding-bottom: 23px;
+    color: $DarkShade75;
+  }
+
+
+
+}

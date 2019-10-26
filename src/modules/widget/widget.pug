@@ -1,0 +1,71 @@
+include ../../modules/subscription-text-field/subscription-text-field.pug
+include ../../modules/navigation/navigation.pug
+
+mixin widget(props={})
+
+  //- checkbox с label
+  //- Данные для JS храняться в атрибутах Data
+  //- 
+  //- Принимает объект props с ключами:
+  //- mods                    string
+        menu
+        subscribe
+      itemsList
+
+
+    Пример вызова
+    +widget({
+          title: 'navigation',
+          mods: {menu},
+          itemList: [
+            {
+              link: 'link/index',
+              name: 'Home'
+            },
+            {
+              link: 'link/about',
+              name: 'About Us'
+            }
+          ]
+          })
+
+        +widget({
+          title: 'navigation',
+          mods: {subscribe},
+          subscribeText: 'Receive our latest news and promotions in your inbox!'
+          })
+
+
+
+  -
+    const {mods, subscribeText, itemsList, title } = props
+    let allMods = ''
+    let subscribe = false
+    let menu = false
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
+    for (let i=0; i < modList.length; i++) {
+      if (modList[i].trim() === 'subscribe') {
+        subscribe = true
+      }
+      if (modList[i].trim() === 'menu') {
+        menu = true
+      }
+      allMods = allMods + ' toggle_' + modList[i].trim()
+      }
+    }
+
+  .widget(class= allMods)
+    h3.widget__title= title
+    if (subscribe)
+      p.widget__description= subscribeText
+      +subscription-text-field({
+        mods: 'primari-gradient',
+        placeholder: 'Your email address'
+        })
+    
+    if menu
+      +navigation({
+        mods: 'vertical',
+        itemsList: itemsList})
+

@@ -21,11 +21,33 @@
     justify-content: space-between;
   }
 
-  &__social:before {
-    content: '\f099';
-    font-family: Awesome brands;
-    background: $PrimaryGradient;
-    background-clip: text;
-    color: transparent;
+  // &__social:before {
+  //   content: '\f099';
+  //   font-family: Awesome brands;
+  //   background: $PrimaryGradient;
+  //   background-clip: text;
+  //   color: transparent;
+  // }
+
+  &_widgets {
+    justify-content: space-between;
+  }
+
+  &_widgets &__login-region {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &_widgets &__login-text {
+    width: 260px;
+    text-align: left;
+  }
+
+  &_widgets div:first-child {
+    width: 260px;
+  }
+
+  &_widgets div:last-child {
+    width: 260px;
   }
 }

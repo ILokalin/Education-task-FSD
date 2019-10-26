@@ -1,5 +1,6 @@
-include ../../modules/logo/logo.pug
+include ../../modules/logo/logo
 include ../../modules/social/social
+include ../../modules/widget/widget
 
 mixin footer(props={})
 
@@ -9,13 +10,8 @@ mixin footer(props={})
   //- mods          string      строка модификаций через запятую
 
   - 
-    const {mods} = props
+    const {mods, widgets } = props
     let allMods = ''
-    let navigation = false
-    let aboutUs = false
-    let support = false
-    let subscribe = false
-    let copyrightBar = false
     if (typeof(mods) !== 'undefined' && mods) {
       let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
@@ -23,11 +19,11 @@ mixin footer(props={})
         }
       }
 
-  footer.footer(class= allMods)
+  footer.footer(class= allMods + (widgets ? 'footer_widgets' : '') )
     .footer__login-region
       +logo()
       p.footer__login-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-      if !copyrightBar
+      if !widgets
         +social({
           socialList: [
             {
@@ -44,3 +40,6 @@ mixin footer(props={})
             }
           ]
         })
+    if widgets
+      each widgetItem in widgets
+        +widget(widgetItem)
