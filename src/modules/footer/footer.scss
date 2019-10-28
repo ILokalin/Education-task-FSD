@@ -2,52 +2,86 @@
   width: 100%;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   background: white;
-  padding: 100px 140px 110px 140px;
+  padding-top: 100px;
+  padding-bottom: 60px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-
-  &__login-text {
-    width: 560px;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 25px;
+  &__widget-region {
+    width: 1160px;
+    display: flex;
+    justify-content: center;
   }
 
-  &__login-region {
+  &_widgets &__widget-region{
+    justify-content: space-between;
+  }
+
+  &__widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+  }
+
+  &__widget_logo {
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
 
-  // &__social:before {
-  //   content: '\f099';
-  //   font-family: Awesome brands;
-  //   background: $PrimaryGradient;
-  //   background-clip: text;
-  //   color: transparent;
-  // }
-
-  &_widgets {
-    justify-content: space-between;
+  &__logo-text {
+    width: 560px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 25px;
   }
 
-  &_widgets &__login-region {
+  &_widgets &__logo-text {
+    width: 100%;
+  }
+
+  &_widgets &__widget_logo {
     align-items: flex-start;
     justify-content: flex-start;
+    padding-bottom: 85px;
   }
 
-  &_widgets &__login-text {
-    width: 260px;
+  &_widgets &__logo-text {
     text-align: left;
   }
-
-  &_widgets div:first-child {
+  
+  &_widgets &__widget:first-child {
     width: 260px;
   }
 
-  &_widgets div:last-child {
+  &_widgets &__widget:last-child {
     width: 260px;
+  }
+
+  &_widgets {
+    padding-bottom: 5px;
+  }
+
+  &_widgets &__separator {
+    margin: 6px 0;
+    border: none;
+    background-color: $DarkShade10;
+    width: 100%;
+    height: 0.0625rem;
+    color: $DarkShade10;
+  }
+
+  &_widgets &__copyright-region {
+    padding-top: 3px;
+    display: flex;
+    width: 1160px;
+    justify-content: space-between;
+    align-items: center;
+
   }
 }

@@ -2,15 +2,21 @@ include ../../modules/logo/logo
 include ../../modules/social/social
 include ../../modules/widget/widget
 
+
+-
+  const socialTwitter   = {name: 'fa-twitter', link: '#'}
+  const socialFacebook  = {name: 'fa-facebook-square', link: '#'}
+  const socialInstagram = {name: 'fa-instagram', link: '#'}
+
+
 mixin footer(props={})
 
   //- Футер 
   //- Принимает объект props с ключами
-
   //- mods          string      строка модификаций через запятую
 
   - 
-    const {mods, widgets } = props
+    const {mods, widgets, copyright } = props
     let allMods = ''
     if (typeof(mods) !== 'undefined' && mods) {
       let modList = mods.split(',')
@@ -20,26 +26,23 @@ mixin footer(props={})
       }
 
   footer.footer(class= allMods + (widgets ? 'footer_widgets' : '') )
-    .footer__login-region
-      +logo()
-      p.footer__login-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-      if !widgets
-        +social({
-          socialList: [
-            {
-              name: 'fa-twitter',
-              link: '#'
-            },
-            {
-              name: 'fa-facebook',
-              link: '#'
-            },
-            {
-              name: 'fa-instagram',
-              link: '#'
-            }
-          ]
-        })
+    .footer__widget-region
+      .footer__widget.footer__widget_logo
+        +logo()
+        p.footer__logo-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+        if !widgets
+          .footer__logo-social
+            +social({
+              socialList: [socialTwitter, socialFacebook, socialInstagram]
+              })
+      if widgets
+        each widgetItem in widgets
+          .footer__widget
+            +widget(widgetItem)
+    hr.footer__separator
     if widgets
-      each widgetItem in widgets
-        +widget(widgetItem)
+      .footer__copyright-region
+        p.footer__copyright= copyright 
+        +social({
+            socialList: [socialTwitter, socialFacebook, socialInstagram]
+              })
