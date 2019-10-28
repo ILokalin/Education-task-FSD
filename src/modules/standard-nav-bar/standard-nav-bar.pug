@@ -2,27 +2,35 @@ include ../logo/logo.pug
 include ../navigation/navigation.pug
 include ../buttons/buttons.pug
 
-
--
-  const itemMenu    = {item: 'Home',link: '#',mods: 'active'}
-  const itemAboutUs = {item: 'About Us',ink: '#'}
-  const itemCareers = {item: 'Careers',link: '#'}
-  const itemNews    = {item: 'News',link: '#'}
-  const itemDocs    = {item: 'Documentation',link: '#'}
-  const subItemOurServices = {item: 'Our Services',link: '#'}
-  const itemServices  = {item: 'Services',link: '#',mods: 'sub',subList: [subItemOurServices]}
-
-  const listOfMenu = {itemsList: [itemMenu, itemAboutUs,itemServices,itemCareers,itemNews,itemDocs]}
-  
-
 mixin standard-nav-bar(props={})
   //- standard nav-bav
-  //- Принимает объект props с ключами
-  //- mods    {string} модификаторы через запятую
-  //-             _logged-in
+  //- Input object props with keys
+  //- mods  {string}  modifiers separated by commas
+  //- modifiers:
+        _logged-in  Shows username
+
+    Example for call:
+    -
+      const itemMenu    = {item: 'Home',link: '#',mods: 'active'}
+      const itemAboutUs = {item: 'About Us',ink: '#'}
+      const itemCareers = {item: 'Careers',link: '#'}
+      const itemNews    = {item: 'News',link: '#'}
+      const itemDocs    = {item: 'Documentation',link: '#'}
+      const subItemOurServices = {item: 'Our Services',link: '#'}
+      const itemServices  = {item: 'Services',link: '#',mods: 'sub',subList: [subItemOurServices]}
+
+      const itemsList = [itemMenu, itemAboutUs,itemServices,itemCareers,itemNews,itemDocs]
+
+    +standard-nav-bar(
+      {
+        itemsList: itemsList,
+        mods: 'logged-in',
+        userName: 'Cosmin Negoita'
+      }
+    )
 
   -
-    const {mods, userName} = props
+    const {mods, userName, itemsList} = props
     let allMods = ''
     let loggedIn = false
     if (typeof(mods) !== 'undefined' && mods) {
@@ -40,7 +48,7 @@ mixin standard-nav-bar(props={})
       .standard-nav-bar__logo
         +logo()
       .standard-nav-bar__navigation-region
-        +navigation(listOfMenu)
+        +navigation({itemsList})
       .standard-nav-bar__login-region
         if loggedIn
           .standard-nav-bar__logged-element

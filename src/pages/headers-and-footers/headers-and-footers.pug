@@ -3,6 +3,8 @@ extends ../../template/template
 //- Миксины используемые на странице описаны в конце
 //- mixin free-space(props={})    задает отступ по ширине и/или высоте
 
+
+  
 block meta
   meta(name="keywords", content="toxin, form elements")
   meta(name="description" content="Учебный проект FSD. Второе задание. Лист Headers & Footers")
@@ -16,16 +18,33 @@ block main
   include ../../modules/standard-nav-bar/standard-nav-bar
   include ../../modules/footer/footer
 
+  //- menu items for test page
+  -  
+    const itemMenu    = {item: 'Home',link: '#',mods: 'active'}
+    const itemAboutUs = {item: 'About Us',ink: '#'}
+    const itemCareers = {item: 'Careers',link: '#'}
+    const itemNews    = {item: 'News',link: '#'}
+    const itemDocs    = {item: 'Documentation',link: '#'}
+    const subItemOurServices = {item: 'Our Services',link: '#'}
+    const itemServices  = {item: 'Services',link: '#',mods: 'sub',subList: [subItemOurServices]}
+
+    const itemsList = [itemMenu, itemAboutUs,itemServices,itemCareers,itemNews,itemDocs]
+
   section.elements.elements_logo
     .elements__logo
       +logo({mods: 'gray'})
   //- +free-space({height: '57px'})
   section.elements
-    +standard-nav-bar()
+    +standard-nav-bar(
+      {
+      itemsList: itemsList
+      }
+    )
   //- +free-space({height: '40px'})
   section.elements
     +standard-nav-bar(
       {
+        itemsList: itemsList,
         mods: 'logged-in',
         userName: 'Cosmin Negoita'
       }
