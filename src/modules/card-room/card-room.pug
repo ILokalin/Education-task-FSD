@@ -11,12 +11,10 @@ mixin card-room(props={})
   //- roomRate      {string}  рейтинг номера
 
   -
-    const {roomSrting, mods} = props
-    //- const {roomString:[imageSrc, roomNumber, roomRate, roomType, room__commentsAmmount, commentsAmmountText, roomPrice], mods} = props
-    let moduleClass = (props.moduleClass) ? props.moduleClass : ''
+    const {imageSrc, roomNumber, roomRate, roomType, commentsAmmount, commentsAmmountText, roomPrice, mods, moduleClass} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-    let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+    let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       allMods = allMods + ' card-room_' + modList[i].trim()
       }
@@ -25,33 +23,33 @@ mixin card-room(props={})
   form.card-room(class = moduleClass + allMods)
     .card-room__section
       img.card-room__image(
-        src = props.imageSrc || './images/room-888.jpg',
-        alt = props.roomNumber)
+        src = imageSrc || './images/room-888.jpg',
+        alt = roomNumber)
 
       .card-room__controls
         span.card-room__slider-button.card-room__slider-button_prev expand_more
         span.card-room__slider-button.card-room__slider-button_next expand_more
 
       label.card-room__slider-radio
-        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '1')
-        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '2')
-        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '3')
-        input.card-room__input(type = 'radio', name = props.roomNumber || 'room-slider', value = '4')
+        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '1')
+        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '2')
+        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '3')
+        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '4')
   
     .card-room__room-details
       +room-details({
-        roomNumber: props.roomNumber,
-        roomType: props.roomType,
-        price: props.roomPrice,
+        roomNumber: roomNumber,
+        roomType: roomType,
+        price: roomPrice,
         mods: 'litle-title'
       })
 
       hr.card-room__separator(noshade = "noshade")
     .card-room__room-rating
       +rate-button({
-        rate: props.roomRate
+        rate: roomRate
       })
       p.card-room__commentsAmmount
-        em.card-room__commentsAmmountNum= props.commentsAmmount
+        em.card-room__commentsAmmountNum= commentsAmmount
         |
-        = props.commentsAmmountText
+        = commentsAmmountText
