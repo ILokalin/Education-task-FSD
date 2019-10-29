@@ -9,3 +9,47 @@
 @import '../../modules/rich-checkbox-buttons/rich-checkbox-buttons';
 
 
+.screen {
+  display: flex;
+  justify-content: space-between;
+  width: 1160px;
+  // flex-grow: 1;
+
+}
+
+.screen-aside {
+  display: flex;
+  flex-direction: column;
+  min-width: 266px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 20px;
+  
+}
+
+.screen-cards {
+  display: flex;
+  flex-direction: column;
+
+  &__filter-result {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  &__filter-column {
+    padding-right: 12px;
+  }
+
+  &__filter-column:last-child {
+    padding-right: 0px;
+  }
+
+  &__pagination {
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 69px;
+    width: 241px;
+  }
+}
+

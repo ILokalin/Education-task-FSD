@@ -19,4 +19,46 @@ block screen
   include ../../modules/pagination/pagination.pug
   include ../../modules/card-room/card-room.pug
 
-    //- Page section
+  //- Page section
+  main.screen
+    aside.screen-aside
+      +filter-date-dropdown()
+
+    article.screen-cards
+      header.screen-cards__header-wrapp
+        h1.screen-cards__title Номера, которые мы для вас подобрали
+      section.screen-cards__filter-result
+        .screen-cards__filter-column
+          +card-room({
+            imageSrc: './images/room-888.jpg',
+            roomNumber: '888',
+            roomRate: '5',
+            roomType: 'Люкс',
+            commentsAmmount: '145',
+            commentsAmmountText: ' отзывов',
+            roomPrice: '9 999₽'
+          })
+        .screen-cards__filter-column
+          +card-room({
+            imageSrc: './images/room-888.jpg',
+            roomNumber: '888',
+            roomRate: '5',
+            roomType: 'Люкс',
+            commentsAmmount: '145',
+            commentsAmmountText: ' отзывов',
+            roomPrice: '9 999₽'
+          })
+        .screen-cards__filter-column
+          +card-room({
+            imageSrc: './images/room-888.jpg',
+            roomNumber: '888',
+            roomRate: '5',
+            roomType: 'Люкс',
+            commentsAmmount: '145',
+            commentsAmmountText: ' отзывов',
+            roomPrice: '9 999₽'
+          })
+      .screen-cards__pagination
+        +pagination()
+
+
