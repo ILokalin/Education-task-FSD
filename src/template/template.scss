@@ -1,0 +1,141 @@
+
+
+$DarkShade100: rgba(31, 32, 65, 1);
+$DarkShade75: rgba(31, 32, 65, 0.75);
+$DarkShade50: rgba(31, 32, 65, 0.5);
+$DarkShade25: rgba(31, 32, 65, 0.25);
+$DarkShade10: rgba(31, 32, 65, 0.1);
+$DarkShade5: rgba(31, 32, 65, 0.05);
+
+$Purple: #BC9CFF;
+$Green: #6FCF97;
+
+$PrimaryGradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$GreenGradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+
+
+%MaterialIcon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  // line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+@mixin font-face($font-name, $font-path, $font-weight: 400, $font-style: normal) {
+  @font-face {
+    font-family: $font-name;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    src: url('#{$font-path}.woff2') format('woff2'),
+    url('#{$font-path}.woff') format('woff'),
+    url('#{$font-path}.ttf') format('truetype');
+  }
+}
+
+@include font-face("Material Icons", "../fonts/MaterialIcons-Regular");
+
+@include font-face("Montserrat", "../fonts/Montserrat-Regular");
+@include font-face("Montserrat", "../fonts/Montserrat-Bold", bold);
+
+@include font-face("Quicksand", "../fonts/OpenSans-Bold", bold);
+@include font-face("Quicksand", "../fonts/OpenSans-Regular");
+
+@include font-face('Font Awesome 5 Brands', '../fonts/fa-brands-400');
+
+
+
+
+body,
+a,
+button,
+ul {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem; //14px
+  line-height: 1.5rem; //24px
+}
+
+h1,
+h2 {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  // text-transform: uppercase;
+}
+
+h3 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  // text-transform: uppercase;
+}
+
+h1 {
+  font-size: 1.5rem; // 24px
+  line-height: 1.875rem; // 30px
+}
+
+h2 {
+  font-size: 1.1875rem; // 19px
+  line-height: 1.875rem; // 30px
+}
+
+h3 {
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  // line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  background: $PrimaryGradient;
+  background-clip: text;
+  color: transparent;
+  font-size: 24px;
+}

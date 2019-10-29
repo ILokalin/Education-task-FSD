@@ -30,7 +30,7 @@ mixin standard-nav-bar(props={})
     )
 
   -
-    const {mods, userName, itemsList} = props
+    const {mods, userName, itemsList, buttonLogin, buttonRegister} = props
     let allMods = ''
     let loggedIn = false
     if (typeof(mods) !== 'undefined' && mods) {
@@ -59,12 +59,12 @@ mixin standard-nav-bar(props={})
         else
           .standard-nav-bar__logged-element
             +buttons({
-              lineTitle: 'LOGIN',
+              lineTitle: buttonLogin || 'login',
               mods: 'border, free-height, padding20'
             })
           .standard-nav-bar__logged-element
             +buttons({
-              lineTitle: 'REGISTER',
+              lineTitle: buttonRegister || 'register',
               mods: 'full, free-height, padding20'
             })
       

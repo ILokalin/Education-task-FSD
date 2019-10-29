@@ -1,0 +1,22 @@
+extends ../../template/template-page
+
+block meta
+  meta(name="keywords", content="toxin, search room")
+  meta(name="description" content="Учебный проект FSD. Второе задание. Лист Search room")
+
+block title
+  | 
+  = 'Search Room'
+
+block screen
+  //- Include section
+  include ../../modules/filter-date-dropdown/filter-date-dropdown.pug
+  include ../../modules/dropdown/dropdown.pug
+  include ../../modules/range-slider/range-slider.pug
+  include ../../modules/checkbox-buttons/checkbox-buttons.pug
+  include ../../modules/rich-checkbox-buttons/rich-checkbox-buttons.pug
+  include ../../modules/expandable-checkbox-list/expandable-checkbox-list.pug
+  include ../../modules/pagination/pagination.pug
+  include ../../modules/card-room/card-room.pug
+
+    //- Page section

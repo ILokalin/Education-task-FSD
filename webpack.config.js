@@ -18,12 +18,13 @@ const PATHS = {
 
 const common = merge([{
         entry: {
-            'index': PATHS.source + '/pages/index/index.js',
-            'landing-page': PATHS.source + '/pages/landing-page/landing-page.js',
-            'form-elements': PATHS.source + '/pages/form-elements/form-elements.js',
-            'colors-and-types': PATHS.source + '/pages/colors-and-types/colors-and-types.js',
-            'cards': PATHS.source + '/pages/cards/cards.js',
-            'headers-and-footers': PATHS.source + '/pages/headers-and-footers/headers-and-footers.js'
+            'index':                PATHS.source + '/pages/index/index.js',
+            'landing-page':         PATHS.source + '/pages/landing-page/landing-page.js',
+            'search-room':          PATHS.source + '/pages/search-room/search-room.js',
+            'form-elements':        PATHS.source + '/pages/form-elements/form-elements.js',
+            'colors-and-types':     PATHS.source + '/pages/colors-and-types/colors-and-types.js',
+            'cards':                PATHS.source + '/pages/cards/cards.js',
+            'headers-and-footers':  PATHS.source + '/pages/headers-and-footers/headers-and-footers.js'
         },
         output: {
             path: PATHS.build,
@@ -44,6 +45,11 @@ const common = merge([{
                 filename: 'landing-page.html',
                 chunks: ['landing-page', 'common'],
                 template: PATHS.source + '/pages/landing-page/landing-page.pug'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'search-room.html',
+                chunks: ['search-room', 'common'],
+                template: PATHS.source + '/pages/search-room/search-room.pug'
             }),
             new HtmlWebpackPlugin({
                 filename: 'form-elements.html',
