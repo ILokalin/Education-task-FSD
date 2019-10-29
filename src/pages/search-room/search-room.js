@@ -1,6 +1,19 @@
 import './search-room.scss';
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
+import '../../images/room-350.jpg';
+import '../../images/room-352.jpg';
+import '../../images/room-444.jpg';
+import '../../images/room-450.jpg';
+import '../../images/room-666.jpg';
+import '../../images/room-678.jpg';
+import '../../images/room-740.jpg';
+import '../../images/room-840.jpg';
+import '../../images/room-856.jpg';
+import '../../images/room-888.jpg';
+import '../../images/room-980.jpg';
+import '../../images/room-982.jpg';
+
 // self modules import
 import {Pager} from '../../modules/pagination/pagination';
 

@@ -1,5 +1,22 @@
 extends ../../template/template-page
 
+block vars
+  -
+    const roomCard1 = ['./images/room-888.jpg','888','5','Люкс','145',' Отзывов','9 999₽']
+    const roomCard2 = ['./images/room-840.jpg','840','4','','65',' Отзывов','9 900₽']
+    const roomCard3 = ['./images/room-980.jpg','980','3','Люкс','35',' Отзывов','8 500₽']
+    const roomCard4 = ['./images/room-856.jpg','856','5','','19',' Отзывов','7 300₽']
+    const roomCard5 = ['./images/room-740.jpg','740','4','','44',' Отзывов','6 000₽']
+    const roomCard6 = ['./images/room-982.jpg','982','3','','56',' Отзывов','5 800₽']
+    const roomCard7 = ['./images/room-678.jpg','678','5','','45',' Отзывов','5 500₽']
+    const roomCard8 = ['./images/room-450.jpg','450','4','','39',' Отзывов','5 300₽']
+    const roomCard9 = ['./images/room-350.jpg','350','3','','77',' Отзывов','5 000₽']
+    const roomCard10 = ['./images/room-666.jpg','666','5','','25',' Отзывов','5 000₽']
+    const roomCard11 = ['./images/room-444.jpg','444','3','','15',' Отзывов','5 000₽']
+    const roomCard12 = ['./images/room-352.jpg','352','3','','55',' Отзывов','5 000₽']
+
+    const roomsList = [roomCard1,roomCard2,roomCard3,roomCard4,roomCard5,roomCard6,roomCard7,roomCard8,roomCard9,roomCard10,roomCard11,roomCard12]
+
 block meta
   meta(name="keywords", content="toxin, search room")
   meta(name="description" content="Учебный проект FSD. Второе задание. Лист Search room")
@@ -28,36 +45,28 @@ block screen
       header.screen-cards__header-wrapp
         h1.screen-cards__title Номера, которые мы для вас подобрали
       section.screen-cards__filter-result
-        .screen-cards__filter-column
+        each roomCard, index in roomsList
+          - const [imageSrc,roomNumber,roomRate,roomType,commentsAmmount,commentsAmmountText,roomPrice] = roomCard
           +card-room({
-            imageSrc: './images/room-888.jpg',
-            roomNumber: '888',
-            roomRate: '5',
-            roomType: 'Люкс',
-            commentsAmmount: '145',
-            commentsAmmountText: ' отзывов',
-            roomPrice: '9 999₽'
+            imageSrc: imageSrc,
+            roomNumber: roomNumber,
+            roomRate: roomRate,
+            roomType: roomType,
+            commentsAmmount: commentsAmmount,
+            commentsAmmountText: commentsAmmountText,
+            roomPrice: roomPrice
           })
-        .screen-cards__filter-column
-          +card-room({
-            imageSrc: './images/room-888.jpg',
-            roomNumber: '888',
-            roomRate: '5',
-            roomType: 'Люкс',
-            commentsAmmount: '145',
-            commentsAmmountText: ' отзывов',
-            roomPrice: '9 999₽'
-          })
-        .screen-cards__filter-column
-          +card-room({
-            imageSrc: './images/room-888.jpg',
-            roomNumber: '888',
-            roomRate: '5',
-            roomType: 'Люкс',
-            commentsAmmount: '145',
-            commentsAmmountText: ' отзывов',
-            roomPrice: '9 999₽'
-          })
+
+        //- .screen-cards__filter-column
+        //-   +card-room({
+        //-     imageSrc: './images/room-888.jpg',
+        //-     roomNumber: '888',
+        //-     roomRate: '5',
+        //-     roomType: 'Люкс',
+        //-     commentsAmmount: '145',
+        //-     commentsAmmountText: ' отзывов',
+        //-     roomPrice: '9 999₽'
+        //-   })
       .screen-cards__pagination
         +pagination()
 

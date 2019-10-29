@@ -11,6 +11,8 @@ mixin card-room(props={})
   //- roomRate      {string}  рейтинг номера
 
   -
+    const {roomSrting, mods} = props
+    //- const {roomString:[imageSrc, roomNumber, roomRate, roomType, room__commentsAmmount, commentsAmmountText, roomPrice], mods} = props
     let moduleClass = (props.moduleClass) ? props.moduleClass : ''
     let allMods = ''
     if (typeof(props.mods) !== 'undefined' && props.mods) {
