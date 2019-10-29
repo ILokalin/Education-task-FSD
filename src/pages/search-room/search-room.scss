@@ -33,15 +33,25 @@
 
   &__filter-result {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: nowrap;
   }
 
-  &__filter-column {
-    padding-right: 12px;
+  &__row-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    
   }
 
-  &__filter-column:last-child {
+  &__room-card {
+    padding-bottom: 12px;
+    padding-right: 20px;
+  }
+
+  &__room-card:last-child {
+    padding-bottom: 0px;
     padding-right: 0px;
   }
 
