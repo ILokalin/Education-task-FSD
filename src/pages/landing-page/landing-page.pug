@@ -1,0 +1,88 @@
+extends ../../template/template
+
+block meta
+  meta(name="keywords", content="toxin, landing page")
+  meta(name="description" content="Учебный проект FSD. Второе задание. Лист Landing page")
+
+block title
+  | 
+  = 'Landing Page'
+
+block main
+  //- Include section
+  include ../../modules/standard-nav-bar/standard-nav-bar.pug
+  include ../../modules/form-selection/form-selection.pug
+  include ../../modules/footer/footer.pug
+
+
+  - 
+    //- Menu for Standard bav bar
+    const itemAboutUs = {item: 'О нас', link: '#'}
+    const itemCareers = {item: 'Вакансии', link: '#'}
+    const itemNews    = {item: 'Новости', link: '#'}
+    const itemDocs    = {item: 'Соглашения', link: '#'}
+    const subItemOurServices = {item: 'Our Services', link: '#'}
+    const itemServices  = {item: 'Услуги',link: '#',mods: 'sub',subList: [subItemOurServices]}
+
+    const itemsList = [itemAboutUs, itemServices, itemCareers, itemNews, itemDocs]
+
+    //- Sets for footer
+    const footerItemAbout   = {link: 'link/about', item: 'О нас'}
+    const footerItemNews    = {link: 'link/news', item: 'Новости'}
+    const footerItemSupport = {link: 'link/support', item: 'Служба поддержки'}
+    const footerItemService = {link: 'link/service', item: 'Услуги'}
+    const footerNavigation  = {
+      title: 'навигация',
+      mods: 'menu',
+      itemsList: [footerItemAbout, footerItemNews, footerItemSupport, footerItemService]
+      }
+
+    const footerItemAboutService  = {link: 'link/support', item: 'О сервисе'}
+    const footerItemOurTeam       = {link: 'link/our-team', item: 'Наша команда'}
+    const footerItemCareers       = {link: 'link/careers', item: 'Вакансии'}
+    const footerItemInvestors     = {link: 'link/investors', item: 'Инвесторы'}
+    const footerAboutUs = {
+      title: 'О нас',
+      mods: 'menu',
+      itemsList: [footerItemAboutService, footerItemOurTeam, footerItemCareers, footerItemInvestors]
+    }
+
+    const footerItemAgreement = {link: 'link/agreement', item: 'Соглашения'}
+    const footerItemCommunity = {link: 'link/community', item: 'Сообщества'}
+    const footerItemContacts = {link: 'link/contacts', item: 'Связь с нами'}
+    const footerSupport = {
+      title: 'Служба поддержки',
+      mods: 'menu',
+      itemsList: [footerItemAgreement, footerItemCommunity, footerItemContacts]
+    }
+
+    const footerSubscribe = {
+      title: 'Subscribe to our newsletter',
+      mods: 'subscribe',
+      footerSubscribeText: 'Receive our latest news and promotions in your inbox!'
+    }
+
+    const footerText = 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
+    const copyright = 'Copyright © 2018 Toxin UI Kit. All rights reserved.'
+
+    //- screen
+    const offerText = 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+
+
+
+  header.landing-page__header
+    +standard-nav-bar({itemsList: itemsList})
+  main.landing-page__screen
+    section.screen
+      .screen__form-regon
+        +form-selection()
+      .screen__offer-region
+        p.screen__offer-text= offerText
+  footer.landing-page__footer
+    +footer(
+      {
+        copyright: copyright,
+        footerText: footerText,
+        widgets: [footerNavigation, footerAboutUs, footerSupport, footerSubscribe]
+      }
+      )

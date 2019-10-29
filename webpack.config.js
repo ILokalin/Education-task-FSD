@@ -19,6 +19,7 @@ const PATHS = {
 const common = merge([{
         entry: {
             'index': PATHS.source + '/pages/index/index.js',
+            'landing-page': PATHS.source + '/pages/landing-page/landing-page.js',
             'form-elements': PATHS.source + '/pages/form-elements/form-elements.js',
             'colors-and-types': PATHS.source + '/pages/colors-and-types/colors-and-types.js',
             'cards': PATHS.source + '/pages/cards/cards.js',
@@ -38,6 +39,11 @@ const common = merge([{
                 filename: 'index.html',
                 chunks: ['index', 'common'],
                 template: PATHS.source + '/pages/index/index.pug'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'landing-page.html',
+                chunks: ['landing-page', 'common'],
+                template: PATHS.source + '/pages/landing-page/landing-page.pug'
             }),
             new HtmlWebpackPlugin({
                 filename: 'form-elements.html',
