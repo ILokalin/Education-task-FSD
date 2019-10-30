@@ -30,11 +30,19 @@ mixin card-room(props={})
         span.card-room__slider-button.card-room__slider-button_prev expand_more
         span.card-room__slider-button.card-room__slider-button_next expand_more
 
-      label.card-room__slider-radio
-        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '1')
-        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '2')
-        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '3')
-        input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '4')
+      .card-room__slider-radio()
+        label.card-room__select-label
+          input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '1', checked)
+          span.card-room__select-marker
+        label.card-room__select-label
+          input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '2')
+          span.card-room__select-marker
+        label.card-room__select-label
+          input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '3')
+          span.card-room__select-marker
+        label.card-room__select-label
+          input.card-room__input(type = 'radio', name = roomNumber || 'room-slider', value = '4')
+          span.card-room__select-marker
   
     .card-room__room-details
       +room-details({

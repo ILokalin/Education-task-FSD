@@ -40,17 +40,27 @@
   }
 
   &__input {
-    position: relative;
-    margin: 0;
-    height: 8px;
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
   }
 
-  &__input:after {
-    position: absolute;
+
+  &__select-marker{
+    // position: absolute;
     width: 8px;
     height: 8px;
-    content: '';
+    border-radius: 50%;
+    border: 1px solid white;
+  }
 
+  &__input:checked + &__select-marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
   }
 
   &__room-details {
