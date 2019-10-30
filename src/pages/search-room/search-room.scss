@@ -20,16 +20,43 @@
 .screen-aside {
   display: flex;
   flex-direction: column;
-  min-width: 266px;
+  max-width: 266px;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-top: 20px;
+  padding-top: 30px;
+
+  &__element {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  &__element_shot-padding {
+    padding-bottom: 20px;
+  }
+
+  &__element-title {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+
+  &__slider-description {
+    font-size: 12px;
+  }
   
 }
 
 .screen-cards {
   display: flex;
   flex-direction: column;
+  padding-top: 30px;
+
+  &__title {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 20px;
+  }
 
   &__filter-result {
     display: flex;

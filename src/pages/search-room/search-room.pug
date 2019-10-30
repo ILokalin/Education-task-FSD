@@ -39,7 +39,80 @@ block screen
   //- Page section
   main.screen
     aside.screen-aside
-      +filter-date-dropdown()
+      .screen-aside__element.screen-aside__element_shot-padding
+        h3.screen-aside__element-title даты пребывания в отеле
+        +filter-date-dropdown()
+
+      .screen-aside__element
+        h3.screen-aside__element-title Гости
+        +dropdown({
+            moduleClass: 'dropdown-visitors',
+            isBtnClear: true,
+            isBtnSubmit: true,
+            dropStrings: [
+              {lineTitle: 'ВЗРОСЛЫЕ', maxCount: '5'},
+              {lineTitle: 'ДЕТИ', maxCount: '5'},
+              {lineTitle: 'МЛАДЕНЦЫ', maxCount: '5',isCountSeparate: true,namingForCount: 'младенец,младенца,младенцев'}
+            ],
+            namingForAll: 'гость,гостя,гостей',
+            namingForEmpty: 'Сколько гостей'
+            })
+
+      .screen-aside__element
+        +range-slider({
+          lineTitle: 'диапазон цены',
+        })
+        p.screen-aside__slider-description Стоимость за сутки пребывания в номере
+
+      .screen-aside__element
+        +checkbox-buttons({
+            listTitle: 'CHECKBOX BUTTONS', 
+            moduleClass: 'check-list-buttons',
+            dropStrings: [
+              {dataName: 'checkbox-smoking',labelTitle: 'Можно курить'},
+              {dataName: 'checkbox-pets',labelTitle: 'Можно с питомцами',checked: true},
+              {dataName: 'checkbox-guests',labelTitle: 'Можно пригласить гостей (до 10 человек)',checked: true},
+              ]
+            })
+
+      .screen-aside__element
+        +rich-checkbox-buttons({
+            listTitle: 'Доступность',
+            listStrings: [
+              {labelTitle: 'Широкий коридор',labelDiscription: 'Ширина коридоров в номере не менее 91 см.',moduleClass: 'rich-checkbox-test'},
+              {labelTitle: 'Помощник для инвалидов',labelDiscription: 'На 1 этаже вас встретит специалист  и проводит до номера.',moduleClass: 'rich-checkbox-test'}
+            ]
+          })
+
+      .screen-aside__element
+        +dropdown({
+          moduleClass: 'dropdown-envarenment',
+          isBtnClear: false,
+          isBtnSubmit: false,
+          dropStrings: [
+            {lineTitle: 'СПАЛЬНИ', maxCount: '2',isCountSeparate: true,namingForCount: 'спальня,спальни,спален'},
+            {lineTitle: 'КРОВАТИ', minCount: '1', maxCount: '4',isCountSeparate: true,namingForCount: 'кровать,кровати,кроватей'},
+            {lineTitle: 'ВАННЫЕ КОМНАТЫ', maxCount: '2',isCountSeparate: true,namingForCount: 'ванная комната,ванных комнаты,ванных комнат'}
+          ],
+          namingForAll: '',
+          namingForEmpty: 'Выбрать удобства'
+          })
+
+      .screen-aside__element
+        +expandable-checkbox-list({
+          listTitle: 'EXPANDABLE CHECKBOX LIST', 
+          moduleClass: 'check-list-test',
+          dropStrings: [
+            {dataName: 'checkbox-breakfast',labelTitle: 'Завтрак'},
+            {dataName: 'checkbox-table',labelTitle: 'Письменный стол',checked: true},
+            {dataName: 'checkbox-childChair',labelTitle: 'Стул для кормления',checked: true},
+            {dataName: 'checkbox-childBed',labelTitle: 'Кроватка',checked: true},
+            {dataName: 'checkbox-TV1',labelTitle: 'Телевизор'},
+            {dataName: 'checkbox-showerGel1',labelTitle: 'Шампунь'},
+            {dataName: 'checkbox-TV2',labelTitle: 'Телевизор'},
+            {dataName: 'checkbox-showerGel2',labelTitle: 'Шампунь'}
+          ]
+        })
 
     article.screen-cards
       header.screen-cards__header-wrapp

@@ -16,6 +16,9 @@ import '../../images/room-982.jpg';
 
 // self modules import
 import {Pager} from '../../modules/pagination/pagination';
+import {RangeSlider} from '../../modules/range-slider/range-slider';
+import {dropdown} from '../../modules/dropdown/dropdown';
+import {expCheckboxList} from '../../modules/expandable-checkbox-list/expandable-checkbox-list';
 
 
 var ready = (callback) => {
@@ -26,20 +29,19 @@ var ready = (callback) => {
 ready(() => { 
   // const maskedTextDate = new MaskedTextField('date')
 
-  // const demoDropDownVisitors              = new dropdown('.dropdown-visitors')
-  // const demoDropDownVisitorsWithoutClear  = new dropdown('.dropdown-visitors-without-clear')
-  // const demoDropDownVisitorsClear         = new dropdown('.dropdown-visitors-clear')
+  const demoDropDownVisitors = new dropdown('.dropdown-visitors')
 
-  // // const demoDropDownEnarenment        = new dropdown('.dropdown-envarenment')
+  const demoDropDownEnarenment        = new dropdown('.dropdown-envarenment')
   // const demoDropDownEnarenmentClose   = new dropdown('.dropdown-envarenment-close')
   // const demoDropDownEnarenmentOpen    = new dropdown('.dropdown-envarenment-open')
 
-  // const expCheckBoxList       = expCheckboxList('.check-list-test')
+  const expCheckBoxList       = expCheckboxList('.check-list-test')
   // const expCheckBoxListOpen   = expCheckboxList('.check-list-test-open')
       
-  // const rangeSlider = new RangeSlider({
-  //     from: 4700
-  // })
+  const rangeSlider = new RangeSlider({
+      from: 4700,
+      to: 10000
+  })
   // ur.update() //метод для изменений
   // let foog = ur.getValue() //чтение состояния
 

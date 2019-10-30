@@ -3,6 +3,15 @@ Ion.RangeSlider, 2.3.0
 © Denis Ineshin, 2010 - 2018, IonDen.com
 Build date: 2018-12-11 23:23:51
 */
+
+.range-slider {
+  width: 100%;
+
+  &__value {
+    color: $DarkShade50;
+  }
+}
+
 .irs {
   display: block;
   position: relative;
