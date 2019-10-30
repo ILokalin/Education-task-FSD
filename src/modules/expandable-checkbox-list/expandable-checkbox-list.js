@@ -26,7 +26,7 @@ export function expCheckboxList(elementClassName) {
     })
 
     document.addEventListener('click', event => {
-        if (!(event.target.closest('.eexpandable-checkbox-list__menu')) && (event.target.closest(elementClassName))) {
+        if (!(event.target.closest('.expandable-checkbox-list__menu')) && (event.target.closest(elementClassName))) {
             toggleCheckboxList()
             correctMark()
         }
