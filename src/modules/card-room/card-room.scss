@@ -34,10 +34,12 @@
   }
 
   &__slider-button_prev {
-    transform: rotate(90deg);;
+    transform: rotate(90deg);
+    cursor: pointer;
   }
   &__slider-button_next {
     transform: rotate(-90deg);
+    cursor: pointer;
   }
 
   &__slider-radio {

@@ -20,7 +20,7 @@ mixin card-room(props={})
       }
     }
 
-  form.card-room(class = moduleClass + allMods)
+  form.card-room(class = allMods, data-room= roomNumber)
     .card-room__section
       img.card-room__image(
         src = imageSrc || './images/room-888.jpg',
