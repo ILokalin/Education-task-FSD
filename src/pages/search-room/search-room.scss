@@ -11,38 +11,38 @@
 
 .screen {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
-  width: 1160px;
-  // flex-grow: 1;
-
+  width: 72.5rem;
 }
 
 .screen-aside {
   display: flex;
   flex-direction: column;
-  max-width: 266px;
+  max-width: 16.625rem;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-top: 30px;
+  padding-top: 1.875rem;
+  flex-shrink: 1;
 
   &__element {
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 1.875rem;
   }
 
   &__element_shot-padding {
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
   }
 
   &__element-title {
     text-transform: uppercase;
     padding: 0;
     margin: 0;
-    padding-bottom: 10px;
+    padding-bottom: 0.625rem;
   }
 
   &__slider-description {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   
 }
@@ -50,12 +50,14 @@
 .screen-cards {
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
+  flex-wrap: nowrap;
+  padding-top: 1.875rem;
+  
 
   &__title {
     padding: 0;
     margin: 0;
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
   }
 
   &__filter-result {
@@ -73,20 +75,66 @@
   }
 
   &__room-card {
-    padding-bottom: 12px;
-    padding-right: 20px;
+    padding-bottom: 0.75rem;
+    padding-right: 2%;
   }
 
   &__room-card:last-child {
-    padding-bottom: 0px;
-    padding-right: 0px;
+    padding-bottom: 0;
+    padding-right: 0;
   }
 
   &__pagination {
     margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 69px;
-    width: 241px;
+    padding-top: 2.5rem;
+    padding-bottom: 4.3125rem;
+    width: 15.0625rem;
   }
 }
 
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 1150px) {
+  html {
+    font-size: 12px;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 16px;
+  }
+
+  .screen {
+    width: 90%;
+  }
+
+  .screen-cards {
+
+    &__title {
+      // width: 90%;
+      text-align: center;
+    }
+
+    &__row-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .screen {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

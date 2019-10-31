@@ -13,33 +13,33 @@
 
   &__number {
     margin: 0;
-    padding-right: 5px;
+    padding-right: 0.3125rem;
   }
 
   &__number-prefix {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-style: normal;
   }
 
   &__room-type {
     color: $Purple;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
   }
 
   &__price {
     color: $DarkShade50;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   &__price-digits {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
     font-style: normal;
   }
 
   // Модификатор заголовка для карточки номера
   &_litle-title &__number{
-    font-size: 19px;
+    font-size: 1.1875rem;
   }
 }

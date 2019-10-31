@@ -19,13 +19,13 @@ body {
   display: flex;
   justify-content:center;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 90rem;
 
   &__elements-column {
-    padding: 0 20px 0 20px;
+    padding: 0 1.25rem 0 1.25rem;
   }
 
   &__container {
-    padding-top: 38px;
+    padding-top: 2.375rem;
   }
 }

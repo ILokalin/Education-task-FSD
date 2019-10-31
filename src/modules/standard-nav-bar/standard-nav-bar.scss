@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  box-shadow: 0px 0.625rem 1.25rem rgba(31, 32, 65, 0.05);
   background: white;
   width: 100%;
   
@@ -15,12 +15,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1160px;
-    height: 70px;
+    width: 72.5rem;
+    height: 4.375rem;
+  }
+
+  &__mobile-logo {
+    display: none;
   }
 
   &__navigation-region {
     flex-grow: 1;
+  }
+
+  &__mobile-menu {
+    display: none;
+    flex-grow: 1;
+    text-align: right;
+    color: $DarkShade50;
+    padding-right: 20px;
   }
 
   &__login-region {
@@ -30,9 +42,16 @@
     justify-content: space-between;
   }
 
+  &__mobile-profile {
+    display: none;
+    text-align: right;
+    color: $DarkShade50;
+    background-repeat: 20px;
+  }
+
   &__logged-element {
-    height: 34px;
-    padding-right: 20px;
+    height: 2.125rem;
+    padding-right: 1.25rem;
   }
 
   &__logged-element:last-child {
@@ -42,19 +61,74 @@
 
   &__login-separator {
     content: '';
-    line-height: 30px;
+    line-height: 1.875rem;
     border-left: 1px solid $DarkShade10;
   }
 
   &__user-name {
     margin: 0;
     padding: 0;
-    line-height: 34px;
+    line-height: 2.125rem;
     color: $DarkShade50;
   }
 
   &_logged-in &__logged-element:first-child {
-    padding-top: 6px;
-    padding-right: 9px;
+    padding-top: 0.375rem;
+    padding-right: 0.5625rem;
   }
+}
+
+@media screen and (max-width: 900px) {
+
+.standard-nav-bar {
+  &__logo {
+    display: none;
+  }
+
+  &__mobile-logo {
+    display: block;
+  }
+
+  &__container {
+    width: 90%;
+  }
+
+  &__navigation-region {
+    display: none;
+  }
+
+  &__mobile-menu {
+    display: inline;
+  }
+
+  &__login-region {
+    display: none;
+  }
+
+  &__mobile-profile {
+    display: inline;
+  }
+}
+}
+
+@media screen and (max-width: 700px) {
+
+.standard-nav-bar {
+  &__logo {
+    height: 70%;
+  }
+
+  &__container {
+    width: 300px;
+  }
+
+  &__login-region {
+    display: none;
+  }
+
+  &__mobile-profile {
+    display: inline;
+  }
+}
+
 }

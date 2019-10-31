@@ -45,10 +45,16 @@ mixin standard-nav-bar(props={})
 
   .standard-nav-bar(class = allMods)
     .standard-nav-bar__container
+      .standard-nav-bar__mobile-logo
+        +logo({mods: 'gray'})
       .standard-nav-bar__logo
         +logo()
+
+      span.standard-nav-bar__mobile-menu menu
       .standard-nav-bar__navigation-region
         +navigation({itemsList})
+
+      span.standard-nav-bar__mobile-profile person_outline
       .standard-nav-bar__login-region
         if loggedIn
           .standard-nav-bar__logged-element

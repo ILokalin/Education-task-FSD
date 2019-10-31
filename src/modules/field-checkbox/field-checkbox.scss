@@ -4,7 +4,7 @@
   position: relative;
   cursor: pointer;
   padding-left: 1.875rem;
-  line-height: 1.25rem;
+  // line-height: 1.25rem;
   font-size: 0.875rem;
   
   &__input {
@@ -29,13 +29,13 @@
   &__input:checked + &__box{
     border: 1px solid $Purple;
   }
-
+//TODO: заменить на check из Awesome
   &__input:checked + &__box:after {
     position: absolute;
     top: 0.1875rem;
     left: 0.25rem;
-    width: 0.625rem;
-    height: 0.625rem;
+    width: 10px;
+    height: 10px;
     content: "";
     @extend %MarkerPurple;
   }

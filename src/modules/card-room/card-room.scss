@@ -6,20 +6,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-radius: 4px;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 0.25rem;
+  box-shadow: 0px 0.625rem 1.25rem rgba(31, 32, 65, 0.05);
   background: #FFFFFF;
-  padding-bottom: 19px;
-  width: 270px;
+  padding-bottom: 1.1875rem;
+  width: 16.875rem;
 
   &__section {
     position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__image {
+    min-width: 100%;
+    min-height: 100%;
   }
 
   &__controls {
     display: flex;
     position: absolute;
-    top: 60px;
+    top: 3.75rem;
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
@@ -35,8 +42,13 @@
 
   &__slider-radio {
     position: absolute;
-    right: 5px;
-    bottom: 15px;
+    right: 0.3125rem;
+    bottom: 0.9375rem;
+    cursor: pointer;
+  }
+
+  &__select-label {
+    cursor: pointer;
   }
 
   &__input {
@@ -50,26 +62,26 @@
 
   &__select-marker{
     // position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 0.0625rem solid white;
   }
 
   &__input:checked + &__select-marker {
-    width: 8px;
-    height: 8px;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
     background-color: white;
   }
 
   &__room-details {
-    padding-top: 10px;
-    width: 234px;
+    padding-top: 0.625rem;
+    width: 14.625rem;
    }
 
   &__separator {
-    margin: 6px 0;
+    margin: 0.375rem 0;
     border: none;
     background-color: $DarkShade10;
     width: 100%;
@@ -82,13 +94,13 @@
     flex-wrap: nowrap;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 0 5px 0 5px;
-    width: 234px;
+    padding: 0 0.3125rem 0 0.3125rem;
+    width: 14.625rem;
   }
 
   &__commentsAmmount {
     margin: 0;
-    padding-top: 5px;
+    padding-top: 0.3125rem;
     vertical-align: center;
     line-height: 1.5rem;
   }
