@@ -19,7 +19,8 @@ import {Pager} from '../../modules/pagination/pagination';
 import {RangeSlider} from '../../modules/range-slider/range-slider';
 import {dropdown} from '../../modules/dropdown/dropdown';
 import {expCheckboxList} from '../../modules/expandable-checkbox-list/expandable-checkbox-list';
-
+// import CardSelector from '../../modules/card-room/card-room';
+// const cardSelector = new CardSelector();
 
 var ready = (callback) => {
   if (document.readyState != "loading") callback();
