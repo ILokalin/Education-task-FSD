@@ -96,7 +96,6 @@
 
 
 @media screen and (max-width: 900px) {
-
   .footer {
     &__widget-region {
       width: 90%;
@@ -111,3 +110,10 @@
     }
   }
   }
+
+@media screen and (max-width: 700px) {
+  .footer {
+    &__logo-text {
+      width: 16.25rem;}
+  }
+}
