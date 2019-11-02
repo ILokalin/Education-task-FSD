@@ -1,57 +1,8 @@
 import './search-room.scss';
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
-import '../../images/room-350-1.jpg';
-import '../../images/room-352-1.jpg';
-import '../../images/room-444-1.jpg';
-import '../../images/room-450-1.jpg';
-import '../../images/room-666-1.jpg';
-import '../../images/room-678-1.jpg';
-import '../../images/room-740-1.jpg';
-import '../../images/room-840-1.jpg';
-import '../../images/room-856-1.jpg';
-import '../../images/room-888-1.jpg';
-import '../../images/room-980-1.jpg';
-import '../../images/room-982-1.jpg';
 
-import '../../images/room-350-2.jpg';
-import '../../images/room-352-2.jpg';
-import '../../images/room-444-2.jpg';
-import '../../images/room-450-2.jpg';
-import '../../images/room-666-2.jpg';
-import '../../images/room-678-2.jpg';
-import '../../images/room-740-2.jpg';
-import '../../images/room-840-2.jpg';
-import '../../images/room-856-2.jpg';
-import '../../images/room-888-2.jpg';
-import '../../images/room-980-2.jpg';
-import '../../images/room-982-2.jpg';
-
-import '../../images/room-350-3.jpg';
-import '../../images/room-352-3.jpg';
-import '../../images/room-444-3.jpg';
-import '../../images/room-450-3.jpg';
-import '../../images/room-666-3.jpg';
-import '../../images/room-678-3.jpg';
-import '../../images/room-740-3.jpg';
-import '../../images/room-840-3.jpg';
-import '../../images/room-856-3.jpg';
-import '../../images/room-888-3.jpg';
-import '../../images/room-980-3.jpg';
-import '../../images/room-982-3.jpg';
-
-import '../../images/room-350-4.jpg';
-import '../../images/room-352-4.jpg';
-import '../../images/room-444-4.jpg';
-import '../../images/room-450-4.jpg';
-import '../../images/room-666-4.jpg';
-import '../../images/room-678-4.jpg';
-import '../../images/room-740-4.jpg';
-import '../../images/room-840-4.jpg';
-import '../../images/room-856-4.jpg';
-import '../../images/room-888-4.jpg';
-import '../../images/room-980-4.jpg';
-import '../../images/room-982-4.jpg';
+require.context("../../images/", true, /\.(png|svg|jpg|gif)$/);
 
 // self modules import
 import {Pager} from '../../modules/pagination/pagination';
