@@ -14,7 +14,7 @@ mixin masked-text-field(props = {maskType: 'date'})
       +masked-text-field({placeholder: 'ДД.ММ.ГГГ'})
   
   -
-    const {mods, placeholder, maskType} = props
+    const {mods, type, placeholder, maskType, moduleClass} = props
     let nameFieldText = ''
     let patternFieldText = ''
     let allMods = ''
@@ -33,9 +33,9 @@ mixin masked-text-field(props = {maskType: 'date'})
     }
 
   input.masked-text-field(
-    class = allMods, 
+    class = (moduleClass || '') + allMods, 
     placeholder = placeholder || '',
-    type = 'text',
+    type = type || 'text',
     name = nameFieldText,
     pattern = pattternFieldText
     )

@@ -1,4 +1,5 @@
 include ../masked-text-field/masked-text-field
+include ../text-field/text-field.pug
 
 mixin date-dropdown(props = {})
 
@@ -8,18 +9,26 @@ mixin date-dropdown(props = {})
   //- attrs			object		
 
   -
-
+    const {mods, moduleClass, placeholder} = props
     let allMods = ''
-    if (typeof(props.mods) !== 'undefined' && props.mods) {
-      let modList = props.mods.split(',')
+    if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
       for (let i=0; i < modList.length; i++) {
         allMods = allMods + ' date-dropdown_' + modList[i].trim()
       }
     }
 
-  .date-dropdown
-    +masked-text-field({
-      maskType: 'date',
-      placeholder: props.placeholder || 'ДД.ММ.ГГГГ'
+  .date-dropdown(class = allMods)
+    +text-field(
+      {
+      moduleClass: moduleClass,
+      type: 'text',
+      placeholder: placeholder || 'ДД.ММ.ГГГГ'
     })
+    //- +masked-text-field({
+    //-   moduleClass: moduleClass,
+    //-   type: 'text',
+    //-   maskType: 'date',
+    //-   placeholder: placeholder || 'ДД.ММ.ГГГГ'
+    //- })
     span.date-dropdown__marker expand_more
