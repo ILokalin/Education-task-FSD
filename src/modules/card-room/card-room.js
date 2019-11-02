@@ -1,9 +1,14 @@
+// Класс для слайдера в карте номера
+// Конструктор добавляет прослушивание событий на все карты страницы:
+// - нажатие на кнопик слайдера "вперед" и "назад" - переключает последовательно изображения [_onChangeSlider]
+// - нахождение курсора над карточкой - старт последовательного показа картинок через 5сек [_onMousOver] 
+// - уход курсора с карточки номера - останавливает таймер [_onMouseOut]
+// - нажатие на радиокнопки - показывает выбранное изображение  [_onCangeRadio]
+// - нахождение курсора над радикнопками - показывает изображение в соответствии с пункотом над которым курсор [_onCangeRadioLazy]
+
 export default class {
   constructor() {
     const roomCard = document.querySelectorAll('.card-room');
-    // let showTimer = setInterval(function(){}, 2000);
-    // let stateIntervalTimer = false;
-
 
     roomCard.forEach((card) => {
       const inputList = card.querySelectorAll('.card-room__input');

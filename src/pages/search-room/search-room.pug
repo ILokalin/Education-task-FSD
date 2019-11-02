@@ -58,7 +58,7 @@ block screen
             namingForEmpty: 'Сколько гостей'
             })
 
-      .screen-aside__element
+      .screen-aside__element.screen-aside__element_range
         +range-slider({
           lineTitle: 'диапазон цены',
         })
@@ -66,7 +66,7 @@ block screen
 
       .screen-aside__element
         +checkbox-buttons({
-            listTitle: 'CHECKBOX BUTTONS', 
+            listTitle: 'Дополнительные условия', 
             moduleClass: 'check-list-buttons',
             dropStrings: [
               {dataName: 'checkbox-smoking',labelTitle: 'Можно курить'},
@@ -75,7 +75,7 @@ block screen
               ]
             })
 
-      .screen-aside__element
+      .screen-aside__element.screen-aside__element_add-conditions
         +rich-checkbox-buttons({
             listTitle: 'Доступность',
             listStrings: [
@@ -84,7 +84,8 @@ block screen
             ]
           })
 
-      .screen-aside__element
+      .screen-aside__element.screen-aside__element_envarenment
+        h3.screen-aside__element-title Удобства номера
         +dropdown({
           moduleClass: 'dropdown-envarenment',
           isBtnClear: false,
@@ -100,7 +101,7 @@ block screen
 
       .screen-aside__element
         +expandable-checkbox-list({
-          listTitle: 'EXPANDABLE CHECKBOX LIST', 
+          listTitle: 'Дополнительные удобства', 
           moduleClass: 'check-list-test',
           dropStrings: [
             {dataName: 'checkbox-breakfast',labelTitle: 'Завтрак'},
@@ -147,5 +148,7 @@ block screen
 
       .screen-cards__pagination
         +pagination()
+        p.screen-cards__pagination-description 1 – 12 из 100+ вариантов аренды
+        
 
 

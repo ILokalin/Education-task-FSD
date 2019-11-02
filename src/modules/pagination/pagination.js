@@ -4,7 +4,7 @@ export class Pager {
         // Принимает объект с ключами
         // items        число элементов
         // itemsOnPage  количество элементов на листе
-        // element      DOM желемент для пагинатора
+        // element      DOM елемент для пагинатора
         this.items = props.items
         this.pagerPrev  = document.createElement('a')
         this.pagerNext  = document.createElement('a')

@@ -6,11 +6,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   box-shadow: 0px 0.625rem 1.25rem rgba(31, 32, 65, 0.05);
-  background: #FFFFFF;
-  padding-bottom: 1.1875rem;
+  background: white;
+  padding-bottom: 16px;
   width: 16.875rem;
+  overflow: hidden;
 
   &__section {
     position: relative;
@@ -68,6 +69,7 @@
 
 
   &__select-marker{
+    box-sizing: border-box;
     // position: absolute;
     width: 0.5rem;
     height: 0.5rem;
@@ -76,6 +78,7 @@
   }
 
   &__input:checked + &__select-marker {
+    box-sizing: border-box;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
@@ -97,19 +100,20 @@
   }
 
   &__room-rating {
+    // margin-top: 2px;
     display: flex;
     flex-wrap: nowrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    padding: 0 0.3125rem 0 0.3125rem;
+    padding: 0 15px 0 15px;
     width: 14.625rem;
   }
 
   &__commentsAmmount {
     margin: 0;
-    padding-top: 0.3125rem;
+    // padding-top: 5px;
     vertical-align: center;
-    line-height: 1.5rem;
+    line-height: 24px;
   }
 
   &__commentsAmmountNum {
