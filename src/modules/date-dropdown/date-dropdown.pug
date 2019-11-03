@@ -9,7 +9,7 @@ mixin date-dropdown(props = {})
   //- attrs			object		
 
   -
-    const {mods, moduleClass, placeholder} = props
+    const {mods, moduleID, placeholder} = props
     let allMods = ''
     if (typeof(mods) !== 'undefined' && mods) {
       let modList = mods.split(',')
@@ -21,12 +21,12 @@ mixin date-dropdown(props = {})
   .date-dropdown(class = allMods)
     +text-field(
       {
-      moduleClass: moduleClass,
+      moduleID: moduleID,
       type: 'text',
       placeholder: placeholder || 'ДД.ММ.ГГГГ'
     })
     //- +masked-text-field({
-    //-   moduleClass: moduleClass,
+    //-   moduleID: moduleID,
     //-   type: 'text',
     //-   maskType: 'date',
     //-   placeholder: placeholder || 'ДД.ММ.ГГГГ'

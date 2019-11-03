@@ -4,6 +4,8 @@
   display: inline-block;
   position: relative;
   width: 100%;
+  cursor: pointer;
+  user-select: none;
 
   &__marker {
     position: absolute;

@@ -21,10 +21,10 @@ mixin form-selection(props={})
     .form-selection__date-picker-wrapper
       .form-selection__arrival
         h3.form-selection__sub-title Прибытие
-        +date-dropdown({placeholder: 'ДД.ММ.ГГГГ', moduleClass: 'form-selection-arrival'})
+        +date-dropdown({placeholder: 'ДД.ММ.ГГГГ', moduleID: 'form-selection-arrival'})
       .form-selection__departure
         h3.form-selection__sub-title Выезд
-        +date-dropdown({placeholder: 'ДД.ММ.ГГГГ', moduleClass: 'form-selection-departure'})
+        +date-dropdown({placeholder: 'ДД.ММ.ГГГГ', moduleID: 'form-selection-departure'})
 
     .form-selection__dropdown
       h3.form-selection__sub-title гости

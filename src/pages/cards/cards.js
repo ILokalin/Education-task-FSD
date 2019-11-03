@@ -12,8 +12,9 @@ import '../../images/room-888-3.jpg';
 import '../../images/room-888-4.jpg';
 
 // modules
-import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
-import DateDropDown from '../../modules/date-dropdown/date-dropdown.js';
+// import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
+// import DateDropDown from '../../modules/date-dropdown/date-dropdown.js';
+import SelectForm from '../../modules/form-selection/form-selection';
 
 
 var ready = (callback) => {
@@ -22,13 +23,10 @@ var ready = (callback) => {
 }
 
 ready(() => { 
-
-  
-  const dateArrival = new DateDropDown({element: '.form-selection-arrival'});
-  const dateDeparture = new DateDropDown({element: '.form-selection-departure'});
-  const maskedTextDate = new MaskedTextField('date');
-
-  
+  const selectForm = new SelectForm();
+  // const dateArrival = new DateDropDown({element: '.form-selection-arrival'});
+  // const dateDeparture = new DateDropDown({element: '.form-selection-departure'});
+  // const maskedTextDate = new MaskedTextField('date');
 
 });
 
