@@ -3,10 +3,12 @@
   position: relative;
   user-select: none;
   width: 100%;
-  display: block;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   padding-left: 1.25rem;
   line-height: 1.25rem;
+
 
   &__input {
     box-sizing: border-box;
@@ -41,6 +43,7 @@
   &__title {
     color: $DarkShade25;
     font-size: 0.5625rem;
+    padding-top: 1px;
   }
 
   &__input:checked + &__marker {

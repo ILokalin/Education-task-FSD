@@ -27,13 +27,12 @@ mixin like-button(props={})
 
   label.like-button(
     class = allMods,
-    name = dataName || 'like-button'
     )
     input.like-button__input(
       type='checkbox',
-      name = dataName || 'like-button',
-      checked = checked || false
+      name = (dataName || 'like-button'),
+      checked = (checked || false)
     )
     span.like-button__marker
-    p.like-button__title= labelTitle
+    label.like-button__title= labelTitle
 
