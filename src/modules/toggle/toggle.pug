@@ -31,12 +31,11 @@ mixin toggle(props={})
 
   label.toggle(
     class = allMods,
-    name = dataName : 'toggle'
     )
     input.toggle__input(
       type = 'checkbox',
-        name = dataName || 'toggle',
-        checked = checked || false
+        name = (dataName || 'toggle'),
+        checked = (checked || false)
         )
     span.toggle__marker
     |
