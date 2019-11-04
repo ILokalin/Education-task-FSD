@@ -1,8 +1,12 @@
 import 'air-datepicker/dist/js/datepicker.min'
-// import 'air-datepicker/dist/css/datepicker.min.css'
+
 
 // Класс date-dropdown
-// Принимает в параметрах дату и функцию для обработки событий
+// input props: 
+//        first input for datepicker
+//        second input
+//        callback function onSelect
+
 export default class {
   constructor(props = {}) {
     const {element, multipleElement, onChangeFunction} = props;
@@ -12,10 +16,13 @@ export default class {
     this.colorPurple = '#BC9CFF'
     this.applyButton = document.createElement('span');
     this.applyButton.classList.add('datepicker--button');
-    this.applyButton.innerText = 'Применить'
+    this.applyButton.innerText = 'Применить';
 
-    this.elementDOM = document.querySelector(element)
-    this.multipleElementDOM = document.querySelector(multipleElement)
+    //all for input fields
+    this.elementDOM = document.querySelector(element);
+    this.elementDOM.setAttribute("readonly", true);
+    this.multipleElementDOM = document.querySelector(multipleElement);
+    this.multipleElementDOM.setAttribute("readonly", true);
     this.selectedDates = []
 
     // call air-datepicker

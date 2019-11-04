@@ -8,7 +8,7 @@ mixin text-field(props = {})
 		+text-field({placeholder: 'Email'})
 
 	-
-		const {mods, placeholder, moduleID} = props
+		const {mods, placeholder, moduleID, readonly} = props
 		var attributes = {}
 		if (moduleID !== 'undefined' && moduleID) {
 			attributes.id = moduleID
@@ -25,7 +25,7 @@ mixin text-field(props = {})
 		class = allMods,
 		placeholder = placeholder || '',
 		type= 'text',
-		autocomplete= "off"
+		autocomplete= "off",
 		)&attributes(attributes)
 
 

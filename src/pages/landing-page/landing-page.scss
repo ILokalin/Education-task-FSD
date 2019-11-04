@@ -1,16 +1,17 @@
 @import '../../template/template-page';
 @import '../../modules/form-selection/form-selection';
+@import '../../modules/air-datepicker/datepicker.scss';
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: #F4F4F6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
+// body {
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+//   background-color: #F4F4F6;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: flex-start;
+// }
 
 .page-screen {
     margin: 0 auto;
@@ -39,4 +40,15 @@ body {
     text-align: right;
     color: $DarkShade75;
   }
+}
+
+@media screen and (max-width: 1140px) {
+  
+.page-screen {
+    width: 100%;    
+}
+
+.screen {
+  width: 80%;
+}
 }
