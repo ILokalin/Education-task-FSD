@@ -20,7 +20,7 @@ export default class {
 
     // call air-datepicker
     $(element).datepicker({
-      inline: true,
+      // inline: true,
       prevHtml: '<span class="datepicker--nav-prev">arrow_back</span>',
       nextHtml: '<span class="datepicker--nav-next">arrow_forward</span>',
       dateFormat: 'dd M',
