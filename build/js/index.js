@@ -81,11 +81,12 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10690,13 +10691,101 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+
+/***/ 10:
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
+/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+
+
+
+
+// import {
+//     dropdown
+// } from '../../modules/dropdown/dropdown.js'
+
+// import {
+//     expCheckboxList
+// } from '../../modules/expandable-checkbox-list/expandable-checkbox-list.js'
+
+// import { RangeSlider } from '../../modules/range-slider/range-slider.js';
+// import { Pager } from './../../modules/pagination/pagination';
+
+// import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
+
+
+var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+  }
+
+ready(() => { 
+
+    $("#datepicker-arrival").datepicker({
+    multipleDates: true,
+    onSelect: function (fd){
+      $('#datepicker-arrival').val(fd.split(",")[0]);
+      $('#datepicker-depart').val(fd.split(",")[1]);
+    },
+    showButtonPanel: true,
+    dateFarmat: 'yy.mm.dd',
+    duration: 'slow',
+    range: true,
+    toggleSelected: false,
+    clearButton: true,
+    currentText: 'ОЧИСТИТЬ',
+    closeText: 'ПРИМЕНИТЬ'
+    })
+
+    $("#datepicker-depart").datepicker({
+      multipleDates: true,
+      onSelect: function (fd){
+        $('#datepicker-arrival').val(fd.split(",")[0]);
+        $('#datepicker-depart').val(fd.split(",")[1]);
+      },
+      showButtonPanel: true,
+      dateFarmat: 'yy.mm.dd',
+      duration: 'slow',
+      range: true,
+      toggleSelected: false,
+      clearButton: true,
+      currentText: 'ОЧИСТИТЬ',
+      closeText: 'ПРИМЕНИТЬ'
+      })
+
+});
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {;(function (window, $, undefined) { ;(function () {
@@ -12937,98 +13026,6 @@ return jQuery;
  })(window, jQuery);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_js_datepicker__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
-/* harmony import */ var air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(air_datepicker_dist_css_datepicker_min_css__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-
-
-
-
-// import {
-//     dropdown
-// } from '../../modules/dropdown/dropdown.js'
-
-// import {
-//     expCheckboxList
-// } from '../../modules/expandable-checkbox-list/expandable-checkbox-list.js'
-
-// import { RangeSlider } from '../../modules/range-slider/range-slider.js';
-// import { Pager } from './../../modules/pagination/pagination';
-
-// import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
-
-
-var ready = (callback) => {
-    if (document.readyState != "loading") callback();
-    else document.addEventListener("DOMContentLoaded", callback);
-  }
-
-ready(() => { 
-
-    $("#datepicker-arrival").datepicker({
-    multipleDates: true,
-    onSelect: function (fd){
-      $('#datepicker-arrival').val(fd.split(",")[0]);
-      $('#datepicker-depart').val(fd.split(",")[1]);
-    },
-    showButtonPanel: true,
-    dateFarmat: 'yy.mm.dd',
-    duration: 'slow',
-    range: true,
-    toggleSelected: false,
-    clearButton: true,
-    currentText: 'ОЧИСТИТЬ',
-    closeText: 'ПРИМЕНИТЬ'
-    })
-
-    $("#datepicker-depart").datepicker({
-      multipleDates: true,
-      onSelect: function (fd){
-        $('#datepicker-arrival').val(fd.split(",")[0]);
-        $('#datepicker-depart').val(fd.split(",")[1]);
-      },
-      showButtonPanel: true,
-      dateFarmat: 'yy.mm.dd',
-      duration: 'slow',
-      range: true,
-      toggleSelected: false,
-      clearButton: true,
-      currentText: 'ОЧИСТИТЬ',
-      closeText: 'ПРИМЕНИТЬ'
-      })
-
-});
-
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
 /***/ })
-/******/ ]);
+
+/******/ });

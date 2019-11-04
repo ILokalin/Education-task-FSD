@@ -187,7 +187,7 @@
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin: 8px 0 3px; }
+  margin: 8px 0 8px; }
 
 .datepicker--day-name {
   color: $Purple;
@@ -392,17 +392,13 @@
     Navigation
    ------------------------------------------------- */
 .datepicker--nav {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  border-bottom: 1px solid #efefef;
+  justify-content: space-between;
   min-height: 32px;
-  padding: 4px; 
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 22px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
   .-only-timepicker- .datepicker--nav {
     display: none; }
@@ -413,7 +409,7 @@
   font-size: 19px;
   font-weight: bold;
   color: $DarkShade100;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -467,8 +463,8 @@
 .datepicker--buttons {
   justify-content: space-between;
   display: flex;
-  padding: 4px;
-  border-top: 1px solid #efefef; 
+  padding-top: 12px;
+  padding-bottom: 6px;
   padding-left: 20px;
   padding-right: 20px;
 }
