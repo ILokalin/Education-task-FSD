@@ -9,8 +9,10 @@ mixin text-field(props = {})
 
 	-
 		const {mods, placeholder, moduleID} = props
-		var attributes = {};
-		attributes.id = (moduleID || '')
+		var attributes = {}
+		if (moduleID !== 'undefined' && moduleID) {
+			attributes.id = moduleID
+		}
 		let allMods = ''
 		if (typeof(mods) !== 'undefined' && mods) {
 			let modList = mods.split(',')
