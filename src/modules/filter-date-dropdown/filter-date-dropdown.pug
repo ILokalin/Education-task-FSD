@@ -1,4 +1,4 @@
-include ../masked-text-field/masked-text-field
+include ../text-field/text-field
 
 mixin filter-date-dropdown(props = {})
 
@@ -10,7 +10,7 @@ mixin filter-date-dropdown(props = {})
     +filter-date-dropdown({placeholder: '19 авг - 23 авг'})
 
   -
-    const {mods, placeholder } = props
+    const {mods, placeholder, moduleID } = props
     let allMods = ''
     if (typeof(mods) !== 'undefined' && mods) {
       let modList = mods.split(',')
@@ -20,8 +20,9 @@ mixin filter-date-dropdown(props = {})
     }
 
   .filter-date-dropdown
-    +masked-text-field({
+    +text-field({
       maskType: 'date',
+      moduleID: moduleID,
       placeholder: placeholder || 'ДД месяц - ДД месяц'
     })
     span.filter-date-dropdown__marker expand_more

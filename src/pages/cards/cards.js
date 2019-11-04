@@ -15,6 +15,7 @@ import '../../images/room-888-4.jpg';
 // import { MaskedTextField } from '../../modules/masked-text-field/masked-text-field';
 // import DateDropDown from '../../modules/date-dropdown/date-dropdown.js';
 import SelectForm from '../../modules/form-selection/form-selection';
+import BookingForm from '../../modules/form-booking/form-booking';
 
 
 var ready = (callback) => {
@@ -24,6 +25,7 @@ var ready = (callback) => {
 
 ready(() => { 
   const selectForm = new SelectForm();
+  const bookingForm = new BookingForm();
   // const dateArrival = new DateDropDown({element: '.form-selection-arrival'});
   // const dateDeparture = new DateDropDown({element: '.form-selection-departure'});
   // const maskedTextDate = new MaskedTextField('date');

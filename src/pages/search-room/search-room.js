@@ -10,6 +10,7 @@ import {RangeSlider} from '../../modules/range-slider/range-slider';
 import {dropdown} from '../../modules/dropdown/dropdown';
 import {expCheckboxList} from '../../modules/expandable-checkbox-list/expandable-checkbox-list';
 import CardSelector from '../../modules/card-room/card-room';
+import FilterDatePicker from '../../modules/filter-date-dropdown/filter-date-dropdown';
 // const cardSelector = new CardSelector();
 
 var ready = (callback) => {
@@ -18,7 +19,13 @@ var ready = (callback) => {
 }
 
 ready(() => { 
+  const filterDatePicker = new FilterDatePicker({
+    element: '#filter-date-picker'
+  })
+
   const cardSelector = new CardSelector();
+
+
   // const maskedTextDate = new MaskedTextField('date')
 
   const demoDropDownVisitors = new dropdown('.dropdown-visitors')

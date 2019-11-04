@@ -26,10 +26,16 @@ mixin form-booking(props={})
     .form-booking__date-picker-wrapper
       .form-booking__arrival
         h3.form-booking__sub-title Прибытие
-        +date-dropdown({placeholder: '19.08.2019'})
+        +date-dropdown({
+          placeholder: '19.08.2019',
+          moduleID: 'booking-arrival'
+          })
       .form-booking__departure
         h3.form-booking__sub-title Выезд
-        +date-dropdown({placeholder: '23.08.2019'})
+        +date-dropdown({
+          placeholder: '23.08.2019',
+          moduleID: 'booking-depature'
+          })
 
     .form-booking__dropdown
       h3.form-booking__sub-title гости

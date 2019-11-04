@@ -41,7 +41,9 @@ block screen
     aside.screen-aside
       .screen-aside__element.screen-aside__element_shot-padding
         h3.screen-aside__element-title даты пребывания в отеле
-        +filter-date-dropdown()
+        +filter-date-dropdown({
+          moduleID: 'filter-date-picker'
+        })
 
       .screen-aside__element
         h3.screen-aside__element-title Гости

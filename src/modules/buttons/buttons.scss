@@ -20,10 +20,6 @@
     @extend %button-hover;
   }
 
-  &:focus {
-    box-shadow: 0 0 0 0.5px $Purple;
-  }
-
   // Модификатор full - градиент на кнопке
   &_full {
     border: none;

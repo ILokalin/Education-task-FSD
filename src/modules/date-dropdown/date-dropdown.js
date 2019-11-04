@@ -1,5 +1,5 @@
 import 'air-datepicker/dist/js/datepicker.min'
-import 'air-datepicker/dist/css/datepicker.min.css'
+// import 'air-datepicker/dist/css/datepicker.min.css'
 
 // Класс date-dropdown
 // Принимает в параметрах дату и функцию для обработки событий
@@ -15,19 +15,24 @@ export default class {
     this.applyButton.innerText = 'Применить'
 
     this.elementDOM = document.querySelector(element)
+    this.multipleElementDOM = document.querySelector(multipleElement)
     this.selectedDates = []
 
     // call air-datepicker
     $(element).datepicker({
+      startDate: new Date(),
+      prevHtml: '<span class="datepicker--nav-prev">arrow_back</span>',
+      nextHtml: '<span class="datepicker--nav-next">arrow_forward</span>',
+      navTitles: {
+        days: 'MM yyyy',
+        months: 'yyyy',
+        years: 'yyyy1 - yyyy2'
+      },
 
       multipleDates: true,
-
       range: true,
 
-      startDate: new Date(),
-
       showButtonPanel: true,
-
       clearButton: true,
 
       onShow: (animationCompleted) => {
@@ -35,14 +40,13 @@ export default class {
           if (this.selectedDates.length < 2 || this.selectedDates.length === 'undefined') {
             this.applyButton.style.color = this.colorDarkShade25;
           }
-  
-          const elementValue = this.elementDOM.value.split(",")
-  
-          // onShow itself updates the content in input - need to split
-          if (elementValue.length > 1) { 
-            $(element).val(elementValue[0]);
-            $(multipleElement).val(elementValue[1]);
-          }
+        }
+
+        // onShow itself updates the content in input - need to split
+        const elementValue = this.elementDOM.value.split(",")
+        if (elementValue.length > 1) { 
+          $(element).val(elementValue[0]);
+          $(multipleElement).val(elementValue[1]);
         }
 
       },
@@ -66,16 +70,37 @@ export default class {
             onChangeFunction(this.selectedDates);
           }
         }
+
+        const elementValue = this.elementDOM.value.split(",")
+        if (elementValue.length > 1) { 
+          $(element).val(elementValue[0]);
+          $(multipleElement).val(elementValue[1]);
+        }
       }
       });
     
+      $(element).datepicker().data('datepicker').show();
+      $(element).datepicker().data('datepicker').hide();
+
+
+
+    //need clear multipleElement
+    $(element).datepicker().data('datepicker').$datepicker.children('.datepicker--buttons').click((event) => {
+      if (event.target.dataset.action === 'clear') {
+        this.multipleElementDOM.value = '';
+      }
+    })
+ 
     // when datepicker created added applyButton
     $(element).datepicker().data('datepicker').$datepicker.children('.datepicker--buttons').append(this.applyButton);
 
     // Event onClick applyBatton
-    this.applyButton.addEventListener('click', () => {onChangeFunction(this.selectedDates)}, false);
+    this.applyButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      $(element).datepicker().data('datepicker').hide()
+    }, false);
     
-    // Event if click second date-dropdown
+    // Event if click second date-dropdown or marker in dropdown
     this.elementDOM.closest('.date-dropdown').addEventListener('click', () => {
       $(element).datepicker().data('datepicker').show();
     })
