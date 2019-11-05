@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  width: 72.5rem;
+  width: 1160px;
 }
 
 .screen-aside {
@@ -24,7 +24,8 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding-top: 1.875rem;
-  flex-shrink: 1;
+  // flex-shrink: 1;
+  flex-grow: 1;
 
   &__element {
     width: 100%;
@@ -113,48 +114,131 @@
 }
 
 
-@media screen and (max-width: 1200px) {
-  html {
-    font-size: 14px;
-  }
+// @media screen and (max-width: 1250px) {
+  
 
-}
+//   .screen {
+//     width: 93%;
+//   }
+// }
 
-@media screen and (max-width: 1150px) {
-  html {
-    font-size: 12px;
-  }
+// @media screen and (max-width: 1220px) {
+  
 
-}
+//   html {
+//     font-size: 15px;
+//   }
 
-@media screen and (max-width: 900px) {
-  html {
-    font-size: 16px;
-  }
+//   .screen-cards {
+//     width: 75%;
 
-  .screen {
-    width: 90%;
-  }
+//     &__room-card {
+//       padding-right: 0;
+//     }
+//   }
 
+  
+// }
+
+
+
+@media screen and (max-width: 1440px) {
+  
   .screen-cards {
+        width: 75%;
+        &__room-card {
+          padding-right: 0;
+        }
+  }
+    .screen {
+      width: 80%;
 
-    &__title {
-      // width: 90%;
-      text-align: center;
-    }
-
-    &__row-cards {
-      flex-direction: column;
-      align-items: center;
-    }
     
-  }
-
+    }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1400px) {
   .screen {
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 1107px;
   }
 }
+
+@media screen and (max-width: 1160px) {
+  
+
+  .screen {
+    width: 93%;
+  }
+}
+
+
+@media screen and (max-width: 1050px) {
+  .screen {
+        width: 960px;
+      }
+  .screen-aside {
+    width: 24%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .screen {
+        width: 92%px;
+      }
+  // .screen-aside {
+  //   width: 24%;
+  // }
+}
+// @media screen and (max-width: 1150px) {
+  
+
+//   .screen {
+//     width: 960px;
+//   }
+// }
+
+// @media screen and (max-width: 1200px) {
+//   html {
+//     font-size: 14px;
+//   }
+
+// }
+
+// @media screen and (max-width: 1150px) {
+//   html {
+//     font-size: 12px;
+//   }
+
+// }
+
+// @media screen and (max-width: 900px) {
+//   html {
+//     font-size: 16px;
+//   }
+
+//   .screen {
+//     width: 90%;
+//   }
+
+//   .screen-cards {
+
+//     &__title {
+//       // width: 90%;
+//       text-align: center;
+//     }
+
+//     &__row-cards {
+//       flex-direction: column;
+//       align-items: center;
+//     }
+    
+//   }
+
+// }
+
+// @media screen and (max-width: 700px) {
+//   .screen {
+//     justify-content: center;
+//     flex-wrap: wrap;
+//   }
+// }

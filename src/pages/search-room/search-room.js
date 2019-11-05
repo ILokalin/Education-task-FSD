@@ -25,17 +25,12 @@ ready(() => {
 
   const cardSelector = new CardSelector();
 
-
-  // const maskedTextDate = new MaskedTextField('date')
-
   const demoDropDownVisitors = new dropdown('.dropdown-visitors')
 
   const demoDropDownEnarenment        = new dropdown('.dropdown-envarenment')
-  // const demoDropDownEnarenmentClose   = new dropdown('.dropdown-envarenment-close')
-  // const demoDropDownEnarenmentOpen    = new dropdown('.dropdown-envarenment-open')
-
+  
   const expCheckBoxList       = expCheckboxList('.check-list-test')
-  // const expCheckBoxListOpen   = expCheckboxList('.check-list-test-open')
+  
       
   const rangeSlider = new RangeSlider({
       from: 4700,
@@ -49,5 +44,41 @@ ready(() => {
       itemsOnPage: 5,
       element: '.pager'
   })
+
+  // window.onresize = function message() {
+  //   windowResize();
+  // }
+
+  // let resizeTimerID;
+  // let sizeNow = 'max'; //max - more then 1000px, min - short then 1000px
+
+  // function windowResize() {
+  //   clearTimeout(resizeTimerID);
+  //   resizeTimerID = setTimeout(() =>{resizeWindowGo()}, 200);
+  // }
+
+  // function resizeWindowGo() {
+  //   if (document.body.clientWidth < 1000) {
+  //     const allCards = document.querySelectorAll('.screen-cards__room-card');
+  //     const rowForCard = document.querySelector('.screen-cards__row-cards');
+  //     const cardsRegion = document.querySelector('.screen-cards__filter-result');
+  //     let newFragment = document.createDocumentFragment();
+
+  //     // debugger
+  //     for (let i = 0; i < allCards.length; i = i + 2) {
+  //       const newRowForCard = rowForCard.cloneNode(false);
+  //       newRowForCard.append(allCards[i].cloneNode(true));
+  //       newRowForCard.append(allCards[i+1].cloneNode(true));
+  //       newFragment.appendChild(newRowForCard);
+  //     }
+
+  //     const objectForRemove = cardsRegion.querySelectorAll('.screen-card__room-card');
+  //     objectForRemove.forEach((card) => {card.remove()})
+  //     cardsRegion.appendChild(newFragment);
+      
+
+
+  //   }
+  // }
 
 });

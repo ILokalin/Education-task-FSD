@@ -79,6 +79,16 @@
   }
 }
 
+// @media screen and (max-width: 1250px) {
+  
+//   .standard-nav-bar {
+  
+//     &__container {
+//       width: 93%;
+//     }
+
+//   }
+// }
 
 @media screen and (max-width: 1440px) {
   
@@ -91,11 +101,31 @@
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1400px) {
+  .standard-nav-bar {
+  
+    &__container {
+      width: 1107px;
+    }
+
+  }
+}
+
+@media screen and (max-width: 1160px) {
   .standard-nav-bar {
 
     &__container {
-      width: 866px;
+      width: 93%;
+    }
+
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .standard-nav-bar {
+
+    &__container {
+      width: 960px;
     }
 
   }

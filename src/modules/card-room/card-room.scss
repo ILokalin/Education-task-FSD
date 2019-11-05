@@ -33,11 +33,11 @@
     // width: 230px;
     color: white;
     user-select: none;
-    left: 10px;
-    right: 10px;
+    left: 0.625rem;
+    right: 0.625rem;
 
 
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0px 0.625rem 1.25rem rgba(31, 32, 65, 0.05);
   }
 
   &__slider-button_prev {
@@ -51,7 +51,7 @@
 
   &__slider-radio {
     position: absolute;
-    right: 14px;
+    right: 0.875rem;
     bottom: 0.9375rem;
     cursor: pointer;
     user-select: none;
@@ -122,5 +122,11 @@
     color: $DarkShade50;
     font-weight: bold;
     font-style: normal;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  card-room {
+    width: 29%;
   }
 }
