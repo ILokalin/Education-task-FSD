@@ -126,27 +126,26 @@ block screen
           let i = 0
           let index = 0
         while i < roomsList.length / 3
-          .screen-cards__row-cards
+          //- .screen-cards__row-cards
 
-            -
-              i = i + 1
-              let j = 0
-            while j < roomsList.length / 4
-              - 
-                
-                const [imageSrc,roomNumber,roomRate,roomType,commentsAmmount,commentsAmmountText,roomPrice] = roomsList[index++]
-                j = j + 1
-
-              .screen-cards__room-card
-                +card-room({
-                  imageSrc: imageSrc,
-                  roomNumber: roomNumber,
-                  roomRate: roomRate,
-                  roomType: roomType,
-                  commentsAmmount: commentsAmmount,
-                  commentsAmmountText: commentsAmmountText,
-                  roomPrice: roomPrice
-                })
+          -
+            i = i + 1
+            let j = 0
+          while j < roomsList.length / 4
+            - 
+              
+              const [imageSrc,roomNumber,roomRate,roomType,commentsAmmount,commentsAmmountText,roomPrice] = roomsList[index++]
+              j = j + 1
+            .screen-cards__room-card
+              +card-room({
+                imageSrc: imageSrc,
+                roomNumber: roomNumber,
+                roomRate: roomRate,
+                roomType: roomType,
+                commentsAmmount: commentsAmmount,
+                commentsAmmountText: commentsAmmountText,
+                roomPrice: roomPrice
+              })
 
       .screen-cards__pagination
         +pagination()

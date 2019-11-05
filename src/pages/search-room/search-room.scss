@@ -14,18 +14,20 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  width: 1160px;
+  width: 72.5rem;
 }
 
 .screen-aside {
   display: flex;
   flex-direction: column;
-  max-width: 16.625rem;
+  flex-basis: 16.625rem;
+  width: 16.625rem;
+  min-width: 16.625rem;
   align-items: flex-start;
   justify-content: flex-start;
   padding-top: 1.875rem;
   // flex-shrink: 1;
-  flex-grow: 1;
+  // flex-grow: 1;
 
   &__element {
     width: 100%;
@@ -62,6 +64,7 @@
 }
 
 .screen-cards {
+  width: 52.25rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -76,27 +79,32 @@
 
   &__filter-result {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    
+    justify-content: flex-end;
+    flex-wrap: wrap;
   }
 
-  &__row-cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+  // &__row-cards {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   flex-wrap: nowrap;
     
-  }
+  // }
 
   &__room-card {
+    flex-basis: 16.875rem;
     padding-bottom: 24px;
-    padding-right: 1.4%;
+    padding-right: 12px;
   }
 
-  &__room-card:last-child {
-    padding-bottom: 0;
+  &__room-card:nth-child(3n) {
+    // padding-bottom: 0;
     padding-right: 0;
   }
+  // &__room-card:last-child {
+  //   padding-bottom: 0;
+  //   padding-right: 0;
+  // }
 
   &__pagination {
 
@@ -114,14 +122,135 @@
 }
 
 
-// @media screen and (max-width: 1250px) {
+
+
+
+@media screen and (max-width: 1440px) {
   
 
-//   .screen {
-//     width: 93%;
-//   }
-// }
+  .screen {
+    width: 80%;
+  }
 
+  .screen-cards {
+    padding-left: 1%;
+
+    &__room-card {
+      padding-right: 1%;
+      flex-shrink: 1;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1400px) {
+  .screen {
+    width: 1107px;
+  }
+}
+
+
+@media screen and (max-width: 1160px) {
+  
+
+  .screen {
+    width: 93%;
+  }
+
+  .screen-cards{
+    width: 78%;
+    &__filter-result {
+      justify-content: space-between;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+  
+
+  .screen {
+    width: 860px;
+    
+  }
+
+  .screen-cards {
+    padding-left:5%;
+
+    &__room-card {
+      // flex-basis: fill;
+      padding-right: 1%;
+    }
+
+    &__room-card:nth-child(3n) {
+      // padding-bottom: 0;
+      padding-right: 1%;
+    }
+
+    &__room-card:nth-child(2n) {
+      // padding-bottom: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .screen {
+    width: 92%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .screen-cards {
+    padding-left: 2%;
+
+    &__title {
+      text-align: center;
+    }
+
+    &__filter-result {
+      justify-content: center;
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .screen-cards {
+   
+
+    // &__filter-result {
+    //   justify-content: flex-end;
+    // }
+
+    &__room-card:nth-child(1n) {
+      padding-right: 0;
+    }
+
+  }
+}
+
+
+@media screen and (max-width: 550px) {
+  .screen {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .screen-cards {
+    &__title {
+      text-align: center;
+    }
+
+    &__filter-result {
+      justify-content: center;
+    }
+
+
+  }
+}
 // @media screen and (max-width: 1220px) {
   
 
@@ -142,53 +271,43 @@
 
 
 
-@media screen and (max-width: 1440px) {
+// @media screen and (max-width: 1440px) {
   
-  .screen-cards {
-        width: 75%;
-        &__room-card {
-          padding-right: 0;
-        }
-  }
-    .screen {
-      width: 80%;
+//   .screen-cards {
+//         width: 75%;
+//         &__room-card {
+//           padding-right: 0;
+//         }
+//   }
+//     .screen {
+//       width: 80%;
 
     
-    }
-}
-
-@media screen and (max-width: 1400px) {
-  .screen {
-    width: 1107px;
-  }
-}
-
-@media screen and (max-width: 1160px) {
-  
-
-  .screen {
-    width: 93%;
-  }
-}
+//     }
+// }
 
 
-@media screen and (max-width: 1050px) {
-  .screen {
-        width: 960px;
-      }
-  .screen-aside {
-    width: 24%;
-  }
-}
 
-@media screen and (max-width: 950px) {
-  .screen {
-        width: 92%px;
-      }
+
+
+
+// @media screen and (max-width: 1050px) {
+//   .screen {
+//         width: 960px;
+//       }
+//   .screen-aside {
+//     width: 24%;
+//   }
+// }
+
+// @media screen and (max-width: 950px) {
+//   .screen {
+//         width: 92%px;
+//       }
   // .screen-aside {
   //   width: 24%;
   // }
-}
+// }
 // @media screen and (max-width: 1150px) {
   
 

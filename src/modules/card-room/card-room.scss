@@ -107,7 +107,7 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px 0 15px;
+    padding: 0 0.9375rem 0 0.9375rem;
     width: 14.625rem;
   }
 
@@ -115,7 +115,7 @@
     margin: 0;
     // padding-top: 5px;
     vertical-align: center;
-    line-height: 24px;
+    line-height: 1.5rem;
   }
 
   &__commentsAmmountNum {
@@ -127,6 +127,7 @@
 
 @media screen and (max-width: 1160px) {
   card-room {
-    width: 29%;
+    width: 100%;
   }
 }
+
