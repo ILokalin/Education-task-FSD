@@ -10,7 +10,8 @@ import 'air-datepicker/dist/css/datepicker.min.css'
 import '../../modules/comment/img/avatar-free.png'
 import './images/avatar.png'
 import '../../modules/logo/images/logo.svg'
-import '../../modules/logo/images/gray-logo.svg'
+import '../../modules/logo/images/logo-gray.svg'
+import '../../modules/logo/images/logo-mobile.svg'
 
 
 // собственные модули

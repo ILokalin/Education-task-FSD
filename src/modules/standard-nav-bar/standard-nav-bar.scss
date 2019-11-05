@@ -12,6 +12,7 @@
   
 
   &__container {
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -78,57 +79,83 @@
   }
 }
 
-@media screen and (max-width: 900px) {
 
-.standard-nav-bar {
-  &__logo {
-    display: none;
-  }
+@media screen and (max-width: 1440px) {
+  
+  .standard-nav-bar {
+  
+    &__container {
+      width: 80%;
+    }
 
-  &__mobile-logo {
-    display: block;
-  }
-
-  &__container {
-    width: 90%;
-  }
-
-  &__navigation-region {
-    display: none;
-  }
-
-  &__mobile-menu {
-    display: inline;
-  }
-
-  &__login-region {
-    display: none;
-  }
-
-  &__mobile-profile {
-    display: inline;
-  }
-}
-}
-
-@media screen and (max-width: 700px) {
-
-.standard-nav-bar {
-  &__logo {
-    height: 70%;
-  }
-
-  &__container {
-    width: 300px;
-  }
-
-  &__login-region {
-    display: none;
-  }
-
-  &__mobile-profile {
-    display: inline;
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .standard-nav-bar {
+
+    &__container {
+      width: 866px;
+    }
+
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .standard-nav-bar {
+  
+    &__container {
+      width: 92%;
+    }
+
+    &__logged-element {
+      padding-right: 6.3%;
+    }
+
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .standard-nav-bar {
+    &__logo {
+      display: none;
+    }
+
+    &__mobile-logo {
+      display: block;
+    }
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .standard-nav-bar {
+    &__login-region {
+      display: none;
+    }
+
+    &__mobile-profile {
+      display: inline;
+      background: $PrimaryGradient;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .standard-nav-bar {
+    &__navigation-region {
+      display: none;
+    }
+
+    &__mobile-menu {
+      display: inline;
+      background: $PrimaryGradient;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+    }
+  }
 }

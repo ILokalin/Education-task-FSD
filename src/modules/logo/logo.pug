@@ -16,12 +16,15 @@ mixin logo(props={})
     let modList = mods.split(',')
     for (let i=0; i < modList.length; i++) {
       if (modList[i].trim() === 'gray') {
-        objectSvgString = './images/gray-logo.svg'
+        objectSvgString = './images/logo-gray.svg'
+      }
+      if (modList[i].trim() === 'mobile') {
+        objectSvgString = './images/logo-mobile.svg'
       }
       allMods = allMods + ' logo_' + modList[i].trim()
       }
     }
-  .logo(class= moduleClass + allMods)
+  .logo(class= allMods)
     object.logo__svg(
       data= objectSvgString,
       type="image/svg+xml"

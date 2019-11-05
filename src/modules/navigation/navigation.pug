@@ -44,6 +44,6 @@ mixin navigation-items(props = {})
 
 
     li.navigation__item(class= allMods)
-      a.navigation__item-link(href = link)= item
+      a.navigation__item-link(href = link)!= item
       if sub 
         span.navigation__item-marker expand_more

@@ -12,7 +12,7 @@
 
 
   &__item {
-    padding-right: 28px;
+    padding-right: 1.75rem;
     font-size: 14px;
     user-select: none;
   }
@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    padding-right: 20px;
+    padding-right: 1.25rem;
   }
 
   &__item_active &__item-link{
@@ -54,3 +54,17 @@
     padding: 0 0 14px 0;
   }
 }
+
+@media screen and (max-width: 950px) {
+  .navigation {
+ 
+    &__item {
+      padding-right: 5%;
+    }
+
+    &__item_sub {
+      padding-right: 3.6%;
+    }
+  }
+}
+

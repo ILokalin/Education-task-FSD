@@ -96,25 +96,135 @@
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1440px) {
+  
   .footer {
+  
     &__widget-region {
-      width: 90%;
+      width: 80%;
     }
 
     &_widgets &__copyright-region {
-      width: 90%;
+      width: 80%
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .footer {
+  
+    &__widget-region {
+      width: 866px;
+    }
+
+    &_widgets &__copyright-region {
+      width: 866px;
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 950px) {
+  
+  .footer {
+  
+    &__widget-region {
+      width: 92%;
+    }
+
+    &_widgets &__copyright-region {
+      width: 92%;
+    }
+
+    &__widget-logo {
+      flex-grow: 1;
     }
 
     &__widget-region {
       flex-wrap: wrap;
     }
+
+
   }
-  }
+}
 
 @media screen and (max-width: 700px) {
   .footer {
-    &__logo-text {
-      width: 16.25rem;}
+    padding-top: 3rem;
+
+    &__widget {
+      display: none;
+    }
+
+    &_widgets &__widget-region{
+      justify-content: center;
+    }
+
+    &_widgets &__widget_logo{
+      display: block;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &_widgets &__logo-text {
+      width: 35rem;
+      text-align: center;
+      padding-top: 1.25rem;
+      // padding-bottom: 1.5625rem;
+      color: $DarkShade75;
+    }
   }
 }
+
+@media screen and (max-width: 550px) {
+  .footer {
+    &_widgets &__widget:first-child {
+      width: 89%;
+    }
+
+    &_widgets &__widget_logo{
+      padding-bottom: 3rem;
+    }
+
+    &_widgets &__logo-text {
+      width: 100%;
+    }
+
+    &_widgets &__copyright-region {
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+}
+
+
+
+// @media screen and (max-width: 900px) {
+//   .footer {
+//     &__widget-region {
+//       width: 90%;
+//     }
+
+//     &_widgets &__copyright-region {
+//       width: 90%;
+//     }
+
+//     &__widget-region {
+//       flex-wrap: wrap;
+//     }
+//   }
+//   }
+
+// @media screen and (max-width: 700px) {
+//   .footer {
+//     &__logo-text {
+//       width: 16.25rem;}
+//   }
+// }

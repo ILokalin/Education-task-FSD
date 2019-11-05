@@ -37,6 +37,6 @@ mixin buttons(props={})
       }
 
   button.buttons(
-    class= moduleClass + allMods,
+    class= (moduleClass || '') + allMods,
     type="button"
     )= lineTitle

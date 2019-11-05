@@ -36,13 +36,14 @@
   }
 
   &__offer-text {
+    padding-top: 50px;
     width: 297px;
     text-align: right;
     color: $DarkShade75;
   }
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1440px) {
   
 .page-screen {
     width: 100%;    
@@ -51,4 +52,29 @@
 .screen {
   width: 80%;
 }
+}
+
+// Remove to template
+// @media screen and (max-width: 1160px) {
+//   html {
+//     font-size: 14px;
+//   }
+// }
+
+@media screen and (max-width: 1100px) {
+  .page-screen {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .screen {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .screen {
+    padding-top: 30px;
+  }
 }
