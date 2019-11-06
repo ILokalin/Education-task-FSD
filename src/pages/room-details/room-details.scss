@@ -4,3 +4,10 @@
 @import '../../modules/icon-text-list/icon-text-list';
 @import '../../modules/comment/comment.scss';
 @import '../../modules/bullet-list/bullet-list.scss';
+@import '../../modules/diagram/diagram.scss';
+
+.content-region__diagram {
+  
+  width: 120px;
+  height: 120px;
+}

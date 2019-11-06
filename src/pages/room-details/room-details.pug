@@ -40,6 +40,7 @@ block screen
   include ../../modules/comment/comment.pug
   include ../../modules/bullet-list/bullet-list.pug
   include ../../modules/form-booking/form-booking.pug
+  include ../../modules/diagram/diagram.pug
 
   //- Page section
   main.screen
@@ -49,6 +50,12 @@ block screen
         .content-region__feauters-list
           +icon-text-list({iconStrings: featuresList})
         .content-region__diagram
+          +diagram({
+            fine: '130',
+            good: '65',
+            normal: '65',
+            bad: '18'
+          })
       .content-region__comments
         +comment(commentMurad)
         +comment(commentPatrisia)

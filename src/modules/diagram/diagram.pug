@@ -1,0 +1,70 @@
+mixin diagram(props={})
+
+  //- Round diagram
+  //- Input props
+  //- counts for vote
+  //-       fine 
+  //-       good
+  //-       normal
+  //-       bad
+  //- mods          string      строка модификаций через запятую
+
+  -
+    let {fine, good, normal, bad, mods} = props
+    let allMods = ''
+    if (typeof(mods) !== 'undefined' && mods) {
+      let modList = mods.split(',')
+      for (let i=0; i < modList.length; i++) {
+        allMods = allMods + ' buttons_' + modList[i].trim()
+        }
+      }
+
+    fine = (typeof(fine) !== 'undefined' && fine) ? Number.parseInt(fine) : 0
+    good = (typeof(good) !== 'undefined' && good) ? Number.parseInt(good) : 0
+    normal = (typeof(normal) !== 'undefined' && normal) ? Number.parseInt(normal) : 0
+    bad = (typeof(bad) !== 'undefined' && bad) ? Number.parseInt(bad) : 0
+    const allVotes = fine + good + normal + bad
+    function votesToPercent(votes) {
+      return votes / allVotes * 94.2
+    }
+    fine = votesToPercent(fine)
+    good = votesToPercent(good)
+    normal = votesToPercent(normal)
+    bad = votesToPercent(bad)
+
+    const countSeporate = ((fine > 0) ? 1 : 0) + ((good > 0) ? 1 : 0) + ((normal > 0) ? 1 : 0) + ((bad > 0) ? 1 : 0)
+
+  .diagram(class= allMods)
+    svg.diagram__donut(width="100%", height="100%", viewBox= "0 0 34 34")
+
+      linearGradient#gradient-good
+        stop(offset="0%", stop-color="#66D2EA")
+        stop(offset="100%", stop-color="#6FCF97")
+      linearGradient#gradient-fine
+        stop(offset="0%", stop-color="#FFBA9C")
+        stop(offset="100%", stop-color="#FFE39C")
+      linearGradient#gradient-normal
+        stop(offset="0%", stop-color="#8BA4F9")
+        stop(offset="100%", stop-color="#BC9CFF")
+      linearGradient#gradient-bad
+        stop(offset="0%", stop-color="#3D4975")
+        stop(offset="100%", stop-color="#909090")
+
+      circle.diagram__donut-segment(cx="17", cy="17", r="15", fill="transparent", stroke="url(#gradient-good)", stroke-width="3",
+        stroke-dasharray= (good - ((good > 0.4) ? 0.4 : 0)) + ' ' + (94.2 - good + ((good > 0.4) ? 0.4 : 0)),
+        stroke-dashoffset= 0) 
+      circle.diagram__donut-segment(cx="17", cy="17", r="15", fill="transparent", stroke="url(#gradient-fine)", stroke-width="3",
+        stroke-dasharray= (fine - ((fine> 0.4) ? 0.4 : 0)) + ' ' + (94.2 - fine + ((fine > 0.4) ? 0.4 : 0)),
+        stroke-dashoffset= 94.2 - good)
+
+      circle.diagram__donut-segment(cx="17", cy="17", r="15", fill="transparent", stroke="url(#gradient-bad)", stroke-width="3",
+        stroke-dasharray= (bad - ((bad > 0.4) ? 0.4 : 0)) + ' ' + (94.2 - bad + ((bad > 0.4) ? 0.4 : 0)),
+        stroke-dashoffset= 94.2 - fine- good )
+      circle.diagram__donut-hole(cx="17", cy="17", r="15.5", fill="#fff")
+      circle.diagram__donut-segment(cx="17", cy="17", r="15", fill="transparent", stroke="url(#gradient-normal)", stroke-width="3",
+        stroke-dasharray= (normal - ((normal > 0.4) ? 0.4 : 0)) + ' ' + (94.2 - normal + ((normal > 0.4) ? 0.4 : 0)),
+        stroke-dashoffset= 94.2 - fine - good - bad)
+      g.donut-text
+        text.diagram__donut-votes(x="50%", y="50%")= allVotes
+        text.diagram__donut-text(x="50%", y="50%") голосов
+
