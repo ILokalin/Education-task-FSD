@@ -1,0 +1,57 @@
+extends ../../template/template-page
+
+append vars
+  -
+    const featuresWalls = {icon: 'insert_emoticon',lineTitle: 'Комфорт',description: 'Шумопоглощающие стены'}
+    const featuresConvenience = {icon: 'location_city',lineTitle: 'Удобство',description: 'Окно в каждой из спален'}
+    const featuresComfort = {icon: 'whatshot',lineTitle: 'Уют',description: 'Номер оснащен камином'}
+
+    const featuresList = [featuresWalls, featuresConvenience, featuresComfort]
+
+    const commentMurad = {
+          user:    'Мурад Сарафанов',
+          photo:   './images/avatar-murad.jpg',
+          date:    '5 дней назад',
+          like:    '12',
+          likeChecked: true,
+          text:    'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+        }
+    const commentPatrisia = {
+          user:    'Патрисия Стёклышкова',
+          photo:   './images/avatar-patrisia.jpg',
+          date:    'Неделю назад',
+          like:    '2',
+          text:    'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'
+        }
+    
+
+
+block meta
+  meta(name="keywords", content="toxin, search room")
+  meta(name="description" content="Учебный проект FSD. Второе задание. Лист Room details")
+
+block title
+  | 
+  = 'Room Details'
+
+block screen
+  //- Include section
+  include ../../modules/icon-text-list/icon-text-list.pug
+  include ../../modules/comment/comment.pug
+  include ../../modules/bullet-list/bullet-list.pug
+  include ../../modules/form-booking/form-booking.pug
+
+  //- Page section
+  main.screen
+    section.room-portfolio
+    section.content-region
+      .content-region__features
+        .content-region__feauters-list
+          +icon-text-list({iconStrings: featuresList})
+        .content-region__diagram
+      .content-region__comments
+        +comment(commentMurad)
+        +comment(commentPatrisia)
+      .content-region__rules
+    aside.booking-region
+      +form-booking()

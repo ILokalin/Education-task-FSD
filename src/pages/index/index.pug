@@ -1,40 +1,35 @@
 extends ../../template/template
 
-mixin block-lib(props={})
 
-  //- Получает данные:
-  //- title       string  Заголовок - название элемента
-  //- mods        string  Описание модификатора
-  //- width       string  Ширина в виде 'XXpix'
+append vars
+  -
+    const pageFormElement = {linkPage: 'form-elements.html', namePage: 'FORM ELEMENTS'}
+    const pageColorTypes = {linkPage: 'colors-and-types.html', namePage: 'COLOR & TYPES'}
+    const pageCards = {linkPage: 'cards.html', namePage: 'CARDS'}
+    const pageHeaderFooters = {linkPage: 'headers-and-footers.html', namePage: 'HEADER & FOOTERS'}
+    const pageLandingPage = {linkPage: 'landing-page.html', namePage: 'LANDING PAGE'}
+    const pageSearchRoom = {linkPage: 'search-room.html', namePage: 'SEARCH ROOM'}
+    const pageRoomDetails = {linkPage: 'room-details.html', namePage: 'ROOM DETAILS'}
 
-  .block-lib(class= props.type || '',
-  style="max-width:"+props.width)
-    .block-lib__description-row
-      .block-lib__title= props.title
-      .block-lib__mods= props.mods
-    .block-lib__block-row
-      block
+    const pageList = [pageLandingPage, pageSearchRoom, pageRoomDetails, pageColorTypes, pageFormElement, pageCards, pageHeaderFooters]
 
 
 block title
-  | Ui Page
+  | Learning project. Main menu
+
 
 block main
+  +page-menu({items: pageList})
+
+
+mixin page-menu(props = {})
+
+  - const {items} = props
 
   ul.menu-page
+  each listItem in items
+    - const {linkPage, namePage} = listItem
     li.menu-page__item
-      a.link-item(href= 'form-elements.html') FORM ELEMENTS
-    li.menu-page__item
-      a.link-item(href= 'colors-and-types.html') COLOR & TYPES
-    li.menu-page__item
-      a.link-item(href= 'cards.html') CARDS
-    li.menu-page__item
-      a.link_item(href= 'headers-and-footers.html') HEADER & FOOTERS
-    li.menu-page__item
-      a.link-item(href= 'landing-page.html') LANDING PAGE
-    li.menu-page__item
-      a.link-item(href= 'search-room.html') SEARCH ROOM
+      a(href = linkPage)= namePage
 
-  input#datepicker-arrival(type = "text")
-  input#datepicker-depart(type = "text")
 
