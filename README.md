@@ -2,9 +2,12 @@
 Учебный проект по фронтенду. 
 
 ## Демо:
-[form-elements](http://toxin.lokalin.ru/form-elements.html)
-[landing-page](http://toxin.lokalin.ru/landing-page.html)
-[search-room](http://toxin.lokalin.ru/search-room.html)
+[color and types](http://toxin.lokalin.ru/colors-and-types.html)<br>
+[form-elements](http://toxin.lokalin.ru/form-elements.html)<br>
+[cards](http://toxin.lokalin.ru/cards.html)<br>
+[headers and footers](http://toxin.lokalin.ru/headers-and-footers.html)<br><br>
+[landing-page](http://toxin.lokalin.ru/landing-page.html)<br>
+[search-room](http://toxin.lokalin.ru/search-room.html)<br>
 
 
 ### `Развертывание`
