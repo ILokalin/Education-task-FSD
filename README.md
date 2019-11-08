@@ -2,7 +2,9 @@
 Учебный проект по фронтенду. 
 
 ## Демо:
-[form-elements](http://ui-kit-fsd.lokalin.ru/)
+[form-elements](http://toxin.lokalin.ru/form-elements.html)
+[landing-page](http://toxin.lokalin.ru/landing-page.html)
+[search-room](http://toxin.lokalin.ru/search-room.html)
 
 
 ### `Развертывание`
