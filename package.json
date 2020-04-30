@@ -33,7 +33,7 @@
   "dependencies": {
     "air-datepicker": "^2.2.3",
     "ion-rangeslider": "^2.3.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-mask-plugin": "^1.14.16",
     "mixin-deep": "^2.0.1",
     "webpack-dev-server": "^3.8.1"
